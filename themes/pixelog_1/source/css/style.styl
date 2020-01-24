@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+/* Variables
+--------------------------------------------------------------------------------------------------------*/
+
+pc-width = 1200px
+sp-width = 767px
+
+theme-color = #546E7A
+
+// #546E7A
+
+// #00cec9
+
+
+media(bpName)
+    for name in bpName
+        if name == 'sp'
+            @media only screen and (max-width: sp-width)
+                {block}
+        if name == 'tabsp'
+            @media only screen and (max-width: pc-width - 1px)
+                {block}
+        if name == 'tab'
+            @media only screen and (min-width: sp-width + 1px) and (max-width: pc-width - 1px)
+                {block}
+        if name == 'pc'
+            @media only screen and (min-width: pc-width)
+                {block}
+
+
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/orbitron/v14/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body
+  background: #f6f6f4
+  background: #f9f9f9
+  font-family: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
+
+
+
+/* partial
+--------------------------------------------------------------------------------------------------------*/
+
+// ベース
+@import '_partial/base/ress'
+@import '_partial/base/agate'
+
+
+//ヘッダー
+
+// コンテンツ
+@import '_partial/header'
+@import '_partial/container'
+@import '_partial/breadcrumb'
+@import '_partial/post-list'
+@import '_partial/pager'
+
+
+@import '_partial/post'
+@import '_partial/content'
+
+@import '_partial/aside'
+
+//フッター
+@import '_partial/footer'

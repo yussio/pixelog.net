@@ -1,0 +1,73 @@
+.pager
+  display: flex
+  justify-content: space-between
+  margin: 32px 0
+
+  &__prev
+  &__next
+      width: 120px
+      height: 40px
+      line-height: 40px
+
+  &__prev-link
+  &__next-link
+      display: block
+      padding: 0 32px
+      text-decoration: none
+      background: #F48FB1
+      color: #fff
+      box-shadow: 0 0 2px #f2f2f2;
+      border-radius: 2px
+      transition: .2s all ease
+
+  &__prev-link:hover
+  &__next-link:hover
+      background: #F06292
+
+  &__prev-link::before
+  &__next-link::after
+      display: inline-block
+      font: 17px "Consolas", monospace
+      transition: .2s transform ease
+
+  &__prev-link
+      &::before
+          content: "<"
+          margin: 0 3px 0 0
+
+      &:hover::before
+          transform: translateX(-4px)
+
+  &__next-link
+      &::after
+          content: ">"
+          margin: 0 0 0 3px
+
+      &:hover::after
+          transform: translateX(4px)
+
+.pager__select
+    display: inline-block
+    margin: 0 12px 0 0
+    position: relative
+    background: #fff
+
+    &::after
+        display: block
+        content: ">"
+        pointer-events: none
+        font: 17px "Consolas", monospace;
+        color: #999
+        transform: rotate(90deg)
+        position: absolute
+        top: 10px
+        right: 8px
+
+    &-form
+        border: 2px solid #e6e6e6
+        padding: 5px 48px 5px 24px;
+        cursor: pointer
+
+
+option
+  box-shadow 2px 2px 2px 2px #aaa

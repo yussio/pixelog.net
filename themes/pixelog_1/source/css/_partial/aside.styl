@@ -1,0 +1,52 @@
+.widget
+    margin: 0 0 60px 0
+
+    &__title
+        margin: 0 0 16px 0
+        line-height: 3
+        background: theme-color
+        color: #fff
+        text-align: center
+        font-family: 'Orbitron', sans-serif
+        border-radius: 4px
+        letter-spacing: 0.15em;
+        // box-shadow: 0 1px 1px #455A64
+
+    &__category
+        margin: 0 0 60px 0
+
+
+.category-list
+    list-style: none
+    font-size: 14px
+
+    &-child
+        @extend .category-list
+        margin: 0 0 0 1em
+        padding: 0 0 0 1em
+        border-left: 1px solid #dbdbdb;
+
+
+    &-item
+        line-height: 2.5
+
+    &-link
+        text-decoration: none
+        color: #333
+
+    &-count
+        &::before
+            content: " ("
+        &::after
+            content: ")"
+
+
+.aside-post-list
+    &-item
+        margin: 0 0 1em 0
+        list-style: none
+
+    &-link
+        display: block
+        color: #333
+        text-decoration: none

@@ -1,0 +1,91 @@
+---
+title: Web制作がはかどる！暗記すると便利なカラーコード集
+pid: recommended-color-code
+categories:
+  - Web
+  - CSS
+date: 2019-06-04 22:18:49
+tags:
+---
+
+<style>
+.color-sample {
+  width: 130px;
+  height: 36px;
+}
+</style>
+
+
+Webサイトを制作する上でよく使うカラーコードは、暗記しておくとスピードアップに繋がり便利です。
+
+今回は汎用性が高く、かつ単純で覚えやすいカラーコードをまとめました。普段のWeb制作にお役立てください。この記事では主に無彩色を取り扱います。
+
+## 黒系
+
+文字色やダークテーマを取り扱う上で欠かせない黒系色です。白背景に対する文字色は、真っ黒ではなく少し淡い#333あたりが読みやすいとされています。
+
+
+|カラーコード |                    色見本                         |
+|-------|--------------------------------------------------------|
+|#000000|<div class="color-sample" style="background:#000"></div>|
+|#111111|<div class="color-sample" style="background:#111"></div>|
+|#222222|<div class="color-sample" style="background:#222"></div>|
+|#333333|<div class="color-sample" style="background:#333"></div>|
+|#444444|<div class="color-sample" style="background:#444"></div>|
+|#555555|<div class="color-sample" style="background:#555"></div>|
+|#666666|<div class="color-sample" style="background:#666"></div>|
+|#777777|<div class="color-sample" style="background:#777"></div>|
+|#888888|<div class="color-sample" style="background:#888"></div>|
+|#999999|<div class="color-sample" style="background:#999"></div>|
+
+
+## 灰色系
+
+いろいろな場面で応用のきく灰色系です。白背景の上で灰色の枠線で囲みたいときは、この辺りの色と親和性が高いです。
+
+|カラーコード |                    色見本                         |
+|-------|--------------------------------------------------------|
+|#aaaaaa|<div class="color-sample" style="background:#aaa"></div>|
+|#bbbbbb|<div class="color-sample" style="background:#bbb"></div>|
+|#cccccc|<div class="color-sample" style="background:#ccc"></div>|
+|#dddddd|<div class="color-sample" style="background:#ddd"></div>|
+|#eeeeee|<div class="color-sample" style="background:#eee"></div>|
+
+
+## 白系
+
+白に近い灰色です。主に記事背景色（#fff）と組み合わせて使います。
+
+|カラーコード |                    色見本                         |
+|-------|--------------------------------------------------------|
+|#f1f1f1|<div class="color-sample" style="background:#f1f1f1"></div>|
+|#f2f2f2|<div class="color-sample" style="background:#f2f2f2"></div>|
+|#f3f3f3|<div class="color-sample" style="background:#f3f3f3"></div>|
+|#f4f4f4|<div class="color-sample" style="background:#f4f4f4"></div>|
+|#f5f5f5|<div class="color-sample" style="background:#f5f5f5"></div>|
+|#f6f6f6|<div class="color-sample" style="background:#f6f6f6"></div>|
+|#f7f7f7|<div class="color-sample" style="background:#f7f7f7"></div>|
+|#f8f8f8|<div class="color-sample" style="background:#f8f8f8"></div>|
+|#f9f9f9|<div class="color-sample" style="background:#f9f9f9"></div>|
+|#ffffff|<div class="color-sample" style="background:#fff"></div>|
+
+
+|カラーコード |                    色見本                         |
+|-------|--------------------------------------------------------|
+|#f4f5f5|<div class="color-sample" style="background:#f4f5f5"></div>|
+|#f4f5f6|<div class="color-sample" style="background:#f4f5f6"></div>|
+|#f4f5f7|<div class="color-sample" style="background:#f4f5f7"></div>|
+|#f4f5f8|<div class="color-sample" style="background:#f4f5f8"></div>|
+|#f4f5f9|<div class="color-sample" style="background:#f4f5f9"></div>|
+
+こちらは赤みの少ない灰色です。
+
+## その他
+
+主にデバッグに使う派手な色です。要素の範囲を視覚的に捉えたいときなどに、一時的に使いましょう。
+
+|カラーコード |                    色見本                         |
+|-------|--------------------------------------------------------|
+|#ff0000|<div class="color-sample" style="background:#ff0000"></div>|
+|#0000ff|<div class="color-sample" style="background:#0000ff"></div>|
+|#ffff00|<div class="color-sample" style="background:#ffff00"></div>|

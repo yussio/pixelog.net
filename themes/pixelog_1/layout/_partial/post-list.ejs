@@ -1,0 +1,91 @@
+<ul class="post-list">
+    <% page.posts.each(function(post){ %>
+      <li class="post-list__item">
+          <a class="post-list__item-link" href="/<%- post.path %>">
+              <time class="post-list__date" itemprop="datePublished" datetime="<%= post.date.format() %>">
+                <%- post.date.format("YYYY-MM-DD") %>
+              </time>
+              <div class="post-list__detail">
+                  <h2 class="post-list__title"><%= post.title || "Untitled" %></h2>
+                  <div class="post-list__meta">
+                      <span class="post-list__category">
+                          <ol class="breadcrumb__list">
+                              <% post.categories.forEach(function(item){ %>
+                                <li class="breadcrumb__item"><%= item.name %></li>
+                              <% }) %>
+                          </ol>
+                      </span>
+                      <span class="post-list__tag">
+                        <% post.tags.forEach(function(item){ %>
+                          <span><%= item.name %></span>
+                        <% }) %>
+                      </span>
+                  </div>
+              </div>
+          </a>
+      </li>
+    <% }) %>
+</ul>
+
+<!--
+<div class="pager">
+  <div class="pager__prev">
+    <% if (page.prev_link) { %>
+      <a class="pager__prev-link" href="/<%- page.prev_link %>">prev</a>
+    <% } %>
+    <% if (is_current('/page/2/')) { %>
+      <a class="pager__prev-link" href="/">prev</a>
+    <% } %>
+  </div>
+  <div class="pager__number">
+    <div class="pager__select">
+      <select class="pager__select-form" id="pager__select" name="sort">
+      <% for( i = 1; i <= page.total; i++){ %>
+        <option value="/page/<%- i %>/"
+          <% if( i === page.current ){ %>
+            selected
+          <% } %>
+          ><%- i %></option>
+      <% } %>
+      </select>
+    </div>
+   / <%- page.total %>
+ </div>
+ <div class="pager__next">
+  <% if (page.next_link) { %>
+    <a class="pager__next-link" href="/<%- page.next_link %>">next</a>
+  <% } %>
+</div>
+</div>
+-->
+
+
+<div class="pager">
+    <div class="pager__prev">
+        <% if (page.prev_link) { %>
+            <a class="pager__prev-link" href="/<%- page.prev_link %>">prev</a>
+        <% } %>  
+        <% if (is_current('/page/2/')) { %>
+          <a class="pager__prev-link" href="/">prev</a>
+        <% } %>
+    </div>
+    <div class="pager__number">
+        <div class="pager__select">
+            <select class="pager__select-form" id="pager__select" name="sort">
+            <% for( i = 1; i <= page.total; i++){ %>
+                <option value="/page/<%- i %>/"
+                    <% if( i === page.current ){ %>
+                      selected
+                    <% } %>
+                  ><%- i %></option>
+            <% } %>
+            </select>
+        </div>
+     / <%- page.total %>
+    </div>
+    <div class="pager__next">
+    <% if (page.next_link) { %>
+        <a class="pager__next-link" href="/<%- page.next_link %>">next</a>
+    <% } %>
+    </div>
+</div>

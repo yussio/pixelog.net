@@ -1,0 +1,49 @@
+---
+title: YouTubeで動画の周りを暗くして見やすくするブックマークレット
+pid: bookmarklet-for-youtube
+categories:
+  - Web
+  - JavaScript
+  - ブックマークレット
+date: 2019-05-14 12:55:06
+tags:
+---
+YouTubeで動画の周りを暗くして見やすくするブックマークレットを作りました。Google Chromeの拡張機能「[Turn Off the Lights](https://chrome.google.com/webstore/detail/turn-off-the-lights-for-y/bfbmjmiodbnnpllbbbfblcplfjjepjdn)」のブックマークレット版だと思っていただれければいいと思います。
+
+ブラウザの拡張機能に対し、ブックマークレットは必要なときのみ動作し重くならないので快適です。
+
+## 使い方
+
+まず適当なページでブックマークを作成した後、ブックマークを右クリックして編集画面を開き、名前欄には任意のタイトルを、URL欄には下のコードをコピペし保存してください。
+
+```javascript
+javascript:(function(){var filter=document.getElementById('filter');var player_container=document.getElementById('player-container');if(!filter){var filter=document.createElement('div');filter.setAttribute('id','filter');filter.setAttribute('style','position:fixed;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9998;');document.body.appendChild(filter);player_container.style.zIndex='9999';}else{document.body.removeChild(filter);player_container.style.zIndex='';}})()
+```
+
+YouTubeの再生画面を開いている状態で登録したブックマークを押すと、動画の周りが暗くなります。
+
+解除するときはもう一度ブックマークをクリックしてください。
+
+## ソース
+
+```javascript
+javascript:
+(function(){
+var filter = document.getElementById('filter');
+var player_container = document.getElementById('player-container');
+if(!filter) {
+  var filter = document.createElement('div');
+	filter.setAttribute('id','filter');
+	filter.setAttribute('style','position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9998;');
+	document.body.appendChild(filter);
+	player_container.style.zIndex='9999';
+}
+else {
+	document.body.removeChild(filter);
+  player_container.style.zIndex='';
+}
+})()
+```
+8行目の`background`のところをイジると、周りのフィルターを好きな色に変えられます。今回はフィルター部分を半透明にしたいのでrgba表記にしてあります。0.85の数値をイジれば透明度を変更できます。（1で真っ暗）
+
+z-index戦争が勃発しているようにも見えますが、それは気のせいです。

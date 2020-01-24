@@ -1,0 +1,54 @@
+<main>
+  <%
+  var path = page.path.replace(/category\//, '').replace(/\/index.html/, '');
+  var categories = path.split('/');
+  %>
+
+  <nav class="breadcrumb">
+      <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+              <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/">
+                  <span itemprop="name">トップ</span>
+              </a>
+              <meta itemprop="position" content="1" />
+          </li>
+          <% var dir_name = ''; %>
+          <% categories.forEach(function(item, i){ %>
+              <% i += 2; %>
+              <% dir_name += '/' + item; %>
+              <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                  <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net<%= dir_name %>">
+                      <span itemprop="name"><%= item %></span>
+                  </a>
+                  <meta itemprop="position" content="<%= i %>" />
+              </li>
+          <% }) %>
+      </ol>
+  </nav>
+  <article class="post">
+    <header class="post-header">
+      <div class="post-header__meta">
+        公開：<time class="post-header__published" itemprop="datePublished" datetime="<%= page.date.format() %>">
+          <%- page.date.format("YYYY-MM-DD") %>
+        </time> /
+        更新：<time class="post-header__modified" itemprop="dateModified" datetime="<%= page.date.format() %>">
+          <%- page.updated.format("YYYY-MM-DD") %>
+        </time>
+      </div>
+      <a class="post-header__title-link" href="/<%- page.path %>"><h1 class="post-header__title"><%= page.title %></h1></a>
+      <% if (page.thumbnail) { %>
+        <div class="post-header__thumbnail">
+          <img class="post-header__thumbnail-img" src="<% var thumbnail_url = '/' + page.path + page.thumbnail; %><%- image_version(thumbnail_url, {prefix: 'post'}) %>">
+        </div>
+      <% }%>
+
+    </header>
+    <div class="content">
+
+    <%- page.content %>
+
+    </div>
+    <footer class="post-footer">
+    </footer>
+  </article>
+</main>

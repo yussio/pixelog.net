@@ -1,0 +1,25 @@
+<aside class="aside">
+    <div class="widget__category">
+        <h3 class="widget__title">Category</h3>
+        <%- list_categories( {
+          show_count: true
+        }) %>
+    </div>
+    <!--
+    <div class="widget__tag">
+        <h3 class="widget__title">Tag</h3>
+        <%- list_tags( {
+          show_count: true
+        }) %>
+    </div>
+  -->
+    <% if (is_post() === true) { %>
+    <div class="widget__aside-post">
+        <h3 class="widget__title">Recent Posts</h3>
+        <%- list_posts( {
+          class: 'aside-post'
+        }) %>
+    <% } %>
+
+    </div>
+</aside>

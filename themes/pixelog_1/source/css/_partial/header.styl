@@ -1,0 +1,62 @@
+.header
+    margin: 0 0 80px 0
+    background: theme-color
+    box-shadow: 0 1px 1px #455A64
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.05)
+    position: relative
+
+    +media(sp)
+      margin: 0 0 24px 0
+
+    &__inner
+        display: flex
+        width: pc-width
+        margin: auto
+        padding: 16px 0
+        line-height: 50px
+        position: relative
+        z-index: 2
+        +media(tabsp)
+            width: 98%
+
+    &__logo
+        +media(sp)
+            margin: auto
+
+    svg
+        position: relative
+        top: 8px
+
+
+#particles-js
+    canvas
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 1
+
+
+.search-form
+    width: 300px
+    margin: 0 0 0 auto
+    line-height: 48px
+    position: relative
+    +media(sp)
+        display: none
+
+    &__input
+        width: 100%
+        padding: 0 16px
+        outline: none
+        background: #37474F
+        transition: .2s all ease
+
+        &:focus
+            background: #fff
+
+    &__btn
+        position: absolute
+        top: 0
+        right: 12px
+        color: #ddd
+        font-size: 13px
