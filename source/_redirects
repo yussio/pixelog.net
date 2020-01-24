@@ -4,15 +4,4 @@
 https://pixelog.netlify.com/* https://pixelog.net/:splat 301!
 
 # Redirect to new permalink
-https://pixelog.net/archives  https://pixelog.net/archive  301!
-https://pixelog.net/responsive-swiper/  https://pixelog.net/post/responsive-swiper/  301!
-https://pixelog.net/search-console-for-netlify/  https://pixelog.net/post/search-console-for-netlify/  301!
-https://pixelog.net/css-timer/  https://pixelog.net/post/css-timer/  301!
-
-https://pixelog.net/posts/html-details/  https://pixelog.net/post/html-details/  301!
-https://pixelog.net/posts/word-for-permalink/  https://pixelog.net/post/word-for-permalink/  301!
-https://pixelog.net/tools/kaizuka-calc/  https://pixelog.net/tool/kaizuka-calc/  301!
-https://pixelog.net/posts/responsive-swiper/  https://pixelog.net/post/responsive-swiper/  301!
-https://pixelog.net/posts/search-console-for-netlify/  https://pixelog.net/post/search-console-for-netlify/  301!
-https://pixelog.net/posts/css-timer/  https://pixelog.net/post/css-timer/  301!
-https://pixelog.net/tools/kaizuka-calc/  https://pixelog.net/tool/kaizuka-calc/  301!
+https://pixelog.net/page/1/  https://pixelog.net/  301!
