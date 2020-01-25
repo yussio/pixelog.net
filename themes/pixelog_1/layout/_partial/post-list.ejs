@@ -79,4 +79,13 @@
         <a class="pager__next-link" href="/<%- page.next_link %>">next</a>
     <% } %>
     </div>
+    <script>
+        function pager() {
+          var pager = document.getElementById('pager__select');
+          pager.addEventListener('change', function() {
+            location.href = pager.value;
+          });
+        }
+        pager();
+    </script>
 </div>

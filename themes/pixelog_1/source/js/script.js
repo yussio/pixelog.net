@@ -111,14 +111,3 @@ particlesJS('particles-js',
     "retina_detect": true
   }
 );
-
-
-
-// プルダウンページャー
-function pager() {
-  var pager = document.getElementById('pager__select');
-  pager.addEventListener('change', function() {
-    location.href = pager.value;
-  });
-}
-pager();
