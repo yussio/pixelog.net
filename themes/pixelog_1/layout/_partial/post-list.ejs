@@ -58,11 +58,16 @@
     <div class="pager__number">
         <div class="pager__select">
             <select class="pager__select-form" id="pager__select" name="sort">
+            <% var page_path = page.path.replace(/index.html/,'').replace(/page\/.+\//,'') %>
             <% for( i = 1; i <= page.total; i++){ %>
-                <option value="/page/<%- i %>/"
-                    <% if( i === page.current ){ %>
-                      selected
-                    <% } %>
+                <% if( i === 1 ){ %>
+                    <option value="/<%= page_path %>"
+                <% } else { %>
+                    <option value="/<%= page_path %>page/<%- i %>/"
+                <% } %>
+                <% if( i === page.current ){ %>
+                  selected
+                <% } %>
                   ><%- i %></option>
             <% } %>
             </select>
