@@ -7,20 +7,6 @@
               </time>
               <div class="post-list__detail">
                   <h2 class="post-list__title"><%= post.title || "Untitled" %></h2>
-                  <div class="post-list__meta">
-                      <span class="post-list__category">
-                          <ol class="breadcrumb__list">
-                              <% post.categories.forEach(function(item){ %>
-                                <li class="breadcrumb__item"><%= item.name %></li>
-                              <% }) %>
-                          </ol>
-                      </span>
-                      <span class="post-list__tag">
-                        <% post.tags.forEach(function(item){ %>
-                          <span><%= item.name %></span>
-                        <% }) %>
-                      </span>
-                  </div>
               </div>
           </a>
       </li>
@@ -64,7 +50,7 @@
     <div class="pager__prev">
         <% if (page.prev_link) { %>
             <a class="pager__prev-link" href="/<%- page.prev_link %>">prev</a>
-        <% } %>  
+        <% } %>
         <% if (is_current('/page/2/')) { %>
           <a class="pager__prev-link" href="/">prev</a>
         <% } %>

@@ -3,7 +3,7 @@
       <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
           <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
               <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/">
-                  <span itemprop="name">トップ</span>
+                  <span itemprop="name">ホーム</span>
               </a>
               <meta itemprop="position" content="1" />
           </li>
@@ -18,6 +18,12 @@
                   <meta itemprop="position" content="<%= i %>" />
               </li>
           <% }) %>
+              <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/<%- page.path %>">
+                      <span itemprop="name"><%= page.title %></span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+              </li>
       </ol>
   </nav>
   <article class="post">
@@ -25,7 +31,7 @@
       <div class="post-header__meta">
         公開：<time class="post-header__published" itemprop="datePublished" datetime="<%= page.date.format() %>">
           <%- page.date.format("YYYY-MM-DD") %>
-        </time> / 
+        </time> /
         更新：<time class="post-header__modified" itemprop="dateModified" datetime="<%= page.date.format() %>">
           <%- page.updated.format("YYYY-MM-DD") %>
         </time>
