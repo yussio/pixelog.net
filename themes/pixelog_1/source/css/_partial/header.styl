@@ -41,17 +41,21 @@
     margin: 0 0 0 auto
     line-height: 48px
     position: relative
+    align-self: center
     +media(sp)
         display: none
 
     &__input
         width: 100%
-        padding: 0 16px
+        padding: 0 48px 0 16px
         outline: none
+        color: #eee
         background: theme-color-dark
-        transition: .2s all ease
+        transition: .1s all ease
+        border-radius: 3px
 
         &:focus
+            color: #333
             background: #fff
 
     &__btn
