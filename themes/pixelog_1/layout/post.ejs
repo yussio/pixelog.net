@@ -22,7 +22,7 @@
                   <a class="breadcrumb__item-link" itemprop="item" href="/<%- page.path %>">
                       <span itemprop="name"><%= page.title %></span>
                   </a>
-                  <meta itemprop="position" content="1" />
+                  <meta itemprop="position" content="<%= page.categories.length + 2 %>" />
               </li>
       </ol>
   </nav>
