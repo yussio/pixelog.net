@@ -27,6 +27,27 @@
       </ol>
   </nav>
 
+<% } else if (is_page() === true) { %>
+  <%
+  var path = page.path.replace(/index.html/, '');
+  %>
+  <nav class="breadcrumb">
+      <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+              <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/">
+                  <span itemprop="name">ホーム</span>
+              </a>
+              <meta itemprop="position" content="1" />
+          </li>
+          <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+              <a class="breadcrumb__item-link" itemprop="item" href="/<%- path %>">
+                  <span itemprop="name"><%= page.title %></span>
+              </a>
+              <meta itemprop="position" content="2>" />
+          </li>
+      </ol>
+  </nav>
+
 <% } else if (is_home() === true) { %>
   <% if(page.current !== 1){ %>
       <nav class="breadcrumb">
