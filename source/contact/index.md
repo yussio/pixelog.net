@@ -13,7 +13,7 @@ date: 2020-01-26 12:32:19
     <label>メールアドレス <input type="email" name="email" /></label>
   </p>
   <p>
-    <label>件名<input type="email" name="subject" /></label>
+    <label>件名<input type="text" name="subject" /></label>
   </p>
   <p>
     <label>お問い合わせ内容: <textarea name="message"></textarea></label>
