@@ -5,9 +5,6 @@
       <div class="post-header__meta">
         公開：<time class="post-header__published" itemprop="datePublished" datetime="<%= page.date.format() %>">
           <%- page.date.format("YYYY-MM-DD") %>
-        </time> /
-        更新：<time class="post-header__modified" itemprop="dateModified" datetime="<%= page.date.format() %>">
-          <%- page.updated.format("YYYY-MM-DD") %>
         </time>
         <div class="post-header__tag">
           <% page.tags.forEach(function(item){ %>
