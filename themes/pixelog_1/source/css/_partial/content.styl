@@ -1,6 +1,6 @@
 .content
   font-size: 16px
-  line-height: 2em
+  line-height: 1.9
   text-align: justify
   color: #333
   letter-spacing: .01em
@@ -10,6 +10,11 @@
 
   img
     max-width: 100%
+
+    +media(sp)
+        max-width: calc(100% + 32px)
+        margin-left: -16px
+
 
   h2
     margin: 2.5em 0 1.2em 0
@@ -23,6 +28,7 @@
     color: #555
 
   ul
+  ol
     margin: 0 0 0 24px
 
   li
