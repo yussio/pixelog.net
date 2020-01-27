@@ -1,71 +1,88 @@
 .pager
-  display: flex
-  justify-content: space-between
-  margin: 32px 0
+    display: flex
+    justify-content: space-between
+    margin: 16px 0 16px 0
+    background: #fff
+    box-shadow: 0 4px 10px rgba(0,0,0,.05), 0 0 1px rgba(0,0,0,.1);
+    border-radius: 4px
 
-  &__prev
-  &__next
-      width: 120px
-      height: 40px
-      line-height: 40px
+    &__prev
+    &__next
+        display: block
+        width: 120px
+        line-height: 56px
+        padding: 0 12px
+        text-decoration: none
+        color: theme-color
+        font-size: 15px
+        font-weight: bold
+        text-align: center
+        transition: .2s all ease
 
-  &__prev-link
-  &__next-link
-      display: block
-      padding: 0 32px
-      text-decoration: none
-      background: theme-color-btn
-      color: #fff
-      box-shadow: 0 0 2px #f2f2f2;
-      border-radius: 2px
-      transition: .2s all ease
+    &__prev:hover
+    &__next:hover
+        background: #f9f9f9
 
-  &__prev-link:hover
-  &__next-link:hover
-      background: #F06292
+    &__prev::before
+    &__next::after
+        display: inline-block
+        font: 17px "Consolas", monospace
+        transition: .2s transform ease
 
-  &__prev-link::before
-  &__next-link::after
-      display: inline-block
-      font: 17px "Consolas", monospace
-      transition: .2s transform ease
+    &__prev
+        border-right: 1px solid #ddd
 
-  &__prev-link
-      &::before
-          content: "<"
-          margin: 0 3px 0 0
+        &::before
+            content: "<"
+            margin: 0 3px 0 0
 
-      &:hover::before
-          transform: translateX(-4px)
+        &:hover::before
+            transform: translateX(-4px)
 
-  &__next-link
-      &::after
-          content: ">"
-          margin: 0 0 0 3px
+    &__next
+        border-left: 1px solid #ddd
 
-      &:hover::after
-          transform: translateX(4px)
+        &::after
+            content: ">"
+            margin: 0 0 0 3px
+
+        &:hover::after
+            transform: translateX(4px)
+
+
+.disabled
+    pointer-events: none
+    color: #eee
+    font-weight: normal
+
+
+.pager__number
+    height: 36px
+    line-height: 34px
+    align-self: center
+
 
 .pager__select
     display: inline-block
     margin: 0 12px 0 0
+    border: 1px solid #bbb
     position: relative
     background: #fff
+    border-radius: 4px
 
     &::after
         display: block
         content: ">"
         pointer-events: none
         font: 17px "Consolas", monospace;
-        color: #999
+        color: #bbb
         transform: rotate(90deg)
         position: absolute
-        top: 10px
+        top: 8px
         right: 8px
 
     &-form
-        border: 2px solid #e6e6e6
-        padding: 5px 48px 5px 24px;
+        padding: 0 48px 0 24px;
         cursor: pointer
 
 
