@@ -17,7 +17,7 @@
       <a class="post-header__title-link" href="/<%- page.path %>"><h1 class="post-header__title"><%= page.title %></h1></a>
       <% if (page.thumbnail) { %>
         <div class="post-header__thumbnail">
-          <img class="post-header__thumbnail-img" src="<% var thumbnail_url = '/' + page.path + page.thumbnail; %><%- image_version(thumbnail_url, {prefix: 'post'}) %>">
+          <img class="post-header__thumbnail-img" src="/<%= page.path + page.thumbnail; %>">
         </div>
       <% }%>
 

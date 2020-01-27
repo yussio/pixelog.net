@@ -1,4 +1,7 @@
 ---
+pid:
 title: {{ title }}
-tags:
+description:
+date: {{ date }}
+categories:
 ---

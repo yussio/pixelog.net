@@ -212,6 +212,4 @@ HTML
 
 現在は、&lt;details&gt;タグという使い勝手のいいタグがあるので、正しくマークアップ出来るのであればそちらの方も便利です。
 
-<div class="gray-box">
-参考：[HTMLだけでコンテンツを開閉できる&lt;details&gt;を試してみる](/post/html-details/)
-</div>
+[HTMLだけでコンテンツを開閉できる&lt;details&gt;を試してみる](/post/html-details/)
