@@ -42,65 +42,64 @@
     max-width: 400px
 
 
+pre
+    position: relative
 
 .hljs
-  margin: 8px 0
-  padding: 48px 2em 2em 2em;
-  font-size: .8em
-  font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
-  line-height: 1.5
-  position: relative
+    margin: 8px 0
+    padding: 48px 2em 2em 2em;
+    font-size: .8em
+    font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
+    line-height: 1.5
 
-  &::before
-    display: block
-    padding: 0 16px
-    position: absolute
-    top: 0
-    left: 0
-    font-size: 18px
+    &::before
+        display: block
+        padding: 0 16px
+        position: absolute
+        top: 0
+        left: 0
+        font-size: 18px
 
-  &.css::before
-    content: "CSS"
-    background: #3696d1
-    color: #fff
+    &.css::before
+        content: "CSS"
+        background: #3696d1
+        color: #fff
 
-  &.html::before
-    content: "HTML"
-    background: #eb6129
-    color: #fff
+    &.html::before
+        content: "HTML"
+        background: #eb6129
+        color: #fff
 
-  &.javascript::before
-    content: "JavaScript"
-    background: #f8d43c
-    color: #fff
+    &.javascript::before
+        content: "JavaScript"
+        background: #f8d43c
+        color: #fff
 
-  &.stylus::before
-    content: "Stylus"
-    background: #b5d202
-    color: #fff
+    &.stylus::before
+        content: "Stylus"
+        background: #b5d202
+        color: #fff
 
-  &.bash::before
-    content: "Bash"
-    background: #ddd
-    color: #333
+    &.bash::before
+        content: "Bash"
+        background: #ddd
+        color: #333
 
-  &.plaintext::before
-    content: "Text"
-    background: #ddd
-    color: #333
+    &.plaintext
+        padding: 2em
 
-  &::-webkit-scrollbar
-    height: 8px
+    &::-webkit-scrollbar
+        height: 8px
 
-  &::-webkit-scrollbar-thumb
-    background: #aaa
+    &::-webkit-scrollbar-thumb
+        background: #aaa
 
-  &::-webkit-scrollbar-thumb:active
-    background:#777
+    &::-webkit-scrollbar-thumb:active
+        background:#777
 
 
 .center
-  text-align:center
+  text-align: center
 
 .marker
   background: linear-gradient(transparent 40%, #66FFCC 40%)
@@ -213,3 +212,4 @@ hr
 
 .ad
     margin: 60px 0 0 0
+    background: #eee

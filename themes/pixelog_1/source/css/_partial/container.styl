@@ -1,23 +1,39 @@
 .container
-  display: flex
-  margin: auto
-  justify-content: space-between
-  +media(pc)
-    width: pc-width
-  +media(tab)
-    width: 96%
-    flex-direction: column
-  +media(sp)
-    width: 100%
-    flex-direction: column
+    display: flex
+    margin: auto
+    justify-content: space-between
+    +media(pc)
+        width: pc-width
+    +media(tab)
+        width: 96%
+        flex-direction: column
+    +media(sp)
+        width: 100%
+        flex-direction: column
 
 .main
-  width: 840px
-  +media(tabsp)
-    width: 100%
+    width: 840px
+    +media(tabsp)
+        width: 100%
 
 .aside
-  width: 300px
-  +media(tabsp)
-    width: 96%
-    margin: 40px auto 0
+    width: 300px
+    +media(tabsp)
+        width: 96%
+        margin: 40px auto 0
+
+    +media(tab)
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+
+.widget__category
+.widget__recent-posts
+    +media(tab)
+        width: 47%
+
+.widget__ad
+    background: #eee
+    +media(tab)
+        width: 100%

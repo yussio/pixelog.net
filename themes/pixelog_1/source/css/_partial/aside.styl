@@ -6,49 +6,64 @@
         margin: 0 0 60px 0
 
     &__title
-        margin: 0 0 16px 0
+        margin: 0 0 24px 0
         line-height: 3
         background: theme-color-second
         color: #fff
         text-align: center
+        border-top: 4px solid theme-color
         font-family: 'Orbitron', sans-serif
         border-radius: 4px
-        letter-spacing: 0.15em;
-        box-shadow: 0 1px 1px #455A64
+        letter-spacing: 0.15em
+        box-shadow: 0 1px 4px 0 #ccc
+
+
 
 
 .category-list
+.recent-posts-list
+    margin: 0 6px
     list-style: none
-    font-size: 14px
+    font-size: 15px
 
+
+.category-list
     &-child
         @extend .category-list
         margin: 0 0 0 1em
         padding: 0 0 0 1em
         border-left: 1px solid #dbdbdb;
 
-
     &-item
         line-height: 2.5
 
     &-link
+        display: inline-block
         text-decoration: none
         color: #333
 
+        &:hover
+            opacity: .6
+
     &-count
+        display: inline-block
+        float: right
+        color: #888
+
         &::before
-            content: " ("
+            content: "["
         &::after
-            content: ")"
+            content: "]"
 
 
-.aside-post-list
+.recent-posts-list
     &-item
         margin: 0 0 1em 0
-        font-size: 15px
-        list-style: none
 
     &-link
         display: block
         color: #333
         text-decoration: none
+
+        &:hover
+            opacity: .6
