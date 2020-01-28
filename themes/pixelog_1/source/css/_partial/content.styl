@@ -58,14 +58,18 @@ pre
 
 .hljs
     margin: 8px 0
-    padding: 48px 2em 2em 2em;
+    padding: 56px 2em 2em 2em;
     font-size: .8em
     font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
     line-height: 1.5
 
     &::before
         display: block
+        width: 100%
+        line-height: 36px
         padding: 0 16px
+        background: #585858
+        box-shadow: 0 2px 0 0 #111
         position: absolute
         top: 0
         left: 0
@@ -73,28 +77,23 @@ pre
 
     &.css::before
         content: "CSS"
-        background: #3696d1
-        color: #fff
+        color: #5bc1ff
 
     &.html::before
         content: "HTML"
-        background: #eb6129
-        color: #fff
+        color: #ff530d
 
     &.javascript::before
         content: "JavaScript"
-        background: #f8d43c
-        color: #fff
+        color: #f8d43c
 
     &.stylus::before
         content: "Stylus"
-        background: #b5d202
-        color: #fff
+        color: #b5d202
 
     &.bash::before
         content: "Bash"
-        background: #ddd
-        color: #333
+        color: #f2f2f2
 
     &.plaintext
         padding: 2em

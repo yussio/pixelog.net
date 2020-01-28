@@ -49,7 +49,7 @@ HTML・JavaScriptに関しては特別な設定はしておらず、デフォル
 
 ```css
 .swiper-container {
-  position: relative; /* デフォルトCSSに含まれています */
+  position: relative; /* ← swiper.cssに含まれています */
 }
 
 .swiper-container:before {
@@ -59,7 +59,7 @@ HTML・JavaScriptに関しては特別な設定はしておらず、デフォル
 }
 
 .swiper-wrapper {
-  position: absolute; /* ← デフォルトCSSと優先順位が干渉するときは工夫してください */
+  position: absolute; /* ← swiper.cssと優先順位が干渉するときは工夫してください */
   top: 0;
   left: 0;
 }

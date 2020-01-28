@@ -45,7 +45,6 @@ CSSだけでクリックイベントを扱うには、主にtargetを使う方�
 
 ### ソース
 
-CSS
 ```css
 .more1 {
   display: none;
@@ -55,7 +54,6 @@ CSS
 }
 ```
 
-HTML
 ```html
 <a href="#more1">続きを読む▽</a>
 <div class="more1" id="more1">
@@ -104,7 +102,6 @@ HTML
 
 ### ソース
 
-CSS
 ```css
 .more2{
   display: none;
@@ -118,7 +115,6 @@ CSS
 }
 ```
 
-HTML
 ```html
 <a href="#more2">続きを読む▽</a>
 <div class="morefix2" id="more2"></div>
@@ -172,7 +168,6 @@ HTML
 
 ### ソース
 
-CSS
 ```css
 .more3{
     max-height: 0;
@@ -191,7 +186,6 @@ CSS
 }
 ```
 
-HTML
 ```html
 <a href="#more3">続きを読む▽</a>
 <div class="morefix3" id="more3">&nbsp;</div>

@@ -1,10 +1,11 @@
 ---
 title: contenteditable属性で入力したCSSがページにリアルタイムで反映されるフォームをつくる
-description: contenteditableという属性を<style>タグに付けることで、入力したCSSがページにリアルタイムで反映されるフォームを簡単につくることができます。
+description: >-
+  contenteditableという属性を<style>タグに付けることで、入力したCSSがページにリアルタイムで反映されるフォームを簡単につくることができます。
 pid: ea9x7x56rs
 categories:
   - Web
-  - CSS
+  - HTML
 date: 2020-01-27 15:55:50
 tags:
 ---
@@ -33,16 +34,16 @@ styleタグ内にdivなどの余計なタグが生成されるのを防ぐため
 ```css
 .stylebox{
     display: block;
-    height:400px;
+    height: 400px;
     padding: 12px;
-    overflow:auto;
-    resize:both;
-    border:1px solid #ddd;
+    overflow: auto;
+    resize: both;
+    border: 1px solid #ddd;
     white-space: pre;
     font-family: Monaco, monospace;
 }
 
 .stylebox:focus{
-    box-shadow:0 0 5px #ccc inset;
+    box-shadow: 0 0 5px #ccc inset;
 }
 ```

@@ -12,7 +12,7 @@
               <% i += 2; %>
               <% dir_name += '/' + item.name; %>
               <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                  <a class="breadcrumb__item-link" itemprop="item" href="/category<%= dir_name.toLowerCase(); %>">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/category<%= dir_name.toLowerCase(); %>/">
                       <span itemprop="name"><%= item.name %></span>
                   </a>
                   <meta itemprop="position" content="<%= i %>" />
