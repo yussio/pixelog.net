@@ -2,7 +2,7 @@
   <nav class="breadcrumb">
       <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
           <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-              <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/">
+              <a class="breadcrumb__item-link" itemprop="item" href="/">
                   <span itemprop="name">ホーム</span>
               </a>
               <meta itemprop="position" content="1" />
@@ -12,7 +12,7 @@
               <% i += 2; %>
               <% dir_name += '/' + item.name; %>
               <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                  <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/category<%= dir_name %>">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/category<%= dir_name.toLowerCase(); %>">
                       <span itemprop="name"><%= item.name %></span>
                   </a>
                   <meta itemprop="position" content="<%= i %>" />
@@ -34,7 +34,7 @@
   <nav class="breadcrumb">
       <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
           <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-              <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/">
+              <a class="breadcrumb__item-link" itemprop="item" href="/">
                   <span itemprop="name">ホーム</span>
               </a>
               <meta itemprop="position" content="1" />
@@ -53,13 +53,13 @@
       <nav class="breadcrumb">
           <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                  <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/">
                       <span itemprop="name">ホーム</span>
                   </a>
                   <meta itemprop="position" content="1" />
               </li>
               <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                  <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/page/<%= page.current %>/">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/page/<%= page.current %>/">
                       <span itemprop="name">ページ<%= page.current %></span>
                   </a>
                   <meta itemprop="position" content="2" />
@@ -73,11 +73,10 @@
   var path = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '');
   var categories = path.split('/');
   %>
-
   <nav class="breadcrumb">
       <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
           <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-              <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/">
+              <a class="breadcrumb__item-link" itemprop="item" href="/">
                   <span itemprop="name">ホーム</span>
               </a>
               <meta itemprop="position" content="1" />
@@ -87,15 +86,15 @@
               <% i += 2; %>
               <% dir_name += '/' + item; %>
               <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                  <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/category<%= dir_name %>/">
-                      <span itemprop="name"><%= item %></span>
+                  <a class="breadcrumb__item-link" itemprop="item" href="/category<%= dir_name %>/">
+                      <span itemprop="name"><% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %> </span>
                   </a>
                   <meta itemprop="position" content="<%= i %>" />
               </li>
           <% }) %>
           <% if(page.current !== 1){ %>
               <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                  <a class="breadcrumb__item-link" itemprop="item" href="https://pixelog.net/category<%= dir_name %>/page/<%= page.current %>/">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/category<%= dir_name %>/page/<%= page.current %>/">
                       <span itemprop="name">ページ<%= page.current %></span>
                   </a>
                   <meta itemprop="position" content="<%= i+1 %>" />

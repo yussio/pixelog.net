@@ -3,3 +3,11 @@ menu:
   Home: /
   Archives: /archives
 rss: /atom.xml
+
+
+#category
+web: Web
+css: CSS
+html: HTML
+javascript: JavaScript
+hexo: Hexo
