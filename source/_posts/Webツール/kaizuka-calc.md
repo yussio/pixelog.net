@@ -1,0 +1,25 @@
+---
+pid: kaizuka-calc
+title: 貝塚レート計算機
+categories:
+  - Webツール
+description: 日本円と貝塚円をウェブ上で簡単に計算できる計算機です。
+date: 2019-06-10
+CSS: true
+JavaScript: true
+---
+
+日本円と貝塚円をウェブ上で簡単に換算できます。貝塚レートについて詳しくは<a href="https://www63.atwiki.jp/syamugame/pages/44.html">Syamu_game@ウィキ</a>をご覧ください。
+
+<form id="kaizuka_calc" name="kaizuka_calc">
+  <div class="calc_input">
+    <input type="number" name="input_yen"><div class="yen">円</div>
+    <input type="number" name="input_kaizuka"><div class="kaizuka">貝塚円</div>
+  </div>
+  <button id="calc" type="button">換算する</button>
+  <div class="option">
+    <p>オプション：貝塚係数を設定してください。（デフォルトは35です）
+    </p>
+    <p>平均月収<input type="number" name="factor" value="35">万円</p>
+  </div>
+</form>

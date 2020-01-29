@@ -19,7 +19,7 @@ date: 2020-01-26 12:32:19
     <label>お問い合わせ内容: <textarea name="message"></textarea></label>
   </p>
   <p>
-    <a href="/privacy/" target="\_blank">プライバシーポリシー</a>をご確認いただき、記載されている内容に関して同意の上、お問い合わせください。
+    <a href="/privacy/#個人情報について" target="\_blank">プライバシーポリシー</a>をご確認いただき、記載されている内容に関して同意の上、お問い合わせください。
   </p>
   <p>
     <button type="submit">送信</button>

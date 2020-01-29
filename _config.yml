@@ -30,6 +30,10 @@ category_dir: category
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - _posts/*/*/(style.css|script.js)
+  - _posts/*/*/*/(style.css|script.js)
+  - _posts/*/*/*/*/(style.css|script.js)
+  - _posts/*/*/*/*/*/(style.css|script.js)
 
 # Writing
 new_post_name: :title # File name of new posts
