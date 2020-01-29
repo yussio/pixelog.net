@@ -38,6 +38,9 @@
   table
     margin: 40px 0
 
+  thead
+    border-bottom: 2px solid theme-color
+
   th
     text-align: center
 
@@ -94,6 +97,10 @@ pre
     &.bash::before
         content: "Bash"
         color: #f2f2f2
+
+    &.yml::before
+        content: "yml"
+        color: #85ff7d
 
     &.plaintext
         padding: 2em
