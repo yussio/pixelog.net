@@ -4,7 +4,7 @@ title: 貝塚レート計算機
 categories:
   - Webツール
 description: 日本円と貝塚円をウェブ上で簡単に計算できる計算機です。
-date: 2019-06-10
+date: 2019-05-25
 CSS: true
 JavaScript: true
 ---
