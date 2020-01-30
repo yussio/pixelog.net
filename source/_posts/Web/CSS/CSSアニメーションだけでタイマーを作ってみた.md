@@ -6,7 +6,7 @@ categories:
   - CSS
 date: 2019-03-14 17:00:47
 tags:
-CSS: true
+css: true
 ---
 
 CSSの限界に挑戦ということで、CSS3のアニメーションとCSS変数（カスタムプロパティ）を駆使して、キッチンタイマーを作ってみました。

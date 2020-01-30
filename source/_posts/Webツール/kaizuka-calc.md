@@ -5,8 +5,8 @@ categories:
   - Webツール
 description: 日本円と貝塚円をウェブ上で簡単に計算できる計算機です。
 date: 2019-05-25
-CSS: true
-JavaScript: true
+css: true
+js: true
 ---
 
 日本円と貝塚円をウェブ上で簡単に換算できます。貝塚レートについて詳しくは<a href="https://www63.atwiki.jp/syamugame/pages/44.html">Syamu_game@ウィキ</a>をご覧ください。

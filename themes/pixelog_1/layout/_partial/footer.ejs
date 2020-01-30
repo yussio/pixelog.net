@@ -102,11 +102,11 @@
         "detect_on": "canvas",
         "events": {
           "onhover": {
-            "enable": true,
+            "enable": false,
             "mode": "repulse"
           },
           "onclick": {
-            "enable": true,
+            "enable": false,
             "mode": "push"
           },
           "resize": true
@@ -141,6 +141,6 @@
     }
   );
 </script>
-<% if(page.JavaScript === true) { %>
+<% if(page.js === true) { %>
 <script src="/<%= page.path %>script.js"></script>
 <% } %>
