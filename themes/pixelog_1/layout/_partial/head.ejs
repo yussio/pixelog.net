@@ -43,6 +43,10 @@ if (is_archive()){
 %>
 <link rel="canonical" href="<%= url %>">
 
+<% if (is_post()){ %>
+<link rel="prerender" href="/">
+<% } %>
+
 <%# フィード %>
 <link rel="alternative" type="application/atom+xml" title="pixelog" href="/atom.xml">
 
@@ -63,7 +67,6 @@ if(page.thumbnail) {
 
 <% if(page.date) { %>
   <meta property="article:published_time" content="<%= page.date.format() %>">
-  <meta property="article:updated_time" content="<%= page.updated.format() %>">
 <% }
 %>
 <meta property="og:url" content="<%= url %>">
@@ -72,7 +75,7 @@ if(page.thumbnail) {
 if(is_post()) {
   var type = 'article'
 }else{
-  var type = ' blog';
+  var type = ' website';
 }
 %>
 <meta property="og:type" content="<%= type %>">

@@ -109,3 +109,17 @@ deploy:
 auto_category:
  enable: true
  depth:
+
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: false
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
