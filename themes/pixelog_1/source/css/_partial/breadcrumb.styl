@@ -12,6 +12,9 @@
     -ms-overflow-style: none   /* スクロールバー消す IE, Edge */
     scrollbar-width: none       /* スクロールバー消す Firefox */
 
+    +media(spm)
+        font-size: 13px
+
     &::-webkit-scrollbar
         display: none /* スクロールバー消す Chrome, Safari */
 
@@ -19,6 +22,7 @@
         display: flex
         list-style: none
         scroll-snap-type: x mandatory
+        position: relative
 
     &__item
         position: relative

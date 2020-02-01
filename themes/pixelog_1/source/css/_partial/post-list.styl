@@ -17,6 +17,9 @@
             text-decoration: none
             transition: .2s background ease-in-out
 
+            +media(spm)
+                padding: 30px 16px
+
             &::after
                 display: block
                 flex-shrink: 0
@@ -46,21 +49,13 @@
         align-self: center
         +media(sp)
           font-size: 12px
+        +media(spm)
+            margin: 0 12px 0 0
 
     &__title
         font-size: 18px
         +media(sp)
             font-size: 16px
 
-    &__meta
-        margin: 12px 0 0 0
-        font-size: 14px
-        color: #888
-        +media(sp)
-            font-size: 12px
-
-    &__divider
-        margin: 0 1px 0 3px
-
-        &:first-child
-            display: none
+        +media(spm)
+            font-size: 15px

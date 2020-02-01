@@ -3,8 +3,12 @@
 /* Variables
 --------------------------------------------------------------------------------------------------------*/
 
+// Android one S2 → 398px
+// iPhone5C → 338px
+
 pc-width = 1200px
 sp-width = 767px
+spm-width = 397px
 
 theme-color = #48A9A6
 theme-color-dark = #32827f
@@ -16,6 +20,9 @@ theme-color-back = #f9f9f9
 
 media(bpName)
     for name in bpName
+        if name == 'spm'
+            @media only screen and (max-width: spm-width)
+                {block}
         if name == 'sp'
             @media only screen and (max-width: sp-width)
                 {block}
