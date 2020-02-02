@@ -7,16 +7,16 @@ date: 2020-01-26 12:32:19
 
 <form class="mailform" name="contact" method="POST" data-netlify="true">
   <p>
-    <label>名前<input type="text" name="name" /></label>
+    <label>名前<input type="text" name="name" required/></label>
   </p>
   <p>
-    <label>メールアドレス <input type="email" name="email" /></label>
+    <label>メールアドレス <input type="email" name="email" required/></label>
   </p>
   <p>
     <label>件名<input type="text" name="subject" /></label>
   </p>
   <p>
-    <label>お問い合わせ内容: <textarea name="message"></textarea></label>
+    <label>お問い合わせ内容: <textarea name="message" required></textarea></label>
   </p>
   <p>
     <a href="/privacy/#個人情報について" target="\_blank">プライバシーポリシー</a>をご確認いただき、記載されている内容に関して同意の上、お問い合わせください。
