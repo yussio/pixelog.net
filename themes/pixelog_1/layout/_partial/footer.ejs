@@ -142,5 +142,44 @@
   );
 </script>
 <% if(page.js === true) { %>
-<script src="/<%= page.path %>script.js"></script>
+    <script src="/<%= page.path %>script.js"></script>
 <% } %>
+
+<script>
+function lazyLoadScript(scriptSrc, type) {
+    //一回だけ実行するためにおく変数
+    var scrollFirstTime = 1;
+
+    //スクロールで発火
+    window.addEventListener("scroll", oneTimeFunction, false);
+
+    function oneTimeFunction() {
+        if (scrollFirstTime === 1) {
+
+            //2回以上実行されないように変数の変更
+            scrollFirstTime = 0;
+
+            //スクリプトタグの作成と src 値の設定
+            var adScript = document.createElement("script");
+
+            if(type === 0){
+                adScript.src = scriptSrc;
+            } else if(type === 1){
+                adScript.innerHTML = scriptSrc;
+            }
+
+            //async 属性の付与 いらない場合は行ごと削除
+            adScript.setAttribute("async", "async");
+
+            //スクリプトタグの挿入
+            document.body.appendChild(adScript);
+
+            //念のためスクロールイベント自体を削除
+            window.removeEventListener("scroll", oneTimeFunction, false);
+        }
+    }
+}
+lazyLoadScript("https://www.googletagmanager.com/gtag/js?id=UA-68420269-3", 0);
+lazyLoadScript("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-68420269-3\');", 1);
+lazyLoadScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", 0);
+</script>
