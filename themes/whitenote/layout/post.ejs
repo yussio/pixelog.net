@@ -1,0 +1,96 @@
+<header>
+
+</header>
+
+<div class="container">
+<main class="main">
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-header__title"><%= page.title %></h2>
+      <div class="post-header__meta">
+        <time class="post-header__published" itemprop="datePublished" datetime="<%= page.date.format() %>">
+          <%- page.date.format("YYYY-MM-DD") %>
+        </time>
+        <time class="post-header__modified" itemprop="dateModified" datetime="<%= page.date.format() %>">
+          <%- page.updated.format("YYYY-MM-DD") %>
+        </time>
+        <div class="post-header__category">
+          <% page.categories.forEach(function(item){ %>
+            <span><%= item.name %></span>
+          <% }) %>
+        </div>
+        <div class="post-header__tag">
+          <% page.tags.forEach(function(item){ %>
+            <span><%= item.name %></span>
+          <% }) %>
+        </div>
+      </div>
+
+      <% if (page.thumbnail) { %>
+        <div class="post-header__thumbnail">
+          <img class="post-header__thumbnail-img" src="<% var thumbnail_url = '/' + page.path + page.thumbnail; %><%- image_version(thumbnail_url, {prefix: 'post'}) %>">
+        </div>
+      <% }%>
+
+    </header>
+    <div class="content">
+
+    <%- page.content %>
+
+    </div>
+    <footer class="post-footer">
+      <div class="share-btn-wrapper">
+        <ul class="social-btn">
+            <li class="social-btn__item">
+                <a href="https://twitter.com/share?url=<%= url %>&text=<%= encodeURI(page.title) %>" class="social-btn__link twitter">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li class="social-btn__item">
+                <a href="http://www.facebook.com/share.php?u=<%= url %>" class="social-btn__link facebook">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            <li class="social-btn__item">
+                <a href="http://www.tumblr.com/share/link?url=<%= url %>&name=<%= encodeURI(page.title) %>" class="social-btn__link tumblr">
+                    <i class="icon-tumblr"></i>
+                </a>
+            </li>
+            <li class="social-btn__item">
+                <a href="http://b.hatena.ne.jp/add?mode=confirm&url=<%= url %>&title=<%= encodeURI(page.title) %>" class="social-btn__link hatena">
+                    <i class="icon-hatena">B!</i>
+                </a>
+            </li>
+            <li class="social-btn__item">
+                <a href="http://getpocket.com/edit?url=<%= url %>&title=<%= encodeURI(page.title) %>" class="social-btn__link pocket">
+                    <i class="icon-pocket"></i>
+                </a>
+            </li>
+            <li class="social-btn__item">
+                <a href="https://feedly.com/i/subscription/feed/https%3A%2F%2Fpixelog.net%2Fatom.xml" class="social-btn__link feedly">
+                    <i class="icon-feedly"></i>
+                </a>
+            </li>
+        </ul>
+      </div>
+      <div class="ad">
+      </div>
+
+
+      <div class="related-posts-wrapper">
+        <h2 class="related-posts-wrapper__title">Related Posts</h2>
+
+      </div>
+
+    </footer>
+  </article>
+</main>
+<aside class="aside">
+    <nav id="toc" class="toc-wrapper">
+      <div class="toc-title">目次</div>
+      <%- toc(page.content) %>
+    </nav>
+</aside>
+
+
+</div>

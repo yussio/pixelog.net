@@ -1,0 +1,92 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<%# titleの出し分け %>
+<%
+var title = page.title;
+
+if (is_archive()){
+  title = 'Archive';
+
+  if (is_month()){
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()){
+    title += ': ' + page.year;
+  }
+} else if (is_category()){
+  title = 'Category: ' + page.category;
+} else if (is_tag()){
+  title = 'Tag: ' + page.tag;
+}
+%>
+<title><% if (title){ %><%= title %> - <% } %><%= config.title %></title>
+
+<%# ディスクリプションの設定 %>
+<%if (page.description) {
+  var description = page.description;
+}else if(config.description) {
+  var description = config.description;
+} %>
+<meta name="description" content="<%= description %>">
+
+<%# URLの正規化（index.htmlを削除） %>
+<%
+  if (/index.html/.test(url)) {
+    url = url.replace(/index.html/, '');
+  }
+  var s = url.slice(-1);
+  if (s != '/') {
+    url += '/';
+  }
+%>
+<link rel="canonical" href="<%= url %>">
+
+<%# フィード %>
+<link rel="alternative" type="application/atom+xml" title="pixelog" href="/atom.xml">
+
+<%# サムネイル画像格納 %>
+<%
+if(page.thumbnail) {
+  var thumbnail_url = image_version(url + page.thumbnail, {prefix: 'post'});
+}else {
+  thumbnail_url = 'https://placehold.jp/1280x670.png';
+}
+%>
+
+<%# OGP設定 %>
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="<% if (title){ %><%= title %> - <% } %><%= config.title %>">
+<meta property="og:description" content="<%= description %>">
+
+<% if(page.date) { %>
+  <meta property="article:published_time" content="<%= page.date.format() %>">
+  <meta property="article:updated_time" content="<%= page.updated.format() %>">
+<% }
+%>
+<meta property="og:url" content="<%= url %>">
+
+<%
+if(is_post()) {
+  var type = 'article'
+}else{
+  var type = ' blog';
+}
+%>
+<meta property="og:type" content="<%= type %>">
+<meta property="og:image" content="<%= thumbnail_url %>">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="419">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="<%= config.title %>">
+<meta name="twitter:site" content="@yussious">
+<meta name="twitter:creator" content="@yussious">
+<meta name="twitter:domain" content="pixelog.net">
+<meta property="fb:app_id" content="359976974704228">
+
+<%# テーマカラー %>
+<meta name="theme-color" content="#00cec9">
+
+
+<%- css('css/style') %>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

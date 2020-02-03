@@ -1,0 +1,54 @@
+<aside>
+  <div class="widget">
+    <form class="search-form" id="search" action="http://google.com/cse">
+      <input type="hidden" name="cx" value="013349118934630321476:1d17snoxhhc">
+      <input type="hidden" name="ie" value="UTF-8">
+      <input class="search-form__input" type="text" name="q">
+      <input class="search-form__btn" type="submit" name="sa" value="検索">
+    </form>
+
+
+    <div class="index">
+      <div class="tab">
+        <input class="tab__tag-radio" id="tab__tag-radio" type="radio" name="tab" checked>
+        <input class="tab__category-radio" id="tab__category-radio" type="radio" name="tab">
+        <label class="tab__tag" for="tab__tag-radio">Tag</label><label class="tab__category" for="tab__category-radio">Caregory</label>
+        <div class="tab__marker"></div>
+
+        <div class="tab-content">
+          <div class="tab-content__tag">
+            <%- list_tags( {
+              show_count: true
+            }) %>
+          </div>
+          <div class="tab-content__category">
+            <%- list_categories() %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--
+    <div class="index">
+      <div class="tab">
+        <div class="tab__tag--active">Tag</div>
+        <div class="tab__category">Category</div>
+      </div>
+      <div class="tab-content">
+        <div class="tab-content__tag--active">
+          <%- list_tags( {
+            show_count: true
+          }) %>
+        </div>
+        <div class="tab-content__category">
+          <%- list_categories() %>
+        </div>
+      </div>
+    </div>
+-->
+
+  </div>
+
+
+</aside>

@@ -1,0 +1,19 @@
+.container
+  display: flex
+  margin: auto
+  justify-content: space-between
+  +media(pc)
+    width: pc-width
+  +media(tabsp)
+    width: 96%
+    flex-direction: column
+
+main
+  width: 800px
+  +media(tabsp)
+    width: 100%
+
+aside
+  width: 300px
+  +media(tabsp)
+    width: 100%

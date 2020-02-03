@@ -1,0 +1,214 @@
+.widget
+  position: sticky
+  top: 30px
+  /*
+  overflow-y: scroll
+  max-height: calc(100vh - 60px)
+  */
+
+
+.search-form
+  margin: 0 0 48px 0
+  line-height: 48px
+  position: relative
+
+  &__input
+    width: 100%
+    padding: 0 16px
+    border: 1px solid #eee
+    outline: none
+    box-shadow: 0 0 6px 0 #eee;
+    border-radius: 6px
+    transition: .3s all ease
+
+    &:focus
+      box-shadow: 0 0 12px 0 #ddd;
+
+  &__btn
+    position: absolute
+    top: 0
+    right: 12px
+
+
+.category
+  &-list
+    list-style: none
+
+  &-list-item
+    line-height: 40px
+
+  &-list-link
+    color: #333
+    text-decoration: none
+
+  &-list-count
+    display: inline-block
+    float: right
+
+.tag
+  &-list
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    list-style: none
+
+  &-list-item
+    flex: 1 1 auto
+    margin: 2px
+    padding: 0 12px
+    line-height: 40px
+    font-size: 14px
+    /*
+    background: #f6f6f6
+    box-shadow: 0 0 2px 0 #eee
+    */
+    border: 1px solid #eaeaea;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.08);
+    border-radius: 2px
+
+
+    /*&::before
+      content: "\e935";
+      margin: 0 6px 0 0
+      font-family: 'icomoon' !important;
+      font-size: 12px
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;*/
+
+
+  &-list-link
+    color: #333
+    text-decoration: none
+
+  &-list-count
+    display: inline-block
+    float: right
+
+
+tab-height = 48px
+tab-marker-height = tab-height - 6px
+
+.tab
+  margin: 0 0 16px 0
+  overflow: hidden
+  position: relative
+
+  &__tag-radio
+  &__category-radio
+    display: none
+
+  &__tag
+  &__category
+    display: inline-block
+    width: 50%
+    position :relative
+    line-height: tab-height
+    text-align: center
+    color: #555
+    transition: .3s all ease
+    cursor: pointer
+    z-index: 3
+
+  &::before
+    content: ""
+    display: block
+    width: 100%
+    height: tab-height
+    position: absolute
+    top: 0
+    left: 0
+    background: #f1f1f1
+    z-index: 1
+
+  &__marker
+    width: 50%
+    height: tab-marker-height
+    position: absolute
+    top: 3px
+    left: 0
+    background: #00cec9
+    box-shadow: 0 0px 12px rgba(0,0,0,.15)
+    transition: .3s all ease
+    z-index: 2
+
+
+  &__tag-radio:checked
+    & ~ .tab__tag
+      color: #fff
+
+    & ~ .tab-content
+      transform: translateX(0)
+
+    & ~ .tab__marker
+      transform: translateX(calc(0% + 3px))
+
+  &__category-radio:checked
+    &~ .tab__category
+      color: #fff
+
+    & ~ .tab-content
+      transform: translateX(-50%)
+
+    & ~ .tab__marker
+      transform: translateX(calc(100% - 3px))
+
+
+  &-content
+    display: flex
+    width: 200%
+    margin: 24px 0 0 0
+    transition: transform .3s ease
+
+  &-content__tag
+  &-content__category
+    width: 100%
+
+/*
+.tab
+  display: flex
+  margin: 0 0 16px 0
+  padding: 0 12px
+  position: relative
+
+  &::after
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    position: absolute;
+    bottom: 0px;
+    z-index: -1;
+    left: 0px;
+
+  &__tag
+  &__category
+    width: 50%
+    line-height: 40px
+    cursor: pointer;
+    border: 1px solid #fff
+    border-width: 3px 1px 1px 1px
+    border-bottom-color: #ddd
+    text-align: center
+
+  &__tag--active
+  &__category--active
+    @extend .tab__tag
+    border-color: #00cec9 #ddd #fff #ddd
+
+
+.tab-content
+  position: relative
+
+  &__tag
+  &__category
+    display: none
+
+  &__tag--active
+  &__category--active
+    display: block
+*/
