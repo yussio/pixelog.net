@@ -1,12 +1,4 @@
 .widget
-    &__ad
-        margin: 0 0 60px 0
-        +media(pc)
-            min-height: 600px
-
-    &__category
-        margin: 0 0 60px 0
-
     &__title
         margin: 0 0 24px 0
         line-height: 3
@@ -19,7 +11,13 @@
         box-shadow: 0 1px 3px -1px #ccc
         user-select: none
 
+    &__ad
+        margin: 0 0 60px 0
+        +media(pc)
+            min-height: 600px
 
+    &__category
+        margin: 0 0 60px 0
 
 
 .category-list
@@ -41,11 +39,15 @@
 
     &-link
         display: inline-block
+        width: calc(100% - 42px)
         text-decoration: none
         color: #333
+        border-radius: 2px
+        transition: .1s all ease-in-out
 
         &:hover
-            opacity: .6
+            color: #000
+            background: #eee
 
     &-count
         display: inline-block
@@ -66,6 +68,8 @@
         display: block
         color: #333
         text-decoration: none
+        transition: .1s all ease-in-out
 
         &:hover
-            opacity: .6
+            color: #000
+            background: #eee
