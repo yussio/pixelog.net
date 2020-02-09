@@ -1,4 +1,4 @@
-<% if(is_post() === true) { %>
+<% if(is_post()) { %>
   <nav class="breadcrumb">
       <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
           <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
@@ -27,7 +27,7 @@
       </ol>
   </nav>
 
-<% } else if (is_page() === true) { %>
+<% } else if (is_page()) { %>
   <%
   var path = page.path.replace(/index.html/, '');
   %>
@@ -48,7 +48,7 @@
       </ol>
   </nav>
 
-<% } else if (is_home() === true) { %>
+<% } else if (is_home()) { %>
   <% if(page.current !== 1){ %>
       <nav class="breadcrumb">
           <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -67,6 +67,23 @@
           </ol>
       </nav>
   <% } %>
+<% } else if (is_archive()) { %>
+      <nav class="breadcrumb">
+          <ol class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/">
+                      <span itemprop="name">ホーム</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+              </li>
+              <li class="breadcrumb__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                  <a class="breadcrumb__item-link" itemprop="item" href="/<%- path %>">
+                      <span itemprop="name">アーカイブ</span>
+                  </a>
+                  <meta itemprop="position" content="2>" />
+              </li>
+          </ol>
+      </nav>
 <% } else{ %>
 
   <%

@@ -1,103 +1,103 @@
 .header
-    margin: 0 0 80px 0
-    background: linear-gradient(to right, rgb(72, 169, 166), rgb(63, 191, 187))
-    background: linear-gradient(90deg, rgb(63, 191, 187), rgb(63, 171, 191))
-    box-shadow: 0 0 20px 0 rgba(0,0,0,.05)
-    position: relative
+    margin 0 0 80px 0
+    background linear-gradient(to right, rgb(72, 169, 166), rgb(63, 191, 187))
+    background linear-gradient(90deg, rgb(63, 191, 187), rgb(63, 171, 191))
+    box-shadow 0 0 20px 0 rgba(0,0,0,.05)
+    position relative
 
     +media(tabsp)
-      margin: 0 0 24px 0
+      margin 0 0 24px 0
 
     &__inner
-        display: flex
-        width: pc-width
-        margin: auto
-        padding: 16px 0
-        line-height: 50px
-        position: relative
-        z-index: 2
+        display flex
+        width pc-width
+        margin auto
+        padding 16px 0
+        line-height 50px
+        position relative
+        z-index 2
 
         +media(tabsp)
-            width: 96%
+            width 96%
 
     &__logo
         +media(sp)
-            margin: auto
+            margin auto
 
     svg
-        position: relative
-        top: 8px
+        position relative
+        top 8px
 
 
 #particles-js
     canvas
-        position: absolute
-        top: 0
-        left: 0
-        z-index: 1
+        position absolute
+        top 0
+        left 0
+        z-index 1
 
 
 .search-form
-    width: 300px
-    margin: 0 0 0 auto
-    line-height: 48px
-    position: relative
-    align-self: center
+    width 300px
+    margin 0 0 0 auto
+    line-height 48px
+    position relative
+    align-self center
     +media(sp)
-        display: none
+        display none
 
     &__input
-        width: 100%
-        padding: 0 48px 0 16px
-        outline: none
-        color: #eee
-        font-size: 14px
-        background: rgba(0, 0, 0, .18)
-        background: rgba(255, 255, 255, .3)
-        transition: .1s all ease-in-out
-        border-radius: 3px
+        width 100%
+        padding 0 48px 0 16px
+        outline none
+        color #eee
+        font-size 14px
+        background rgba(0, 0, 0, .18)
+        background rgba(255, 255, 255, .3)
+        transition .1s all ease-in-out
+        border-radius 3px
 
         &:focus
-            color: #333
-            background: #fff
+            color #333
+            background #fff
 
 
     &__btn
-        width: 18px
-        height: 20px
-        margin: 8px 6px
-        padding: 16px
-        position: absolute
-        top: 0
-        right: 0
-        color: #ddd
-        font-size: 13px
+        width 18px
+        height 20px
+        margin 8px 6px
+        padding 16px
+        position absolute
+        top 0
+        right 0
+        color #ddd
+        font-size 13px
 
         &::before
         &::after
-            content: ""
-            display: block
-            position: absolute
-            transition: .1s all ease-in-out
+            content ""
+            display block
+            position absolute
+            transition .1s all ease-in-out
 
         &::before
-            width: 14px
-            height: 14px
-            border: 2px solid #f2f2f2
-            border-radius: 50%
-            top: 7px
-            left: 6px
+            width 14px
+            height 14px
+            border 2px solid #f2f2f2
+            border-radius 50%
+            top 7px
+            left 6px
 
         &::after
-            width: 2px
-            height: 10px
-            background: #f2f2f2
-            transform: rotate(-45deg)
-            top: 17px
-            left: 20px
+            width 2px
+            height 10px
+            background #f2f2f2
+            transform rotate(-45deg)
+            top 17px
+            left 20px
 
   .search-form__input:focus + .search-form__btn
       &::before
-          border-color: #aaa
+          border-color #aaa
       &::after
-          background: #aaa
+          background #aaa
