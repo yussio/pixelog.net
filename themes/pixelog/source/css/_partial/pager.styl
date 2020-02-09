@@ -10,17 +10,22 @@
     &__prev
     &__next
         display: block
-        width: 120px
+        width: 160px
         line-height: 56px
         text-decoration: none
         color: theme-color
-        font-size: 15px
+        font-size: 17px
         font-weight: bold
         text-align: center
         transition: .2s all ease-in-out
 
+        +media(sp)
+            width: 120px
+            font-size: 16px
+
         +media(spm)
             width: 80px
+            font-size: 15px
 
     &__prev:hover
     &__next:hover
