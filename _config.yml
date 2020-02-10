@@ -123,3 +123,11 @@ feed:
   icon: icon.png
   autodiscovery: true
   template:
+
+
+archive_generator:
+  per_page: 0
+  yearly: false
+  monthly: false
+  daily: false
+  order_by: -date
