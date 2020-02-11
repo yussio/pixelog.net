@@ -157,14 +157,14 @@ function lazyLoadScript(scriptSrc, type) {
             adScript.setAttribute("async", "async");
             document.body.appendChild(adScript);
             window.removeEventListener("scroll", oneTimeFunction, false);
-            window.addEventListener("mousemove", oneTimeFunction, false);
-            window.addEventListener("mousedown", oneTimeFunction, false);
-            window.addEventListener("touchstart", oneTimeFunction, false);
+            window.removeEventListener("mousemove", oneTimeFunction, false);
+            window.removeEventListener("mousedown", oneTimeFunction, false);
+            window.removeEventListener("touchstart", oneTimeFunction, false);
         }
     }
 }
 lazyLoadScript("var pager = document.getElementById('pager__select');pager.addEventListener('change', function() {location.href = pager.value;});", "inline");
-<% if(is_post()) { %>lazyLoadScript("/js/image-popup.js", "src");<% } %>
+<% if(is_post()) { %>lazyLoadScript("/js/pixel-viewer.js", "src");<% } %>
 lazyLoadScript("https://www.googletagmanager.com/gtag/js?id=UA-68420269-3", "src");
 lazyLoadScript("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-68420269-3\');", "inline");
 lazyLoadScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad");
