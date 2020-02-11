@@ -6,40 +6,38 @@ function pixelViewer(element){
         const img_url = img[i].getAttribute('src');
         const alt = img[i].getAttribute('alt');
 
-        img[i].addEventListener('click', function(){
-            const back_filter = document.createElement('div');
-            back_filter.id = 'pixel-viewer';
+        function open(){
+            const filter = document.createElement('div');
+            filter.id = 'pixel-viewer';
 
-            const alt_div = document.createElement('div');
-            alt_div.id = 'pixel-viewer__alt';
-            alt_div.textContent = alt;
+            const div_alt = document.createElement('div');
+            div_alt.id = 'pixel-viewer__alt';
+            div_alt.textContent = alt;
 
-            const viewer = document.createElement('img');
-            viewer.id = 'pixel-viewer__img';
-            viewer.src = img_url;
+            const div_img = document.createElement('img');
+            div_img.id = 'pixel-viewer__img';
+            div_img.src = img_url;
 
-            body.appendChild(back_filter);
-            back_filter.appendChild(alt_div);
-            back_filter.appendChild(viewer);
+            body.appendChild(filter);
+            filter.appendChild(div_alt);
+            filter.appendChild(div_img);
 
             function close(e){
                 const target = e.currentTarget;
-                target.removeEventListener('click', arguments.callee, false);
-                target.removeEventListener('keydown', arguments.callee, false);
-                back_filter.className = 'fadeout';
-
-                back_filter.addEventListener("animationend",function(e){
-                    back_filter.remove();
-                    viewer.remove();
+                filter.className = 'fadeout';
+                filter.addEventListener("animationend",function(e){
+                    filter.remove();
                 });
             }
-            back_filter.addEventListener('click', close);
+            filter.addEventListener('click', close, {once: true});
+            window.addEventListener('scroll', close, {once: true});
             window.addEventListener('keydown', function(e){
-                if(event.key === 'Escape') {
+                if(e.key === 'Escape') {
                     close(e);
                 }
-            });
-        });
+            }, {once: true});
+        }
+        img[i].addEventListener('click', open);
     }
 }
 

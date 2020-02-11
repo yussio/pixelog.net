@@ -1,5 +1,7 @@
 p > img
     cursor zoom-in
+    vertical-align middle
+
 
 #pixel-viewer
     display flex
@@ -11,16 +13,16 @@ p > img
     top 0
     left: 0
     z-index 10
-    animation fadein .2s ease-in-out both
+    animation fadein .2s ease-out both
     cursor pointer
     user-select none
 
     &.fadeout
-        animation fadeout .2s ease-in-out both
+        animation fadeout .2s ease-out both
         pointer-events none /* ← IE救済措置（IEでこれがないと画像を閉じた後にページ全体がクリックできなくなりますｗ）*/
 
         & #pixel-viewer__img
-            animation scaledown .2s ease-in-out both
+            animation scaledown .2s ease-out both
 
 
 #pixel-viewer__alt
@@ -29,9 +31,9 @@ p > img
     line-height 44px
     padding 0 48px 0 12px
     background rgba(0, 0, 0, .95)
-    color #ddd
+    color #eee
     font-size 14px
-    text-overflow ellipsis
+    text-overflow ellipsis /* スマホなどでaltが横幅をはみ出たときに省略します */
     white-space nowrap
     overflow hidden
 
@@ -41,7 +43,7 @@ p > img
         dispaly block
         width 24px
         height 3px
-        background #ddd
+        background #eee
         border-radius 4px
         position fixed
         top 20px
@@ -57,7 +59,7 @@ p > img
     margin auto
     max-width 100%
     max-height calc(100% - 44px)
-    animation scaleup .2s ease-in-out both
+    animation scaleup .2s ease-out both
 
 
 @keyframes fadein
@@ -65,6 +67,7 @@ p > img
         opacity 0
     100%
         opacity 1
+        transform: translateY(0)
 
 @keyframes scaleup
     0%
