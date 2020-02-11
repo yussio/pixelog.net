@@ -191,3 +191,8 @@ YouTubeは以下のように記述することで拡大できます。
 <a href="#youtube">ここに文字</a>
 <a id="youtube" href="#close" class="lb">YouTubeで発行する埋め込みコード</a>
 ```
+
+## JavaScriptバージョン
+
+この記事はお遊びですが、JavaScriptで実用性のあるものも作りました。よろしければご覧ください。
+[クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる](/post/whxdp7txqo/)
