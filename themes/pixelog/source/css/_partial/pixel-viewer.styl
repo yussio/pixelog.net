@@ -1,4 +1,4 @@
-.content img
+p > img
     cursor zoom-in
 
 #pixel-viewer
@@ -11,15 +11,16 @@
     top 0
     left: 0
     z-index 10
-    animation .2s fadein ease-in-out
+    animation fadein .2s ease-in-out both
     cursor pointer
     user-select none
 
     &.fadeout
-        animation .2s fadeout ease-in-out
+        animation fadeout .2s ease-in-out both
+        pointer-events none /* ← IE救済措置（IEでこれがないと画像を閉じた後にページ全体がクリックできなくなりますｗ）*/
 
         & #pixel-viewer__img
-            animation .2s scaledown ease-in-out
+            animation scaledown .2s ease-in-out both
 
 
 #pixel-viewer__alt
@@ -56,29 +57,29 @@
     margin auto
     max-width 100%
     max-height calc(100% - 44px)
-    animation .2s scaleup ease-in-out
+    animation scaleup .2s ease-in-out both
 
 
 @keyframes fadein
-    from
+    0%
         opacity 0
-    to
+    100%
         opacity 1
 
 @keyframes scaleup
-    from
+    0%
         transform scale(.95)
-    to
+    100%
         transform scale(1)
 
 @keyframes fadeout
-    from
+    0%
         opacity 1
-    to
+    100%
         opacity 0
 
 @keyframes scaledown
-    from
+    0%
         transform scale(1)
-    to
+    100%
         transform scale(.95)

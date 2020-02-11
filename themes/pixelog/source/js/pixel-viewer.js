@@ -1,4 +1,4 @@
-function pixelviewer(element){
+function pixelViewer(element){
     const img = document.querySelectorAll(element);
     const body = document.body
 
@@ -27,11 +27,11 @@ function pixelviewer(element){
                 target.removeEventListener('click', arguments.callee, false);
                 target.removeEventListener('keydown', arguments.callee, false);
                 back_filter.className = 'fadeout';
-                setTimeout(function(){
+
+                back_filter.addEventListener("animationend",function(e){
                     back_filter.remove();
                     viewer.remove();
-                  }
-                ,200);
+                });
             }
             back_filter.addEventListener('click', close);
             window.addEventListener('keydown', function(e){
@@ -43,4 +43,4 @@ function pixelviewer(element){
     }
 }
 
-pixelviewer('p > img');
+pixelViewer('p > img');
