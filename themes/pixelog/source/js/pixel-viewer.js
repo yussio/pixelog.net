@@ -6,6 +6,7 @@ function pixelViewer(element){
         const img_url = img[i].getAttribute('src');
         const alt = img[i].getAttribute('alt');
 
+        img[i].addEventListener('click', open);
         function open(){
             const filter = document.createElement('div');
             filter.id = 'pixel-viewer';
@@ -22,22 +23,20 @@ function pixelViewer(element){
             filter.appendChild(div_alt);
             filter.appendChild(div_img);
 
-            function close(e){
-                const target = e.currentTarget;
-                filter.className = 'fadeout';
-                filter.addEventListener("animationend",function(e){
-                    filter.remove();
-                });
-            }
             filter.addEventListener('click', close, {once: true});
             window.addEventListener('scroll', close, {once: true});
             window.addEventListener('keydown', function(e){
                 if(e.key === 'Escape') {
-                    close(e);
+                    close();
                 }
             }, {once: true});
+            function close(){
+                filter.className = 'fadeout';
+                filter.addEventListener("animationend",function(){
+                    filter.remove();
+                });
+            }
         }
-        img[i].addEventListener('click', open);
     }
 }
 
