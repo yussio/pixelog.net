@@ -49,6 +49,8 @@ Stylusで書いたものと、コンパイル済みのものを置いておき�
     animation fadein .2s ease-out both
     cursor pointer
     user-select none
+    -webkit-tap-highlight-color transparent
+    tap-highlight-color transparent
 
     &.fadeout
         animation fadeout .2s ease-out both
@@ -132,6 +134,8 @@ Stylusで書いたものと、コンパイル済みのものを置いておき�
   animation: fadein 0.2s ease-out both;
   cursor: pointer;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
 }
 #pixel-viewer.fadeout {
   animation: fadeout 0.2s ease-out both;
