@@ -17,7 +17,7 @@
     <a class="pager__prev <% if (!page.prev_link && !is_current('/page/2/')) { %>disabled<% } %>" <% if (page.prev_link) { %> href="/<%- page.prev_link %>" <% } %><% if (is_current('/page/2/')) {  %> href="/" <% } %> >Newer</a>
     <div class="pager__number">
         <div class="pager__select">
-            <select class="pager__select-form" id="pager__select" name="sort">
+            <select class="pager__select-form" name="sort" onchange="location.href=this.value;">
             <% var page_path = page.path.replace(/index.html/,'').replace(/page\/.+\//,'') %>
             <% for( i = 1; i <= page.total; i++){ %>
                 <% if( i === 1 ){ %>
