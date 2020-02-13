@@ -1,5 +1,6 @@
 .breadcrumb
     margin 0 0 16px 0
+    height: 56px
     line-height 56px
     background #fff
     font-size 14px
@@ -13,6 +14,7 @@
         display flex
         list-style none
         overflow-x auto
+        overflow-y hidden
         scroll-snap-type x mandatory
         position relative
 
@@ -66,7 +68,3 @@
 
         &-link
             color #555
-
-            &[href*="page"]
-                text-decoration none
-                pointer-events none
