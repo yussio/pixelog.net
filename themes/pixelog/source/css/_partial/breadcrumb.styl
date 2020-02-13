@@ -6,17 +6,13 @@
     font-size 14px
     box-shadow 0 2px 10px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.1)
     border-radius 4px
-    overflow-x scroll
-    -webkit-overflow-scrolling touch
-    overflow-scrolling touch
-    -ms-overflow-style none   /* スクロールバー消す IE, Edge */
-    scrollbar-width none       /* スクロールバー消す Firefox */
+    overflow auto
+
 
     +media(spm)
         font-size 13px
 
-    &::-webkit-scrollbar
-        display none /* スクロールバー消す Chrome, Safari */
+
 
     &__list
         display flex
