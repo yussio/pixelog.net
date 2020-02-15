@@ -4,11 +4,9 @@
     border-radius 4px
 
     &__item
-        border-bottom 1px solid #ddd
         list-style none
-
-        &:last-child
-            border none
+        &:not(:last-child)
+            border-bottom 1px solid #ddd
 
         &-link
             display flex
