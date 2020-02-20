@@ -41,3 +41,4 @@ function pixelViewer(element){
 }
 
 pixelViewer('p > img');
+pixelViewer('figure > img');
