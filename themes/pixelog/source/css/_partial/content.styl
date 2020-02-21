@@ -72,10 +72,11 @@
     .vertical-img
         max-width 400px
 
-code
+code:not(.hljs)
     margin .5em
     padding 3px
     background #f2f2f2
+    color #333
     box-shadow 0 1px 0 0 #ddd
     border-radius: 2px
     font-family Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
@@ -89,8 +90,7 @@ pre
     font-size 14px
     font-family Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
     line-height 1.5
-    box-shadow none
-    border-radius 0
+    border-radius 3px
 
     &::before
         display block
@@ -102,6 +102,7 @@ pre
         top 0
         left 0
         font-size 16px
+        border-radius 3px 0 0 0
 
     &.css::before
         content "CSS"
