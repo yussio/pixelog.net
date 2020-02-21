@@ -174,8 +174,10 @@ if(localTheme === 'dark') {
 isDark.addListener(e => {
     if (e.matches) {
         changeMode('dark');
+        localStorage.removeItem(keyLocalStorage);
     } else {
         changeMode('light');
+        localStorage.removeItem(keyLocalStorage);
     }
 })
 
@@ -195,7 +197,7 @@ function changeMode(mode){
         htmlElement.setAttribute('data-mode', 'dark');
         toggle_switch.checked = true;
     } else if(mode === 'light') {
-        htmlElement.setAttribute('data-mode', 'light');
+        htmlElement.removeAttribute('data-mode');
         toggle_switch.checked = false;
     }
 }
