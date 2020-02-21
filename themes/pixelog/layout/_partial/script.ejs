@@ -155,13 +155,8 @@ lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad")
 const toggle_switch = document.getElementById('toggle-dark');
 const isDark = window.matchMedia('(prefers-color-scheme: dark)');
 const htmlElement = document.documentElement;
-
-// ローカルストレージに保存するための適当なKey名
 const keyLocalStorage = 'theme';
-
-// ローカルストレージの情報を取得
 const localTheme = localStorage.getItem(keyLocalStorage);
-
 
 if(localTheme === 'dark') {
     changeMode('dark');
@@ -180,7 +175,6 @@ isDark.addListener(e => {
         localStorage.removeItem(keyLocalStorage);
     }
 })
-
 
 toggle_switch.addEventListener('change', function(){
     if(toggle_switch.checked){
@@ -201,6 +195,4 @@ function changeMode(mode){
         toggle_switch.checked = false;
     }
 }
-
-
 </script>
