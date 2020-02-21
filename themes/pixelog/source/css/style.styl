@@ -4,51 +4,7 @@
 /* Variables
 --------------------------------------------------------------------------------------------------------*/
 
-// Android one S2 → 398px
-// iPhone5C → 338px
-
-pc-width = 1200px
-sp-width = 767px
-spm-width = 397px
-
-
-:root
-    --theme-color linear-gradient(90deg, rgb(63, 191, 187), rgb(63, 171, 191))
-
-    --background-color #f9f9f9
-    --background-sub-color #fff
-    --background-dark-color #555b6e
-    --background-hover-color #f9f9f9
-
-    --text-color #333
-    --text-link-color #333
-    --text-link-default-color #1a0dab
-    --text-sub-color #888
-    --text-accent-color #3fb5bd
-    --text-disabled-color #eee
-
-    --border-color #ddd
-
-
-
-[data-mode='dark']
-    --theme-color #333
-
-    --background-color #202124
-    --background-sub-color #333
-    --background-dark-color #333
-    --background-hover-color #444
-
-    --text-color #E8EAED
-    --text-link-color #E8EAED
-    --text-link-default-color #8ab4f8
-    --text-sub-color #9AA0A6
-    --text-accent-color #8ab4f8
-    --text-disabled-color #555
-
-    --border-color #555
-
-
+@import '_partial/variables'
 
 media(bpName)
     for name in bpName

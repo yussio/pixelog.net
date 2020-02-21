@@ -152,14 +152,53 @@ lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad")
 </script>
 
 <script>
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  document.documentElement.setAttribute('data-mode', 'dark')
+const toggle_switch = document.getElementById('toggle-dark');
+const isDark = window.matchMedia('(prefers-color-scheme: dark)');
+const htmlElement = document.documentElement;
+
+// ローカルストレージに保存するための適当なKey名
+const keyLocalStorage = 'theme';
+
+// ローカルストレージの情報を取得
+const localTheme = localStorage.getItem(keyLocalStorage);
+
+
+if(localTheme === 'dark') {
+    changeMode('dark');
+} else if(localTheme === 'light') {
+    changeMode('light');
+} else if(isDark.matches) {
+    changeMode('dark');
 }
-window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-  if (e.matches) {
-    document.documentElement.setAttribute('data-mode', 'dark')
-  } else {
-    document.documentElement.setAttribute('data-mode', 'light')
-  }
+
+isDark.addListener(e => {
+    if (e.matches) {
+        changeMode('dark');
+    } else {
+        changeMode('light');
+    }
 })
+
+
+toggle_switch.addEventListener('change', function(){
+    if(toggle_switch.checked){
+        changeMode('dark');
+        localStorage.setItem(keyLocalStorage,'dark');
+    } else {
+        changeMode('light');
+        localStorage.setItem(keyLocalStorage,'light');
+    }
+});
+
+function changeMode(mode){
+    if(mode === 'dark') {
+        htmlElement.setAttribute('data-mode', 'dark');
+        toggle_switch.checked = true;
+    } else if(mode === 'light') {
+        htmlElement.setAttribute('data-mode', 'light');
+        toggle_switch.checked = false;
+    }
+}
+
+
 </script>
