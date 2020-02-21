@@ -1,0 +1,91 @@
+background-color = #1F1F1F
+background-sub-color = #3a3a3a
+background-hover-color = #555
+
+border-color = #555
+
+text-color = #E8EAED
+text-sub-color = #9AA0A6
+text-hover-color = #ddd
+text-accent-color = #8ab4f8
+text-disabled-color = #555
+
+@media (prefers-color-scheme: dark)
+
+    // 背景
+    body
+        background background-color
+
+    // コンテンツ背景
+    .header
+    .footer
+    .post-list
+    .pager
+    .breadcrumb
+    .post
+        background background-sub-color
+        box-shadow none
+
+    // サイドバータイトル背景
+    .widget__title
+        background background-sub-color
+        box-shadow none
+        &::after
+            border-top-color background-sub-color
+
+    // コンテンツ テキスト
+    .breadcrumb__item-link
+    .post-list__item-link
+    .post-header__title-link
+    .category-list-link
+    .recent-posts-list-link
+    .pager__number
+    .content
+    .content h2
+    .content h3
+        color text-color
+
+    // リンク ホバー時
+    .post-list__item-link:hover
+    .category-list-link:hover
+    .recent-posts-list-link:hover
+    .pager__next:hover
+    .pager__prev:hover
+          background background-hover-color
+          color text-hover-color
+
+    // subカラー
+    .post-list__date
+    .post-header__meta
+        color text-sub-color
+
+    // accentカラー
+    .breadcrumb__item:last-child>a
+    .pager__next
+    .pager__prev
+    .content a
+        color text-accent-color
+
+    // disabledカラー
+    .disabled
+        color: text-disabled-color
+
+    // borderカラー
+    .post-list__item:not(:last-child)
+    .pager__prev
+    .pager__next
+    .category-list-child
+          border-color border-color
+
+    // パンくず
+    .breadcrumb__item:not(:last-child)
+        &::before
+            border-left-color background-sub-color
+        &::after
+            border-left-color border-color
+
+    // ページャー
+    .pager__select
+          background #777
+          border-color #999
+          color text-color
