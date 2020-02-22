@@ -152,47 +152,49 @@ lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad")
 </script>
 
 <script>
-const toggle_switch = document.getElementById('toggle-dark');
-const isDark = window.matchMedia('(prefers-color-scheme: dark)');
-const htmlElement = document.documentElement;
-const keyLocalStorage = 'theme';
-const localTheme = localStorage.getItem(keyLocalStorage);
+(function () {
+    const toggle_switch = document.getElementById('toggle-dark');
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const htmlElement = document.documentElement;
+    const keyLocalStorage = 'theme';
+    const localTheme = localStorage.getItem(keyLocalStorage);
 
-if(localTheme === 'dark') {
-    changeMode('dark');
-} else if(localTheme === 'light') {
-    changeMode('light');
-} else if(isDark.matches) {
-    changeMode('dark');
-}
-
-isDark.addListener(e => {
-    if (e.matches) {
+    if(localTheme === 'dark') {
         changeMode('dark');
-        localStorage.removeItem(keyLocalStorage);
-    } else {
+    } else if(localTheme === 'light') {
         changeMode('light');
-        localStorage.removeItem(keyLocalStorage);
-    }
-})
-
-toggle_switch.addEventListener('change', function(){
-    if(toggle_switch.checked){
+    } else if(isDark.matches) {
         changeMode('dark');
-        localStorage.setItem(keyLocalStorage,'dark');
-    } else {
-        changeMode('light');
-        localStorage.setItem(keyLocalStorage,'light');
     }
-});
 
-function changeMode(mode){
-    if(mode === 'dark') {
-        htmlElement.setAttribute('data-mode', 'dark');
-        toggle_switch.checked = true;
-    } else if(mode === 'light') {
-        htmlElement.removeAttribute('data-mode');
-        toggle_switch.checked = false;
+    isDark.addListener(e => {
+        if (e.matches) {
+            changeMode('dark');
+            localStorage.removeItem(keyLocalStorage);
+        } else {
+            changeMode('light');
+            localStorage.removeItem(keyLocalStorage);
+        }
+    })
+
+    toggle_switch.addEventListener('change', function(){
+        if(toggle_switch.checked){
+            changeMode('dark');
+            localStorage.setItem(keyLocalStorage,'dark');
+        } else {
+            changeMode('light');
+            localStorage.setItem(keyLocalStorage,'light');
+        }
+    });
+
+    function changeMode(mode){
+        if(mode === 'dark') {
+            htmlElement.setAttribute('data-mode', 'dark');
+            toggle_switch.checked = true;
+        } else if(mode === 'light') {
+            htmlElement.removeAttribute('data-mode');
+            toggle_switch.checked = false;
+        }
     }
-}
+}());
 </script>
