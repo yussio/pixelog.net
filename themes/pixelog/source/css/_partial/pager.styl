@@ -17,7 +17,6 @@
         font-size 17px
         font-weight bold
         text-align center
-        transition .2s all ease-in-out
 
         +media(sp)
             width 120px
@@ -30,10 +29,6 @@
     &__prev:hover
     &__next:hover
         background var(--background-hover-color)
-
-    &__prev:active
-    &__next:active
-        box-shadow 1px 1px 2px 0 #efefef inset
 
     &__prev::before
     &__next::after
@@ -99,3 +94,7 @@
     &-form
         padding 0 48px 0 24px
         cursor pointer
+        color var(--text-color)
+
+        & option
+            color #000
