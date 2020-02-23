@@ -42,8 +42,22 @@
         border-left 1px solid var(--border-color)
         list-style none
 
+        & > .category-list-item
+            &::before
+                content ""
+                display block
+                position absolute
+                width 7px
+                height 7px
+                background var(--border-color)
+                border-radius 50%
+                top 15px
+                left -19px
+
     &-item
-        line-height 2.5
+        position relative
+        line-height 37px
+
 
     &-link
         display inline-block
