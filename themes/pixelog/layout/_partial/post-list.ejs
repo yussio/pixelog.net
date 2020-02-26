@@ -14,25 +14,23 @@
 </ul>
 
 <div class="pager">
-    <a class="pager__prev <% if (!page.prev_link && !is_current('/page/2/')) { %>disabled<% } %>" <% if (page.prev_link) { %> href="/<%- page.prev_link %>" <% } %><% if (is_current('/page/2/')) {  %> href="/" <% } %> >Newer</a>
+    <a class="pager__prev<% if (!page.prev_link && !is_current('/page/2/')) { %>--disabled<% } %>" <% if (page.prev_link) { %> href="/<%- page.prev_link %>" <% } %><% if (is_current('/page/2/')) {  %> href="/" <% } %> >Newer</a>
     <div class="pager__number">
-        <div class="pager__select">
-            <select class="pager__select-form" name="sort" onchange="location.href=this.value;">
-            <% var page_path = page.path.replace(/index.html/,'').replace(/page\/.+\//,'') %>
-            <% for( i = 1; i <= page.total; i++){ %>
-                <% if( i === 1 ){ %>
-                    <option value="/<%= page_path %>"
-                <% } else { %>
-                    <option value="/<%= page_path %>page/<%- i %>/"
-                <% } %>
-                <% if( i === page.current ){ %>
-                  selected
-                <% } %>
-                  ><%- i %></option>
+        <select class="pager__current" name="sort" onchange="location.href=this.value;">
+        <% var page_path = page.path.replace(/index.html/,'').replace(/page\/.+\//,'') %>
+        <% for( i = 1; i <= page.total; i++){ %>
+            <% if( i === 1 ){ %>
+                <option value="/<%= page_path %>"
+            <% } else { %>
+                <option value="/<%= page_path %>page/<%- i %>/"
             <% } %>
-            </select>
-        </div>
-     / <%- page.total %>
+            <% if( i === page.current ){ %>
+              selected
+            <% } %>
+              ><%- i %></option>
+        <% } %>
+        </select>
+        <div class="pager__total">/ <%- page.total %></div>
     </div>
-    <a class="pager__next <% if (!page.next_link) { %>disabled<% } %>" <% if (page.next_link) { %> href="/<%- page.next_link %>" <% } %>>Older</a>
+    <a class="pager__next<% if (!page.next_link) { %>--disabled<% } %>" <% if (page.next_link) { %> href="/<%- page.next_link %>" <% } %>>Older</a>
 </div>
