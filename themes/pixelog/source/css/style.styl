@@ -1,29 +1,9 @@
 @charset "utf-8";
-@import '_partial/base/ress'
-
-/* Variables
---------------------------------------------------------------------------------------------------------*/
-
+@import '_partial/base/*'
 @import '_partial/variables'
 
-media(bpName)
-    for name in bpName
-        if name == 'spm'
-            @media only screen and (max-width: spm-width)
-                {block}
-        if name == 'sp'
-            @media only screen and (max-width: sp-width)
-                {block}
-        if name == 'tabsp'
-            @media only screen and (max-width: pc-width - 1px)
-                {block}
-        if name == 'tab'
-            @media only screen and (min-width: sp-width + 1px) and (max-width: pc-width - 1px)
-                {block}
-        if name == 'pc'
-            @media only screen and (min-width: pc-width)
-                {block}
-
+/* base
+--------------------------------------------------------------------------------------------------------*/
 
 html
     scroll-behavior: smooth
@@ -66,26 +46,5 @@ body
 /* partial
 --------------------------------------------------------------------------------------------------------*/
 
-// ベース
-@import '_partial/base/styles/atom-one-dark.css'
-@import '_partial/pixel-viewer'
-
-//ヘッダー
-@import '_partial/header'
-
-// メイン
-@import '_partial/container'
-@import '_partial/breadcrumb'
-@import '_partial/post-list'
-@import '_partial/pager'
-
-// 記事
-@import '_partial/post'
-@import '_partial/content'
-
-
-// サイドバー
-@import '_partial/aside'
-
-//フッター
-@import '_partial/footer'
+@import '_partial/layout/*'
+@import '_partial/component/*'

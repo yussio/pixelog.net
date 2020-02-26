@@ -6,6 +6,25 @@ sp-width = 767px
 spm-width = 397px
 
 
+media(bpName)
+    for name in bpName
+        if name == 'spm'
+            @media only screen and (max-width: spm-width)
+                {block}
+        if name == 'sp'
+            @media only screen and (max-width: sp-width)
+                {block}
+        if name == 'tabsp'
+            @media only screen and (max-width: pc-width - 1px)
+                {block}
+        if name == 'tab'
+            @media only screen and (min-width: sp-width + 1px) and (max-width: pc-width - 1px)
+                {block}
+        if name == 'pc'
+            @media only screen and (min-width: pc-width)
+                {block}
+
+
 :root
     --theme-color linear-gradient(90deg, rgb(63, 191, 187), rgb(63, 171, 191))
 
