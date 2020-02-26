@@ -28,14 +28,16 @@
         margin 0 0 60px 0
 
 
-.category-list
-.recent-posts-list
+
+$aside-list
     margin 0 6px
     list-style none
     font-size 15px
 
 
 .category-list
+    @extend $aside-list
+
     &-child
         margin 0 0 0 1em
         padding 0 0 0 1em
@@ -82,6 +84,8 @@
 
 
 .recent-posts-list
+    @extend $aside-list
+
     &-item
         margin 0 0 1.2em 0
 
@@ -89,7 +93,6 @@
         display block
         color var(--text-link-color)
         text-decoration none
-        border-radius 2px
         transition .1s opacity ease-in-out
 
         &:hover

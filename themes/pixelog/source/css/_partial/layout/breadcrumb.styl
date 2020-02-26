@@ -6,7 +6,6 @@
     font-size 14px
     box-shadow 0 2px 10px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.1)
     border-radius 4px
-
     +media(spm)
         font-size 13px
 
@@ -23,6 +22,30 @@
         padding 0 24px
         flex-shrink 0
         scroll-snap-align start
+
+        &-link
+            color var(--text-link-color)
+            transition .1s opacity ease-in-out
+
+            &:hover
+                opacity .6
+
+        &:first-child
+            padding 0 24px 0 16px
+        &:last-child
+            width 100%
+            min-width 10em
+            padding 0 16px 0 24px
+            flex-shrink 1
+            text-overflow ellipsis
+            white-space nowrap
+            overflow hidden
+            font-weight bold
+
+            & > a
+                color var(--text-accent-color)
+                text-decoration none
+                pointer-events none
 
         &:not(:last-child)
             &::before
@@ -48,27 +71,3 @@
                 top 0
                 right -34px
                 z-index 1
-
-        &:first-child
-            padding 0 24px 0 16px
-        &:last-child
-            width 100%
-            min-width 10em
-            padding 0 16px 0 24px
-            flex-shrink 1
-            text-overflow ellipsis
-            white-space nowrap
-            overflow hidden
-            font-weight bold
-
-            & > a
-                color var(--text-accent-color)
-                text-decoration none
-                pointer-events none
-
-        &-link
-            color var(--text-link-color)
-            transition .1s opacity ease-in-out
-
-            &:hover
-                opacity .6
