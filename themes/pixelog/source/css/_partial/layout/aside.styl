@@ -88,6 +88,11 @@ $aside-list
         display inline-block
         width calc(100% - 42px)
 
+        &--current
+            @extend .category-list-link
+            font-weight bold
+            color var(--text-accent-color)
+
     &-count
         display inline-block
         float right
