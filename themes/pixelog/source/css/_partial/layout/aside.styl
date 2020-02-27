@@ -34,6 +34,14 @@ $aside-list
     list-style none
     font-size 15px
 
+    &-link
+        text-decoration none
+        color var(--text-link-color)
+        transition .1s opacity ease-in-out
+
+        &:hover
+            opacity .6
+
 
 .category-list
     @extend $aside-list
@@ -60,17 +68,9 @@ $aside-list
         position relative
         line-height 37px
 
-
     &-link
         display inline-block
         width calc(100% - 42px)
-        text-decoration none
-        color var(--text-link-color)
-        border-radius 2px
-        transition .1s opacity ease-in-out
-
-        &:hover
-            opacity: .6
 
     &-count
         display inline-block
@@ -91,9 +91,3 @@ $aside-list
 
     &-link
         display block
-        color var(--text-link-color)
-        text-decoration none
-        transition .1s opacity ease-in-out
-
-        &:hover
-            opacity: .6
