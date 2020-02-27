@@ -288,4 +288,4 @@ aタグの中に入った画像は対応していません。子セレクタな�
 素人設計ですが使いたいという方がいらっしゃいましたら、ご自由にお使いください。
 
 このプラグインをJavaScriptを使わずCSSのみで再現するというお遊び記事も書いてるので、実用性はありませんが、よろしければご覧ください。
-[CSSのみでクリックで画像を拡大する（Lightboxもどき）](http://localhost:4000/post/only-css-popup-image/)
+[CSSのみでクリックで画像を拡大する（Lightboxもどき）](/post/only-css-popup-image/)
