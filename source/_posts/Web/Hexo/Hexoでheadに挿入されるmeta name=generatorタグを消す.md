@@ -3,7 +3,6 @@ title: Hexoでheadに挿入されるmeta name="generator"タグを消す
 pid: remove-meta-generator
 categories:
   - Web
-  - 静的サイトジェネレーター
   - Hexo
 date: 2019-06-03 22:12:12
 tags:

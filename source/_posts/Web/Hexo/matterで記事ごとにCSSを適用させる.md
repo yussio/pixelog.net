@@ -1,12 +1,11 @@
 ---
 pid: xumh8c5si7
 title: Hexoで記事ごとに適用するcss/jsファイルをFront-matterから自動で読み込む
-description:
 categories:
   - Web
-  - 静的サイトジェネレーター
   - Hexo
 date: 2020-01-30 10:33:20
+description:
 ---
 
 Hexoでブログを書いていると、記事ごとにCSSやJavaScriptを書いて読み込みたいと思うことがよくあります。

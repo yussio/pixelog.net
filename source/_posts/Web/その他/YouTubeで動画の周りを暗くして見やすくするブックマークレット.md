@@ -3,8 +3,7 @@ title: YouTubeで動画の周りを暗くして見やすくするブックマー
 pid: bookmarklet-for-youtube
 categories:
   - Web
-  - JavaScript
-  - ブックマークレット
+  - その他
 date: 2019-05-14 12:55:06
 tags:
 ---

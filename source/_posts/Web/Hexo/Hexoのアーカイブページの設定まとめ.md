@@ -3,7 +3,6 @@ title: Hexoのアーカイブページの設定まとめ
 pid: hexo-archive-settings
 categories:
   - Web
-  - 静的サイトジェネレーター
   - Hexo
 date: 2019-06-05 19:11:23
 tags:
