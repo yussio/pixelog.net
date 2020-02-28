@@ -47,7 +47,7 @@
 <% if(is_category() || is_post()) { %>
     <script>
       if(<%- is_category() %> && <%- page.current === 1 %>){ var i = 1;}else{ var i = 2;}
-      document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + i +') a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link--current');</script>
+      document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + i +') a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link current');</script>
 <% } %>
 
 <script>
