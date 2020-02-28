@@ -14,6 +14,15 @@
         changeMode('dark');
     }
 
+    toggle_switch.addEventListener('change', function(){
+        if(toggle_switch.checked){
+            changeMode('dark');
+            localStorage.setItem(keyLocalStorage,'dark');
+        } else {
+            changeMode('light');
+            localStorage.setItem(keyLocalStorage,'light');
+        }
+    });
     isDark.addListener(e => {
         if (e.matches) {
             changeMode('dark');
@@ -24,31 +33,21 @@
         }
     })
 
-    toggle_switch.addEventListener('change', function(){
-        if(toggle_switch.checked){
-            changeMode('dark');
-            localStorage.setItem(keyLocalStorage,'dark');
-        } else {
-            changeMode('light');
-            localStorage.setItem(keyLocalStorage,'light');
-        }
-    });
-
     function changeMode(mode){
         if(mode === 'dark') {
-            htmlElement.setAttribute('data-mode', 'dark');
+            htmlElement.dataset.mode = 'dark';
             toggle_switch.checked = true;
         } else if(mode === 'light') {
-            htmlElement.removeAttribute('data-mode');
+            delete htmlElement.dataset.mode;
             toggle_switch.checked = false;
         }
     }
 }());
 </script>
-<% if(is_category()) { %>
-    <script>document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:last-of-type a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link--current');</script>
-<% } else if(is_post()){ %>
-    <script>document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(2) a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link--current');</script>
+<% if(is_category() || is_post()) { %>
+    <script>
+      if(<%- is_category() %> && <%- page.current === 1 %>){ var i = 1;}else{ var i = 2;}
+      document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + i +') a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link--current');</script>
 <% } %>
 
 <script>

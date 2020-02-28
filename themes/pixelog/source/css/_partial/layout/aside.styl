@@ -28,9 +28,7 @@
         margin 0 0 60px 0
 
         &--sticky
-            +media(pc)
-                position sticky
-                top 24px
+            @extend .widget__category
 
 
 
@@ -87,11 +85,11 @@ $aside-list
     &-link
         display inline-block
         width calc(100% - 42px)
+        padding 0 4px
 
         &--current
             @extend .category-list-link
-            font-weight bold
-            color var(--text-accent-color)
+            background #eee
 
     &-count
         display inline-block
