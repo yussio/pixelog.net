@@ -40,9 +40,6 @@ input[name="factor"] {
     border-radius: 2px;
 }
 
-#calc:active {
-    background: #00c9e8;
-}
 
 .option {
   margin: 20px 0;
