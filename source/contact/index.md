@@ -38,7 +38,7 @@ date: 2020-01-26 12:32:19
 }
 
 .mailform button {
-  background: #48a9a6;
+  background: var(--theme-color);
   color: #fff !important;
   padding: 6px 48px;
   border-radius: 3px;
