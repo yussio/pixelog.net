@@ -68,15 +68,13 @@
         justify-content center
         border-radius 50%
         box-shadow 0 4px 5px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.1)
-        transition .1s opacity ease-in-out
-
-        svg
-            width 20px
-            height 20px
-            align-self center
+        transition .2s all ease-in-out
 
         &:hover
             opacity .85
+            +media(pc)
+                transform translateY(-3px)
+                box-shadow 0 8px 5px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.1)
 
     &__item-link
         &--twitter
@@ -97,3 +95,8 @@
         &--feedly
             @extend $item-link
             background #6cc655
+
+    &__svg
+        width 20px
+        height 20px
+        align-self center
