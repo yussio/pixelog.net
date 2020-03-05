@@ -32,5 +32,62 @@
 
 
 .post-footer
+    margin 100px 0 0 0
+
     &__ad
         margin 60px 0 0 0
+
+
+
+
+.social-btn
+    display flex
+    justify-content center
+    list-style none
+    +media(sp)
+        flex-wrap wrap
+
+    &__item
+        width 60px
+        @media only screen and (max-width: 408px)
+            width 33%
+            margin 0 0 24px 0
+
+    $item-link
+        display flex
+        width 44px
+        height 44px
+        margin auto
+        color #fff
+        justify-content center
+        border-radius 50%
+        box-shadow 0 4px 5px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.1)
+        transition .1s opacity ease-in-out
+
+        svg
+            width 20px
+            height 20px
+            align-self center
+
+        &:hover
+            opacity .85
+
+    &__item-link
+        &--twitter
+            @extend $item-link
+            background #55acee
+        &--facebook
+            @extend $item-link
+            background #1877f2
+        &--tumblr
+            @extend $item-link
+            background #34465d
+        &--hatebu
+            @extend $item-link
+            background #008fde
+        &--pocket
+            @extend $item-link
+            background #ef3f56
+        &--feedly
+            @extend $item-link
+            background #6cc655
