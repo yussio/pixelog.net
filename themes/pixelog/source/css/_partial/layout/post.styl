@@ -42,16 +42,22 @@
 
 .social-btn
     display flex
+    padding 24px 0
     justify-content center
+    background  var(--background-color)
+    border-radius 4px
     list-style none
+    filter: grayscale(.1);
     +media(sp)
         flex-wrap wrap
 
     &__item
         width 60px
         @media only screen and (max-width: 408px)
-            width 27%
-            margin 0 0 24px 0
+            width 26%
+
+            &:nth-of-type(-n+3)
+                margin 0 0 24px 0
 
     $item-link
         display flex
