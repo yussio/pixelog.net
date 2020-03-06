@@ -23,11 +23,17 @@ if (is_archive()){
 <title><% if (title){ %><%= title %> - <% } %><%= config.title %></title>
 
 <%# ディスクリプションの設定 %>
-<%if (page.description) {
-  var description = page.description;
-}else if(config.description) {
-  var description = config.description;
-} %>
+<%
+if(is_post()){
+  if (page.description) {
+    var description = page.description;
+  }else {
+    var description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
+  }
+} else {
+    var description = config.description;
+}
+%>
 <meta name="description" content="<%= description %>">
 
 <%# URLの正規化（index.htmlを削除） %>

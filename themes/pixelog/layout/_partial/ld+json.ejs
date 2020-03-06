@@ -1,110 +1,173 @@
+<%
+var title = page.title;
+
+if (is_archive()){
+  title = 'アーカイブ';
+  if (is_month()){
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()){
+    title += ': ' + page.year;
+  }
+} else if (is_category()){
+  title = 'カテゴリー: ' + page.category;
+} else if (is_tag()){
+  title = 'タグ: ' + page.tag;
+}
+
+if(is_post()){
+  if (page.description) {
+    var description = page.description;
+  }else {
+    var description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
+  }
+} else {
+    var description = config.description;
+}
+
+%>
+
+
+
 {
   "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement":
-  [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "item":
-      {
-        "@id": "/",
-        "name": "ホーム"
-      }
-    },
-    <% if (is_home()) { %>
-        <% if(page.current !== 1){ %>
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item":
+          {
+            "@id": "/",
+            "name": "ホーム"
+          }
+        }<% if(!is_home() || page.current !== 1 ){ %>,<% } %>
+        <% if (is_home()) { %>
+            <% if(page.current !== 1){ %>
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item":
+                  {
+                    "@id": "/page/<%= page.current %>/",
+                    "name": "ページ<%= page.current %>"
+                  }
+                }
+        <% } %>
+        <% } else if (is_category()) { %>
+            <%
+            const path = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '');
+            const categories = path.split('/');
+            let dir_name = '';
+            %>
+            <% categories.forEach(function(item, i){ %>
+                <%
+                i += 2;
+                dir_name += '/' + item;
+                %>
+                {
+                  "@type": "ListItem",
+                  "position": <%= i %>,
+                  "item":
+                  {
+                    "@id": "/category<%= dir_name %>/",
+                    "name": "<% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %>"
+                  }
+                } <% if(page.current !== 1){ %>,<% } %>
+            <% }) %>
+            <% if(page.current !== 1){ %>
+                {
+                  "@type": "ListItem",
+                  "position": <%= i+1 %>,
+                  "item":
+                  {
+                    "@id": "/category<%= dir_name %>/page/<%= page.current %>/",
+                    "name": "ページ<%= page.current %>"
+                  }
+                }
+            <% } %>
+        <% } else if (is_archive()) { %>
             {
               "@type": "ListItem",
               "position": 2,
               "item":
               {
-                "@id": "/page/<%= page.current %>/",
-                "name": "ページ<%= page.current %>"
+                "@id": "/archive/",
+                "name": "アーカイブ"
               }
             }
-    <% } %>
-    <% } else if (is_category()) { %>
-        <%
-        const path = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '');
-        const categories = path.split('/');
-        let dir_name = '';
-        %>
-        <% categories.forEach(function(item, i){ %>
+        <% } else if(is_post()) { %>
+            <% let dir_name = ''; %>
+            <% page.categories.forEach(function(item, i){ %>
+                <%
+                i += 2;
+                dir_name += '/' + item.name;
+                %>
+                {
+                  "@type": "ListItem",
+                  "position": <%= i %>,
+                  "item":
+                  {
+                    "@id": "/category<%= dir_name.toLowerCase(); %>/",
+                    "name": "<%= item.name %>"
+                  }
+                },
+            <% }) %>
+            {
+              "@type": "ListItem",
+              "position": <%= page.categories.length + 2 %>,
+              "item":
+              {
+                "@id": "/<%- page.path %>",
+                "name": "<%= page.title %>"
+              }
+            }
+        <% } else if (is_page()) { %>
             <%
-            i += 2;
-            dir_name += '/' + item;
+            const path = page.path.replace(/index.html/, '');
             %>
             {
               "@type": "ListItem",
-              "position": <%= i %>,
+              "position": 2,
               "item":
               {
-                "@id": "/category<%= dir_name %>/",
-                "name": "<% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %>"
-              }
-            } <% if(page.current !== 1){ %>,<% } %>
-        <% }) %>
-        <% if(page.current !== 1){ %>
-            {
-              "@type": "ListItem",
-              "position": <%= i+1 %>,
-              "item":
-              {
-                "@id": "/category<%= dir_name %>/page/<%= page.current %>/",
-                "name": "ページ<%= page.current %>"
+                "@id": "/<%- path %>",
+                "name": "<%= page.title %>"
               }
             }
         <% } %>
-    <% } else if (is_archive()) { %>
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item":
-          {
-            "@id": "/archive/",
-            "name": "アーカイブ"
-          }
+      ]
+    } <% if(is_post()) { %>,
+    {
+      "@type": "BlogPosting",
+      "headline": "<% if (title){ %><%= title %> - <% } %><%= config.title %>",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://pixelog.net/img/ogp_logo.png",
+        "height": 630,
+        "width": 1200
+      },
+      "datePublished": "<%= page.date.format() %>",
+      "dateModified": "<%= page.date.format() %>",
+      "author": {
+        "@type": "Person",
+        "name": "<%= config.author %>"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "<%= config.title %>",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pixelog.net/img/ogp_logo.png",
+          "width": 630,
+          "height": 1200
         }
-    <% } else if(is_post()) { %>
-        <% let dir_name = ''; %>
-        <% page.categories.forEach(function(item, i){ %>
-            <%
-            i += 2;
-            dir_name += '/' + item.name;
-            %>
-            {
-              "@type": "ListItem",
-              "position": <%= i %>,
-              "item":
-              {
-                "@id": "/category<%= dir_name.toLowerCase(); %>/",
-                "name": "<%= item.name %>"
-              }
-            },
-        <% }) %>
-        {
-          "@type": "ListItem",
-          "position": <%= page.categories.length + 2 %>,
-          "item":
-          {
-            "@id": "/<%- page.path %>",
-            "name": "<%= page.title %>"
-          }
-        }
-    <% } else if (is_page()) { %>
-        <%
-        const path = page.path.replace(/index.html/, '');
-        %>
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item":
-          {
-            "@id": "/<%- path %>",
-            "name": "<%= page.title %>"
-          }
-        }
+      },
+      "description": "<%= description %>"
+    }
     <% } %>
+
   ]
 }
