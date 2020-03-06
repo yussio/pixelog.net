@@ -94,5 +94,5 @@ if(is_post()) {
 
 <%- css('css/style') %>
 <% if(page.css === true) { %>
-  <link rel="stylesheet" href="/<%= page.path %>style.css">
+  <link rel="stylesheet" href="/<%= page.path.replace(/index.html/, '') %>style.css">
 <% } %>

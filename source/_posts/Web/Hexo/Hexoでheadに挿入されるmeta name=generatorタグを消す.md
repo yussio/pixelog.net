@@ -1,5 +1,5 @@
 ---
-title: Hexoでheadに挿入されるmeta name="generator"タグを消す
+title: Hexoでheadに挿入される&lt;meta name="generator"&gt;タグを消す
 pid: remove-meta-generator
 categories:
   - Web
@@ -8,7 +8,7 @@ date: 2019-06-03 22:12:12
 tags:
 ---
 
-Hexoではデフォルトで、<head>間に下のようなmetaタグが自動で挿入されます。
+Hexoではデフォルトで、&lt;head&gt;間に下のようなmetaタグが自動で挿入されます。
 
 ```html
 <meta name="generator" content="Hexo 3.8.0">

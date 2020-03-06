@@ -6,69 +6,8 @@ categories:
   - CSS
 date: 2019-05-20 21:40:00
 tags:
+css: true
 ---
-
-<style>
-.lb {
-    display: flex;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0,0,0,.7);
-    opacity: 0;
-    transition: .3s opacity ease;
-    pointer-events: none;
-    z-index: 100;
-}
-
-.lb img {
-    width: auto !important;
-    max-height: 100%!important;
-    cursor: pointer;
-}
-
-.lb img,
-.lb iframe {
-    transform: scale(.85);
-    transition: .3s all ease;
-}
-
-
-.lb:target {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 101;
-}
-
-.lb:target img,
-.lb:target iframe {
-    transform: scale(1);
-}
-
-
-/* なんちゃって閉じるボタン*/
-.lb::before,.lb::after {
-    display: block;
-    position: fixed;
-    content: "";
-    width: 24px;
-    height:3px;
-    top: 24px;
-    right: 12px;
-    background: #fff;
-    border-radius: 4px;
-}
-.lb::before {
-    transform: rotate(-315deg);
-}
-.lb::after {
-    transform: rotate(315deg);
-}
-</style>
 
 ![CSSのみでクリックで画像を拡大する](thumbnail.jpg)
 
@@ -84,22 +23,15 @@ tags:
 
 下の画像をクリックしてみてください。
 
-<a href="#sakura"><img src="sakura.jpg"></a>
-<a class="lb" href="#close" id="sakura"><img src="sakura.jpg"></a>
+<a href="#sakura"><img src="sakura.jpg" alt="桜"></a>
+<a class="lb" href="#close" id="sakura"><img src="sakura.jpg" alt="桜"></a>
 
-<a href="#blog"><img src="blog_img.jpg"></a>
-<a class="lb" href="#close" id="blog"><img src="blog_img.jpg"></a>
+<a href="#blog"><img src="blog_img.jpg" alt="ブログイメージ"></a>
+<a class="lb" href="#close" id="blog"><img src="blog_img.jpg" alt="ブログイメージ"></a>
 
 テキストにも拡大リンクを貼れます。  
 <a href="#suisen">スイセンの写真を見る</a>
-<a class="lb" href="#close" id="suisen"><img src="suisen.jpg">
-
-### 応用 - YouTubeの動画を拡大
-
-YouTubeを拡大して再生することもできます。
-
-<a class="btn" href="#comeagain">come again / m-flo</a>
-<a class="lb" href="#close" id="comeagain"><iframe width="560" height="315" src="https://www.youtube.com/embed/RNBiaZbFGII" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe></a>
+<a class="lb" href="#close" id="suisen"><img src="suisen.jpg" alt="スイセン">
 
 
 ## 弱点

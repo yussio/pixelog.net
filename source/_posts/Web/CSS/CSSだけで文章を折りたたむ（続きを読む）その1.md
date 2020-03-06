@@ -6,6 +6,7 @@ categories:
   - CSS
 date: 2019-06-06 21:38:40
 tags:
+css: true
 ---
 
 今回はHTMLとCSSのみでコンテンツの開閉、いわゆる「続きを読む」を再現してみます。
@@ -22,15 +23,6 @@ CSSだけでクリックイベントを扱うには、主にtargetを使う方�
 
 
 ### デモ
-
-<style>
-.more1 {
-  display: none;
-}
-.more1:target {
-  display: block;
-}
-</style>
 
 <a href="#more1">続きを読む▽</a>
 <div class="more1" id="more1">
@@ -74,19 +66,6 @@ CSSだけでクリックイベントを扱うには、主にtargetを使う方�
 コンテンツの前にdivをもう一つ挟み、間接セレクタを使ってCSSを適用させます。間のdivには、position: fixedで画面に固定させることにより、無理やりですがきれいに開閉できます。
 
 ### デモ
-
-<style>
-.more2{
-  display: none;
-}
-.morefix2:target + .more2{
-  display: block;
-}
-.morefix2{
-    position: fixed;
-    top: 0;
-}
-</style>
 
 <a href="#more2">続きを読む▽</a>
 <div class="morefix2" id="more2"></div>
@@ -136,24 +115,6 @@ CSSだけでクリックイベントを扱うには、主にtargetを使う方�
 高さ0からautoにはtransitionが効かないので、max-heightで無理やりアニメーションさせています。これはもう少し賢いやり方があるかもしれない...。
 
 ### デモ
-
-<style>
-.more3{
-    max-height: 0;
-    transform: scaleY(0);
-    transform-origin: center top;
-    transition: .3s ease;
-    transition-property: transform,max-height;
-}
-.morefix3:target +  .more3{
-    max-height: 99999px;
-    transform: scaleY(1);
-}
-.morefix3{
-    position: fixed;
-    top: 0;
-}
-</style>
 
 <a href="#more3">続きを読む▽</a>
 <div class="morefix3" id="more3">&nbsp;</div>

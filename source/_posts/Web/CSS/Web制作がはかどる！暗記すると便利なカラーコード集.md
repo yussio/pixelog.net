@@ -6,15 +6,8 @@ categories:
   - CSS
 date: 2019-06-04 22:18:49
 tags:
+css: true
 ---
-
-<style>
-.color-sample {
-  width: 130px;
-  height: 36px;
-}
-</style>
-
 
 Webサイトを制作する上でよく使うカラーコードは、暗記しておくとスピードアップに繋がり便利です。
 
