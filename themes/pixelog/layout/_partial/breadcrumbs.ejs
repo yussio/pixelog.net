@@ -1,19 +1,17 @@
 <nav class="breadcrumbs">
-    <ol class="breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
-        <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-            <a class="breadcrumbs__item-link" itemprop="item" href="/">
-                <span itemprop="name">ホーム</span>
+    <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+            <a class="breadcrumbs__item-link" href="/">
+                ホーム
             </a>
-            <meta itemprop="position" content="1" />
         </li>
 
         <% if (is_home()) { %>
             <% if(page.current !== 1){ %>
-                <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                    <a class="breadcrumbs__item-link" itemprop="item" href="/page/<%= page.current %>/">
-                        <span itemprop="name">ページ<%= page.current %></span>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__item-link" href="/page/<%= page.current %>/">
+                        ページ<%= page.current %>
                     </a>
-                    <meta itemprop="position" content="2" />
                 </li>
             <% } %>
         <% } else if (is_category()) { %>
@@ -27,27 +25,24 @@
                 i += 2;
                 dir_name += '/' + item;
                 %>
-                <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                    <a class="breadcrumbs__item-link" itemprop="item" href="/category<%= dir_name %>/">
-                        <span itemprop="name"><% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %> </span>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__item-link" href="/category<%= dir_name %>/">
+                        <% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %>
                     </a>
-                    <meta itemprop="position" content="<%= i %>" />
                 </li>
             <% }) %>
             <% if(page.current !== 1){ %>
-                <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                    <a class="breadcrumbs__item-link" itemprop="item" href="/category<%= dir_name %>/page/<%= page.current %>/">
-                        <span itemprop="name">ページ<%= page.current %></span>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__item-link" href="/category<%= dir_name %>/page/<%= page.current %>/">
+                        ページ<%= page.current %>
                     </a>
-                    <meta itemprop="position" content="<%= i+1 %>" />
                 </li>
             <% } %>
         <% } else if (is_archive()) { %>
-            <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                <a class="breadcrumbs__item-link" itemprop="item" href="/<%- path %>">
-                    <span itemprop="name">アーカイブ</span>
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__item-link" href="/<%- path %>">
+                    アーカイブ
                 </a>
-                <meta itemprop="position" content="2" />
             </li>
         <% } else if(is_post()) { %>
             <% let dir_name = ''; %>
@@ -56,28 +51,25 @@
                 i += 2;
                 dir_name += '/' + item.name;
                 %>
-                <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                    <a class="breadcrumbs__item-link" itemprop="item" href="/category<%= dir_name.toLowerCase(); %>/">
-                        <span itemprop="name"><%= item.name %></span>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__item-link" href="/category<%= dir_name.toLowerCase(); %>/">
+                        <%= item.name %>
                     </a>
-                    <meta itemprop="position" content="<%= i %>" />
                 </li>
             <% }) %>
-                <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                    <a class="breadcrumbs__item-link" itemprop="item" href="/<%- page.path %>">
-                        <span itemprop="name"><%= page.title %></span>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__item-link" href="/<%- page.path %>">
+                        <%= page.title %>
                     </a>
-                    <meta itemprop="position" content="<%= page.categories.length + 2 %>" />
                 </li>
         <% } else if (is_page()) { %>
             <%
             const path = page.path.replace(/index.html/, '');
             %>
-            <li class="breadcrumbs__item" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                <a class="breadcrumbs__item-link" itemprop="item" href="/<%- path %>">
-                    <span itemprop="name"><%= page.title %></span>
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__item-link" href="/<%- path %>">
+                    <%= page.title %>
                 </a>
-                <meta itemprop="position" content="2" />
             </li>
         <% } %>
     </ol>
