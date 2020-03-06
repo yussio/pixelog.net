@@ -1,0 +1,59 @@
+<%# titleの出し分け %>
+<%
+var title = page.title;
+
+if (is_archive()){
+  title = 'アーカイブ';
+
+  if (is_month()){
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()){
+    title += ': ' + page.year;
+  }
+} else if (is_category()){
+  title = 'カテゴリー: ' + page.category;
+} else if (is_tag()){
+  title = 'タグ: ' + page.tag;
+}
+%>
+
+
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "alternativeHeadline": "<% if (title){ %><%= title %> - <% } %><%= config.title %>",
+  "url": "<%= config.url %>",
+  "image": "<%= config.url %>img/ogp_logo.png",
+  "author": {
+    "@type": "Person",
+    "name": "<%= config.author %>",
+    "url": [
+        "https://twitter.com/yussious"
+    ],
+    "image": "<%= config.url %>img/avatar.jpg"
+  }<% if(is_post()) { %>,
+  "blogPost": {
+    "@type": "BlogPosting",
+    "author": {
+      "@type": "Person",
+      "name": "<%= config.author %>",
+      "url": [
+        "https://twitter.com/yussious"
+      ],
+      "image": "https://pixelog.net/img/ogp_logo.png"
+    },
+    "headline": "<% if (title){ %><%= title %> - <% } %><%= config.title %>",
+    "image": "<%= config.url %>img/ogp_logo.png",
+    "name": "<%= config.title %>",
+    "publisher": {
+      "@type": "Organization",
+      "logo": "<%= config.url %>img/avatar.jpg",
+      "name": "<%= config.author %>"
+    },
+    "alternativeHeadline": "<%= config.title %>",
+    "dateCreated": "<%- page.date.format("YYYY/MM/DD") %>",
+    "datePublished": "<%- page.date.format("YYYY/MM/DD") %>",
+    "inLanguage": "Japanese"
+    }
+  <% } %>
+}
