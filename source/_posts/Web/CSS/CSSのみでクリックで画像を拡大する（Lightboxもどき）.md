@@ -13,7 +13,7 @@ css: true
 
 画像をクリックするとポップアップで拡大表示するプラグインを、HTMLとCSSのみで再現してみます。いわゆるLightboxやfancyboxのようなものです。
 
-<div class="red-box">
+<div class="warning">
 この記事で紹介するコードは実用性は全くありません。遊び半分でご覧ください。
 </div>
 
