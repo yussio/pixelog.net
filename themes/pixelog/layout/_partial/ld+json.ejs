@@ -22,15 +22,15 @@ if (is_archive()){
   "@context": "http://schema.org",
   "@type": "Blog",
   "alternativeHeadline": "<% if (title){ %><%= title %> - <% } %><%= config.title %>",
-  "url": "<%= config.url %>",
-  "image": "<%= config.url %>img/ogp_logo.png",
+  "url": "https://pixelog.net/",
+  "image": "https://pixelog.net/img/ogp_logo.png",
   "author": {
     "@type": "Person",
     "name": "<%= config.author %>",
     "url": [
         "https://twitter.com/yussious"
     ],
-    "image": "<%= config.url %>img/avatar.jpg"
+    "image": "https://pixelog.net/img/avatar.jpg"
   }<% if(is_post()) { %>,
   "blogPost": {
     "@type": "BlogPosting",
@@ -43,11 +43,11 @@ if (is_archive()){
       "image": "https://pixelog.net/img/ogp_logo.png"
     },
     "headline": "<% if (title){ %><%= title %> - <% } %><%= config.title %>",
-    "image": "<%= config.url %>img/ogp_logo.png",
+    "image": "https://pixelog.net/img/ogp_logo.png",
     "name": "<%= config.title %>",
     "publisher": {
       "@type": "Organization",
-      "logo": "<%= config.url %>img/avatar.jpg",
+      "logo": "https://pixelog.net/img/avatar.jpg",
       "name": "<%= config.author %>"
     },
     "alternativeHeadline": "<%= config.title %>",
