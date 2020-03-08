@@ -7,6 +7,8 @@ categories:
   - Web
   - JavaScript
 date: 2020-02-11 16:00:00
+css: true
+js: true
 ---
 
 Lightboxという単語は死語感が漂っており、今どき需要もなさそうですが...。

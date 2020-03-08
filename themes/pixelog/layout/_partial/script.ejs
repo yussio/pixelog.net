@@ -1,3 +1,6 @@
+<% if(page.js === true) { %>
+    <script src="/<%= page.path %>script.js"></script>
+<% } %>
 <script>
 (function () {
     const toggle_switch = document.getElementById('toggle-dark');
@@ -42,47 +45,43 @@
             localStorage.removeItem(keyLocalStorage);
         }
     }
-}());
-</script>
 
 <% if(is_category() || is_post()) { %>
-    <script>
-      if(<%- is_category() %> && <%- page.current === 1 %>){ var i = 1;}else{ var i = 2;}
-      document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + i +') a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link current');</script>
-<% } %>
-<% if(page.js === true) { %>
-    <script src="/<%= page.path %>script.js"></script>
+    const itemNth = (<%- is_category() %> && <%- page.current === 1 %>)? '1': '2';
+    const catHref = encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + itemNth +') a').getAttribute('href'));
+    const catCurrent = document.querySelector('.category-list [href="' + catHref + '"]');
+    catCurrent.setAttribute('class', 'category-list-link current');
 <% } %>
 
-<script>
-function lazyLoad(scriptSrc, type) {
-    let scrollFirstTime = 1;
-    window.addEventListener("scroll", oneTimeFunction, false);
-    window.addEventListener("mousemove", oneTimeFunction, false);
-    window.addEventListener("touchstart", oneTimeFunction, false);
+    function lazyLoad(scriptSrc, type) {
+        let scrollFirstTime = 1;
+        window.addEventListener("scroll", oneTimeFunction, false);
+        window.addEventListener("mousemove", oneTimeFunction, false);
+        window.addEventListener("touchstart", oneTimeFunction, false);
 
-    function oneTimeFunction() {
-        if (scrollFirstTime === 1) {
-            scrollFirstTime = 0;
-            const adScript = document.createElement("script");
-            if(type === "src"){
-                adScript.src = scriptSrc;
-            } else if(type === "inline"){
-                adScript.innerHTML = scriptSrc;
-            } else if(type === "ad"){
-                adScript.src = scriptSrc;
-                adScript.setAttribute("data-ad-client", "ca-pub-9027963984337121");
+        function oneTimeFunction() {
+            if (scrollFirstTime === 1) {
+                scrollFirstTime = 0;
+                const addScript = document.createElement("script");
+                if(type === "src"){
+                    addScript.src = scriptSrc;
+                } else if(type === "inline"){
+                    addScript.innerHTML = scriptSrc;
+                } else if(type === "ad"){
+                    addScript.src = scriptSrc;
+                    addScript.setAttribute("data-ad-client", "ca-pub-9027963984337121");
+                }
+                addScript.setAttribute("async", "async");
+                document.body.appendChild(addScript);
+                window.removeEventListener("scroll", oneTimeFunction, false);
+                window.removeEventListener("mousemove", oneTimeFunction, false);
+                window.removeEventListener("touchstart", oneTimeFunction, false);
             }
-            adScript.setAttribute("async", "async");
-            document.body.appendChild(adScript);
-            window.removeEventListener("scroll", oneTimeFunction, false);
-            window.removeEventListener("mousemove", oneTimeFunction, false);
-            window.removeEventListener("touchstart", oneTimeFunction, false);
         }
     }
-}
-<% if(is_post()) { %>lazyLoad("/js/pixel-viewer.js", "src");<% } %>
-lazyLoad("https://www.googletagmanager.com/gtag/js?id=UA-68420269-3", "src");
-lazyLoad("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-68420269-3\');", "inline");
-lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad");
+    lazyLoad("https://www.googletagmanager.com/gtag/js?id=UA-68420269-3", "src");
+    lazyLoad("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-68420269-3\');", "inline");
+    lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad");
+    console.log('総記事数:%c' + <%= site.posts.length %>, 'font-weight:bold');
+}());
 </script>
