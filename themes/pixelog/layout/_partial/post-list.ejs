@@ -1,27 +1,29 @@
 <ul class="post-list">
     <% page.posts.each(function(post){ %>
-      <li class="post-list__item">
-          <a class="post-list__item-link" href="/<%- post.path %>">
-              <time class="post-list__date">
-                <%- post.date.format("YYYY-MM-DD") %>
-              </time>
-              <div class="post-list__detail">
-                  <h2 class="post-list__title"><%- post.title || "Untitled" %></h2>
-              </div>
-          </a>
-      </li>
+        <li class="post-list__item">
+            <a class="post-list__item-link" href="/<%- post.path %>">
+                <time class="post-list__date">
+                  <%- post.date.format("YYYY-MM-DD") %>
+                </time>
+                <div class="post-list__detail">
+                    <h2 class="post-list__title"><%- post.title || "Untitled" %></h2>
+                </div>
+            </a>
+        </li>
     <% }) %>
-    <li class="post-list__item loading">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="fluid"
-           data-ad-layout-key="-gu-18+5g-2f-83"
-           data-ad-client="ca-pub-9027963984337121"
-           data-ad-slot="7500453329"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-  </li>
+    <% if(page.posts.length < 10) { %>
+          <li class="post-list__item loading">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-gu-18+5g-2f-83"
+                 data-ad-client="ca-pub-9027963984337121"
+                 data-ad-slot="7500453329"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </li>
+  <% } %>
 </ul>
 
 <div class="pager">
