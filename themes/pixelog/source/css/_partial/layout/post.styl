@@ -33,7 +33,7 @@
 
 
 .post-footer
-    margin 100px 0 0 0
+    margin 80px 0 0 0
 
     &__ad
         margin 60px 0 0 0
@@ -43,22 +43,19 @@
 
 .social-btn
     display flex
-    padding 24px 0
     justify-content center
-    background  var(--background-color)
-    border-radius 4px
     list-style none
     filter: grayscale(.1);
-    +media(sp)
-        flex-wrap wrap
+    +media(spm)
+        justify-content space-between
+
 
     &__item
-        width 60px
-        @media only screen and (max-width: 408px)
-            width 26%
+        margin 0 8px
 
-            &:nth-of-type(-n+3)
-                margin 0 0 24px 0
+        +media(spm)
+            margin 0
+
 
     $item-link
         display flex
