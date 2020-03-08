@@ -6,64 +6,65 @@
     const keyLocalStorage = 'theme';
     const localTheme = localStorage.getItem(keyLocalStorage);
 
-    if(localTheme === 'dark') {
-        changeMode('dark');
-    } else if(localTheme === 'light') {
-        changeMode('light');
+    if(localTheme) {
+        changeMode(localTheme);
     } else if(isDark.matches) {
         changeMode('dark');
     }
 
-    toggle_switch.addEventListener('change', function(){
+    toggle_switch.addEventListener('change', () => {
         if(toggle_switch.checked){
-            changeMode('dark');
-            localStorage.setItem(keyLocalStorage,'dark');
+            changeMode('dark', 'set');
         } else {
-            changeMode('light');
-            localStorage.setItem(keyLocalStorage,'light');
+            changeMode('light', 'set');
         }
     });
     isDark.addListener(e => {
         if (e.matches) {
-            changeMode('dark');
-            localStorage.removeItem(keyLocalStorage);
+            changeMode('dark', 'remove');
         } else {
-            changeMode('light');
-            localStorage.removeItem(keyLocalStorage);
+            changeMode('light', 'remove');
         }
-    })
+    });
 
-    function changeMode(mode){
+    function changeMode(mode, storage){
         if(mode === 'dark') {
-            htmlElement.dataset.mode = 'dark';
+            htmlElement.dataset.mode = mode;
             toggle_switch.checked = true;
+
         } else if(mode === 'light') {
             delete htmlElement.dataset.mode;
             toggle_switch.checked = false;
         }
+        if(storage === 'set'){
+            localStorage.setItem(keyLocalStorage, mode);
+        } else if(storage === 'remove') {
+            localStorage.removeItem(keyLocalStorage);
+        }
     }
 }());
 </script>
+
 <% if(is_category() || is_post()) { %>
     <script>
-      if(<%- is_category() %> && <%- page.current === 1 %>){ var i = 1;}else{ var i = 2;}
+      if(<%- is_category() %> && <%- page.current === 1 %>){ const i = 1;}else{ const i = 2;}
       document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + i +') a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link current');</script>
 <% } %>
 <% if(page.js === true) { %>
     <script src="/<%= page.path %>script.js"></script>
 <% } %>
+
 <script>
 function lazyLoad(scriptSrc, type) {
-    var scrollFirstTime = 1;
+    let scrollFirstTime = 1;
     window.addEventListener("scroll", oneTimeFunction, false);
     window.addEventListener("mousemove", oneTimeFunction, false);
-    window.addEventListener("mousedown", oneTimeFunction, false);
     window.addEventListener("touchstart", oneTimeFunction, false);
 
     function oneTimeFunction() {
         if (scrollFirstTime === 1) {
             scrollFirstTime = 0;
-            var adScript = document.createElement("script");
+            const adScript = document.createElement("script");
             if(type === "src"){
                 adScript.src = scriptSrc;
             } else if(type === "inline"){
@@ -76,7 +77,6 @@ function lazyLoad(scriptSrc, type) {
             document.body.appendChild(adScript);
             window.removeEventListener("scroll", oneTimeFunction, false);
             window.removeEventListener("mousemove", oneTimeFunction, false);
-            window.removeEventListener("mousedown", oneTimeFunction, false);
             window.removeEventListener("touchstart", oneTimeFunction, false);
         }
     }

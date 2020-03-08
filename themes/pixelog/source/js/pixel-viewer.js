@@ -32,7 +32,7 @@ function pixelViewer(element){
             }, {once: true});
             function close(){
                 filter.className = 'fadeout';
-                filter.addEventListener("animationend",function(){
+                filter.addEventListener("animationend", () => {
                     filter.remove();
                 });
             }
