@@ -2,6 +2,7 @@
 // iPhone5C → 338px
 
 pc-width = 1200px
+tab-width = 1199px
 sp-width = 767px
 spm-width = 397px
 
@@ -11,19 +12,22 @@ boxshadow = 0 4px 10px rgba(0,0,0,0.03), 0 0 1px rgba(0,0,0,0.1)
 media(bpName)
     for name in bpName
         if name == 'spm'
-            @media only screen and (max-width: spm-width)
+            @media (max-width: spm-width)
                 {block}
         if name == 'sp'
-            @media only screen and (max-width: sp-width)
+            @media (max-width: sp-width)
                 {block}
         if name == 'tabsp'
-            @media only screen and (max-width: pc-width - 1px)
+            @media (max-width: tab-width)
                 {block}
         if name == 'tab'
-            @media only screen and (min-width: sp-width + 1px) and (max-width: pc-width - 1px)
+            @media (min-width: sp-width + 1px) and (max-width: tab-width)
+                {block}
+        if name == 'pcm'
+            @media (min-width: tab-width + 1px) and (min-width: pc-width -1px)
                 {block}
         if name == 'pc'
-            @media only screen and (min-width: pc-width)
+            @media (min-width: pc-width)
                 {block}
 
 
