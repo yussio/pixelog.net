@@ -2,7 +2,7 @@
     <% page.posts.each(function(post){ %>
         <li class="post-list__item">
             <a class="post-list__item-link" href="/<%- post.path %>">
-                <time class="post-list__date">
+                <time class="post-list__date" datatime="<%- page.date.format("YYYY-MM-DD") %>">
                   <%- post.date.format("YYYY.MM.DD") %>
                 </time>
                 <h2 class="post-list__title"><%- post.title || "Untitled" %></h2>
