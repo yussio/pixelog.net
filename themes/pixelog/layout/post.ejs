@@ -5,8 +5,8 @@
         <article class="post">
             <header class="post-header">
                 <div class="post-header__meta">
-                    公開：<time class="post-header__published">
-                      <%- page.date.format("YYYY-MM-DD") %>
+                    <time class="post-header__published">
+                      <%- page.date.format("YYYY.MM.DD") %>
                     </time>
                     <div class="post-header__tag">
                       <% page.tags.forEach(function(item){ %>
