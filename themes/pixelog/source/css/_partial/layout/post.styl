@@ -47,16 +47,14 @@
     justify-content center
     list-style none
     filter: grayscale(.1);
-    +media(spm)
-        justify-content space-between
 
 
     &__item
         margin 0 8px
-
-        +media(spm)
-            margin 0
-
+        &:first-of-type
+            margin-left 0
+        &:last-of-type
+            margin-right 0
 
     $item-link
         display flex
