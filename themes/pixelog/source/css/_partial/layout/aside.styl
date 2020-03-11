@@ -6,18 +6,16 @@ aside > div:not(:last-of-type)
         display block
         margin 0 0 16px 0
         text-align center
-        font-size 18px
-        letter-spacing .05em
-        color var(--text-color)
-        position relative
+        letter-spacing .1em
+        color var(--text-accent-color)
 
         &::after
             content ""
             display block
-            width 24px
+            width 30px
             height 3px
             margin 16px auto
-            background #bbb
+            background var(--border-color)
             border-radius 3px
 
 
@@ -30,7 +28,7 @@ $aside-list
     &-link
         text-decoration none
         color var(--text-link-color)
-        border-bottom 1px dotted var(--border-dotted-color)
+        border-bottom 1px solid var(--border-color)
         transition .1s opacity ease-in-out
 
         &:hover
@@ -51,7 +49,6 @@ $aside-list
         &.current
             background var(--background-current-color)
             font-weight bold
-            color var(--text-accent-color)
 
     &-child
         list-style none
