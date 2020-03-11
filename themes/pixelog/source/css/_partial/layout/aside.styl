@@ -4,7 +4,7 @@ aside > div:not(:last-of-type)
 .widget
     &__title
         display block
-        margin 0 0 24px 0
+        margin 0 0 16px 0
         text-align center
         font-size 18px
         letter-spacing .05em
@@ -14,18 +14,12 @@ aside > div:not(:last-of-type)
         &::after
             content ""
             display block
-            width 100%
+            width 24px
             height 3px
-            background var(--background-dark-color)
+            margin 16px auto
+            background #bbb
             border-radius 3px
-            position absolute
-            left 0
-            top calc(50% - 1.5px)
-            z-index -1
 
-    &__title-inner
-        padding 0 .5em
-        background var(--background-color)
 
 
 $aside-list
