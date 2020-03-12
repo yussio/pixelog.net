@@ -16,12 +16,4 @@
         </div>
     </div>
 </footer>
-
-<% if(is_category() || is_post()) { %>
-<script>
-    const itemNth = (<%- page.current === 1 %>)? '1': '2';
-    const catHref = encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + itemNth +') a').getAttribute('href'));
-    const catCurrent = document.querySelector('.category-list [href="' + catHref + '"]');
-    catCurrent.setAttribute('class', 'category-list-link current');
-</script>
-<% } %>
+<script><% if(is_category() || is_post()) { %>document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + <% if(page.current === 1){ %>1<% }else{ %>2<% } %> +') a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link current');<% } %>console.log('総記事数:' + <%= site.posts.length %>)</script>
