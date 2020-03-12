@@ -16,9 +16,9 @@
                 </div>
               <a class="post-header__title-link" href="/<%- page.path %>"><h1 class="post-header__title"><%- page.title %></h1></a>
               <% if (page.thumbnail) { %>
-                  <div class="post-header__thumbnail">
+                  <p class="post-header__thumbnail">
                     <img class="post-header__thumbnail-img" src="/<%= page.path + page.thumbnail; %>" alt="<%- page.title %>">
-                  </div>
+                  </p>
               <% }%>
             </header>
             <div class="content"><%- page.content %></div>
