@@ -3,14 +3,16 @@
     background #3fb5bd
     background var(--theme-color)
     box-shadow 0 0 20px 0 rgba(0,0,0,.05)
-    +media(tabsp)
+    +media(tab)
+        margin 0 0 32px 0
+    +media(sp)
         margin 0 0 16px 0
 
 
     &__inner
         display flex
         width pc-width
-        line-height 64px
+        line-height 72px
         margin auto
         +media(tabsp)
             width 100%
