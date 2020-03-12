@@ -3,7 +3,7 @@
     const isDark = window.matchMedia('(prefers-color-scheme: dark)');
     const htmlElement = document.documentElement;
     const keyLocalStorage = 'theme';
-    const localTheme = localStorage.getItem(keyLocalStorage);
+    const localTheme = sessionStorage.getItem(keyLocalStorage);
 
     if(localTheme) {
         changeMode(localTheme);
@@ -36,9 +36,9 @@
             toggle_switch.checked = false;
         }
         if(storage === 'set'){
-            localStorage.setItem(keyLocalStorage, mode);
+            sessionStorage.setItem(keyLocalStorage, mode);
         } else if(storage === 'remove') {
-            localStorage.removeItem(keyLocalStorage);
+            sessionStorage.removeItem(keyLocalStorage);
         }
     }
 
