@@ -62,7 +62,6 @@
                     addScript.src = scriptSrc;
                     addScript.setAttribute("data-ad-client", "ca-pub-9027963984337121");
                 }
-                addScript.setAttribute("async", "async");
                 document.body.appendChild(addScript);
                 window.removeEventListener("scroll", oneTimeFunction, false);
                 window.removeEventListener("mousemove", oneTimeFunction, false);
