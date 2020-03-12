@@ -16,4 +16,12 @@
         </div>
     </div>
 </footer>
-<%- partial('script') %>
+
+<% if(is_category() || is_post()) { %>
+<script>
+    const itemNth = (<%- page.current === 1 %>)? '1': '2';
+    const catHref = encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + itemNth +') a').getAttribute('href'));
+    const catCurrent = document.querySelector('.category-list [href="' + catHref + '"]');
+    catCurrent.setAttribute('class', 'category-list-link current');
+</script>
+<% } %>

@@ -48,6 +48,8 @@ if(is_post()){
 %>
 <link rel="canonical" href="<%= url %>">
 
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
 <% if (is_post()){ %>
 <link rel="prerender" href="/">
 <% } %>
@@ -104,5 +106,9 @@ if(is_post()) {
 
 <%- css('css/style') %>
 <% if(page.css === true) { %>
-  <link rel="stylesheet" href="/<%= page.path.replace(/index.html/, '') %>style.css">
+  <link rel="stylesheet" href="/<%= page.path %>style.css">
 <% } %>
+<% if(page.js === true) { %>
+    <script src="/<%= page.path %>script.js" defer></script>
+<% } %>
+<script src="/js/script.js"defer></script>

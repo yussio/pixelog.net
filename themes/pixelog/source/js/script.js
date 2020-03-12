@@ -1,113 +1,76 @@
-// particles.js
-particlesJS('particles-js',
-  {
-    "particles": {
-      "number": {
-        "value": 80,
-        "density": {
-          "enable": true,
-          "value_area": 800
+(function () {
+    const toggle_switch = document.getElementById('toggle-dark');
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const htmlElement = document.documentElement;
+    const keyLocalStorage = 'theme';
+    const localTheme = localStorage.getItem(keyLocalStorage);
+
+    if(localTheme) {
+        changeMode(localTheme);
+    } else if(isDark.matches) {
+        changeMode('dark');
+    }
+
+    toggle_switch.addEventListener('change', () => {
+        if(toggle_switch.checked){
+            changeMode('dark', 'set');
+        } else {
+            changeMode('light', 'set');
         }
-      },
-      "color": {
-        "value": "#ffffff"
-      },
-      "shape": {
-        "type": "edge",
-        "stroke": {
-          "width": 0,
-          "color": "#000000"
-        },
-        "polygon": {
-          "nb_sides": 5
-        },
-        "image": {
-          "src": "img/github.svg",
-          "width": 100,
-          "height": 100
+    });
+    isDark.addListener(e => {
+        if (e.matches) {
+            changeMode('dark', 'remove');
+        } else {
+            changeMode('light', 'remove');
         }
-      },
-      "opacity": {
-        "value": 0.5,
-        "random": false,
-        "anim": {
-          "enable": false,
-          "speed": 1,
-          "opacity_min": 0.1,
-          "sync": false
+    });
+
+    function changeMode(mode, storage){
+        if(mode === 'dark') {
+            htmlElement.dataset.mode = mode;
+            toggle_switch.checked = true;
+
+        } else if(mode === 'light') {
+            delete htmlElement.dataset.mode;
+            toggle_switch.checked = false;
         }
-      },
-      "size": {
-        "value": 4,
-        "random": true,
-        "anim": {
-          "enable": false,
-          "speed": 40,
-          "size_min": 0.1,
-          "sync": false
+        if(storage === 'set'){
+            localStorage.setItem(keyLocalStorage, mode);
+        } else if(storage === 'remove') {
+            localStorage.removeItem(keyLocalStorage);
         }
-      },
-      "line_linked": {
-        "enable": false,
-        "distance": 150,
-        "color": "#ffffff",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 3,
-        "direction": "top",
-        "random": false,
-        "straight": false,
-        "out_mode": "out",
-        "bounce": false,
-        "attract": {
-          "enable": false,
-          "rotateX": 600,
-          "rotateY": 1200
+    }
+
+
+
+    function lazyLoad(scriptSrc, type) {
+        let scrollFirstTime = 1;
+        window.addEventListener("scroll", oneTimeFunction, false);
+        window.addEventListener("mousemove", oneTimeFunction, false);
+        window.addEventListener("touchstart", oneTimeFunction, false);
+
+        function oneTimeFunction() {
+            if (scrollFirstTime === 1) {
+                scrollFirstTime = 0;
+                const addScript = document.createElement("script");
+                if(type === "src"){
+                    addScript.src = scriptSrc;
+                } else if(type === "inline"){
+                    addScript.innerHTML = scriptSrc;
+                } else if(type === "ad"){
+                    addScript.src = scriptSrc;
+                    addScript.setAttribute("data-ad-client", "ca-pub-9027963984337121");
+                }
+                addScript.setAttribute("async", "async");
+                document.body.appendChild(addScript);
+                window.removeEventListener("scroll", oneTimeFunction, false);
+                window.removeEventListener("mousemove", oneTimeFunction, false);
+                window.removeEventListener("touchstart", oneTimeFunction, false);
+            }
         }
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "repulse"
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push"
-        },
-        "resize": true
-      },
-      "modes": {
-        "grab": {
-          "distance": 400,
-          "line_linked": {
-            "opacity": 1
-          }
-        },
-        "bubble": {
-          "distance": 400,
-          "size": 40,
-          "duration": 2,
-          "opacity": 8,
-          "speed": 3
-        },
-        "repulse": {
-          "distance": 200,
-          "duration": 0.4
-        },
-        "push": {
-          "particles_nb": 4
-        },
-        "remove": {
-          "particles_nb": 2
-        }
-      }
-    },
-    "retina_detect": true
-  }
-);
+    }
+    lazyLoad("https://www.googletagmanager.com/gtag/js?id=UA-68420269-3", "src");
+    lazyLoad("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-68420269-3\');", "inline");
+    lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad");
+}());
