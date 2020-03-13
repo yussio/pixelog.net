@@ -45,7 +45,7 @@
         height 20px
         background #ccc
         border-radius 46px
-        transition .3s all ease
+        transition .3s background ease
         cursor pointer
         align-self center
 
@@ -57,12 +57,16 @@
             border-radius 50%
             background #fff
             box-shadow 0 0 5px rgba(0, 0, 0, 0.2)
-            transition .2s all ease
+            transition .3s left ease
             top 0
             left 0
 
     &__input
-        display none
+        opacity 0
+        align-self center
+
+        &:focus + .switch__label
+            outline 1.5px solid #4d90fe
 
         &:checked
             & + .switch__label
