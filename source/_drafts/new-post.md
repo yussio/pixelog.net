@@ -1,125 +1,127 @@
 ---
-title: 記事内テンプレート
-date: 2020-02-26 21:27:51
+title: HTMLでピアノを作ってみよう
+date: 2020-03-04 15:12:50
 description:
-pid: 6q2r53x2ps
+pid: agm7bh6u7u
 categories:
 ---
-
-## HTML標準
-
-私も場合もしこの反駁共というのの上になっらしいたら。[^1]
-
-さぞ今日のごろごろようももうこの出立だませでもにいうからおくたにも応用許さなけれなが、全くにも行っでないないなけれ。説の考えなけれのもやはりたくさんに何しろううた。
-
-毫も久原さんに発展ペ少々発見を受けるた先生そんな自分それか就職にといったご断食ななくないでしょて、**この結果はあれか国柄春から出と、** 大森さんの点が世の中のそれにどうもご発会と行くてここ他にご意味をしようにとにかくご運動をいうありたば、ついはなはだ矛盾に受けでば来たのがありでなかっ。
+<div id="input"></div>
+<div id="activekey"></div>
 
 
-### ul
 
-- りんご
-- バナナ
-- パイナポー
-
-### ol
-
-1. 壱の型
-2. 弐の型
-
-### table
-
-| Header One     | Header Two     |
-| :------------- | :------------- |
-| Item One       | Item Two       |
-| Item One       | Item Two       |
-| Item One       | Item Two       |
-
-
-### code
-
-`.original-template` にCSSがを当てる。
-
-
-```stylus
-.pager
-    display flex
-    justify-content space-between
-    height 56px
-    margin 16px 0 16px 0
-    background var(--background-sub-color)
-    box-shadow 0 2px 10px rgba(0,0,0,.05), 0 0 1px rgba(0,0,0,.1)
-    border-radius 4px
-    user-select none
-
-    $pager__btn
-        display block
-        width 50%
-        max-width 200px
-        line-height 56px
-        text-decoration none
-        color var(--text-accent-color)
-        font-size 17px
-        font-weight bold
-        text-align center
-        transition .2s background ease
-        +media(sp)
-            font-size 16px
-```
-
-
-### blockquate
-
-> これは日本一慈しい鬼退治の物語である。
-
-
-### キーボード
-
-
-<kbd><kbd class="keyboard">Ctrl</kbd> + <kbd class="keyboard">Z</kbd></kbd> --- undo
-
-<kbd><kbd class="keyboard">Ctrl</kbd> + <kbd class="keyboard">Y</kbd></kbd> --- redo
-
-
-## オリジナル
-
-私も場合もしこの反駁共というのの上になっらしいたら。
-
-<span class="shake">さぞ今日のごろごろ</span>ようももうこの出立だませでもにいうからおくたにも応用許さなけれなが、全くにも行っでないないなけれ。説の考えなけれのもやはりたくさんに何しろううた。
-
-毫も久原さんに発展ペ少々発見を受けるた先生そんな自分それか就職にといったご断食ななくないでしょて、**この結果はあれか国柄春から出と、** 大森さんの点が世の中のそれにどうもご発会と行くてここ他にご意味をしようにとにかくご運動をいうありたば、ついはなはだ矛盾に受けでば来たのがありでなかっ。
-
-<div class="center"> 文字中央寄せ</div>
-
-<div class="btn">マテリアルボタン</div>
-
-<div class="gray-box">
-灰色のボックス
-
-</div>
-
-<div class="red-box">
-赤色のボックス
-
+<div id="piano">
+<div data-key="C4" class="pianokey"></div>
+<div data-key="C#4" class="pianokey sharp"></div>
+<div data-key="D4" class="pianokey"></div>
+<div data-key="D#4" class="pianokey sharp"></div>
+<div data-key="E4" class="pianokey"></div>
+<div data-key="F4" class="pianokey"></div>
+<div data-key="F#4" class="pianokey sharp"></div>
+<div data-key="G4" class="pianokey"></div>
+<div data-key="G#4" class="pianokey sharp"></div>
+<div data-key="A4" class="pianokey"></div>
+<div data-key="A#4" class="pianokey sharp"></div>
+<div data-key="B4" class="pianokey"></div>
 </div>
 
 
-## 新作
+<style>
+#piano {
+    width: 420px;
+    height: 210px;
+    position: relative;
+}
+.pianokey {
+    display: inline-block;
+    width: calc(100% / 7);
+    height: 100%;
+    border: 1px solid #999;
+}
+.pianokey:hover {
+    background: #f2f2f2;
+}
+.sharp{
+    width: calc(100% / 7 * 0.67 );
+    height: calc(100% * 0.6);
+    background:  #000;
+    position: absolute;
+    margin-left: calc(100% / 7 * -0.67 / 2 );
+}
+</style>
 
-<div class="notice">
-この記事は〇〇○な方を対象としています。その他の記事はこちらをご覧ください。
+<script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
+<script>
+// ページ読み込み時シンセ生成
+const synth = new Tone.Synth({
+    // 発振器の設定
+    oscillator:{
+        type:"triangle8"
+    },
+    // エンベロープ(包絡線)の設定
+    envelope:{
+        attack:0.005,  // 最大音量アタック・レベル(Attack Level)に達する時間
+        decay:0.1,     // 一定音量まで減衰(Decay)する時間
+        sustain:0.4,   // 一定振幅(Sustain Level)が続く時間
+        release:2      // 音が消えるまでの時間
+    }
+}).toMaster();
 
-</div>
-
-<div class="caution">
-この記事は最終更新日から３年経過しています。ご注意ください。
-
-</div>
-
-<div class="warning">
-この記事に実用性はありません。話半分でご覧ください。
-
-</div>
+// マウスを押した時のイベント処理
+window.addEventListener('mousedown', playSound);
+window.addEventListener('touchstart', playSound);
 
 
+function playSound(e) {
 
-[^1]: あああああああ
+  // マウスのdata属性を取得
+  const key = e.target.dataset.key;
+
+  // keyがundefinedなら処理を実行しない
+  if (typeof key === "undefined") return;  
+
+  // 音名を代入する
+  synth.triggerAttackRelease(key, '8n');
+
+}
+</script>
+
+<script>
+navigator.requestMIDIAccess().then(successCallback,faildCallback);
+
+var midi = null;
+var inputs = [];
+var outputs = [];
+
+// MIDI接続成功時
+function successCallback(m){
+  midi = m;
+  // 入力MIDIデバイスの記録
+  var it = midi.inputs.values();
+  for(var o = it.next(); !o.done; o = it.next()){
+    inputs.push(o.value);
+    document.getElementById('input').append(o.value.name);
+  }
+
+  // 入力MIDIデバイスから入力が来たときの処理の登録
+ for(var cnt=0;cnt < inputs.length;cnt++){
+   inputs[cnt].onmidimessage = onMIDIEvent;
+ }
+}
+
+// MIDI接続失敗時
+function faildCallback(msg){
+  console.log("[Error]:"+msg);
+}
+
+//入力MIDIデバイスから入力が来たときの処理
+function onMIDIEvent(e){
+  var str = "";
+  for(var i=0, out=[]; i<e.data.length; i++) {
+    str = str + e.data[i].toString(16).substr(-2) + " ";
+  }
+  str = str;
+  document.getElementById('activekey').append(str);
+}
+
+</script>
