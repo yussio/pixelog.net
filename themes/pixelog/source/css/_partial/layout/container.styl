@@ -19,13 +19,16 @@
 
 .aside
     width 300px
+    display flex
+    flex-direction column
+
     +media(tabsp)
         width 100%
-        margin 60px auto 0
+        margin 60px 0 0 0
         padding 0 16px
 
     +media(tab)
-        display flex
+        flex-direction row
         flex-wrap wrap
         justify-content space-between
 
@@ -40,3 +43,5 @@
         min-height 600px
     +media(tab)
         width 100%
+    +media(sp)
+        order 1

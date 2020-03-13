@@ -1,5 +1,6 @@
-aside > div:not(:last-of-type)
-    margin 0 0 60px 0
+.aside  div:last-of-type
+    +media(pc)
+        margin 0
 
 .widget
     &__title
@@ -19,6 +20,14 @@ aside > div:not(:last-of-type)
             background var(--border-color)
             border-radius 3px
 
+    &__ad
+        margin 0 0 60px 0
+
+    &__category
+        margin 0 0 60px 0
+
+    &__recent-posts
+        margin 0 0 60px 0
 
 
 $aside-list
