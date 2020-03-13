@@ -1,29 +1,33 @@
 <%
-var title = page.title;
+// titleの出し分け
+    var title;
+    if(is_home()){
+        title = '';
+    } else if(is_post()){
+        title = page.title + ' - ';
+    } else if (is_archive()){
+        title = 'アーカイブ' + ' - ';
+    } else if (is_category()){
+        title = page.category + ' - ';
+    } else if (is_tag()){
+        title = page.tag + ' - ';
+    }
+    if(page.current > 1){
+        title += 'ページ'+ page.current + ' - ';
+    }
+    title += config.title;
 
-if (is_archive()){
-  title = 'アーカイブ';
-  if (is_month()){
-    title += ': ' + page.year + '/' + page.month;
-  } else if (is_year()){
-    title += ': ' + page.year;
-  }
-} else if (is_category()){
-  title = 'カテゴリー: ' + page.category;
-} else if (is_tag()){
-  title = 'タグ: ' + page.tag;
-}
-
-if(is_post()){
-  if (page.description) {
-    var description = page.description;
-  }else {
-    var description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
-  }
-} else {
-    var description = config.description;
-}
-
+    // ディスクリプションの設定
+        var description;
+        if(is_post()){
+            if (page.description) {
+                description = page.description;
+            }else {
+                description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
+            }
+        } else {
+            description = config.description;
+        }
 %>
 
 
@@ -142,7 +146,7 @@ if(is_post()){
     } <% if(is_post()) { %>,
     {
       "@type": "BlogPosting",
-      "headline": "<% if (title){ %><%= title %> - <% } %><%= config.title %>",
+      "headline": "<%= title %>",
       "image": {
         "@type": "ImageObject",
         "url": "https://pixelog.net/img/pixelog.png",

@@ -1,23 +1,32 @@
 <%
 // titleの出し分け
-    var title = page.title;
-    if (is_archive()){
-        title = 'アーカイブ';
+    var title;
+    if(is_home()){
+        title = '';
+    } else if(is_post()){
+        title = page.title + ' - ';
+    } else if (is_archive()){
+        title = 'アーカイブ' + ' - ';
     } else if (is_category()){
-        title = 'カテゴリー: ' + page.category;
+        title = page.category + ' - ';
     } else if (is_tag()){
-        title = 'タグ: ' + page.tag;
+        title = page.tag + ' - ';
     }
+    if(page.current > 1){
+        title += 'ページ'+ page.current + ' - ';
+    }
+    title += config.title;
 
 // ディスクリプションの設定
+    var description;
     if(is_post()){
         if (page.description) {
-            var description = page.description;
+            description = page.description;
         }else {
-            var description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
+            description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
         }
     } else {
-        var description = config.description;
+        description = config.description;
     }
 
 // URLの正規化（index.htmlを削除）
@@ -30,23 +39,25 @@
     }
 
 // サムネイル画像格納
+    var thumbnail_url
     if(page.thumbnail) {
-        var thumbnail_url = page.thumbnail;
+        thumbnail_url = page.thumbnail;
     } else {
-        var thumbnail_url = 'https://pixelog.net/img/pixelog.png';
+        thumbnail_url = 'https://pixelog.net/img/pixelog.png';
     }
 
 // type出し分け
+    var type;
     if(is_post()) {
-        var type = 'article'
+        type = 'article'
     }else{
-        var type = 'website';
+        type = 'website';
     }
 %>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title><% if (title){ %><%= title %> - <% } %><%= config.title %></title>
+<title><%= title %></title>
 <meta name="description" content="<%= description %>">
 <link rel="canonical" href="<%= url %>">
 <% if (is_post()){ %><link rel="prerender" href="/"><% } %>
@@ -57,7 +68,7 @@
 <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
 <link rel="alternative" type="application/atom+xml" title="pixelog" href="/atom.xml">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="<% if (title){ %><%= title %> - <% } %><%= config.title %>">
+<meta property="og:title" content="<%= title %>">
 <meta property="og:description" content="<%= description %>">
 <meta property="og:url" content="<%= url %>">
 <meta property="og:type" content="<%= type %>">
