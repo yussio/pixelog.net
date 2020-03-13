@@ -3,31 +3,31 @@
     var title;
     if(is_home()){
         title = '';
-    } else if(is_post()){
-        title = page.title + ' - ';
     } else if (is_archive()){
         title = 'アーカイブ' + ' - ';
     } else if (is_category()){
         title = page.category + ' - ';
     } else if (is_tag()){
         title = page.tag + ' - ';
+    } else {
+        title = page.title + ' - ';
     }
     if(page.current > 1){
         title += 'ページ'+ page.current + ' - ';
     }
     title += config.title;
 
-    // ディスクリプションの設定
-        var description;
-        if(is_post()){
-            if (page.description) {
-                description = page.description;
-            }else {
-                description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
-            }
-        } else {
-            description = config.description;
+// ディスクリプションの設定
+    var description;
+    if(is_post()){
+        if (page.description) {
+            description = page.description;
+        }else {
+            description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
         }
+    } else {
+        description = config.description;
+    }
 %>
 
 
