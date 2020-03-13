@@ -30,7 +30,7 @@
     }
 
 // page.pathからindex.html削除
-    var path = page.path.replace(/\/index.html/, '');
+    var path = page.path.replace(/index.html/, '');
 
 // URLの正規化（index.htmlを削除）
     if (/index.html/.test(url)) {
@@ -84,7 +84,7 @@
 <meta property="fb:app_id" content="359976974704228">
 <meta name="theme-color" content="#3fb5bd">
 <script type="application/ld+json"><%- partial('ld+json') %></script>
-<% if(page.js === true) { %><script src="/<%= path %>/script.js" defer></script><% } %>
+<% if(page.js === true) { %><script src="/<%= path %>script.js" defer></script><% } %>
 <script src="/js/script.js" defer></script>
 <%- css('css/style') %>
-<% if(page.css === true) { %><link rel="stylesheet" href="/<%= path %>/style.css"><% } %>
+<% if(page.css === true) { %><link rel="stylesheet" href="/<%= path %>style.css"><% } %>
