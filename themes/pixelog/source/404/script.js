@@ -9,13 +9,14 @@ function displayConsole(elmId) {
     let count = 0;
     const timer = setInterval( () => {
         count++;
-        innerStr += str.slice(count-1, count);
-        elm.innerHTML = innerStr;
+        innerStr = str.slice(0, count);
+        elm.innerHTML = innerStr + "|";
 
         if(count >= strLength){
             clearInterval(timer);
+            elm.innerHTML = str;
         }
-    }, 70)
+    }, 50)
 
 }
 
