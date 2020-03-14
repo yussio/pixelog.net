@@ -2,6 +2,7 @@
 title: 404 Not Found
 css: true
 js: true
+noindex: true
 ---
 
 <div id="console">
