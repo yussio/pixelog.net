@@ -26,3 +26,12 @@ css: true
     <button type="submit">送信</button>
   </p>
 </form>
+
+<script>    
+    const elm = document.forms.contact;
+    window.onbeforeunload = (e) => {
+        if(elm.name.value || elm.email.value || elm.subject.value || elm.message.value) {
+            e.returnValue = "入力した内容が失われます。よろしいですか？";      
+        }
+    }
+</script>
