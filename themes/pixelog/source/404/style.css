@@ -1,9 +1,44 @@
+#console-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
 #console {
-    min-height: 350px;
-    padding: 4px 24px;
-    background: #333;
+    min-height: 500px;
+    padding: 12px 32px;
     color: rgba(0, 255, 0, 0.9);
     font-family: Consolas,"Courier New",Courier,Monaco,monospace;
+    text-shadow: 0px 0px 5px #fff;
+    box-shadow: 0 0  200px 2px #000 inset;
+    position: relative;
+    z-index: 3;
+}
+
+#console-wrapper:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(background.gif) repeat;
+    filter: brightness(.3) blur(1px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#console-wrapper:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 255, 126, 0.3);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(255,255,255,.1) 1px, rgba(255,255,255,.1) 20px), repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(255,255,255,.1) 1px, rgba(255,255,255,.1) 20px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
 #console p {
