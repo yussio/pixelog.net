@@ -16,7 +16,7 @@ function displayConsole(elmId) {
             clearInterval(timer);
             elm.innerHTML = str;
         }
-    }, 80)
+    }, 50)
 
 }
 
