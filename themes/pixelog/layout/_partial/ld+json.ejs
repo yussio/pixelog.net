@@ -146,15 +146,20 @@
     } <% if(is_post()) { %>,
     {
       "@type": "BlogPosting",
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "/<%- page.path %>"
+      },
       "headline": "<%= title %>",
+      "datePublished": "<%= page.date.format() %>",
+      "dateModified": "<%= page.date.format() %>",
+      "description": "<%= description %>",
       "image": {
         "@type": "ImageObject",
         "url": "https://pixelog.net/img/pixelog.png",
-        "height": 630,
-        "width": 1200
+        "width": 1200,
+        "height": 630
       },
-      "datePublished": "<%= page.date.format() %>",
-      "dateModified": "<%= page.date.format() %>",
       "author": {
         "@type": "Person",
         "name": "<%= config.author %>"
@@ -168,10 +173,8 @@
           "width": 630,
           "height": 1200
         }
-      },
-      "description": "<%= description %>"
+      }
     }
     <% } %>
-
   ]
 }
