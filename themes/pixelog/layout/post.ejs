@@ -8,11 +8,6 @@
                     <time class="post-header__published" datetime="<%- page.date.format() %>">
                       <%- page.date.format("YYYY.MM.DD") %>
                     </time>
-                    <div class="post-header__tag">
-                      <% page.tags.forEach(function(item){ %>
-                        <span><%= item.name %></span>
-                      <% }) %>
-                    </div>
                 </div>
               <a class="post-header__title-link" href="/<%- page.path %>"><h1 class="post-header__title"><%- page.title %></h1></a>
               <% if (page.thumbnail) { %>
