@@ -1,11 +1,10 @@
 ---
 title: Hexoで画像にloading="lazy"を自動で追加して画像を遅延読み込みする
-pid: vo9d9z
 categories:
   - Web
   - Hexo
+pid: vo9d9z
 date: 2020-03-16 16:42:43
-description:
 ---
 
 Chromeでいよいよ画像の遅延読み込みがネイティブでサポートされました。
