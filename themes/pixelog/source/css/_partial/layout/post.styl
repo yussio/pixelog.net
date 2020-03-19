@@ -108,6 +108,7 @@
     margin 20px auto 0 auto
     text-align center
     font-size 15px
+    transition .1s color ease
 
     &::before
         display inline-block
@@ -122,6 +123,8 @@
         transition .2s transform, border ease-in-out
 
     &:hover
+        color var(--text-hover-color)
+
         &::before
             border-color #ef6461
             transform rotate(-45deg) translate(-2px, -2px)
