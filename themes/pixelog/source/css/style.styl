@@ -44,6 +44,39 @@ a
     animation spinner .5s cubic-bezier(.42, .61, .58, .41) infinite
 
 
+#alert
+    position fixed
+    width 100%
+    padding 8px 16px
+    background var(--background-sub-color)
+    color var(--text-color)
+    font-size 14px
+    box-shadow 0 0 16px rgba(0,0,0,.06)
+    bottom 0
+    left 0
+    animation fadein .2s ease-out both
+
+#alert.fadeout
+    animation fadeout .2s ease-out both
+
+@keyframes fadein
+    0%
+        transform translateY(100%)
+        opacity 0
+    100%
+        transform translateY(0)
+        opacity .9
+
+@keyframes fadeout
+    0%
+        transform translateY(0)
+        opacity .9
+    100%
+        transform translateY(100%)
+        opacity 0
+
+
+
 /* partial
 --------------------------------------------------------------------------------------------------------*/
 
