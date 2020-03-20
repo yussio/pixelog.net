@@ -28,33 +28,15 @@
 
     function changeMode(mode, storage){
         if(mode === 'dark') {
-            var mode_name = 'ダーク'
             htmlElement.dataset.mode = mode;
             toggle_switch.checked = true;
 
         } else if(mode === 'light') {
-            var mode_name = 'ライト'
             delete htmlElement.dataset.mode;
             toggle_switch.checked = false;
         }
         if(storage === 'set'){
             sessionStorage.setItem(keyLocalStorage, mode);
-
-            if(document.getElementById('alert')) {
-                document.getElementById('alert').remove();
-            }
-            const myAlert = document.createElement('div');
-            myAlert.id = 'alert';
-            myAlert.textContent = mode_name + 'モードへ切り替えました。設定はタブを閉じるまで有効です。';
-            document.body.appendChild(myAlert)
-
-            setTimeout(function(){
-                myAlert.className = 'fadeout';
-                myAlert.addEventListener("animationend",function(){
-                    this.remove();
-                });
-            }, 4000);
-
         } else if(storage === 'remove') {
             sessionStorage.removeItem(keyLocalStorage);
         }
