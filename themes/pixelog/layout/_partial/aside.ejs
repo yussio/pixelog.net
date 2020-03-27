@@ -13,18 +13,50 @@
     </div>
     <div class="widget__category">
         <h4 class="widget__title">Category</h4>
-        <%- list_categories( {
-          show_count: true
-        }) %>
+        <%
+        // https://github.com/hexojs/hexo/issues/3588
+        function displayCategories(parent = undefined) {
+          site.categories
+            .find({ parent }) // warehouse allows us complex queries
+            .sort("name") // sort
+            .each(function(category) {
+              // count the child categories
+              const childCount = site.categories.find({ parent: category._id }).count();
+              %>
+              <li class="category-list-item">
+                <a class="category-list-link
+
+                <%
+                var current_category;
+                if(is_category()) {
+                    current_category = page.category;
+                } else if(is_post()) {
+                    current_category = page.categories.data[page.categories.length - 1].name;
+                } else {
+                    current_category = '';
+                }
+                if(current_category === category.name) { %>
+                    current
+                <% } %>
+
+                " href="<%=url_for(category.path)%>"><%=category.name%></a>
+                <span class="category-list-count"><%= category.length%></span>
+
+                <% if (childCount > 0) { %>
+                  <ul class="category-list-child">
+                    <% displayCategories(category._id); %>
+                  </ul>
+                <% } %>
+              </li>
+              <%
+            });
+        }
+        %>
+        <ul class="category-list">
+          <% displayCategories(); %>
+        </ul>
     </div>
-    <!--
-    <div class="widget__tag">
-        <h3 class="widget__title">Tag</h3>
-        <%- list_tags( {
-          show_count: true
-        }) %>
-    </div>
-  -->
+
     <% if (is_post() === true) { %>
     <div class="widget__recent-posts">
         <h4 class="widget__title">Recent Posts</h4>

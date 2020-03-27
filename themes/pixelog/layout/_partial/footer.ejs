@@ -16,4 +16,3 @@
         </div>
     </div>
 </footer>
-<script><% if(is_category() || is_post()) { %>document.querySelector('.category-list [href="' + encodeURI(document.querySelector('.breadcrumbs__item:nth-last-of-type(' + <% if(page.current === 1){ %>1<% }else{ %>2<% } %> +') a').getAttribute('href')) + '"]').setAttribute('class', 'category-list-link current');<% } %>console.log('総記事数:' + <%= site.posts.length %>)</script>
