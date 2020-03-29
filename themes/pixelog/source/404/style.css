@@ -1,3 +1,11 @@
+html {
+  cursor: crosshair;
+}
+
+.post {
+  background: url(background.jpg) repeat;
+}
+
 #console-wrapper {
     position: relative;
     overflow: hidden;
@@ -7,10 +15,9 @@
 #console {
     min-height: 500px;
     padding: 12px 32px;
-    color: rgba(0, 255, 0, 0.9);
+    color: #fff;
     font-family: Consolas,"Courier New",Courier,Monaco,monospace;
-    text-shadow: 0px 0px 5px #fff;
-    box-shadow: 0 0  200px 2px #000 inset;
+    border: 8px ridge rgba(0, 230, 100, 1);
     position: relative;
     z-index: 3;
 }
@@ -20,8 +27,8 @@
     display: block;
     width: 100%;
     height: 100%;
-    background: url(background.gif) repeat, #000;
-    filter: brightness(.3) blur(1px);
+    background: url(background.gif) repeat,#000;
+    filter: brightness(.5) blur(1px);
     position: absolute;
     top: 0;
     left: 0;
@@ -33,7 +40,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 255, 126, 0.5);
+    background-color: rgba(0, 255, 126, 0.6);
     background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(255,255,255,.1) 1px, rgba(255,255,255,.1) 20px), repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(255,255,255,.1) 1px, rgba(255,255,255,.1) 20px);
     position: absolute;
     top: 0;
@@ -43,4 +50,72 @@
 
 #console p {
   margin: 1em 0;
+}
+
+
+
+.marquee-anim {
+  padding: .5em 0;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.marquee-anim span {
+  display: inline-block;
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: marquee 4s linear alternate infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
+
+@keyframes rainbow {
+    0%   {color:#ffffff;}
+    10%  {color:#00ff00;}
+    20%  {color:#00ffff;}
+    30%  {color:#0000ff;}
+    40%  {color:#ffff00;}
+    50%  {color:#ff00ff;}
+    60%  {color:#aaaaaa;}
+    70%  {color:#ffccff;}
+    80%  {color:#00cc00;}
+    90%  {color:#00cccc;}
+    100% {color:#ff0000;}
+}
+
+
+.star {
+    animation: kirakira 8s linear;
+    color: yellow;
+    display: inline-block;
+    height: 1em;
+    line-height: 1em;
+    position: fixed;
+    top: -1em;
+    z-index: 1000;
+}
+
+@keyframes kirakira {
+    0% {
+        transform:translateY(0) rotateY(0);
+    }
+    100% {
+        transform:translateY(calc(100vh + 1em)) rotateY(3600deg);
+    }
+}
+
+
+
+#stalker {
+    position: fixed;
+    z-index: 9999;
+    transition: left .7s ease-in-out 0s, top .7s ease-in-out 0s; /*1.5s は移動時間*/
 }

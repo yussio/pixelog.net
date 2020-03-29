@@ -5,6 +5,16 @@ js: true
 sitemap: false
 ---
 
+<p style="line-height: 60px;text-align:center;border: 6px solid #00efff;background:#000;animation: rainbow 3s ease-out -3s infinite alternate;">
+  <span style="animation-delay:.5s">Sorry, this page is Japanese only!</span>
+</p>
+
+<p class="marquee-anim" style="border: 4px solid #ff0000;background-color: #0348fb;color: #ffff00;">
+  <span>ページが見つかりませんでした！！！</span>
+</p>
+
+<p style="color:#0348fb">このページを見つけた人は、Twiｉｔer(<a href="https://twitter.com/yussious">@yussious</a>)まで報告してください！！<span class="shake" style="color: red">読み逃げは禁止です！！！</span></p>
+
 <div id="console-wrapper">
     <div id="console">
         <p>> ERROR! 未知のページを検知しました。</p>
@@ -19,4 +29,10 @@ sitemap: false
     </div>
 </div>
 
-[トップへ戻る](/)
+<p>
+↓↓このホームページは以下の同盟に参加しています。↓↓
+<br><br>
+<a href="http://m-pe.tv/u/page.php?uid=16811&id=1&guid=on"><img src="shiryoku.jpg" alt="視力回復同盟"></a>
+<a href="http://web.archive.org/web/20110728135322/http://trick.kill.jp/union/kie.htm"><img src="kie.gif" alt="消失同盟"></a>
+</p>
+<a href="/"><img src="top.gif" alt="トップへ戻る"></a>
