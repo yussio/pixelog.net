@@ -32,7 +32,7 @@ sitemap: false
 <p>
 ↓↓このホームページは以下の同盟に参加しています。↓↓
 <br><br>
-<a href="http://m-pe.tv/u/page.php?uid=16811&id=1&guid=on"><img src="shiryoku.jpg" alt="視力回復同盟"></a>
-<a href="http://web.archive.org/web/20110728135322/http://trick.kill.jp/union/kie.htm"><img src="kie.gif" alt="消失同盟"></a>
+<a href="http://m-pe.tv/u/page.php?uid=16811&id=1&guid=on"><img src="/404/shiryoku.jpg" alt="視力回復同盟"></a>
+<a href="http://web.archive.org/web/20110728135322/http://trick.kill.jp/union/kie.htm"><img src="/404/kie.gif" alt="消失同盟"></a>
 </p>
-<a href="/"><img src="top.gif" alt="トップへ戻る"></a>
+<a href="/"><img src="/404/top.gif" alt="トップへ戻る"></a>

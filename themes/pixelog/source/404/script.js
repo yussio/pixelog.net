@@ -64,7 +64,7 @@ starMaker(10);
     var body = doc.body;
     var stalker = doc.createElement("div");
     stalker.id = "stalker";
-    stalker.innerHTML = '<img src="icecream.png" alt="マウスストーカー" width="70" height="70">'; //表示させる要素 画像であれば img 要素を入れる
+    stalker.innerHTML = '<img src="/404/icecream.png" alt="マウスストーカー" width="70" height="70">'; //表示させる要素 画像であれば img 要素を入れる
     body.appendChild(stalker);
 
     body.addEventListener("mousemove", function(e) {
