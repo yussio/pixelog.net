@@ -33,26 +33,51 @@
 
 $margin
     margin 2em 0
-    padding 8px 16px
-    font-size 14px
+    padding 1em 1.2em 1em 72px
     color #000
+    border-radius 3px
+    position relative
 
+    &::before
+        display block
+        width 32px
+        height 32px
+        line-height 32px
+        margin 0 1em 0 0
+        text-align center
+        font-size 22px
+        color #fff
+        font-weight bold
+        font-family "Consolas", monospace
+        border-radius 50%
+        position absolute
+        top calc(50% - 16px)
+        left 20px
 
 .notice
     @extend $margin
-    background #e5ffe1
-    border-left 3px solid #60da00
+    background #deefff
+
+    &::before
+        content: "i"
+        background #4285f4
 
 .caution
     @extend $margin
-    background #fcf2bf
-    border-left 3px solid #f5aa0a
+    background #fff7d8
+
+    &::before
+        content: "!"
+        background #fbbc03
 
 
 .warning
     @extend $margin
-    background #fdd8d8
-    border-left 3px solid #e80000
+    background #fde4e2
+
+    &::before
+        content "!"
+        background #ea4335
 
 
 .keyboard
