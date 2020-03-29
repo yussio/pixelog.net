@@ -56,7 +56,7 @@ function starSet(clone) {
 }
 
 //使用例。星を50個ふらせます。
-starMaker(50);
+starMaker(10);
 
 
 (function() {
