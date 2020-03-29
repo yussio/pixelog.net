@@ -2,7 +2,7 @@
 title: 404 Not Found
 css: true
 js: true
-noindex: true
+sitemap: false
 ---
 
 <div id="console-wrapper">

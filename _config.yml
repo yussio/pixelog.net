@@ -124,6 +124,10 @@ feed:
   autodiscovery: true
   template:
 
+sitemap:
+    path: sitemap.xml
+    tag: false
+    category: false
 
 archive_generator:
   per_page: 0
