@@ -32,9 +32,9 @@
 |pid        |小文字英数10文字  |記事のURL                                |
 |description|文字列  |記事の要約。metaタグのdescriptionへ                |
 |thumbnail  |サムネイル画像のファイル名 |OGPタグのサムネイルへ             |
-|css        |真偽     |記事個別のCSSを読み込む（style.cssをフォルダに置く）|
-|js         |真偽    |記事個別のJSを読み込む（script.jsをフォルダに置く）  |
-|noindex     |真偽    |ページをnoindexにする                             |
+|css        |true     |記事個別のCSSを読み込む（style.cssをフォルダに置く）|
+|js         |true    |記事個別のJSを読み込む（script.jsをフォルダに置く）  |
+|sitemap     |false   |ページをnoindexに、sitemapを送信しない       |
 
 
 ## よく使うgitコマンド
