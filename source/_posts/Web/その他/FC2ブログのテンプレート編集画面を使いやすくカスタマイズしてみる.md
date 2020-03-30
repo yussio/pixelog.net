@@ -87,6 +87,6 @@ FC2ブログの管理画面は、自分の記憶だともう10年くらい（？
 
 CSSの適用先は下記のURLに設定してください。
 
-<div class="gray-box">
-https&#58;//admin.blog.fc2.com/control.php
-</div>
+```plaintext
+https://admin.blog.fc2.com/control.php
+```

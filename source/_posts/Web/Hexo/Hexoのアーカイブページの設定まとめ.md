@@ -36,20 +36,9 @@ archive_generator:
 
 ## URL例
 
-年アーカイブ
 
-<div class="gray-box">
-https&#58;//example.com/2019/
-</div>
-
-月アーカイブ
-
-<div class="gray-box">
-https&#58;//example.com/2019/04/
-</div>
-
-日アーカイブ
-
-<div class="gray-box">
-https&#58;//example.com/2019/04/01
-</div>
+| ページ      | URL                                |
+|------------|------------------------------------|
+|年アーカイブ |https//example.com/2019/            |
+|月アーカイブ |https&#58;//example.com/2019/04/     |
+|日アーカイブ |https&#58;//example.com/2019/04/01   |
