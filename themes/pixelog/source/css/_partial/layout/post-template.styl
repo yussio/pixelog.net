@@ -1,11 +1,3 @@
-.red-box
-    border 1px solid #f44336
-    margin 20px 0
-    padding 16px
-    color #f44336
-    font-size 14px
-    border-radius 4px
-
 .gray-box
     margin 1em 0
     padding 12px
@@ -27,17 +19,12 @@
     &:hover
         opacity 1
 
-.center
-    text-align center
-
 
 $margin
     margin 2em 0
     padding 1em 1.2em 1em 72px
-    color #000
     border-radius 3px
     position relative
-
     &::before
         display block
         width 32px
@@ -57,7 +44,6 @@ $margin
 .notice
     @extend $margin
     background #deefff
-
     &::before
         content: "i"
         background #4285f4
@@ -65,7 +51,6 @@ $margin
 .caution
     @extend $margin
     background #fff7d8
-
     &::before
         content: "!"
         background #fbbc03
@@ -74,26 +59,20 @@ $margin
 .warning
     @extend $margin
     background #fde4e2
-
     &::before
         content "!"
         background #ea4335
 
 
-.keyboard
-    display inline-flex
-    justify-content center
-    align-items center
-    height 37px
-    margin 5px
-    padding 0 10px
-    border-radius 4px
-    box-shadow 0 0 25px rgb(232,232,232) inset, 0 1px 0 rgb(195,195,195), 0 2px 0
-    border-top 1px solid rgb(245,245,245)
-    background rgb(239,240,242)
-    color rgb(170,170,170)
-    font bold 14px arial
-    text-shadow 0 1px 0 rgb(245,245,245)
+[data-mode='dark']
+    .notice
+        background #004a90
+
+    .caution
+        background #8c7000
+
+    .warning
+        background #820a00
 
 
 .card-link
