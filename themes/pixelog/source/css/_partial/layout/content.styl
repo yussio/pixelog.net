@@ -123,57 +123,48 @@ pre
     position relative
 
 .hljs
-    padding 46px 2em 2em 2em
-    font-size 14px
+    padding 42px 2em 2em 2em
+    font-size 16px
     font-family Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
     line-height 1.5
-    border-radius 3px
+    border-radius 4px
+    --code ""
 
     &::before
         display block
-        line-height 28px
+        line-height 38px
         padding 0 16px
-        background #777
-        color: #fff
+        font-size 14px
         position absolute
         top 0
         left 0
-        font-size 16px
-        border-radius 3px 0 0 0
 
     &.css::before
-        content "CSS"
-        background #3696d1
+        content var(--code) "CSS"
 
     &.html::before
-        content "HTML"
-        background #e54d26
+        content var(--code) "HTML"
 
     &.javascript::before
-        content "JavaScript"
-        background #eba90c
+        content var(--code) "JavaScript"
 
     &.stylus::before
-        content "Stylus"
-        background #b5d202
+        content var(--code) "Stylus"
 
     &.bash::before
-        content "Bash"
-        background #00203e
+        content var(--code) "Bash"
 
     &.yml::before
-        content "yml"
-        background: #9764ff
+        content var(--code) "yml"
 
     &.ejs::before
-        content "ejs"
-        background #afc462
+        content var(--code) "EJS"
 
     &.plaintext
         padding 2em
 
     &::-webkit-scrollbar
-        height 10px
+        height 8px
 
     &::-webkit-scrollbar-thumb
         background #bbb
