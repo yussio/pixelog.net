@@ -6,13 +6,8 @@
             <header class="post-header">
                 <div class="post-header__meta">
                     <time class="post-header__published" datetime="<%- page.date.format() %>">
-                      <%- '公開：' + page.date.format("YYYY.MM.DD") %>
+                      <%- page.date.format("YYYY.MM.DD") %>
                     </time>
-                    <% if (page.updated) { %>
-                    <time class="post-header__modified"  datetime="<%- page.updated.format() %>">
-                      <%- '/ 更新：' + page.updated.format("YYYY.MM.DD") %>
-                    </time>
-                    <% } %>
                 </div>
               <a class="post-header__title-link" href="/<%- page.path %>"><h1 class="post-header__title"><%- page.title %></h1></a>
               <% if (page.thumbnail) { %>
