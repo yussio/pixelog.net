@@ -28,6 +28,9 @@
     } else {
         description = config.description;
     }
+
+// page.pathからindex.html削除
+    var path = page.path.replace(/index.html/, '');
 %>
 
 
@@ -143,12 +146,41 @@
             }
         <% } %>
       ]
-    } <% if(is_post()) { %>,
+    } <% if(!is_post()) { %>,
+    {
+      "@type": "Blog",
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "/<%- path %>"
+      },
+      "headline": "<%= config.title %>",
+      "image": {
+          "@type": "ImageObject",
+          "url": "https://pixelog.net/img/pixelog.png",
+          "width": 1200,
+          "height": 630
+      },
+      "author": {
+          "@type": "Person",
+          "name": "<%= config.author %>"
+      },
+      "publisher": {
+          "@type": "Organization",
+          "name": "<%= config.title %>",
+          "logo": {
+              "@type": "ImageObject",
+              "url": "https://pixelog.net/img/pixelog.png",
+              "width": 1200,
+              "height": 630
+          }
+      },
+      "description": "<%= description %>"
+    } <% } else if(is_post()) { %>,
     {
       "@type": "BlogPosting",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "/<%- page.path %>"
+          "@id": "/<%- path %>"
       },
       "headline": "<%= title %>",
       "datePublished": "<%= page.date.format() %>",
@@ -170,8 +202,8 @@
         "logo": {
           "@type": "ImageObject",
           "url": "https://pixelog.net/img/pixelog.png",
-          "width": 630,
-          "height": 1200
+          "width": 1200,
+          "height": 630
         }
       }
     }
