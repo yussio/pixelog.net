@@ -1,0 +1,22 @@
+@keyframes spinner
+    from
+        transform rotate(0deg)
+    to
+        transform rotate(360deg)
+
+.loading
+    position relative
+
+.loading::before
+    --spinner-size: 36px
+    content ""
+    position absolute
+    top calc(50% - 0.5*var(--spinner-size))
+    left calc(50% - 0.5*var(--spinner-size))
+    z-index 0
+    width var(--spinner-size)
+    height var(--spinner-size)
+    border-radius 50%
+    border 2px solid rgb(204,204,204)
+    border-top-color rgb(51,51,51)
+    animation spinner .5s cubic-bezier(.42, .61, .58, .41) infinite
