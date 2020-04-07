@@ -45,7 +45,7 @@
         display block
         width 50px
         height 20px
-        background #ccc
+        background #cfcfcf
         border-radius 46px
         transition .2s background ease-in-out
         cursor pointer
@@ -57,7 +57,7 @@
             height 20px
             border-radius 50%
             background #fff
-            box-shadow 0 0 5px rgba(0, 0, 0, 0.2)
+            box-shadow 0 1px 5px rgba(0, 0, 0, 0.25)
             transition .2s margin ease-in-out
 
     &__input
@@ -65,7 +65,7 @@
         opacity 0
 
         &:focus + .switch__label
-            outline 1.5px solid #4d90fe
+            box-shadow 0 0 0 0.2rem rgba(0,123,255,.25)
 
         &:checked
             & + .switch__label
