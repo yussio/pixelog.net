@@ -8,93 +8,103 @@
       padding 32px 16px
 
 
-.post-header
-    &__title
-        margin 0 0 1.2em 0
-        font-size 30px
+    &__content
+        font-size 16px
+        text-align justify
+        line-height: 1.8;
+        color var(--text-color)
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         +media(sp)
-            font-size 24px
+            font-size 15px
         +media(spm)
-            font-size 22px
+            font-size 15px
 
-        &-link
-            display block
+        a
+          color var(--text-link-default-color)
+          text-decoration underline
 
-    &__meta
-        margin 0 0 1em 0
-        font-size 14px
-        color var(--text-sub-color)
+        p
+          margin 1.5em 0
 
-    &__thumbnail-img
-        max-width 100%
-        vertical-align middle
-        border-radius 4px
+        img
+          max-width 100%
+          vertical-align middle
+          border-radius 4px
+
+        h2
+          margin 2.5em 0 1.2em 0
+          border-bottom 1px solid var(--border-color)
+          font-size 24px
+          +media(sp)
+              font-size 21px
+
+        h3
+          font-size 18px
+          margin 2.5em 0 1.2em 0
+          +media(sp)
+              font-size 18px
+
+        strong
+            background linear-gradient(transparent 40%, #ffdd9f 40%)
+
+        ul
+        ol
+            margin 0 0 0 24px
+
+        li
+            margin 1em 0
 
 
-.post-footer
-    &:not(:empty)
-        margin 80px 0 0 0
+        table
+            width 100%
+            margin 30px 0
+            font-size 15px
+            border-collapse collapse
 
-    &__ad
-        margin 60px 0 0 0
-
-
-
-/*
-.social-btn
-    display flex
-    flex-wrap wrap
-    justify-content center
-    list-style none
-    filter: grayscale(.1);
+        tr
+            &:hover
+                background var(--background-hover-color)
 
 
-    &__item
-        margin 0 8px
-        &:first-of-type
-            margin-left 0
-        &:last-of-type
-            margin-right 0
+        th
+            padding 6px
+            text-align center
+            border 1px solid var(--border-color)
+            background var(--background-color)
 
-    $item-link
-        display flex
-        width 44px
-        height 44px
-        margin auto
-        color #fff
-        justify-content center
-        border-radius 50%
-        box-shadow 0 4px 5px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.1)
-        transition .2s all ease-in-out
+        td
+            padding 6px 12px
+            border 1px solid var(--border-color)
 
-        &:hover
-            opacity .85
-            +media(pc)
-                transform translateY(-3px)
-                box-shadow 0 8px 5px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.1)
+        blockquote
+            position relative
+            margin 0
+            padding 30px
+            border 0
+            font-size .9em
+            background #f1f1f1
+            border-radius 2px
+            z-index 2
 
-    &__item-link
-        &--twitter
-            @extend $item-link
-            background #55acee
-        &--facebook
-            @extend $item-link
-            background #1877f2
-        &--tumblr
-            @extend $item-link
-            background #34465d
-        &--hatebu
-            @extend $item-link
-            background #008fde
-        &--pocket
-            @extend $item-link
-            background #ef3f56
-        &--feedly
-            @extend $item-link
-            background #6cc655
 
-    &__svg
-        width 20px
-        height 20px
-        align-self center
-*/
+            &:before
+            &:after
+              	position absolute
+              	font-size 1000%
+              	color #d3d3d3
+              	font-family 'TImes NEw ROman',"ＭＳ Ｐゴシック",sans-serif
+              	z-index -1
+
+
+            &:before
+              	content "“"
+              	line-height 0.8em
+              	top 10px
+              	left 10px
+
+            &:after
+              	content "”"
+              	line-height 0em
+              	right 10px
+              	bottom 5px
