@@ -23,7 +23,7 @@ date: 2020-04-08 16:04:24
 
 ```javascript
 function textAdjust(Class) {
-  window.addEventListener('load', adjust);
+  document.addEventListener('DOMContentLoaded', adjust);
 
   function adjust(){
     const title = document.getElementsByClassName(Class);
