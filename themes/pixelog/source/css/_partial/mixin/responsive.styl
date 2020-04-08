@@ -1,19 +1,10 @@
 media(bpName)
     for name in bpName
-        if name == 'spm'
-            @media (max-width: spm-width)
-                {block}
         if name == 'sp'
             @media (max-width: sp-width)
                 {block}
         if name == 'tabsp'
-            @media (max-width: tab-width)
-                {block}
-        if name == 'tab'
-            @media (min-width: sp-width + 1px) and (max-width: tab-width)
-                {block}
-        if name == 'pcm'
-            @media (min-width: tab-width + 1px) and (min-width: pc-width -1px)
+            @media (max-width: pc-width - 1px)
                 {block}
         if name == 'pc'
             @media (min-width: pc-width)
