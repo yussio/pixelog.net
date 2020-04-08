@@ -1,5 +1,5 @@
 <aside class="aside">
-    <div class="widget__ad loading">
+    <div class="aside__ad loading">
         <!-- サイドバー -->
         <ins class="adsbygoogle"
            style="display:block"
@@ -11,8 +11,8 @@
            (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
-    <div class="widget__category">
-        <h4 class="widget__title">Category</h4>
+    <div class="aside__category">
+        <h4 class="aside__title">Category</h4>
         <ul class="category-list">
             <%
             // https://github.com/hexojs/hexo/issues/3588
@@ -48,8 +48,8 @@
     </div>
 
     <% if (is_post() === true) { %>
-    <div class="widget__recent-posts">
-        <h4 class="widget__title">Recent Posts</h4>
+    <div class="aside__recent-posts">
+        <h4 class="aside__title">Recent Posts</h4>
         <%- list_posts( {
           class: 'recent-posts'
         }) %>

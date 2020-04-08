@@ -1,31 +1,3 @@
-.widget
-    &__title
-        display block
-        margin 0 0 16px 0
-        text-align center
-        letter-spacing .1em
-        text-transform uppercase
-        color var(--text-accent-color)
-
-        &::after
-            content ""
-            display block
-            width 30px
-            height 3px
-            margin 16px auto
-            background var(--border-color)
-            border-radius 3px
-
-
-    &__ad
-        grid-column 1/-1
-        +media(pc)
-            width 300px
-            min-height 600px
-        +media(tabsp)
-            order 1
-
-
 $aside-list
     list-style none
     font-size 15px
