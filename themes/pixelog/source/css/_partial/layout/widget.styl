@@ -18,8 +18,13 @@
 
 
     &__ad
+        grid-column 1/-1
         +media(pc)
+            width 300px
             min-height 600px
+        +media(tabsp)
+            order 1
+
 
 $aside-list
     list-style none
