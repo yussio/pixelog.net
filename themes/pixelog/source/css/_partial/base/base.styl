@@ -11,3 +11,76 @@ body
 a
     color var(--text-link-color)
     text-decoration none
+
+p
+    margin 1.5em 0
+
+img
+    max-width 100%
+    vertical-align middle
+    border-radius 4px
+
+table
+    width 100%
+    margin 30px 0
+    font-size 15px
+    border-collapse collapse
+
+tr
+    &:hover
+        background var(--background-hover-color)
+
+th
+    padding 6px
+    text-align center
+    border 1px solid var(--border-color)
+    background var(--background-color)
+
+td
+    padding 6px 12px
+    border 1px solid var(--border-color)
+
+blockquote
+    position relative
+    margin 0
+    padding 30px
+    border 0
+    font-size .9em
+    background #f1f1f1
+    border-radius 2px
+    z-index 2
+    &:before
+    &:after
+        position absolute
+        font-size 1000%
+        color #d3d3d3
+        font-family 'TImes NEw ROman',"ＭＳ Ｐゴシック",sans-serif
+        z-index -1
+    &:before
+        content "“"
+        line-height 0.8em
+        top 10px
+        left 10px
+    &:after
+        content "”"
+        line-height 0em
+        right 10px
+        bottom 5px
+
+code:not(.hljs)
+    margin 0 .5em
+    padding 3px 10px
+    background #f2f2f2
+    font-size 14px
+    color #333
+    border-radius: 3px
+    font-family Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
+
+pre
+    width 100%
+    margin 1.5em 0
+    overflow hidden
+    position relative
+
+strong
+    background linear-gradient(transparent 40%, #ffdd9f 40%)
