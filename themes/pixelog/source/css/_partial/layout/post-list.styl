@@ -1,9 +1,12 @@
 .post-list
-    background var(--background-sub-color)
-    box-shadow boxshadow
-    border-radius 4px
     +media(sp)
         font-size 13.5px
+
+
+    &__inner
+        background var(--background-sub-color)
+        box-shadow boxshadow
+        border-radius 4px
 
 
     &__item
@@ -21,11 +24,11 @@
                 display block
                 flex-shrink 0
                 content ""
-                width 12px
-                height 12px
+                width .75em
+                height .75em
                 margin 0 0 0 auto
-                border-top 2px solid #bbb
-                border-right 2px solid #bbb
+                border-top .125em solid #bbb
+                border-right .125em solid #bbb
                 transform rotate(45deg)
                 transition .15s transform, border ease-out
 
@@ -34,7 +37,7 @@
 
                 &::after
                     border-color #ef6461
-                    transform rotate(45deg) translate(2px, -2px)
+                    transform rotate(45deg) translate(.125em, -.125em)
 
     &__date
         flex-shrink 0

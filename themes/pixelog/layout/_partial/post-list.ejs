@@ -1,34 +1,36 @@
-<ul class="post-list">
-    <% page.posts.each(function(post){ %>
-        <li class="post-list__item">
-            <a class="post-list__item-link" href="/<%- post.path %>">
-                <time class="post-list__date" datetime="<%- post.date.format() %>">
-                  <%- post.date.format("YYYY.MM.DD") %>
-                </time>
-                <h2 class="post-list__title"><%- post.title || "Untitled" %></h2>
-            </a>
-        </li>
-    <% }) %>
-</ul>
+<div class="post-list">
+    <ul class="post-list__inner">
+        <% page.posts.each(function(post){ %>
+            <li class="post-list__item">
+                <a class="post-list__item-link" href="/<%- post.path %>">
+                    <time class="post-list__date" datetime="<%- post.date.format() %>">
+                      <%- post.date.format("YYYY.MM.DD") %>
+                    </time>
+                    <h2 class="post-list__title"><%- post.title || "Untitled" %></h2>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
 
-<div class="pager">
-    <a class="pager__prev<% if (!page.prev_link && !is_current('/page/2/')) { %>--disabled<% } %>" <% if (page.prev_link) { %> href="/<%- page.prev_link %>" <% } %><% if (is_current('/page/2/')) {  %> href="/" <% } %> >Newer</a>
-    <div class="pager__number">
-        <select class="pager__current" name="sort" onchange="location.href=this.value;">
-        <% var page_path = page.path.replace(/index.html/,'').replace(/page\/.+\//,'') %>
-        <% for( i = 1; i <= page.total; i++){ %>
-            <% if( i === 1 ){ %>
-                <option value="/<%= page_path %>"
-            <% } else { %>
-                <option value="/<%= page_path %>page/<%- i %>/"
+    <div class="pager">
+        <a class="pager__prev<% if (!page.prev_link && !is_current('/page/2/')) { %>--disabled<% } %>" <% if (page.prev_link) { %> href="/<%- page.prev_link %>" <% } %><% if (is_current('/page/2/')) {  %> href="/" <% } %> >Newer</a>
+        <div class="pager__number">
+            <select class="pager__current" name="sort" onchange="location.href=this.value;">
+            <% var page_path = page.path.replace(/index.html/,'').replace(/page\/.+\//,'') %>
+            <% for( i = 1; i <= page.total; i++){ %>
+                <% if( i === 1 ){ %>
+                    <option value="/<%= page_path %>"
+                <% } else { %>
+                    <option value="/<%= page_path %>page/<%- i %>/"
+                <% } %>
+                <% if( i === page.current ){ %>
+                  selected
+                <% } %>
+                  ><%- i %></option>
             <% } %>
-            <% if( i === page.current ){ %>
-              selected
-            <% } %>
-              ><%- i %></option>
-        <% } %>
-        </select>
-        <div class="pager__total">/ <%- page.total %></div>
+            </select>
+            <div class="pager__total">/ <%- page.total %></div>
+        </div>
+        <a class="pager__next<% if (!page.next_link) { %>--disabled<% } %>" <% if (page.next_link) { %> href="/<%- page.next_link %>" <% } %>>Older</a>
     </div>
-    <a class="pager__next<% if (!page.next_link) { %>--disabled<% } %>" <% if (page.next_link) { %> href="/<%- page.next_link %>" <% } %>>Older</a>
 </div>
