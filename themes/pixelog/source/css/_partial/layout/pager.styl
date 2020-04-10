@@ -16,7 +16,7 @@
         font-size 17px
         font-weight bold
         text-align center
-        transition .2s background ease
+        transition .15s background ease-out
         +media(sp)
             font-size 14px
 
@@ -27,7 +27,7 @@
         &::after
             display inline-block
             font 17px "Consolas", monospace
-            transition .2s transform ease
+            transition .15s transform ease-out
 
     $disabled
         pointer-events none
@@ -82,7 +82,7 @@
         color var(--text-color)
         border-radius 4px
         cursor pointer
-        transition .15s box-shadow ease-in-out
+        transition .15s box-shadow ease-out
 
         &:focus
             border-color #80bdff
