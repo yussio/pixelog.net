@@ -1,70 +1,83 @@
 .breadcrumbs
-    height: 56px
     margin 0 0 16px 0
-    line-height 56px
     background var(--background-sub-color)
-    font-size 14px
     box-shadow boxshadow
     border-radius 4px
 
     &__list
         display flex
-        list-style none
         overflow-x auto
         overflow-y hidden
-        position relative
+        line-height 56px
+        font-size 14px
+        background var(--border-color)
+
+    &__item-link
+        display block
+        margin 0 23px 0 0
+        padding 0 16px 0 8px
+        text-decoration underline
+        background var(--background-sub-color)
+        transition .15s background ease
+
+        &::before
+        &::after
+            content ""
+            display block
+            width 0
+            height 0
+            border solid
+            border-width 28px 11px
+            position absolute
+            top 0
+            transition .15s border ease
+
+        &::before
+            border-color var(--background-sub-color)
+            border-left-color transparent
+            left -22px
+            z-index 2
+
+        &::after
+            border-color transparent
+            border-left-color var(--background-sub-color)
+            right 1px
+            z-index 1
+
+        &:hover
+            background var(--background-hover-color)
+            &::before
+                border-color var(--background-hover-color)
+                border-left-color transparent
+            &::after
+                border-left-color var(--background-hover-color)
 
     &__item
-        position relative
-        padding 0 24px
+        display block
         flex-shrink 0
+        position relative
 
-        &-link
-            text-decoration underline
-            transition .1s color ease
+        &:first-of-type
+            .breadcrumbs__item-link
+                padding-left 16px
 
-            &:hover
-                color var(--text-hover-color)
+                &::before
+                    border 0
 
-        &:last-child
+        &:last-of-type
             width 100%
             min-width 10em
-            padding 0 16px 0 24px
             flex-shrink 1
-            text-overflow ellipsis
-            white-space nowrap
-            overflow hidden
-            font-weight bold
 
-            & > a
+            .breadcrumbs__item-link
+                margin 0
                 color var(--text-accent-color)
+                font-weight bold
                 text-decoration none
                 pointer-events none
+                overflow hidden
+                white-space nowrap
+                text-overflow ellipsis
 
-        &:first-child
-            padding 0 24px 0 16px
-
-        &:not(:last-child)
-            &::before
-                content ""
-                display block
-                width 0
-                height 0
-                border 30px solid transparent
-                border-left 16px solid var(--background-sub-color)
-                position absolute
-                top -2px
-                right -35px
-                z-index 2
-
-            &::after
-                content ""
-                display block
-                width 0
-                height 0
-                border 30px solid transparent
-                border-left 16px solid var(--border-color)
-                position absolute
-                top -2px
-                right -36px
-                z-index 1
+                &::after
+                    border 0
