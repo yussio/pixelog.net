@@ -1,0 +1,152 @@
+---
+title: 出来るだけメディアクエリを書かずにレスポンシブに対応するためのTips
+categories:
+  - Web
+  - CSS
+date: 2020-04-11 13:17:27
+pid: 95fdn9
+---
+
+サイトをレスポンシブデザインに対応する際には、メディアクエリを使って書き分けたり、上書きしたりする必要があります。
+
+しかしメディアクエリを書くのは、たとえSassやStylusのmixinを活用したとしても、めんどくさいことに変わりはありません。
+
+先日、このブログのCSSのメディアクエリを見直してみたところ、メディアクエリの中に指定されているclassの数を7割削減（34個から10個）することができたので、今回はそのときに得た知見をまとめてみたいと思います。
+
+
+## Grid layoutでレイアウトを組む
+
+メインコンテンツとサイドバーで、2カラムのデザインを組む場合、floatやflexboxなどいろいろな方法が考えられますが、個人的におすすめなのが、Grid Layoutです。
+
+
+### flexboxで組む場合
+
+まずはflexboxで考えてみましょう。
+
+メインコンテンツが850px、サイドバーが300px、コンテンツとサイドバーの隙間が50pxで、全体を中央に表示させることを考えます。
+
+```html
+<div class="container">
+  <main>メインコンテンツ</main>
+  <aside>サイドバー</aside>
+</div>
+```
+
+```css
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: space-between;
+}
+main {
+  width: 850px;
+}
+aside {
+  width: 300px;
+}
+
+@media (max-width:1200px){
+  .container {
+    flex-direction: column;
+  }
+  main {
+    width: 100%;
+  }
+  aside {
+    width: 100%;
+  }
+}
+```
+
+以前はfloatで組んでいたものが、flexboxの登場によってclearfixなどを考えなくてよくなったので、楽になりました。
+
+flexboxはIE対応が簡単なので、サイトをIEに対応させないといけない場合には今でもオススメな方法です。
+
+### Grid Layoutで組む場合
+
+同じHTMLでGrid Layoutを使って組んでみましょう。
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 850px 300px;
+  gap: 50px;
+  justify-content: center;
+}
+
+@media (max-width:1200px){
+  .container {
+      grid-template-columns: 1fr;
+  }
+}
+```
+
+**mainやasideにはCSSを一切当ててない** ところに着目してください。Grid Layoutは記述をコンテナーに集約できるので、管理がとても楽です。
+
+上記のコードはIE非対応のものですが、IE対応にさせる場合は、prefixやモダンブラウザと異なるプロパティ名が必要だったりなど、特別な記述が必要なので注意が必要です。
+
+## max-widthを使う
+
+レイアウトを組む際に、要素の横幅を指定するのに`width`を使うことが多いと思いますが、その前に`max-width`が使えないか常に考えるようにしましょう。
+
+Grid Layoutと組み合わせることで、`width`をどこにも使わず`max-width`だけでデザインすることも可能です。
+
+### 例
+
+横幅が1200pxのコンテンツを画面の中央に配置し、タブレット・スマホ版では横幅を100%に広げたいときを考えます。
+
+```html
+<div class="container">
+  <main></main>
+</div>
+```
+
+```css
+main {
+  width: 1200px;
+  margin: auto;
+}
+
+@media (max-width:1200px){
+  main{
+    width: 100%;
+  }
+}
+```
+
+もしこのような記述に心当たりがあれば、`max-width`を使って下のように置き換えることができます。
+
+
+```css
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+```
+
+
+## emを活用する
+
+PC版とスマホ版で文字サイズやpaddingなどを変えたい、という場合には、単位にpxではなくemを使いましょう。
+
+emはよく分からん！px大好き！<span class="shake">😎</span> という方も多いかと思いますが、emこそがメディアクエリの記述量を削減する鍵を握っています。
+
+### emとは
+
+emとは親要素の`font-size`を1とする長さの単位です。margin、paddingなどにも使えます。
+
+ブラウザのデフォルトのフォントサイズは16pxなので、親要素にフォントサイズを指定しない場合、1em = 16pxとなります。
+
+フォントサイズというと、「文字の大きさ」が頭に先行してしまいますが、`font-size`は単位emあたりの長さを定義するプロパティだと考えましょう。
+
+相対的な単位ということはつまり、親要素の`font-size`を上書きするメディアクエリを一行書くだけで、子要素のfont-size、margin、paddingなどを一度に調節できるということです。
+
+ブレイクポイントごとに、細々した要素の大きさや余白をpxで上書きしている...なんて心当たりのある方は、emでの指定に切り替えましょう。
+
+
+## まとめ
+
+サイトをレスポンシブに対応させる場合には、「いかにしてメディアクエリを書かずに済ませるか」ということを念頭に置いてCSSを書きましょう。
+
+そうすれば自然と管理のしやすいシンプルなCSSが書けます。
