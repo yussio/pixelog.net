@@ -3,21 +3,21 @@
     <main class="main">
         <%- partial('_partial/breadcrumbs') %>
         <article class="post">
-            <header class="post-header">
-                <div class="post-header__meta">
-                    <time class="post-header__published" datetime="<%- page.date.format() %>">
+            <header class="post__header">
+                <div class="post__meta">
+                    <time class="post__published" datetime="<%- page.date.format() %>">
                       <%- page.date.format("YYYY.MM.DD") %>
                     </time>
                 </div>
-              <h1 class="post-header__title"><%- page.title %></h1>
+              <h1 class="post__title"><%- page.title %></h1>
               <% if (page.thumbnail) { %>
-                  <p class="post-header__thumbnail">
-                    <img class="post-header__thumbnail-img" src="/<%= page.path + page.thumbnail; %>" alt="<%- page.title %>">
+                  <p class="post__thumbnail">
+                    <img class="post__thumbnail-img" src="/<%= page.path + page.thumbnail; %>" alt="<%- page.title %>">
                   </p>
               <% }%>
             </header>
             <div class="post__content"><%- page.content %></div>
-            <footer class="post-footer">
+            <footer class="post__footer">
                 <!-- <ul class="social-btn">
                     <li class="social-btn__item">
                         <a class="social-btn__item-link--twitter" href="https://twitter.com/share?url=<%= url %>&text=<%= encodeURI(page.title) %>">
@@ -50,7 +50,7 @@
                         </a>
                     </li>
                 </ul> -->
-                <div class="post-footer__ad loading">
+                <div class="post__ad loading">
                     <!-- 記事下広告 -->
                     <ins class="adsbygoogle"
                          style="display:block"
