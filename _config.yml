@@ -8,8 +8,8 @@ subtitle: ''
 description: 'pixelog(ピクセログ)はHTML、CSS、JavaScriptなどWeb制作の話題を中心に、管理人が気になった話題を自由に取り上げるブログです。'
 keywords:
 author: yussy
-language: en
-timezone: ''
+language: ja
+timezone: Asia/Tokyo
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -18,8 +18,8 @@ root: /
 permalink: post/:pid/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -70,7 +70,7 @@ tag_map:
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
+meta_generator: false
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
