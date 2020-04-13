@@ -5,17 +5,18 @@
 
 ## コミットメッセージ
 
-emoji |  | type
+emoji | code | type
 --- | --- | ---
 📝 | `:pencil:` | 新規投稿
 ✏️ | `:pencil2:` | リライト
+✨ | `:sparkles:` | 追加
 🎨 | `:art:` | デザイン変更
+🔥 | `:fire:` | 廃止・削除
 🌱 | `:seedling:` | ユーザビリティ改善
-✨ | `:sparkles:` | 新機能
 ⚡️ | `:zap:` | リファクタリング
 🐛 | `:bug:` | バグ修正
-🔥 | `:fire:` | 廃止・削除
 🚑 | `:ambulance:` | リバート
+🔧|`:wrench:`| config、readmeなどの設定
 
 
 
