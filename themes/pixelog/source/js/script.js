@@ -72,4 +72,13 @@
     lazyLoad("https://www.googletagmanager.com/gtag/js?id=UA-68420269-3", "src");
     lazyLoad("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-68420269-3\');", "inline");
     lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad");
+
+
+    const btn = document.getElementById('post-menu__btn');
+    const dropdown =  document.getElementById('post-menu__dropdown');
+
+    btn.addEventListener('click', function(){
+      this.classList.toggle('is-open');
+    });
+
 }());
