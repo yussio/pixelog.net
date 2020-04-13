@@ -1,5 +1,5 @@
 ---
-title: HexoでGitを使っていても更新日を表示できるようにする
+title: HexoでGitとNetlifyを使っていても記事の更新日を表示できるようにする
 categories:
   - Web
   - Hexo
