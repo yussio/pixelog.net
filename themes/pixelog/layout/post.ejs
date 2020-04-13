@@ -21,12 +21,12 @@
                         <div class="dropdown__label">記事の情報</div>
                         <ul class="dropdown__list">
                             <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/commits/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">更新履歴</a></li>
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://raw.githubusercontent.com/rkth3287/pixelog.net/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">Markdownで表示する</a></li>
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://raw.githubusercontent.com/rkth3287/pixelog.net/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">本文をMarkdownで表示</a></li>
                         </ul>
                         <div class="dropdown__label">記事の改善 (GitHub)</div>
                         <ul class="dropdown__list">
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/issues/new?title=記事「<%- encodeURI(page.title) %>」の修正依頼&labels=記事修正&body=URL: <%- url.replace(/index.html/, '') %>">Issueで問題点を報告する</a></li>
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/edit/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">記事をフォーク・編集しプルリクを送る</a></li>
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/issues/new?title=記事「<%- encodeURI(page.title) %>」の修正依頼&labels=記事修正&body=URL: <%- url.replace(/index.html/, '') %>">Issueで問題点を報告</a></li>
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/edit/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">記事をFork・編集しプルリクを送信</a></li>
                         </ul>
                       </div>
                     </div>
