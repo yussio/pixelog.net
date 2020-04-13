@@ -1,5 +1,5 @@
 ---
-title: HTMLだけでコンテンツを開閉できる&lt;details&gt;を試してみる
+title: HTMLだけでコンテンツを開閉できるdetailsタグを試してみる
 pid: html-details
 categories:
   - Web

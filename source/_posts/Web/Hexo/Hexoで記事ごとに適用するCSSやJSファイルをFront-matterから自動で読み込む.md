@@ -1,6 +1,6 @@
 ---
 pid: xumh8c5si7
-title: Hexoで記事ごとに適用するcss/jsファイルをFront-matterから自動で読み込む
+title: Hexoで記事ごとに適用するCSSやJSファイルをFront-matterから自動で読み込む
 categories:
   - Web
   - Hexo
