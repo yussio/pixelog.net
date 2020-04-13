@@ -25,8 +25,8 @@
                         </ul>
                         <div class="dropdown__label">記事の改善 (GitHub)</div>
                         <ul class="dropdown__list">
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/issues/new?title=記事「<%- encodeURI(page.title) %>」の修正依頼&labels=記事修正&body=URL: <%- url.replace(/index.html/, '') %>">問題点を報告する</a></li>
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/edit/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">記事を編集し変更を提案する</a></li>
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/issues/new?title=記事「<%- encodeURI(page.title) %>」の修正依頼&labels=記事修正&body=URL: <%- url.replace(/index.html/, '') %>">Issueで問題点を報告する</a></li>
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/edit/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">記事をフォーク・編集しプルリクを送る</a></li>
                         </ul>
                       </div>
                     </div>
