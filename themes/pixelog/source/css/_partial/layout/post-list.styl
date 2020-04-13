@@ -14,30 +14,30 @@
         &:not(:last-child)
             border-bottom 1px solid var(--border-color)
 
-        &-link
-            display flex
-            padding 2.25em 1.5em
-            transition .15s background ease-out
-            align-items center
+    &__item-link
+        display flex
+        padding 2.25em 1.5em
+        transition .15s background ease-out
+        align-items center
+
+        &::after
+            display block
+            flex-shrink 0
+            content ""
+            width .75em
+            height .75em
+            margin 0 0 0 auto
+            border-top .125em solid #bbb
+            border-right .125em solid #bbb
+            transform rotate(45deg)
+            transition .15s transform, border ease-out
+
+        &:hover
+            background var(--bg-hover-color)
 
             &::after
-                display block
-                flex-shrink 0
-                content ""
-                width .75em
-                height .75em
-                margin 0 0 0 auto
-                border-top .125em solid #bbb
-                border-right .125em solid #bbb
-                transform rotate(45deg)
-                transition .15s transform, border ease-out
-
-            &:hover
-                background var(--bg-hover-color)
-
-                &::after
-                    border-color #ef6461
-                    transform rotate(45deg) translate(.125em, -.125em)
+                border-color #ef6461
+                transform rotate(45deg) translate(.125em, -.125em)
 
     &__date
         flex-shrink 0
