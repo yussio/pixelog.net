@@ -74,11 +74,8 @@
     lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad");
 
 
-    const btn = document.getElementById('post-menu__btn');
-    const dropdown =  document.getElementById('post-menu__dropdown');
-
+    const btn = document.getElementById('dropdown__btn');
     btn.addEventListener('click', function(){
       this.classList.toggle('is-open');
     });
-
 }());

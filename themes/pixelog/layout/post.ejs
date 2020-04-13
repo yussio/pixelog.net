@@ -9,18 +9,20 @@
                       <%- page.date.format("YYYY.MM.DD") %>
                     </time>
 
-                    <div class="post-menu">
-                      <button class="post-menu__btn" id="post-menu__btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="64"/><circle cx="256" cy="448" r="64"/><circle cx="256" cy="64" r="64"/></svg></button>
-                      <div class="post-menu__dropdown" id="post-menu__dropdown">
-                        <div class="post-menu__label">記事の情報</div>
-                        <ul class="post-menu__list">
-                            <li class="post-menu__item"><a class="post-menu__item-link" href="https://github.com/rkth3287/pixelog.net/commits/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">更新履歴</a></li>
-                            <li class="post-menu__item"><a class="post-menu__item-link" href="https://raw.githubusercontent.com/rkth3287/pixelog.net/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">Markdownで表示する</a></li>
+                    <div class="dropdown">
+                      <button class="dropdown__btn" id="dropdown__btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="64"/><circle cx="256" cy="448" r="64"/><circle cx="256" cy="64" r="64"/></svg>
+                      </button>
+                      <div class="dropdown__body">
+                        <div class="dropdown__label">記事の情報</div>
+                        <ul class="dropdown__list">
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/commits/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">更新履歴</a></li>
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://raw.githubusercontent.com/rkth3287/pixelog.net/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">Markdownで表示する</a></li>
                         </ul>
-                        <div class="post-menu__label">記事の改善 (GitHub)</div>
-                        <ul class="post-menu__list">
-                            <li class="post-menu__item"><a class="post-menu__item-link" href="https://github.com/rkth3287/pixelog.net/issues/new?title=記事「<%- encodeURI(page.title) %>」の修正依頼&labels=記事修正&body=URL: <%- url.replace(/index.html/, '') %>">問題点を報告する</a></li>
-                            <li class="post-menu__item"><a class="post-menu__item-link" href="https://github.com/rkth3287/pixelog.net/edit/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">記事を編集し変更を提案する</a></li>
+                        <div class="dropdown__label">記事の改善 (GitHub)</div>
+                        <ul class="dropdown__list">
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/issues/new?title=記事「<%- encodeURI(page.title) %>」の修正依頼&labels=記事修正&body=URL: <%- url.replace(/index.html/, '') %>">問題点を報告する</a></li>
+                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/edit/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">記事を編集し変更を提案する</a></li>
                         </ul>
                       </div>
                     </div>
