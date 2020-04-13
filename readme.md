@@ -37,7 +37,7 @@ emoji |  | type
 
 |Front-matter| 値             | 説明                                   |
 |-----------|-----------------|----------------------------------------|
-|pid        |小文字英数10文字  |記事のURL                                |
+|pid        |小文字英数6文字  |記事のURL                                |
 |description|文字列  |記事の要約。metaタグのdescriptionへ                |
 |thumbnail  |サムネイル画像のファイル名 |OGPタグのサムネイルへ             |
 |css        |true     |記事個別のCSSを読み込む（style.cssをフォルダに置く）|
