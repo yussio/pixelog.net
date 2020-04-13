@@ -61,7 +61,7 @@ git reset --hard ハッシュ値
 --hardなし → ワーキングツリーの変更は残す
 
 
-直前のcommitを打ち消すcommirを作る
+直前のcommitを打ち消すcommitを作る
 ```
 git revert HEAD
 ```
