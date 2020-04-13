@@ -16,7 +16,7 @@ hexo-generator-archiveはデフォルトでインストールされているプ�
 
 ### config.yml
 
-```plaintext
+```yml
 archive_generator:
   per_page: 10
   yearly: true
