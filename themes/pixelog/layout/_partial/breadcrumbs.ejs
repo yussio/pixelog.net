@@ -59,7 +59,7 @@
             <% }) %>
                 <li class="breadcrumbs__item">
                     <a class="breadcrumbs__item-link" href="/<%- page.path %>">
-                        <%= page.title %>
+                        <%- page.title %>
                     </a>
                 </li>
         <% } else if (is_page()) { %>
@@ -68,7 +68,7 @@
             %>
             <li class="breadcrumbs__item">
                 <a class="breadcrumbs__item-link" href="/<%- path %>">
-                    <%= page.title %>
+                    <%- page.title %>
                 </a>
             </li>
         <% } %>
