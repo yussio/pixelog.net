@@ -17,6 +17,7 @@
     &__item-link
         display flex
         padding 2.25em 1.5em
+        transition .15s background ease
         align-items center
 
         &::after
@@ -29,7 +30,7 @@
             border-top .125em solid #bbb
             border-right .125em solid #bbb
             transform rotate(45deg)
-            transition .15s transform, border ease-out
+            transition .15s transform, border ease
 
         &:hover
             background var(--bg-hover-color)
