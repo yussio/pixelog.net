@@ -75,7 +75,9 @@
 
 
     const btn = document.getElementById('dropdown__btn');
-    btn.addEventListener('click', function(){
-      this.classList.toggle('is-open');
-    });
+    if(btn) {
+      btn.addEventListener('click', function(){
+        this.classList.toggle('is-open');
+      });
+    }
 }());
