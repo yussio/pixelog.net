@@ -26,7 +26,7 @@
                 dir_name += '/' + item;
                 %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/category<%= dir_name %>/">
+                    <a class="breadcrumbs__item-link" href="/category<%= encodeURI(dir_name) %>/">
                         <% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %>
                     </a>
                 </li>
@@ -52,7 +52,7 @@
                 dir_name += '/' + item.name;
                 %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/category<%= dir_name.toLowerCase(); %>/">
+                    <a class="breadcrumbs__item-link" href="/category<%= encodeURI(dir_name.toLowerCase()); %>/">
                         <%= item.name %>
                     </a>
                 </li>
