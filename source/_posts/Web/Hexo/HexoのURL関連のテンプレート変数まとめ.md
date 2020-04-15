@@ -1,5 +1,5 @@
 ---
-title: 【Hexo】煩雑なURL関連の変数まとめ
+title: HexoのURL関連のテンプレート変数まとめ
 categories:
   - Web
   - Hexo
@@ -132,6 +132,6 @@ decodeURI(full_url_for(path)) | https\://pixelog.net/about/<span class="trailing
 
 ## まとめ
 
-`path`や`url`はconfigの設定がどうであれindex.htmlのありの形になる。
+`path`や`url`はconfigの設定がどうであれindex.htmlありの形になる。
 
 `page.permalink`は記事・固定ページ以外ではundefinedになるので使いづらい。また、trailing_indexがtrueになっている場合、記事ページと固定ページでindex.htmlの有無に差が出る。バグ？
