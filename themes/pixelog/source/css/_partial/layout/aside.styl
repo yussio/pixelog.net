@@ -14,7 +14,7 @@
         letter-spacing .1em
         text-transform uppercase
         color var(--text-accent-color)
-        
+
         &::after
             content ""
             display block
@@ -27,8 +27,8 @@
 
     &__ad
         grid-column 1/-1
+        overflow hidden
         +media(pc)
-            width 300px
             min-height 600px
         +media(tabsp)
             order 1
