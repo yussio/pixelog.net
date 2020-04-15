@@ -28,12 +28,7 @@
     } else {
         description = config.description;
     }
-
-// page.pathからindex.html削除
-    var path = page.path.replace(/index.html/, '');
 %>
-
-
 
 {
   "@context": "http://schema.org",
@@ -65,32 +60,35 @@
             <% } %>
         <% } else if (is_category()) { %>
             <%
-            const path = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '');
-            const categories = path.split('/');
-            let dir_name = '';
+            const category_slug = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            let category_url = '';
             %>
-            <% categories.forEach(function(item, i){ %>
+            <% category_slug.forEach(function(item, i){ %>
                 <%
                 i += 2;
-                dir_name += '/' + item;
+                category_url += '/' + item;
+
+                const category_name = Object.keys(config.category_map).filter( (key) => {
+                  return config.category_map[key] === item;
+                });
                 %>
                 ,{
                   "@type": "ListItem",
                   "position": <%= i %>,
                   "item":
                   {
-                    "@id": "/category<%= dir_name %>/",
-                    "name": "<% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %>"
+                    "@id": "/category<%= category_url %>/",
+                    "name": "<%= category_name %>"
                   }
                 }
             <% }) %>
             <% if(page.current !== 1){ %>
                 ,{
                   "@type": "ListItem",
-                  "position": <%= i+1 %>,
+                  "position": <%= category_slug.length + 2 %>,
                   "item":
                   {
-                    "@id": "/category<%= dir_name %>/page/<%= page.current %>/",
+                    "@id": "/category<%= category_url %>/page/<%= page.current %>/",
                     "name": "ページ<%= page.current %>"
                   }
                 }
@@ -106,18 +104,16 @@
               }
             }
         <% } else if(is_post()) { %>
-            <% let dir_name = ''; %>
             <% page.categories.forEach(function(item, i){ %>
                 <%
                 i += 2;
-                dir_name += '/' + item.name;
                 %>
                 ,{
                   "@type": "ListItem",
                   "position": <%= i %>,
                   "item":
                   {
-                    "@id": "/category<%= dir_name.toLowerCase(); %>/",
+                    "@id": "<%= url_for(item.path) %>",
                     "name": "<%= item.name %>"
                   }
                 }
@@ -127,21 +123,18 @@
               "position": <%= page.categories.length + 2 %>,
               "item":
               {
-                "@id": "/<%- page.path %>",
-                "name": "<%= page.title %>"
+                "@id": "<%- url_for(path) %>",
+                "name": "<%- page.title %>"
               }
             }
         <% } else if (is_page()) { %>
-            <%
-            const path = page.path.replace(/index.html/, '');
-            %>
             ,{
               "@type": "ListItem",
               "position": 2,
               "item":
               {
-                "@id": "/<%- path %>",
-                "name": "<%= page.title %>"
+                "@id": "<%- url_for(path) %>",
+                "name": "<%- page.title %>"
               }
             }
         <% } %>
@@ -151,9 +144,9 @@
       "@type": "Blog",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "/<%- path %>"
+          "@id": "<%- url_for(path) %>"
       },
-      "headline": "<%= title %>",
+      "headline": "<%- title %>",
       "image": {
           "@type": "ImageObject",
           "url": "https://pixelog.net/img/pixelog.png",
@@ -180,7 +173,7 @@
       "@type": "BlogPosting",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "/<%- path %>"
+          "@id": "<%- url_for(path) %>"
       },
       "headline": "<%= title %>",
       "datePublished": "<%= page.date.format() %>",

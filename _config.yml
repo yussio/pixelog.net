@@ -66,6 +66,14 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  Web: web
+  CSS: css
+  HTML: html
+  Hexo: hexo
+  JavaScript: javascript
+  その他: uncategorized
+  Webツール: tool
+  雑記: note
 tag_map:
 
 # Metadata elements
@@ -124,10 +132,6 @@ feed:
   autodiscovery: true
   template:
 
-sitemap:
-    path: sitemap.xml
-    tag: false
-    category: false
 
 archive_generator:
   per_page: 0

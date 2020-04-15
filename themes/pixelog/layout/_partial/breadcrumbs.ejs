@@ -16,58 +16,52 @@
             <% } %>
         <% } else if (is_category()) { %>
             <%
-            const path = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '');
-            const categories = path.split('/');
-            let dir_name = '';
+            const category_slug = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            let category_url = '';
             %>
-            <% categories.forEach(function(item, i){ %>
+            <% category_slug.forEach(function(item, i){ %>
                 <%
-                i += 2;
-                dir_name += '/' + item;
+                category_url += '/' + item;
+
+                const category_name = Object.keys(config.category_map).filter( (key) => {
+                  return config.category_map[key] === item;
+                 });
                 %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/category<%= encodeURI(dir_name) %>/">
-                        <% if(theme[item]){%><%= theme[item] %><% }else{ %><%= item %><% } %>
+                    <a class="breadcrumbs__item-link" href="/category<%= category_url %>/">
+                        <%= category_name %>
                     </a>
                 </li>
             <% }) %>
             <% if(page.current !== 1){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/category<%= dir_name %>/page/<%= page.current %>/">
+                    <a class="breadcrumbs__item-link" href="/category<%= category_url %>/page/<%= page.current %>/">
                         ページ<%= page.current %>
                     </a>
                 </li>
             <% } %>
         <% } else if (is_archive()) { %>
             <li class="breadcrumbs__item">
-                <a class="breadcrumbs__item-link" href="/<%- path %>">
+                <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
                     アーカイブ
                 </a>
             </li>
         <% } else if(is_post()) { %>
-            <% let dir_name = ''; %>
-            <% page.categories.forEach(function(item, i){ %>
-                <%
-                i += 2;
-                dir_name += '/' + item.name;
-                %>
+            <% page.categories.forEach(function(item){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/category<%= encodeURI(dir_name.toLowerCase()); %>/">
+                    <a class="breadcrumbs__item-link" href="<%= url_for(item.path) %>">
                         <%= item.name %>
                     </a>
                 </li>
             <% }) %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/<%- page.path %>">
+                    <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
                         <%- page.title %>
                     </a>
                 </li>
         <% } else if (is_page()) { %>
-            <%
-            const path = page.path.replace(/index.html/, '');
-            %>
             <li class="breadcrumbs__item">
-                <a class="breadcrumbs__item-link" href="/<%- path %>">
+                <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
                     <%- page.title %>
                 </a>
             </li>
