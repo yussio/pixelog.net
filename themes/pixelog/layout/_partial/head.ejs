@@ -29,18 +29,6 @@
         description = config.description;
     }
 
-// page.pathからindex.html削除
-    var path = page.path.replace(/index.html/, '');
-
-// URLの正規化（index.htmlを削除）
-    if (/index.html/.test(url)) {
-        url = url.replace(/index.html/, '');
-    }
-    var s = url.slice(-1);
-    if (s != '/') {
-        url += '/';
-    }
-
 // サムネイル画像格納
     var thumbnail_url
     if(page.thumbnail) {
@@ -63,7 +51,7 @@
 <% if(page.sitemap === false) { %><meta name="robots" content="noindex,follow"><% } %>
 <title><%= title %></title>
 <meta name="description" content="<%= description %>">
-<link rel="canonical" href="<%= url %>">
+<link rel="canonical" href="<%= full_url_for(path) %>">
 <% if (is_post()){ %><link rel="prerender" href="/"><% } %>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
@@ -86,6 +74,6 @@
 <meta name="theme-color" content="#3fb5bd">
 <script type="application/ld+json"><%- partial('ld+json') %></script>
 <%- css('css/style') %>
-<% if(page.css === true) { %><link rel="stylesheet" href="/<%= path %>style.css"><% } %>
+<% if(page.css === true) { %><link rel="stylesheet" href="<%= url_for(path) + 'style.css' %>"><% } %>
 <script src="/js/script.js" defer></script>
-<% if(page.js === true) { %><script src="/<%= path %>script.js" defer></script><% } %>
+<% if(page.js === true) { %><script src="<%= url_for(path) + 'script.js' %>" defer></script><% } %>
