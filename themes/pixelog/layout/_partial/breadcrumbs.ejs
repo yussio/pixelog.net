@@ -29,7 +29,7 @@
                 %>
                 <li class="breadcrumbs__item">
                     <a class="breadcrumbs__item-link" href="/category<%= category_url %>/">
-                        <%= category_name %>
+                        <% if(category_name.length === 0){ %><%= item %><%}else{%><%= category_name %><%}%>
                     </a>
                 </li>
             <% }) %>

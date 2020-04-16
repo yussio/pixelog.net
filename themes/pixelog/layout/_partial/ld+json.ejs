@@ -78,7 +78,7 @@
                   "item":
                   {
                     "@id": "/category<%= category_url %>/",
-                    "name": "<%= category_name %>"
+                    "name": "<% if(category_name.length === 0){ %><%= item %><%}else{%><%= category_name %><%}%>"
                   }
                 }
             <% }) %>
