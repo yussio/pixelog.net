@@ -132,6 +132,8 @@ decodeURI(full_url_for(path)) | https\://pixelog.net/about/<span class="trailing
 
 ## まとめ
 
-`path`や`url`はconfigの設定がどうであれindex.htmlありの形になる。
+`path`や`url`はconfigの設定と関係なくindex.htmlありの形になります。
 
-`page.permalink`は記事・固定ページ以外ではundefinedになるので使いづらい。また、trailing_indexがtrueになっている場合、記事ページと固定ページでindex.htmlの有無に差が出る。バグ？
+`page.permalink`は記事・固定ページ以外ではundefinedになるので使いづらい印象です。また、trailing_indexがtrueになっている場合、記事ページと固定ページでindex.htmlの有無に差が出ます。バグなのだろうか？
+
+テンプレート内では、`url_for(path)`の省略絶対パスの形が使い良いと思います。
