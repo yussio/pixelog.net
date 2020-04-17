@@ -13,23 +13,6 @@
                           <%- '更新: '+page.updated.format("YYYY.MM.DD") %>
                         </time>
                     <% } %>
-                    <div class="dropdown">
-                      <button class="dropdown__btn" id="dropdown__btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="64"/><circle cx="256" cy="448" r="64"/><circle cx="256" cy="64" r="64"/></svg>
-                      </button>
-                      <div class="dropdown__body">
-                        <div class="dropdown__label">記事の情報</div>
-                        <ul class="dropdown__list">
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/commits/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">更新履歴</a></li>
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://raw.githubusercontent.com/rkth3287/pixelog.net/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">本文をMarkdownで表示</a></li>
-                        </ul>
-                        <div class="dropdown__label">記事の改善 (GitHub)</div>
-                        <ul class="dropdown__list">
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/issues/new?title=記事「<%- encodeURI(page.title) %>」の修正依頼&labels=記事修正&body=URL: <%- url.replace(/index.html/, '') %>">Issueで問題点を報告</a></li>
-                            <li class="dropdown__item"><a class="dropdown__item-link" href="https://github.com/rkth3287/pixelog.net/edit/master/source/_posts/<% page.categories.forEach(function(item, i){ %><%= item.name %>/<% }) %><%= encodeURI(page.title) %>.md">記事をFork・編集しプルリクを送信</a></li>
-                        </ul>
-                      </div>
-                    </div>
                 </div>
               <h1 class="post__title"><%- page.title %></h1>
               <% if (page.thumbnail) { %>
