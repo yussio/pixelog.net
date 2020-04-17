@@ -12,7 +12,7 @@
         <% }) %>
     </ul>
     <div class="pager">
-        <a class="pager__prev<% if (!page.prev_link && !is_current('/page/2/')) { %>--disabled<% } %>" <% if (page.prev_link) { %> href="<%- url_for(page.prev_link) %>" <% } else if (is_current('/page/2/')) {  %> href="/" <% } %> >Newer</a>
+        <a class="pager__prev<% if (!page.prev_link && !is_current('/page/2/')) { %> disabled<% } %>" <% if (page.prev_link) { %> href="<%- url_for(page.prev_link) %>" <% } else if (is_current('/page/2/')) {  %> href="/" <% } %> >Newer</a>
         <div class="pager__number">
             <select class="pager__current" name="sort" onchange="location.href=this.value;">
             <% const base_path = url_for(path).replace(/page\/.+\//,'') %>
@@ -30,6 +30,6 @@
             </select>
             <div class="pager__total">/ <%- page.total %></div>
         </div>
-        <a class="pager__next<% if (!page.next_link) { %>--disabled<% } %>" <% if (page.next_link) { %> href="<%- url_for(page.next_link) %>" <% } %>>Older</a>
+        <a class="pager__next<% if (!page.next_link) { %> disabled<% } %>" <% if (page.next_link) { %> href="<%- url_for(page.next_link) %>" <% } %>>Older</a>
     </div>
 </div>

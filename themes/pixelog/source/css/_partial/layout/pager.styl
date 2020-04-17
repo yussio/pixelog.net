@@ -26,10 +26,10 @@
             font 17px "Consolas", monospace
             transition .15s transform ease-out
 
-    $disabled
-        pointer-events none
-        color var(--text-disabled-color)
-        font-weight normal
+        &.disabled
+            pointer-events none
+            color var(--text-disabled-color)
+            font-weight normal
 
 
     &__prev
@@ -43,10 +43,6 @@
         &:hover::before
             transform translateX(-4px)
 
-        &--disabled
-            @extend $pager__btn
-            @extend .pager__prev
-            @extend $disabled
 
     &__next
         @extend $pager__btn
@@ -59,10 +55,6 @@
         &:hover::after
             transform translateX(4px)
 
-        &--disabled
-            @extend $pager__btn
-            @extend .pager__next
-            @extend $disabled
 
     &__number
         display flex
@@ -79,7 +71,7 @@
         color var(--text-color)
         border-radius 4px
         cursor pointer
-        transition .15s box-shadow ease-out
+        transition .15s box-shadow ease
 
         &:focus
             border-color #80bdff
