@@ -23,7 +23,6 @@ function randomColor(name){
       }
       document.documentElement.style.setProperty(name, result);
       current.textContent = result;
-      current.style.color = result;
     }
   });  
 }
@@ -43,7 +42,7 @@ randomColor('--theme-color');
 
 <button class="btn" id="change">色を変える</button>
 <div style="background:var(--bg-color);padding: 1em">
-  ただ今のテーマカラーは「<span id="current-color" style="font-weight:bold"></span>」です！
+  ただ今のテーマカラーは「<span id="current-color" style="color:var(--theme-color);font-weight:bold;"></span>」です！
 </div>
 
 
@@ -91,7 +90,7 @@ p {
 ```html
 <button class="btn" id="change">色を変える</button>
 <div>
-  ただ今のテーマカラーは「<span id="current-color" style="font-weight:bold"></span>」です！
+  ただ今のテーマカラーは「<span id="current-color" style="color:var(--theme-color);font-weight:bold"></span>」です！
 </div>
 ```
 
@@ -111,7 +110,6 @@ function randomColor(name){
       }
       document.documentElement.style.setProperty(name, result);
       current.textContent = result;
-      current.style.color = result;
     }
   });  
 }
