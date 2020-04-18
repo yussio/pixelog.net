@@ -1,5 +1,5 @@
 ---
-title: CSS変数とJavaScriptでページを開く度に色をランダムにする
+title: CSS変数とJavaScriptでページを開く度に色をランダムに変える
 categories:
   - Web
   - JavaScript
