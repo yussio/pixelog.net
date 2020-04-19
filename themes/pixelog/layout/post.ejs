@@ -5,11 +5,11 @@
         <article class="post">
             <header class="post__header">
                 <div class="post__meta">
-                    <time class="post__date" datetime="<%- page.date.format() %>">
+                    <time class="post__published" datetime="<%- page.date.format() %>">
                       <%- '公開: '+page.date.format("YYYY.MM.DD") %>
                     </time>
                     <% if (page.date.format() !== page.updated.format()) {%>
-                        <time class="post__date" datetime="<%- page.updated.format() %>">
+                        <time class="post__updated" datetime="<%- page.updated.format() %>">
                           <%- '更新: '+page.updated.format("YYYY.MM.DD") %>
                         </time>
                     <% } %>
