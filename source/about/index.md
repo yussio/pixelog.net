@@ -10,7 +10,7 @@ date: 2019-03-16 16:29:18
 ## 管理人について
 
 名前：yussy  
-Twitter：[@yussious](https://twitter.com/yussious)
+Twitter： 無期限使用休止中
 
 - Web制作
   - 小学生の頃からひょんなことからブログの世界に飛び込んでしまい、そこから紆余曲折しながら細々とブログを続けています😳
@@ -29,7 +29,7 @@ Twitter：[@yussious](https://twitter.com/yussious)
 
 このブログは静的サイトジェネレーターのHexoと、無料ホスティングサービスのNetlifyで構築しています。テーマ（ブログデザイン）はフルスクラッチで制作した自作テーマを使用しています。
 
-
+<!--
 ### ブログ移転歴
 
 - Yahoo!ブログ （2010年10月 - 2011年9月）
@@ -38,3 +38,4 @@ Twitter：[@yussious](https://twitter.com/yussious)
 - WordPress + レンタルサーバー（2014年10月 - 2017年1月）
 - アメーバブログ（2017年2月 - 2019年3月）
 - Hexo + Netlify（2019年3月 - ）
+-->
