@@ -47,8 +47,6 @@
   function lazyLoad(scriptSrc, type) {
     let scrollFirstTime = 1;
     window.addEventListener("scroll", oneTimeFunction, false);
-    window.addEventListener("mousemove", oneTimeFunction, false);
-    window.addEventListener("touchstart", oneTimeFunction, false);
 
     function oneTimeFunction() {
       if (scrollFirstTime === 1) {
@@ -61,8 +59,6 @@
         }
         document.body.appendChild(addScript);
         window.removeEventListener("scroll", oneTimeFunction, false);
-        window.removeEventListener("mousemove", oneTimeFunction, false);
-        window.removeEventListener("touchstart", oneTimeFunction, false);
       }
     }
   }
