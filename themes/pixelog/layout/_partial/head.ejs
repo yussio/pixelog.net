@@ -46,6 +46,10 @@
     }
 %>
 
+<script src="/js/script.js" defer></script>
+<% if(page.js === true) { %><script src="<%= url_for(path) + 'script.js' %>" defer></script><% } %>
+<%- css('css/style') %>
+<% if(page.css === true) { %><link rel="stylesheet" href="<%= url_for(path) + 'style.css' %>"><% } %>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <% if(page.sitemap === false) { %><meta name="robots" content="noindex,follow"><% } %>
@@ -72,8 +76,3 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="fb:app_id" content="359976974704228">
 <meta name="theme-color" content="#3fb5bd">
-<script type="application/ld+json"><%- partial('ld+json') %></script>
-<%- css('css/style') %>
-<% if(page.css === true) { %><link rel="stylesheet" href="<%= url_for(path) + 'style.css' %>"><% } %>
-<script src="/js/script.js" defer></script>
-<% if(page.js === true) { %><script src="<%= url_for(path) + 'script.js' %>" defer></script><% } %>
