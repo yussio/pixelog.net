@@ -15,7 +15,7 @@ date: 2020-04-08 16:04:24
 
 この記事のタイトルを１行に収めてみましょう。下のボタンを押してみてください。
 
-<button class="btn" onclick="textAdjust('post-header__title')">記事タイトルを１行に収めてみる</button>
+<button class="btn" onclick="textAdjust('post__title')">記事タイトルを１行に収めてみる</button>
 
 
 
@@ -108,5 +108,6 @@ function textAdjust(Class) {
         title[i].style.fontSize = fontEm_size;
       }
     }
+    document.querySelector('.post__meta').style.fontSize = '14px';
 }
 </script>
