@@ -58,9 +58,6 @@
           addScript.src = scriptSrc;
         } else if(type === "inline"){
           addScript.innerHTML = scriptSrc;
-        } else if(type === "ad"){
-          addScript.src = scriptSrc;
-          addScript.setAttribute("data-ad-client", "ca-pub-9027963984337121");
         }
         document.body.appendChild(addScript);
         window.removeEventListener("scroll", oneTimeFunction, false);
@@ -71,5 +68,4 @@
   }
   lazyLoad("https://www.googletagmanager.com/gtag/js?id=UA-68420269-3", "src");
   lazyLoad("window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-68420269-3\');", "inline");
-  lazyLoad("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "ad");
 }());
