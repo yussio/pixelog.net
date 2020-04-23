@@ -2,7 +2,7 @@
 title: Google Adsenseが読み込まれる前にローディングアニメーションを表示する
 categories:
   - Web
-  - その他
+  - CSS
 pid: 522pbo
 date: 2020-04-23 15:44:07
 ---
