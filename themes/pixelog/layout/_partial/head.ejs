@@ -57,7 +57,7 @@
 <% if(page.sitemap === false) { %><meta name="robots" content="noindex,follow"><% } %>
 <link rel="canonical" href="<%= full_url_for(path) %>">
 <% if (is_post()){ %><link rel="prerender" href="/"><% } %>
-<link rel="alternative" type="application/atom+xml" title="pixelog" href="/atom.xml">
+<link rel="alternate" href="/atom.xml" title="pixelog" type="application/atom+xml">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="<%= title %>">
 <meta property="og:description" content="<%= description %>">
