@@ -1,42 +1,6 @@
 .hljs
     margin 1.5em 0
-    padding calc(2.5em + 1.5em) 2em 1.5em
+    padding 1.5em 2em
     font-family Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace
     line-height 1.5
     border-radius 4px
-    --code "</> "
-
-    &::before
-        display block
-        width 100%
-        line-height 2.5
-        padding 0 1em
-        font-size .875em
-        border-bottom 2px groove rgba(90, 94, 102, 1)
-        position absolute
-        top 0
-        left 0
-
-    &.css::before
-        content var(--code) "CSS"
-
-    &.html::before
-        content var(--code) "HTML"
-
-    &.javascript::before
-        content var(--code) "JavaScript"
-
-    &.stylus::before
-        content var(--code) "Stylus"
-
-    &.bash::before
-        content var(--code) "Bash"
-
-    &.yml::before
-        content var(--code) "yml"
-
-    &.ejs::before
-        content var(--code) "EJS"
-
-    &.plaintext
-        padding 1.5em 2em
