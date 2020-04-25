@@ -5,7 +5,6 @@
                 ホーム
             </a>
         </li>
-
         <% if (is_home()) { %>
             <% if(page.current !== 1){ %>
                 <li class="breadcrumbs__item">
@@ -16,7 +15,7 @@
             <% } %>
         <% } else if (is_category()) { %>
             <%
-            const category_slug = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            const category_slug = page.path.replace(config.category_dir + '/', '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
             let category_url = '';
             %>
             <% category_slug.forEach(function(item, i){ %>
@@ -28,14 +27,14 @@
                  });
                 %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/category<%= category_url %>/">
+                    <a class="breadcrumbs__item-link" href="/<%= config.category_dir %><%= category_url %>/">
                         <% if(category_name.length === 0){ %><%= item %><%}else{%><%= category_name %><%}%>
                     </a>
                 </li>
             <% }) %>
             <% if(page.current !== 1){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/category<%= category_url %>/page/<%= page.current %>/">
+                    <a class="breadcrumbs__item-link" href="/<%= config.category_dir %><%= category_url %>/page/<%= page.current %>/">
                         ページ<%= page.current %>
                     </a>
                 </li>
