@@ -24,6 +24,8 @@ emoji | code | type
 
 - hexo-auto-category
   - カテゴリーを自動で生成
+- hexo-autoprefixer
+  - ベンダープレフィックス自動化
 - hexo-clean-css
   - CSSを圧縮
 - hexo-generator-feed
