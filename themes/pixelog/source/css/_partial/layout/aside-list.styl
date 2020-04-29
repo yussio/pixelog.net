@@ -3,6 +3,9 @@ $aside-list
     font-size 15px
 
     &-link
+        display block
+        padding 11px 4px
+        word-break break-all
         border-bottom 1px solid var(--border-color)
 
         &:hover
@@ -12,14 +15,7 @@ $aside-list
 .category-list
     @extend $aside-list
 
-    &-item
-        position relative
-
     &-link
-        display block
-        line-height 44px
-        padding 0 4px
-
         &.current
             background var(--bg-current-color)
             font-weight bold
@@ -28,20 +24,17 @@ $aside-list
         list-style none
 
         & .category-list-link
-            padding 0 0 0 2.5em
+            padding-left 2.5em
 
         & .category-list-child  .category-list-link
-            padding 0 0 0 5em
+            padding-left 5em
 
 
     &-count
-        line-height 44px
         color var(--text-sub-color)
         font-size 14px
-        position absolute
-        top 0
-        right 4px
-        pointer-events none
+        font-weight normal
+        float right
 
         &::before
             content "["
@@ -51,7 +44,3 @@ $aside-list
 
 .recent-posts-list
     @extend $aside-list
-
-    &-link
-        display block
-        padding 10px 0
