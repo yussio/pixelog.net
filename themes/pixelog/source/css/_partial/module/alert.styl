@@ -1,13 +1,13 @@
 .alert
-    --text-blue-color #004085
-    --text-yellow-color #856404
-    --text-red-color #721c24
-    --border-blue-color #b8daff
-    --border-yellow-color #ffeeba
-    --border-red-color #f5c6cb
-    --bg-blue-color #cce5ff
-    --bg-yellow-color #fff3cd
-    --bg-red-color #f8d7da
+    --b1 #cce5ff
+    --b2 #b8daff
+    --b3 #004085
+    --y1 #fff3cd
+    --y2 #ffeeba
+    --y3 #856404
+    --r1 #f8d7da
+    --r2 #f5c6cb
+    --r3 #721c24
     margin 2em 0
     padding .75em 1.25em
     font-size .9em
@@ -15,30 +15,28 @@
     border-radius 4px
 
     &.notice
-        color var(--text-blue-color)
-        background var(--bg-blue-color)
-        border-color var(--border-blue-color)
+        background var(--b1)
+        border-color var(--b2)
+        color var(--b3)
 
     &.caution
-        color var(--text-yellow-color)
-        background var(--bg-yellow-color)
-        border-color var(--border-yellow-color)
+        background var(--y1)
+        border-color var(--y2)
+        color var(--y3)
 
     &.warning
-        color var(--text-red-color)
-        background var(--bg-red-color)
-        border-color var(--border-red-color)
+        background var(--r1)
+        border-color var(--r2)
+        color var(--r3)
 
 
 [data-mode='dark'] .alert
-    --text-blue-color #9ed2ff
-    --text-yellow-color #ffdd9e
-    --text-red-color #ff8080
-
-    --border-blue-color #004e66
-    --border-yellow-color #665500
-    --border-red-color #5c0000
-
-    --bg-blue-color #002333
-    --bg-yellow-color #332b00
-    --bg-red-color #290000
+    --b1 #002333
+    --b2 #004e66
+    --b3 #9ed2ff
+    --y1 #332b00
+    --y2 #665500
+    --y3 #ffdd9e
+    --r1 #290000
+    --r2 #5c0000
+    --r3 #ff8080
