@@ -7,10 +7,9 @@
     border-radius 4px
     justify-content space-between
 
-    $pager__btn
+    &__btn
         display block
-        width 50%
-        max-width 200px
+        flex-basis 200px
         line-height 56px
         color var(--text-accent-color)
         font-weight bold
@@ -31,29 +30,25 @@
             color var(--text-disabled-color)
             font-weight normal
 
+        &.prev
+            border-right 1px solid var(--border-color)
 
-    &__prev
-        @extend $pager__btn
-        border-right 1px solid var(--border-color)
+            &::before
+                content "<"
+                margin 0 3px 0 0
 
-        &::before
-            content "<"
-            margin 0 3px 0 0
+            &:hover::before
+                transform translateX(-4px)
 
-        &:hover::before
-            transform translateX(-4px)
+        &.next
+            border-left 1px solid var(--border-color)
 
+            &::after
+                content ">"
+                margin 0 0 0 3px
 
-    &__next
-        @extend $pager__btn
-        border-left 1px solid var(--border-color)
-
-        &::after
-            content ">"
-            margin 0 0 0 3px
-
-        &:hover::after
-            transform translateX(4px)
+            &:hover::after
+                transform translateX(4px)
 
 
     &__number
