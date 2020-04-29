@@ -15,7 +15,7 @@ HTML5で追加された属性に`contenteditable`というものがあります�
 
 これを`<style>`タグに追加して、さらにdisplay: blockで可視化すると、入力したCSSがページにリアルタイムで反映されるフォームを簡単につくることができます。
 
-<div class="caution">
+<div class="alert caution">
 &lt;style&gt;タグは、&lt;head&gt;間または&lt;body&gt;直下の子要素へ配置しないと、<a href="https://validator.w3.org/">W3Cのバリデーション</a>でエラーになるのでご注意ください。
 </div>
 

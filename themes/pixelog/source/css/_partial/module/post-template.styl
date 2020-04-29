@@ -16,31 +16,27 @@
         box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 
 
-$margin
+.alert
     margin 2em 0
     padding .75em 1.25em
     font-size .9em
     border 1px solid
     border-radius 4px
 
-.notice
-    @extend $margin
-    color var(--text-blue-color)
-    background var(--bg-blue-color)
-    border-color var(--border-blue-color)
+    &.notice
+        color var(--text-blue-color)
+        background var(--bg-blue-color)
+        border-color var(--border-blue-color)
 
-.caution
-    @extend $margin
-    color var(--text-yellow-color)
-    background var(--bg-yellow-color)
-    border-color var(--border-yellow-color)
+    &.caution
+        color var(--text-yellow-color)
+        background var(--bg-yellow-color)
+        border-color var(--border-yellow-color)
 
-
-.warning
-    @extend $margin
-    color var(--text-red-color)
-    background var(--bg-red-color)
-    border-color var(--border-red-color)
+    &.warning
+        color var(--text-red-color)
+        background var(--bg-red-color)
+        border-color var(--border-red-color)
 
 
 .card-link
