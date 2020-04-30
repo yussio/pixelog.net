@@ -1,22 +1,18 @@
 .header
-    margin 0 0 60px 0
-    padding 26px 16px
     background var(--theme-color)
     box-shadow var(--container-shadow)
-    +media(tabsp)
-        margin 0 0 32px 0
-    +media(sp)
-        margin 0 0 16px 0
-        padding 32px 16px
 
     &__inner
         display flex
         max-width pc-width
         margin auto
+        padding 26px 16px
+        box-sizing content-box
         justify-content space-between
         align-items center
         +media(sp)
-            height 80px
+            height 76px
+            padding 32px 16px
             flex-direction column
 
 
