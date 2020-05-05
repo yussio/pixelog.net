@@ -1,54 +1,52 @@
 .search-form
-    margin 0 0 0 auto
     line-height 44px
     position relative
-    align-self center
 
     &__input
         width 100%
-        padding 0 48px 0 16px
+        padding 0 36px 0 16px
         outline none
         color var(--text-color)
         font-size 14px
         background var(--bg-sub-color)
-        transition .1s all ease-in-out
+        transition .15s all ease-in-out
         border 1px solid var(--border-color)
         border-radius 30px
 
         &:focus
             border-color #80bdff
-            outline 0
             box-shadow 0 0 0 0.2rem rgba(0,123,255,.25)
 
 
     &__btn
-        width 18px
-        height 20px
-        margin 7px 9px
-        padding 16px
+        padding 9px
         position absolute
-        top 0
-        right 0
+        top 9px
+        right 9px
 
-        &::before
-        &::after
-            content ""
-            display block
-            position absolute
-            transition .1s all ease-in-out
 
-        &::before
-            width 14px
-            height 14px
-            border 2px solid var(--text-sub-color)
-            border-radius 50%
-            top 7px
-            left 6px
+.gg-search
+    box-sizing border-box
+    position relative
+    display block
+    transform scale(var(--ggs,.8))
+    width 16px
+    height 16px
+    border 2px solid
+    border-radius 100%
+    margin-left -4px
+    margin-top -4px
+    color var(--text-sub-color)
 
-        &::after
-            width 2px
-            height 10px
-            background var(--text-sub-color)
-            transform rotate(-45deg)
-            top 17px
-            left 20px
+.gg-search::after
+    content ""
+    display block
+    box-sizing border-box
+    position absolute
+    border-radius 3px
+    width 2px
+    height 8px
+    background currentColor
+    transform rotate(-45deg)
+    top 10px
+    left 12px
