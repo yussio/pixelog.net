@@ -1,55 +1,5 @@
 <aside class="aside">
-    <div class="aside__ad loading">
-        <!-- サイドバー -->
-        <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-9027963984337121"
-           data-ad-slot="7285089388"
-           data-ad-format="auto"
-           data-full-width-responsive="false">
-        </ins>
-    </div>
-    <div class="aside__category">
-        <h4 class="aside__title">Category</h4>
-        <ul class="category-list">
-            <%
-            // https://github.com/hexojs/hexo/issues/3588
-            let current_category = "";
-            if(is_category()) {
-                current_category = page.category;
-            } else if(is_post() && page.categories.length > 0) {
-                current_category = page.categories.data[page.categories.length - 1].name;
-            }
-            function displayCategories(parent = undefined) {
-                site.categories
-                    .find({ parent }) // warehouse allows us complex queries
-                    .sort("name") // sort
-                    .each(function(category) {
-                        // count the child categories
-                        const childCount = site.categories.find({ parent: category._id }).count();
-                        %>
-                        <li class="category-list-item">
-                            <a class="category-list-link <% if(current_category === category.name) { %>current<% } %>" href="<%=url_for(category.path)%>"><%=category.name%><span class="category-list-count"><%= category.length%></span></a>
-                            <% if (childCount > 0) { %>
-                                <ul class="category-list-child">
-                                    <% displayCategories(category._id); %>
-                                </ul>
-                            <% } %>
-                        </li>
-                    <%
-                    });
-            }
-            displayCategories();
-            %>
-        </ul>
-    </div>
-
-    <% if (is_post() === true) { %>
-    <div class="aside__recent-posts">
-        <h4 class="aside__title">Recent Posts</h4>
-        <%- list_posts( {
-          class: 'recent-posts'
-        }) %>
-    <% } %>
-    </div>
+  <% theme.widgets.forEach(function(widget){ %>
+    <%- partial('_widget/' + widget, {block: 'aside'}) %>
+  <% }) %>
 </aside>

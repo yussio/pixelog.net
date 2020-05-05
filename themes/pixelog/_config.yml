@@ -3,3 +3,10 @@ menu:
   Home: /
   Archives: /archives
 rss: /atom.xml
+
+
+widgets:
+- ad
+- category
+- search
+- recent-posts
