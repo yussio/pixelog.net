@@ -41,10 +41,17 @@
             <% } %>
         <% } else if (is_archive()) { %>
             <li class="breadcrumbs__item">
-                <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
-                    アーカイブ
+                <a class="breadcrumbs__item-link" href="/<%= config.archive_dir %>/<%= page.year %>/">
+                    <%= page.year %>年
                 </a>
             </li>
+            <% if(page.month){ %>
+              <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
+                      <%= page.month %>月
+                  </a>
+              </li>
+            <% } %>
         <% } else if(is_post()) { %>
             <% page.categories.forEach(function(item){ %>
                 <li class="breadcrumbs__item">

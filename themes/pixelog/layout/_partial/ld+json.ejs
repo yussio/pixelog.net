@@ -99,10 +99,21 @@
               "position": 2,
               "item":
               {
-                "@id": "/archive/",
-                "name": "アーカイブ"
+                "@id": "/<%= config.archive_dir %>/<%= page.year %>/",
+                "name": "<%= page.year %>年"
               }
             }
+            <% if(page.month){ %>
+            ,{
+              "@type": "ListItem",
+              "position": 3,
+              "item":
+              {
+                "@id": "<%- url_for(path) %>",
+                "name": "<%= page.month %>月"
+              }
+            }
+            <% } %>
         <% } else if(is_post()) { %>
             <% page.categories.forEach(function(item, i){ %>
                 <%
