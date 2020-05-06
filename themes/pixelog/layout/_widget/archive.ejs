@@ -26,7 +26,10 @@ function toCountDict(array){
       %>
         <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
           <% if(is_archive()){ %>
-            <% if(archive_year + archive_month === page.year + page.month.toString().padStart(2, '0')){ %>
+            <% if(page.month) {
+              page.monthwith0 = page.month.toString().padStart(2, '0');
+            } %>
+            <% if(archive_year + archive_month === page.year + page.monthwith0){ %>
             selected
             <% } %>
           <% } %>
