@@ -1,12 +1,6 @@
-# Header
-menu:
-  Home: /
-  Archives: /archives
-rss: /atom.xml
-
-
 widgets:
 - ad
 - category
+- archive
 - search
 - recent-posts
