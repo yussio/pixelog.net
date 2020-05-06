@@ -4,7 +4,11 @@
     if(is_home()){
         title = '';
     } else if (is_archive()){
-        title = 'アーカイブ' + ' - ';
+        if(page.month){
+          title = page.year + '年' + page.month + '月' + ' - ';
+        } else {
+          title = page.year + '年' + ' - ';
+        }
     } else if (is_category()){
         title = page.category + ' - ';
     } else if (is_tag()){
