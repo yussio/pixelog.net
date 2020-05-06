@@ -56,13 +56,16 @@ function toCountDict(array){
       let archive_year = key.slice(0,4);
       let archive_month = key.slice(5,7);
     %>
-      <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
-        <% if(is_archive()){ %>
-          <% if(archive_year + archive_month === page.year + page.month.toString().padStart(2, '0')){ %>
-          selected
-          <% } %>
+    <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
+      <% if(is_archive()){ %>
+        <% if(page.month) {
+          page.monthwith0 = page.month.toString().padStart(2, '0');
+        } %>
+        <% if(archive_year + archive_month === page.year + page.monthwith0){ %>
+        selected
         <% } %>
-        ><%= key %> (<%= arr[key]%>)</option>
+      <% } %>
+      ><%= key %> (<%= arr[key]%>)</option>
     <% }); %>
 </select>
 ```
