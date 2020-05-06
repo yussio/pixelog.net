@@ -26,6 +26,7 @@ Hexoでサイドバーに月別アーカイブを設置する際は、あらか�
 
 このブログのサイドバーに設置してあるものです。(2020年5月時点)
 
+（追記：画像では「月を選択」の文字が選べるようになっていますが、選べないように変更しました）
 
 ## 実装方法
 
@@ -50,22 +51,22 @@ function toCountDict(array){
 %>
 
 <select class="archive-list" onchange="location.href=this.value;">
-    <option value="">月を選択</option>
+    <% if(!page.month){ %><option value="" disabled selected style="display:none">月を選択</option><% } %>
     <% Object.keys(arr).forEach(function(key){ %>
     <%
       let archive_year = key.slice(0,4);
       let archive_month = key.slice(5,7);
     %>
-    <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
-      <% if(is_archive()){ %>
-        <% if(page.month) {
-          page.monthwith0 = page.month.toString().padStart(2, '0');
-        } %>
-        <% if(archive_year + archive_month === page.year + page.monthwith0){ %>
-        selected
+      <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
+        <% if(is_archive()){ %>
+          <% if(page.month) {
+            page.monthwith0 = page.month.toString().padStart(2, '0');
+          } %>
+          <% if(archive_year + archive_month === page.year + page.monthwith0){ %>
+          selected
+          <% } %>
         <% } %>
-      <% } %>
-      ><%= key %> (<%= arr[key]%>)</option>
+        ><%= key %> (<%= arr[key]%>)</option>
     <% }); %>
 </select>
 ```
