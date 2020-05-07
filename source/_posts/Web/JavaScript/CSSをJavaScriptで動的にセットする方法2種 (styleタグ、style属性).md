@@ -9,7 +9,7 @@ date: 2020-05-07 19:26:43
 
 CSSを動的にセットしたいときに便利なJavaScriptの関数の雛形です。
 
-動的にセットしたいという場合は、`<style>`タグの中に書いた生CSSをhead間に差し込みたいという場合と、要素のstyle属性にCSSを書く場合の2つの場面が想定されるので両方紹介します。
+動的にセットしたいという際には、`<style>`タグの中に書いた生CSSをhead間に差し込みたいときと、要素のstyle属性にCSSを書きたいときの2つの場面が想定されるので両方紹介します。
 
 
 
@@ -26,7 +26,7 @@ const css = e => {
 css(`.post__title{font-size:32px;}`);
 ```
 
-あらかじめ関数をページのどこかに読み込ませておいて、あとは引数にCSSを書いて実行してやると、`<style></style>`で囲まれたCSSがhead間に挿入されます。
+あらかじめ関数をページのどこかに読み込ませておいて、引数にCSSを書いて実行してやると、`<style></style>`で囲まれたCSSがhead間に挿入されます。
 
 
 また、バッククォートを使っているので改行して書くことも可能です。
@@ -66,7 +66,7 @@ style('toggle-light','color:#888;font-size:12px;');
 こちらはclass、ID、属性セレクタ...何でもOKです。
 
 ```javascript
-const css = (e,t) => {
+const style = (e,t) => {
   document.addEventListener("DOMContentLoaded",() => {
     document.querySelectorAll(e).forEach(e =>e.setAttribute("style",t))
   })
