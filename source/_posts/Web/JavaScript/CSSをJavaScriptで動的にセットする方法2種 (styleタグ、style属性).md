@@ -49,10 +49,10 @@ css(`
 要素にIDが振られているならば、理論上はこっちの方が速いです。（体感では全く分からないので、使い分ける必要があるのかは謎ですが）
 
 ```javascript
-const style = (e,t) => {
-  document.addEventListener("DOMContentLoaded",() => {
-    document.getElementById(e).setAttribute("style",t)
-  })
+const style =(e,t) =>{
+    "loading" !== document.readyState
+  ? document.getElementById(e).setAttribute("style",t)
+  : document.addEventListener("DOMContentLoaded",() => document.getElementById(e).setAttribute("style",t))
 };
 ```
 ```javascript
@@ -66,10 +66,10 @@ style('toggle-light','color:#888;font-size:12px;');
 こちらはclass、ID、属性セレクタ...何でもOKです。
 
 ```javascript
-const style = (e,t) => {
-  document.addEventListener("DOMContentLoaded",() => {
-    document.querySelectorAll(e).forEach(e =>e.setAttribute("style",t))
-  })
+const style =(e,t) =>{
+    "loading" !== document.readyState
+  ? document.querySelectorAll(e).forEach(e=>e.setAttribute("style",t))
+  : document.addEventListener("DOMContentLoaded",() => document.querySelectorAll(e).forEach(e=>e.setAttribute("style",t)))
 };
 ```
 ```javascript
