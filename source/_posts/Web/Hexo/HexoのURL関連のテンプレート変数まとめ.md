@@ -34,21 +34,24 @@ Hexoのバージョンは4.2.0です。上のようなHTMLをテンプレート�
 <label><input id="toggle-config" type="checkbox">（config.yml の設定）trailing_indexを false にする</label>
 
 <script>
-const toggleconfig = document.getElementById('toggle-config');
-const labels = document.getElementsByClassName('trailing_index');
+const style = (e,t) => {
+  if (document.readyState !== 'loading') {
+    document.querySelectorAll(e).forEach(e =>e.setAttribute("style",t))
+  } else {
+      document.addEventListener("DOMContentLoaded",() => {
+        document.querySelectorAll(e).forEach(e =>e.setAttribute("style",t))
+      })    
+  }
+};
 
-  document.addEventListener('DOMContentLoaded', function(){
-    for(let i=0; i<labels.length; i++){
-        labels[i].style.color = '#ff0000';
-    }    
-  });
-  toggleconfig.addEventListener('change', function(){
-  for(let i=0; i<labels.length; i++){
-    if(toggleconfig.checked){
-      labels[i].style.display = 'none';
-    } else {
-      labels[i].style.display = 'inline-block';
-    }
+const toggleconfig = document.getElementById('toggle-config');
+style('.trailing_index','color:#ff0000');
+
+toggleconfig.addEventListener('change', function(){
+  if(toggleconfig.checked){
+    style('.trailing_index','color:#ff0000;display:none');
+  } else {
+    style('.trailing_index','color:#ff0000;display:inline-block');
   }
 });
 </script>
