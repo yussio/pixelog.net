@@ -1,20 +1,20 @@
 .header
     background var(--theme-color)
     box-shadow var(--header-shadow)
+    transition .15s background ease
+    +media(sp)
+        font-size 12px
 
-    &__inner
-        display flex
-        max-width pc-width
-        margin auto
-        padding 26px 16px
-        box-sizing content-box
-        justify-content space-between
-        align-items center
-        +media(sp)
-            height 76px
-            padding 32px 16px
-            flex-direction column
+    &:hover
+        background rgba(68, 97, 123, .9)
 
+    &__logo
+        font-size 1.5em
+        text-align center
+
+        svg
+            margin auto
 
     &__link
         display block
+        padding 2.4166em 0
