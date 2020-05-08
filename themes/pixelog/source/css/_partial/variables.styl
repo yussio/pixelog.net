@@ -3,30 +3,31 @@ sp-width = 767px
 
 
 :root
-    --theme-color #44617b
+  --theme-color #44617b
 
-    --bg-color #f8f8f9
-    --bg-sub-color #fff
-    --bg-hover-color #fbfbfb
-    --bg-current-color #eaeaea
+  --bg-color #f8f8f9
+  --bg-sub-color #fff
+  --bg-hover-color #fbfbfb
+  --bg-current-color #eaeaea
 
-    --text-color #444
-    --text-link-color #3884FF
-    --text-hover-color #777
-    --text-sub-color #999
-    --text-dark-sub-color #94b1cb
-    --text-accent-color var(--theme-color)
-    --text-disabled-color #eee
+  --text-color #444
+  --text-link-color #3884FF
+  --text-hover-color #777
+  --text-sub-color #999
+  --text-dark-sub-color #94b1cb
+  --text-accent-color var(--theme-color)
+  --text-disabled-color #eee
 
-    --border-color #e3e3e3
-    --border-dotted-color #bbb
+  --border-color #e3e3e3
+  --border-dotted-color #bbb
 
-    --header-shadow 0
-    --container-shadow 0 4px 7px rgba(0,0,0,0.03), 0 0 1px rgba(0,0,0,0.1)
+  --header-shadow 0
+  --container-shadow 0 4px 7px rgba(0,0,0,0.03), 0 0 1px rgba(0,0,0,0.1)
 
 
 
-[data-mode='dark']
+@media (prefers-color-scheme: dark)
+  :root
     --theme-color var(--bg-sub-color)
 
     --bg-color #202124
@@ -48,5 +49,5 @@ sp-width = 767px
     --header-shadow var(--container-shadow)
     --container-shadow 0 1px 2px 0 rgba(0, 0, 0, .60), 0 1px 3px 1px rgba(0, 0, 0, .30)
 
-    img
-        filter: grayscale(20%)
+  img
+      filter: grayscale(20%)
