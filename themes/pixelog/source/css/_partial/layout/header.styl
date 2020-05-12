@@ -1,19 +1,14 @@
 .header
     background var(--theme-color)
     box-shadow var(--header-shadow)
-    transition .15s background ease
     +media(sp)
         font-size 12px
 
-    &:hover
-        background rgba(68, 97, 123, .9)
-
-    &__logo
+    &__logo // h1のデフォルトfont-sizeを上書きするため
         font-size 1.5em
-        text-align center
 
-        svg
-            margin auto
+    &__svg
+        margin auto
 
     &__link
         display block
