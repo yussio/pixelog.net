@@ -49,7 +49,7 @@
         type = 'website';
     }
 %>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<%if(is_post()){%><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><%}%>
 <% if(page.js === true) { %><script defer src="<%= url_for(path) + 'script.js' %>"></script><% } %>
 <meta charset="utf-8">
 <title><%= title %></title>
