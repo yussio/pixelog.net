@@ -1,4 +1,10 @@
 <div class="<%= block %>__tagcloud">
-    <h4 class="<%= block %>__title">Tag Cloud</h4>
-    <%- tagcloud() %>
+    <h4 class="<%= block %>__title">Tag</h4>
+    <div class="tag-cloud">
+      <%- tagcloud({
+        color:true,
+        start_color: '#999',
+        end_color: '#444'
+      }) %>
+    </div>
 </div>
