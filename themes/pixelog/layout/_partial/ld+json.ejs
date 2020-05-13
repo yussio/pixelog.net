@@ -60,7 +60,7 @@
             <% } %>
         <% } else if (is_category()) { %>
             <%
-            const category_slug = page.path.replace(/category\//, '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            const category_slug = page.path.replace(config.category_dir + '/', '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
             let category_url = '';
             %>
             <% category_slug.forEach(function(item, i){ %>
@@ -77,7 +77,7 @@
                   "position": <%= i %>,
                   "item":
                   {
-                    "@id": "/category<%= category_url %>/",
+                    "@id": "/<%= config.category_dir %><%= category_url %>/",
                     "name": "<% if(category_name.length === 0){ %><%= item %><%}else{%><%= category_name %><%}%>"
                   }
                 }
@@ -88,7 +88,37 @@
                   "position": <%= category_slug.length + 2 %>,
                   "item":
                   {
-                    "@id": "/category<%= category_url %>/page/<%= page.current %>/",
+                    "@id": "/<%= config.category_dir %><%= category_url %>/page/<%= page.current %>/",
+                    "name": "ページ<%= page.current %>"
+                  }
+                }
+            <% } %>
+        <% } else if (is_tag()) { %>
+                ,{
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item":
+                  {
+                    "@id": "",
+                    "name": "タグ"
+                  }
+                }
+                ,{
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item":
+                  {
+                    "@id": "/<%= config.tag_dir %>/<%= page.tag %>/",
+                    "name": "<%= page.tag %>"
+                  }
+                }
+            <% if(page.current !== 1){ %>
+                ,{
+                  "@type": "ListItem",
+                  "position": 4,
+                  "item":
+                  {
+                    "@id": "/<%= config.tag_dir %>/<%= page.tag %>/page/<%= page.current %>/",
                     "name": "ページ<%= page.current %>"
                   }
                 }
