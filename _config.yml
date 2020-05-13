@@ -77,6 +77,15 @@ category_map:
   Webツール: tool
   雑記: note
 tag_map:
+  CSS: css
+  EJS: ejs
+  Git: git
+  HTML: html
+  JSライブラリ: js-library
+  JavaScript: javascript
+  Netlify: nelify
+  Node.js: nodejs
+  npm: npm
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta

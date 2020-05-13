@@ -41,18 +41,31 @@
             <% } %>
         <% } else if (is_tag()) { %>
                 <li class="breadcrumbs__item">
-                    <span class="breadcrumbs__item-link" style="text-decoration:none;pointer-events:none;">
+                    <span class="breadcrumbs__item-link" style="text-decoration: none;pointer-events: none;">
                         タグ
                     </span>
                 </li>
+            <%
+            const tag_slug = page.path.replace(config.tag_dir + '/', '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            let tag_url = '';
+            %>
+            <% tag_slug.forEach(function(item, i){ %>
+                <%
+                tag_url += '/' + item;
+
+                const tag_name = Object.keys(config.tag_map).filter( (key) => {
+                  return config.tag_map[key] === item;
+                 });
+                %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %>/<%= page.tag %>/">
-                        <%= page.tag %>
+                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %><%= tag_url %>/">
+                        <% if(tag_name.length === 0){ %><%= item %><%}else{%><%= tag_name %><%}%>
                     </a>
                 </li>
+            <% }) %>
             <% if(page.current !== 1){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %>/<%= page.tag %>/page/<%= page.current %>/">
+                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %><%= tag_url %>/page/<%= page.current %>/">
                         ページ<%= page.current %>
                     </a>
                 </li>

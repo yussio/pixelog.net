@@ -103,22 +103,36 @@
                     "name": "タグ"
                   }
                 }
+            <%
+            const tag_slug = page.path.replace(config.tag_dir + '/', '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            let tag_url = '';
+            %>
+            <% tag_slug.forEach(function(item, i){ %>
+                <%
+                i += 3;
+                tag_url += '/' + item;
+
+                const tag_name = Object.keys(config.tag_map).filter( (key) => {
+                  return config.tag_map[key] === item;
+                });
+                %>
                 ,{
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": <%= i %>,
                   "item":
                   {
-                    "@id": "/<%= config.tag_dir %>/<%= page.tag %>/",
-                    "name": "<%= page.tag %>"
+                    "@id": "/<%= config.tag_dir %><%= tag_url %>/",
+                    "name": "<% if(tag_name.length === 0){ %><%= item %><%}else{%><%= tag_name %><%}%>"
                   }
                 }
+            <% }) %>
             <% if(page.current !== 1){ %>
                 ,{
                   "@type": "ListItem",
-                  "position": 4,
+                  "position": <%= tag_slug.length + 2 %>,
                   "item":
                   {
-                    "@id": "/<%= config.tag_dir %>/<%= page.tag %>/page/<%= page.current %>/",
+                    "@id": "/<%= config.tag_dir %><%= tag_url %>/page/<%= page.current %>/",
                     "name": "ページ<%= page.current %>"
                   }
                 }
