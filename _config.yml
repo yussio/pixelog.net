@@ -84,7 +84,7 @@ tag_map:
   JSライブラリ: js-library
   JavaScript: javascript
   Netlify: nelify
-  Node.js: nodejs
+  Node.js: node-js
   npm: npm
 
 # Metadata elements
