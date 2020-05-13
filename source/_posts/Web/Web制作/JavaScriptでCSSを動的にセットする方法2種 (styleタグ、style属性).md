@@ -2,7 +2,10 @@
 title: JavaScriptでCSSを動的にセットする方法2種 (styleタグ、style属性)
 categories:
   - Web
+  - Web制作
+tags:
   - JavaScript
+  - CSS
 pid: o3tidc
 date: 2020-05-07 19:26:43
 ---

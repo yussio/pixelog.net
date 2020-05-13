@@ -3,6 +3,9 @@ title: Hexoでプラグインを使わずパンくずリストを表示する
 categories:
   - Web
   - Hexo
+tags:
+  - HTML
+  - EJS
 pid: xzr273
 date: 2020-04-25 18:15:25
 ---

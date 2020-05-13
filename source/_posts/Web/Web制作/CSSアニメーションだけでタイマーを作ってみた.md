@@ -3,10 +3,12 @@ title: CSSアニメーションだけでタイマーを作ってみた
 pid: css-timer
 categories:
   - Web
+  - Web制作
+tags:
+  - HTML
   - CSS
 css: true
 date: 2019-03-14 17:00:47
-tags:
 ---
 
 CSSの限界に挑戦ということで、CSS3のアニメーションとCSS変数（カスタムプロパティ）を駆使して、キッチンタイマーを作ってみました。

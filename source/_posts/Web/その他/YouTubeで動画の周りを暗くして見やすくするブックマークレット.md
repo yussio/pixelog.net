@@ -4,8 +4,9 @@ pid: bookmarklet-for-youtube
 categories:
   - Web
   - その他
-date: 2019-05-14 12:55:06
 tags:
+  - JavaScript
+date: 2019-05-14 12:55:06
 ---
 YouTubeで動画の周りを暗くして見やすくするブックマークレットを作りました。Google Chromeの拡張機能「[Turn Off the Lights](https://chrome.google.com/webstore/detail/turn-off-the-lights-for-y/bfbmjmiodbnnpllbbbfblcplfjjepjdn)」のブックマークレット版だと思っていただれければいいと思います。
 

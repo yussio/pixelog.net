@@ -4,6 +4,10 @@ pid: v4dawq
 categories:
   - Web
   - Hexo
+tags:
+  - EJS
+  - HTML
+  - CSS
 date: 2020-03-30 14:57:16
 ---
 

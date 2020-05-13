@@ -3,10 +3,11 @@ title: Web制作がはかどる！暗記すると便利なカラーコード集
 pid: recommended-color-code
 categories:
   - Web
-  - CSS
-date: 2019-06-04 22:18:49
+  - Web制作
 tags:
+  - CSS
 css: true
+date: 2019-06-04 22:18:49
 ---
 
 Webサイトを制作する上でよく使うカラーコードは、暗記しておくとスピードアップに繋がり便利です。

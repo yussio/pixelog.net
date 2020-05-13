@@ -3,10 +3,11 @@ title: HTMLだけでコンテンツを開閉できるdetailsタグを試して�
 pid: html-details
 categories:
   - Web
-  - HTML
-date: 2019-05-05 21:00:00
+  - Web制作
 tags:
+  - HTML
 css: true
+date: 2019-05-05 21:00:00
 ---
 `<details>`タグはHTML5.1で追加されたタグで、コンテンツを開閉できるウィジェットを生成します。
 

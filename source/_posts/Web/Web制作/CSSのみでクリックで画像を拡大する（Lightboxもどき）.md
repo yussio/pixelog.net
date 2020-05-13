@@ -3,10 +3,12 @@ title: CSSのみでクリックで画像を拡大する（Lightboxもどき）
 pid: only-css-popup-image
 categories:
   - Web
-  - CSS
-date: 2019-05-20 21:40:00
+  - Web制作
 tags:
+  - CSS
+  - HTML
 css: true
+date: 2019-05-20 21:40:00
 ---
 
 ![CSSのみでクリックで画像を拡大する](thumbnail.jpg)

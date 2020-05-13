@@ -3,6 +3,9 @@ title: Hexoのmarkdon-itが脚注で出力するHTMLを整える
 categories:
   - Web
   - Hexo
+tags:
+  - HTML
+  - Node.js
 pid: byfq2m
 date: 2020-04-29 09:00:00
 ---

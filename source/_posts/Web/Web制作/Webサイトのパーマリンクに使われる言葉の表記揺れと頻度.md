@@ -3,9 +3,8 @@ title: Webサイトのパーマリンクに使われる言葉の表記揺れと�
 pid: word-for-permalink
 categories:
   - Web
-  - その他
+  - Web制作
 date: 2019-05-03 20:27:51
-tags:
 ---
 
 WordPressなどのCMSや静的サイトジェネレーターでサイトを作成すると、パーマリンクの設定が必要です。

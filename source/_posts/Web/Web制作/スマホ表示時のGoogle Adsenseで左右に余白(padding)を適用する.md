@@ -2,7 +2,9 @@
 title: スマホ表示時のGoogle Adsenseで左右に余白(padding)を適用する
 categories:
   - Web
-  - その他
+  - Web制作
+tags:
+  - HTML
 pid: evo9on
 date: 2020-04-22 18:56:21
 ---

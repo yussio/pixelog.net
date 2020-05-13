@@ -3,6 +3,9 @@ title: Hexoでパンくずリストの構造化マークアップをする
 categories:
   - Web
   - Hexo
+tags:
+  - HTML
+  - EJS
 pid: surt79
 date: 2020-04-26 15:24:44
 ---

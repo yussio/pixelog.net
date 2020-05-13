@@ -2,7 +2,10 @@
 title: highlight.jsのスタイルをダークモードに応じて切り替える
 categories:
   - Web
-  - JavaScript
+  - Web制作
+tags:
+  - JSライブラリ
+  - CSS
 pid: 35szb9
 date: 2020-04-30 12:30:00
 ---

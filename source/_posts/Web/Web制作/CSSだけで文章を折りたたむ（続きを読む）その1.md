@@ -3,10 +3,12 @@ title: CSSだけで文章を折りたたむ（続きを読む）その1
 pid: css-read-more
 categories:
   - Web
-  - CSS
-date: 2019-06-06 21:38:40
+  - Web制作
 tags:
+  - HTML
+  - CSS
 css: true
+date: 2019-06-06 21:38:40
 ---
 
 今回はHTMLとCSSのみでコンテンツの開閉、いわゆる「続きを読む」を再現してみます。

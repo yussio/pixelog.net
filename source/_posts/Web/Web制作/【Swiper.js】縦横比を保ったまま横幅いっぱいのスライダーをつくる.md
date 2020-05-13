@@ -3,9 +3,12 @@ title: 【Swiper.js】縦横比を保ったまま横幅いっぱいのスライ�
 pid: responsive-swiper
 categories:
   - Web
-  - JavaScript
-date: 2019-04-30 18:14:34
+  - Web制作
 tags:
+  - JavaScript
+  - JSライブラリ
+  - HTML
+date: 2019-04-30 18:14:34
 ---
 
 [Swiper.js](https://idangero.us/swiper/)という、jQueryなしで動く高機能なライブラリがあります。

@@ -2,7 +2,10 @@
 title: OSでもWebサイト側でも切り替えられるダークモードを実装する
 categories:
   - Web
+  - Web制作
+tags:
   - JavaScript
+  - CSS
 pid: 2xc2mg
 date: 2020-04-14 18:49:31
 ---

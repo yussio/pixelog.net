@@ -3,6 +3,9 @@ title: Hexoの月別アーカイブをプルダウン式(select要素)にする
 categories:
   - Web
   - Hexo
+tags:
+  - EJS
+  - HTML
 pid: 3ucz8g
 date: 2020-05-06 14:53:55
 ---

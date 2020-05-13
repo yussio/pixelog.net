@@ -4,9 +4,11 @@ pid: remove-meta-generator
 categories:
   - Web
   - Hexo
+tags:
+  - HTML
+  - Node.js
 date: 2019-06-03 22:12:12
 updated: 2020-04-13 17:40:00
-tags:
 ---
 
 Hexoではデフォルトで、&lt;head&gt;間に下のようなmetaタグが自動で挿入されます。

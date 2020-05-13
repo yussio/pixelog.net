@@ -5,7 +5,6 @@ categories:
   - Web
   - Hexo
 date: 2019-06-05 19:11:23
-tags:
 ---
 
 Hexoのアーカイブページの設定方法のまとめです。アーカイブページはhexo-generator-archiveというプラグインで生成されています。

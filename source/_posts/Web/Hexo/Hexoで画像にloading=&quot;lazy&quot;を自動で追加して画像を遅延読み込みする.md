@@ -3,6 +3,9 @@ title: Hexoで画像にloading=&quot;lazy&quot;を自動で追加して画像を
 categories:
   - Web
   - Hexo
+tags:
+  - HTML
+  - Node.js
 pid: vo9d9z
 date: 2020-03-16 16:42:43
 ---

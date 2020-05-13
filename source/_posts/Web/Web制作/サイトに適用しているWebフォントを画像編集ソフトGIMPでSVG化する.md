@@ -2,7 +2,7 @@
 title: サイトに適用しているWebフォントを画像編集ソフトGIMPでSVG化する
 categories:
   - Web
-  - その他
+  - Web制作
 pid: 6f3b9h
 date: 2020-04-21 20:15:00
 ---

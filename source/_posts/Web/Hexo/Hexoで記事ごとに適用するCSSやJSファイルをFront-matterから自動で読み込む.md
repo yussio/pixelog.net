@@ -4,6 +4,8 @@ title: Hexoで記事ごとに適用するCSSやJSファイルをFront-matterか�
 categories:
   - Web
   - Hexo
+tags:
+  - EJS
 date: 2020-01-30 10:33:20
 description:
 ---

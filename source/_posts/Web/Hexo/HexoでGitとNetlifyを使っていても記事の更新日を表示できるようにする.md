@@ -3,6 +3,10 @@ title: HexoでGitとNetlifyを使っていても記事の更新日を表示で�
 categories:
   - Web
   - Hexo
+tags:
+  - Git
+  - EJS
+  - Netlify
 pid: js77yn
 date: 2020-04-13 19:02:35
 ---

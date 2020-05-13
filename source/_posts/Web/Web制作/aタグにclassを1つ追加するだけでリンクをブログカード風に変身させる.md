@@ -2,6 +2,9 @@
 title: aタグにclassを1つ追加するだけでリンクをブログカード風に変身させる
 categories:
   - Web
+  - Web制作
+tags:
+  - HTML
   - CSS
 pid: x8xjr4
 date: 2020-04-16 19:23:20

@@ -3,6 +3,8 @@ title: Hexoでmarkdown-itを導入して記事内に脚注を書く
 categories:
   - Web
   - Hexo
+tags:
+  - npm
 pid: 5hnq2k
 date: 2020-04-28 13:18:38
 ---
