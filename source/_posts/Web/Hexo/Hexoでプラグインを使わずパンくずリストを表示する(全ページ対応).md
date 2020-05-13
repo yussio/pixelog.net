@@ -8,13 +8,20 @@ tags:
   - EJS
 pid: xzr273
 date: 2020-04-25 18:15:25
+updated: 2020-05-13 18:30:00
 ---
 
 このブログはHexoで構築しており、全ページにパンくずリストを設置しています。このパンくずリストを設置するのがなかなか大変だったので、メモを残しておきます。
 
 使用しているテンプレートエンジンはEJSです。
 
-<div class="alert caution">複数カテゴリーやタグ別ページには対応していません。ご了承ください。</div>
+<div class="alert caution">
+  複数カテゴリーや<del>タグ別ページ</del>には対応していません。ご了承ください。
+</div>
+
+<div class="alert notice">
+  (2020.05.13追記) タグ別ページに対応しました。また、アーカイブページにて、年と月が階層構造になるように見直しました。
+</div>
 
 
 ## ソース
@@ -61,12 +68,45 @@ date: 2020-04-25 18:15:25
                     </a>
                 </li>
             <% } %>
+        <% } else if (is_tag()) { %>
+            <%
+            const tag_slug = page.path.replace(config.tag_dir + '/', '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            let tag_url = '';
+            %>
+            <% tag_slug.forEach(function(item, i){ %>
+                <%
+                tag_url += '/' + item;
+
+                const tag_name = Object.keys(config.tag_map).filter( (key) => {
+                  return config.tag_map[key] === item;
+                 });
+                %>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %><%= tag_url %>/">
+                        #<% if(tag_name.length === 0){ %><%= item %><%}else{%><%= tag_name %><%}%>
+                    </a>
+                </li>
+            <% }) %>
+            <% if(page.current !== 1){ %>
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %><%= tag_url %>/page/<%= page.current %>/">
+                        ページ<%= page.current %>
+                    </a>
+                </li>
+            <% } %>
         <% } else if (is_archive()) { %>
             <li class="breadcrumbs__item">
-                <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
-                    アーカイブ
+                <a class="breadcrumbs__item-link" href="/<%= config.archive_dir %>/<%= page.year %>/">
+                    <%= page.year %>年
                 </a>
             </li>
+            <% if(page.month){ %>
+              <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
+                      <%= page.month %>月
+                  </a>
+              </li>
+            <% } %>
         <% } else if(is_post()) { %>
             <% page.categories.forEach(function(item){ %>
                 <li class="breadcrumbs__item">

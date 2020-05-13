@@ -8,6 +8,7 @@ tags:
   - EJS
 pid: surt79
 date: 2020-04-26 15:24:44
+updated: 2020-05-13 18:30:00
 ---
 
 前回の記事:
@@ -18,7 +19,13 @@ date: 2020-04-26 15:24:44
 
 使用しているテンプレートエンジンはEJSです。
 
-<div class="alert caution">複数カテゴリーやタグ別ページには対応していません。ご了承ください。</div>
+<div class="alert caution">
+  複数カテゴリーや<del>タグ別ページ</del>には対応していません。ご了承ください。
+</div>
+
+<div class="alert notice">
+  (2020.05.13追記) タグ別ページに対応しました。また、アーカイブページにて、年と月が階層構造になるように見直しました。
+</div>
 
 
 ## ソース
@@ -73,7 +80,7 @@ date: 2020-04-26 15:24:44
                   "item":
                   {
                     "@id": "/<%= config.category_dir %><%= category_url %>/",
-                    "name": "<% if(category_name.length === 0){ %><%= item %><%}else{%><%= category_name %><%}%>"
+                    "name": "カテゴリー: <% if(category_name.length === 0){ %><%= item %><%}else{%><%= category_name %><%}%>"
                   }
                 }
             <% }) %>
@@ -83,7 +90,42 @@ date: 2020-04-26 15:24:44
                   "position": <%= category_slug.length + 2 %>,
                   "item":
                   {
-                    "@id": "<%= config.category_dir %><%= category_url %>/page/<%= page.current %>/",
+                    "@id": "/<%= config.category_dir %><%= category_url %>/page/<%= page.current %>/",
+                    "name": "ページ<%= page.current %>"
+                  }
+                }
+            <% } %>
+        <% } else if (is_tag()) { %>
+            <%
+            const tag_slug = page.path.replace(config.tag_dir + '/', '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
+            let tag_url = '';
+            %>
+            <% tag_slug.forEach(function(item, i){ %>
+                <%
+                i += 2;
+                tag_url += '/' + item;
+
+                const tag_name = Object.keys(config.tag_map).filter( (key) => {
+                  return config.tag_map[key] === item;
+                });
+                %>
+                ,{
+                  "@type": "ListItem",
+                  "position": <%= i %>,
+                  "item":
+                  {
+                    "@id": "/<%= config.tag_dir %><%= tag_url %>/",
+                    "name": "タグ: <% if(tag_name.length === 0){ %><%= item %><%}else{%><%= tag_name %><%}%>"
+                  }
+                }
+            <% }) %>
+            <% if(page.current !== 1){ %>
+                ,{
+                  "@type": "ListItem",
+                  "position": <%= tag_slug.length + 2 %>,
+                  "item":
+                  {
+                    "@id": "/<%= config.tag_dir %><%= tag_url %>/page/<%= page.current %>/",
                     "name": "ページ<%= page.current %>"
                   }
                 }
@@ -94,10 +136,21 @@ date: 2020-04-26 15:24:44
               "position": 2,
               "item":
               {
-                "@id": "/archive/",
-                "name": "アーカイブ"
+                "@id": "/<%= config.archive_dir %>/<%= page.year %>/",
+                "name": "<%= page.year %>年"
               }
             }
+            <% if(page.month){ %>
+            ,{
+              "@type": "ListItem",
+              "position": 3,
+              "item":
+              {
+                "@id": "<%- url_for(path) %>",
+                "name": "<%= page.month %>月"
+              }
+            }
+            <% } %>
         <% } else if(is_post()) { %>
             <% page.categories.forEach(function(item, i){ %>
                 <%
