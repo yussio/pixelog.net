@@ -1,5 +1,7 @@
 widgets:
 - category
+- tag
+- tagcloud
 - archive
 - search
 - recent-posts
