@@ -40,11 +40,6 @@
                 </li>
             <% } %>
         <% } else if (is_tag()) { %>
-                <li class="breadcrumbs__item">
-                    <span class="breadcrumbs__item-link" style="text-decoration: none;pointer-events: none;">
-                        タグ
-                    </span>
-                </li>
             <%
             const tag_slug = page.path.replace(config.tag_dir + '/', '').replace(/\/page\/.+/,'').replace(/\/index.html/, '').split('/');
             let tag_url = '';
@@ -59,7 +54,7 @@
                 %>
                 <li class="breadcrumbs__item">
                     <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %><%= tag_url %>/">
-                        <% if(tag_name.length === 0){ %><%= item %><%}else{%><%= tag_name %><%}%>
+                        #<% if(tag_name.length === 0){ %><%= item %><%}else{%><%= tag_name %><%}%>
                     </a>
                 </li>
             <% }) %>
