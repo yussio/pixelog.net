@@ -11,14 +11,15 @@ sitemap: false
   <span style="animation-delay:.5s">Sorry, this page is Japanese only!</span>
 </p>
 
-![404 Page Not Found](404.gif)
+![404 Page Not Found](/404/404.gif)
 
 <p class="marquee-anim" style="border: 4px solid #ff0000;background-color: #0348fb;color: #ffff00;">
   <span>ページが見つかりませんでした！！！</span>
 </p>
 
+<p style="text-align:center"><img src="/404/neko.gif" alt="目が光る招き猫" style="max-width:120px;" onclick="alert('Welcome！心から歓迎！')"></p>
 
-<p style="color:#03f6fb">秘密のページへようこそ。このページを見つけた人は、<a href="/contact/">Mail Form</a>まで報告してください！！<span class="shake" style="color: red">踏み逃げは禁止！！</span></p>
+<p style="color:#03f6fb">秘密のページへようこそ。このページを見つけた人は、<a href="/contact/">メールフォーム</a>から報告してください！！<span class="shake" style="color: red">踏み逃げ禁止！！</span></p>
 
 <div id="console-wrapper">
     <div id="console">
