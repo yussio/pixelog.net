@@ -1,44 +1,42 @@
 ---
 title: 404 Not Found
 css: true
-js: true
 sitemap: false
 ---
 
-<p style="color:#ffff00">お探しのページは一時的にアクセスができない状況にあるか、移動もしくは削除された可能性があります。大変申し訳ありません。お手数をおかけいたしますが、トップページやカテゴリーページから記事をお選びください。</p>
+<p class="marquee-anim" style="font-size: 1em;font-weight: bold;color: #00ffff;">
+  <span style="animation-duration: 60s;">推奨する Browser は Google Chromeなどのモダンブラウザの最新版で、どのデバイスからでも閲覧できます。Home Page を静的サイトジェネレーターの Hexo で作成しました。最新のCSS技術を取り入れている関係で、IE とは相性が悪く 最新Version でも全く受け付けない様です。このページはW3Cのバリデーションでエラーが出ないのが自慢です。</span>
+</p>
 
-<p style="line-height: 60px;text-align:center;border: 6px solid #00efff;background:#000;animation: rainbow .5s steps(3) alternate infinite;">
-  <span style="animation-delay:.5s">Sorry, this page is Japanese only!</span>
+<p class="rainbow-anim" style="line-height: 48px;font-size: 1.2em;text-align:center;border: 6px groove #0000ff;">
+  <span>Sorry, this site is Japanese only!</span>
 </p>
 
 ![404 Page Not Found](/404/404.gif)
 
-<p class="marquee-anim" style="border: 4px solid #ff0000;background-color: #0348fb;color: #ffff00;">
-  <span>ページが見つかりませんでした！！！</span>
+<p class="marquee-anim" style="line-height: 48px;font-size: 1em;border: 4px ridge #ff0000;background: #3f0000;color: #01ea00;border-radius: 30px;">
+  <span style="animation-duration: 10s;">隠しページへようこそ！このページを見つけた人はメールフォームまで報告してください。踏み逃げ禁止！！</span>
 </p>
 
-<p style="text-align:center"><img src="/404/neko.gif" alt="目が光る招き猫" style="max-width:120px;" onclick="alert('Welcome！心から歓迎！')"></p>
-
-<p style="color:#03f6fb">秘密のページへようこそ。このページを見つけた人は、<a href="/contact/">メールフォーム</a>から報告してください！！<span class="shake" style="color: red">踏み逃げ禁止！！</span></p>
-
-<div id="console-wrapper">
-    <div id="console">
-        <p>> ERROR! 未知のページを検知しました。</p>
-        <p>> 検証プログラムを起動しています.....</p>
-        <p>> 検証を開始します。しばらくお待ちください.....</p>
-        <p>> [■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■] completed!</p>
-        <p>> Result -> 404 Not Found</p>
-        <p>> お探しのページは一時的にアクセスができない状況にあるか、移動もしくは削除された可能性があります。</p>
-        <p>> 大変申し訳ありません。お手数をおかけいたしますが、トップページやカテゴリーページから記事をお選びください。</p>
-        <p>> 検証プログラムを終了しています.....</p>
-        <p>> END</p>
-    </div>
-</div>
-
-<p>
-↓↓このホームページは以下の同盟に参加しています。↓↓
-<br><br>
-<a href="http://m-pe.tv/u/page.php?uid=16811&id=1&guid=on"><img src="/404/shiryoku.jpg" alt="視力回復同盟"></a>
-<a href="http://web.archive.org/web/20110728135322/http://trick.kill.jp/union/kie.htm"><img src="/404/kie.gif" alt="消失同盟"></a>
+<p class="flash-anim" style="text-align: center;">
+  Welcome！心から歓迎！
 </p>
-<a href="/"><img src="/404/top.gif" alt="トップへ戻る"></a>
+
+<p style="text-align: center">
+  <img src="/404/neko.gif" alt="目が光る招き猫">
+</p>
+
+<p style="color: #ffff00">
+  お探しのページは見つかりませんでした。以下のような「<span class="rotate-anim">原因</span>」が考えられます。
+</p>
+
+<ul style="color: #ff0000">
+  <li>ページが移動もしくは削除された</li>
+  <li>入力したURLが誤っている</li>
+</ul>
+
+<p style="color: #03f6fb">
+  お手数をおかけいたしますが、<span class="rainbow-anim" style="font-weight:bold;">トップページ</span>や<span class="rainbow-anim" style="font-weight:bold;">カテゴリー・タグページ</span>から記事をお選びください。
+</p>
+
+<a href="/"><img class="flash-anim" src="/404/top.gif" alt="トップへ戻る"></a>
