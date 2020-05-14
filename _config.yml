@@ -69,10 +69,8 @@ index_generator:
 default_category: uncategorized
 category_map:
   Web: web
-  CSS: css
-  HTML: html
   Hexo: hexo
-  JavaScript: javascript
+  Web制作: web-production
   その他: uncategorized
   Webツール: tool
   雑記: note
