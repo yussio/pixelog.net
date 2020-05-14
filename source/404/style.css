@@ -3,7 +3,8 @@ html {
 }
 
 .post {
-  background: url(background.jpg) repeat;
+  background: #000;
+  color: #fff;
 }
 
 #console-wrapper {
@@ -17,7 +18,7 @@ html {
     padding: 12px 32px;
     color: #fff;
     font-family: Consolas,"Courier New",Courier,Monaco,monospace;
-    border: 8px ridge rgba(0, 230, 100, 1);
+    border: 12px ridge rgba(0, 230, 100, 1);
     position: relative;
     z-index: 3;
 }
@@ -78,17 +79,9 @@ html {
 
 
 @keyframes rainbow {
-    0%   {color:#ffffff;}
-    10%  {color:#00ff00;}
-    20%  {color:#00ffff;}
-    30%  {color:#0000ff;}
-    40%  {color:#ffff00;}
-    50%  {color:#ff00ff;}
-    60%  {color:#aaaaaa;}
-    70%  {color:#ffccff;}
-    80%  {color:#00cc00;}
-    90%  {color:#00cccc;}
-    100% {color:#ff0000;}
+    0%   {color:#ff0000;}
+    33%  {color:#00ff00;}
+    66%  {color:#ffff00;}
 }
 
 

@@ -5,16 +5,20 @@ js: true
 sitemap: false
 ---
 
+<p style="color:#ffff00">お探しのページは一時的にアクセスができない状況にあるか、移動もしくは削除された可能性があります。大変申し訳ありません。お手数をおかけいたしますが、トップページやカテゴリーページから記事をお選びください。</p>
+
+<p style="line-height: 60px;text-align:center;border: 6px solid #00efff;background:#000;animation: rainbow .5s steps(3) alternate infinite;">
+  <span style="animation-delay:.5s">Sorry, this page is Japanese only!</span>
+</p>
+
+![404 Page Not Found](404.gif)
+
 <p class="marquee-anim" style="border: 4px solid #ff0000;background-color: #0348fb;color: #ffff00;">
   <span>ページが見つかりませんでした！！！</span>
 </p>
 
 
-<p style="line-height: 60px;text-align:center;border: 6px solid #00efff;background:#000;animation: rainbow 3s ease-out -3s infinite alternate;">
-  <span style="animation-delay:.5s">Sorry, this page is Japanese only!</span>
-</p>
-
-<p style="color:#0348fb">このページを見つけた人は、<a href="/contact/">Mail Form</a>まで報告してください！！<span class="shake" style="color: red">読み逃げは禁止です (´・ω・｀)</span></p>
+<p style="color:#03f6fb">秘密のページへようこそ。このページを見つけた人は、<a href="/contact/">Mail Form</a>まで報告してください！！<span class="shake" style="color: red">踏み逃げは禁止！！</span></p>
 
 <div id="console-wrapper">
     <div id="console">
