@@ -8,10 +8,6 @@ sitemap: false
   <span style="animation-duration: 60s;">推奨する Browser は Google Chromeなどのモダンブラウザの最新版で、どのデバイスからでも閲覧できます。Home Page を静的サイトジェネレーターの Hexo で作成しました。最新のCSS技術を取り入れている関係で、IE とは相性が悪く 最新Version でも全く受け付けない様です。このページはW3Cのバリデーションでエラーが出ないのが自慢です。</span>
 </p>
 
-<p class="rainbow-anim" style="line-height: 48px;font-size: 1.2em;text-align:center;border: 6px groove #0000ff;">
-  <span>Sorry, this site is Japanese only!</span>
-</p>
-
 ![404 Page Not Found](/404/404.gif)
 
 <p class="marquee-anim" style="line-height: 48px;font-size: 1em;border: 4px ridge #ff0000;background: #3f0000;color: #01ea00;border-radius: 30px;">
