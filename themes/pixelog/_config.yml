@@ -4,3 +4,9 @@ widgets:
 - archive
 - search
 - recent-posts
+
+
+menu:
+  About: /about/
+  Contact: /contact/
+  Privacy Policy: /privacy/
