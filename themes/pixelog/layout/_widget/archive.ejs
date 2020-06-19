@@ -15,7 +15,7 @@ function toCountDict(array){
 }
 %>
 
-<div class="<%= block %>__archive">
+<div class="<%= block %>__<%= widget %>">
   <h4 class="<%= block %>__title">Archive</h4>
   <select class="archive-list" onchange="location.href=this.value;">
       <%if(!page.month){%><option value="" disabled selected style="display:none">月を選択</option><%}%>

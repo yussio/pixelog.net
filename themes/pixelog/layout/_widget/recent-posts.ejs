@@ -1,5 +1,5 @@
 <% if (is_post() === true) { %>
-<div class="<%= block %>__recent-posts">
+<div class="<%= block %>__<%= widget %>">
     <h4 class="<%= block %>__title">Recent Posts</h4>
     <%- list_posts( {
       class: 'recent-posts'
