@@ -1,24 +1,16 @@
-<%- partial('_partial/header') %>
-<div class="container">
-    <main class="main">
-        <%- partial('_partial/breadcrumbs') %>
-        <article class="post">
-              <header class="post__header">
-                <h1 class="post__title"><%= page.title %></h1>
-                <% if (page.thumbnail) { %>
-                  <p class="post__thumbnail">
-                    <img class="post__thumbnail-img" src="<% var thumbnail_url = '/' + page.path + page.thumbnail; %><%- image_version(thumbnail_url, {prefix: 'post'}) %>">
-                  </p>
-                <% }%>
+<article class="post">
+      <header class="post__header">
+        <h1 class="post__title"><%= page.title %></h1>
+        <% if (page.thumbnail) { %>
+          <p class="post__thumbnail">
+            <img class="post__thumbnail-img" src="<% var thumbnail_url = '/' + page.path + page.thumbnail; %><%- image_version(thumbnail_url, {prefix: 'post'}) %>">
+          </p>
+        <% }%>
 
-              </header>
-              <div class="post__content">
-                  <%- page.content %>
-              </div>
-              <footer class="post__footer">
-              </footer>
-        </article>
-    </main>
-<%- partial('_partial/aside') %>
-</div>
-<%- partial('_partial/footer') %>
+      </header>
+      <div class="post__content">
+          <%- page.content %>
+      </div>
+      <footer class="post__footer">
+      </footer>
+</article>

@@ -1,41 +1,33 @@
-<%- partial('_partial/header') %>
-<div class="container">
-    <main class="main">
-        <%- partial('_partial/breadcrumbs') %>
-        <article class="post">
-            <header class="post__header">
-                <div class="post__meta">
-                    <time class="post__published" datetime="<%- page.date.format() %>">
-                      <%- '公開: '+page.date.format("YYYY.MM.DD") %>
-                    </time>
-                    <% if (page.date.format() !== page.updated.format()) {%>
-                        <time class="post__updated" datetime="<%- page.updated.format() %>">
-                          <%- '更新: '+page.updated.format("YYYY.MM.DD") %>
-                        </time>
-                    <% } %>
-                </div>
-              <h1 class="post__title"><%- page.title %></h1>
-              <% if (page.thumbnail) { %>
-                  <p class="post__thumbnail">
-                    <img class="post__thumbnail-img" src="/<%= page.path + page.thumbnail; %>" alt="<%- page.title %>">
-                  </p>
-              <% }%>
-            </header>
-            <div class="post__content"><%- page.content %></div>
-            <footer class="post__footer">
-                <div class="post__ad loading">
-                    <!-- 記事下広告 -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-9027963984337121"
-                         data-ad-slot="4141857270"
-                         data-ad-format="auto"
-                         data-full-width-responsive="false">
-                    </ins>
-                </div>
-            </footer>
-        </article>
-    </main>
-<%- partial('_partial/aside') %>
-</div>
-<%- partial('_partial/footer') %>
+<article class="post">
+    <header class="post__header">
+        <div class="post__meta">
+            <time class="post__published" datetime="<%- page.date.format() %>">
+              <%- '公開: '+page.date.format("YYYY.MM.DD") %>
+            </time>
+            <% if (page.date.format() !== page.updated.format()) {%>
+                <time class="post__updated" datetime="<%- page.updated.format() %>">
+                  <%- '更新: '+page.updated.format("YYYY.MM.DD") %>
+                </time>
+            <% } %>
+        </div>
+      <h1 class="post__title"><%- page.title %></h1>
+      <% if (page.thumbnail) { %>
+          <p class="post__thumbnail">
+            <img class="post__thumbnail-img" src="/<%= page.path + page.thumbnail; %>" alt="<%- page.title %>">
+          </p>
+      <% }%>
+    </header>
+    <div class="post__content"><%- page.content %></div>
+    <footer class="post__footer">
+        <div class="post__ad loading">
+            <!-- 記事下広告 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9027963984337121"
+                 data-ad-slot="4141857270"
+                 data-ad-format="auto"
+                 data-full-width-responsive="false">
+            </ins>
+        </div>
+    </footer>
+</article>
