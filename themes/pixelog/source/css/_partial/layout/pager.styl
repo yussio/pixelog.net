@@ -26,8 +26,11 @@
             transition .15s transform ease-out
 
         &.disabled
-            pointer-events none
             color var(--text-disabled-color)
+            cursor not-allowed
+
+            &:hover
+                background none
 
         &.prev
             border-right 1px solid var(--border-color)
