@@ -31,8 +31,6 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - _posts/*(*/)(style.css|script.js)
-  - admin/index.html
-  - admin/config.yml
 
 
 # Writing
