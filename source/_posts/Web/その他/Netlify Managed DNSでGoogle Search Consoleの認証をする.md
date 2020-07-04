@@ -3,7 +3,7 @@ title: Netlify Managed DNSでGoogle Search Consoleの認証をする
 pid: search-console-for-netlify
 categories:
   - Web
-  - Web制作
+  - その他
 tags:
   - Netlify
 date: 2019-03-16 16:29:18
