@@ -7,7 +7,7 @@ tags:
   - Git
   - EJS
   - Netlify
-pid: js77yn
+permalink: js77yn
 date: 2020-04-13 19:02:35
 ---
 

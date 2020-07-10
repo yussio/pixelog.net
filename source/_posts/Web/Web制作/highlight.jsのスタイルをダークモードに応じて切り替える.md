@@ -6,7 +6,7 @@ categories:
 tags:
   - JSライブラリ
   - CSS
-pid: 35szb9
+permalink: 35szb9
 date: 2020-04-30 12:30:00
 ---
 

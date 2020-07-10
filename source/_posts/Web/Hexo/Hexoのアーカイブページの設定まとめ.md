@@ -1,6 +1,6 @@
 ---
 title: Hexoのアーカイブページの設定まとめ
-pid: hexo-archive-settings
+permalink: hexo-archive-settings
 categories:
   - Web
   - Hexo

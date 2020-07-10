@@ -3,7 +3,7 @@ title: サイトに適用しているWebフォントを画像編集ソフトGIMP
 categories:
   - Web
   - Web制作
-pid: 6f3b9h
+permalink: 6f3b9h
 date: 2020-04-21 20:15:00
 ---
 

@@ -3,7 +3,7 @@ title: pointer-events&#058;noneするとcursorプロパティが効かないの�
 categories:
   - Web
   - Web制作
-pid: 53qy95
+permalink: 53qy95
 date: 2020-07-04 18:15:19
 ---
 

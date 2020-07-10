@@ -7,7 +7,7 @@ tags:
   - JavaScript
   - CSS
   - HTML
-pid: rb8orj
+permalink: rb8orj
 css: true
 js: true
 date: 2020-04-17 20:10:00

@@ -6,7 +6,7 @@ categories:
 tags:
   - JavaScript
   - CSS
-pid: f25ads
+permalink: f25ads
 date: 2020-04-18 17:46:30
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Hexoでheadに挿入される&lt;meta name=&quot;generator&quot;&gt;タグを消す
-pid: remove-meta-generator
+permalink: remove-meta-generator
 categories:
   - Web
   - Hexo

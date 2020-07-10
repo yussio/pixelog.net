@@ -1,6 +1,6 @@
 ---
 title: クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる
-pid: whxdp7txqo
+permalink: whxdp7txqo
 categories:
   - Web
   - Web制作

@@ -3,7 +3,7 @@ title: HexoのURL関連のテンプレート変数まとめ
 categories:
   - Web
   - Hexo
-pid: tv55m8
+permalink: tv55m8
 date: 2020-04-15 13:11:45
 ---
 

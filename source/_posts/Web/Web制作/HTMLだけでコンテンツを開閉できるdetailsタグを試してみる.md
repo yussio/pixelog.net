@@ -1,6 +1,6 @@
 ---
 title: HTMLだけでコンテンツを開閉できるdetailsタグを試してみる
-pid: html-details
+permalink: html-details
 categories:
   - Web
   - Web制作

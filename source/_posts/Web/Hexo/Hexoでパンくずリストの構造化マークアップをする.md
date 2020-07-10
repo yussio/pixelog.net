@@ -6,7 +6,7 @@ categories:
 tags:
   - HTML
   - EJS
-pid: surt79
+permalink: surt79
 date: 2020-04-26 15:24:44
 updated: 2020-05-13 18:30:00
 ---

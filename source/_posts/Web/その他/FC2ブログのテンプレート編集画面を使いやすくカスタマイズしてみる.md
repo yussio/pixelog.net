@@ -1,6 +1,6 @@
 ---
 title: FC2ブログのテンプレート編集画面を使いやすくカスタマイズしてみる
-pid: widen-fc2-mypage
+permalink: widen-fc2-mypage
 categories:
   - Web
   - その他

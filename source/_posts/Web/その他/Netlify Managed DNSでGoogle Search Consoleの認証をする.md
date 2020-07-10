@@ -1,6 +1,6 @@
 ---
 title: Netlify Managed DNSでGoogle Search Consoleの認証をする
-pid: search-console-for-netlify
+permalink: search-console-for-netlify
 categories:
   - Web
   - その他

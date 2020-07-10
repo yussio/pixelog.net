@@ -5,7 +5,7 @@ categories:
   - Hexo
 tags:
   - npm
-pid: 5hnq2k
+permalink: 5hnq2k
 date: 2020-04-28 13:18:38
 ---
 

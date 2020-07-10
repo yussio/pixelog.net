@@ -1,6 +1,6 @@
 ---
 title: CSSのみでクリックで画像を拡大する（Lightboxもどき）
-pid: only-css-popup-image
+permalink: only-css-popup-image
 categories:
   - Web
   - Web制作

@@ -1,6 +1,6 @@
 ---
 title: CSSとChrome拡張機能でGoogle Adsenseの自クリックを防止する【全サイト対応】
-pid: prevent-from-selfclicking
+permalink: prevent-from-selfclicking
 categories:
   - Web
   - その他

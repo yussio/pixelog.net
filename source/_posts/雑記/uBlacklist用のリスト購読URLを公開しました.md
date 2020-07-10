@@ -2,7 +2,7 @@
 title: uBlacklist用のリスト購読URLを公開しました
 categories:
   - 雑記
-pid: ma5z69
+permalink: ma5z69
 date: 2020-05-01 12:18:18
 ---
 

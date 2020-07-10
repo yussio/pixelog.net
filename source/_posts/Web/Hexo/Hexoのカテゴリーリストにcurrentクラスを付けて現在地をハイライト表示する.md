@@ -1,6 +1,6 @@
 ---
 title: Hexoのカテゴリーリストにcurrentクラスを付けて現在地をハイライト表示する
-pid: v4dawq
+permalink: v4dawq
 categories:
   - Web
   - Hexo

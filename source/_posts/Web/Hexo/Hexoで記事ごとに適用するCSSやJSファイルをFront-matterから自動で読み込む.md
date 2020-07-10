@@ -1,5 +1,5 @@
 ---
-pid: xumh8c5si7
+permalink: xumh8c5si7
 title: Hexoで記事ごとに適用するCSSやJSファイルをFront-matterから自動で読み込む
 categories:
   - Web

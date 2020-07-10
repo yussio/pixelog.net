@@ -6,7 +6,7 @@ categories:
 tags:
   - HTML
   - CSS
-pid: x8xjr4
+permalink: x8xjr4
 date: 2020-04-16 19:23:20
 ---
 

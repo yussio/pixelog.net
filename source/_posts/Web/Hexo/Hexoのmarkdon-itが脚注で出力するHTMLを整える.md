@@ -6,7 +6,7 @@ categories:
 tags:
   - HTML
   - Node.js
-pid: byfq2m
+permalink: byfq2m
 date: 2020-04-29 09:00:00
 ---
 

@@ -6,7 +6,7 @@ categories:
 tags:
   - JavaScript
   - CSS
-pid: 2xc2mg
+permalink: 2xc2mg
 date: 2020-04-14 18:49:31
 ---
 

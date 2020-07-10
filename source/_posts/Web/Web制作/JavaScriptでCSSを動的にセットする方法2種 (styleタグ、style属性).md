@@ -6,7 +6,7 @@ categories:
 tags:
   - JavaScript
   - CSS
-pid: o3tidc
+permalink: o3tidc
 date: 2020-05-07 19:26:43
 ---
 

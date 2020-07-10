@@ -1,6 +1,6 @@
 ---
 title: CSSだけで文章を折りたたむ（続きを読む）その1
-pid: css-read-more
+permalink: css-read-more
 categories:
   - Web
   - Web制作

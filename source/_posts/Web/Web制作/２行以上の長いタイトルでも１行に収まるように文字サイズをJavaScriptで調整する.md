@@ -6,7 +6,7 @@ categories:
 tags:
   - JavaScript
   - HTML
-pid: qezwv8
+permalink: qezwv8
 date: 2020-04-08 16:04:24
 ---
 

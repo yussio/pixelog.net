@@ -6,7 +6,7 @@ categories:
 tags:
   - HTML
   - CSS
-pid: 522pbo
+permalink: 522pbo
 date: 2020-04-23 15:44:07
 ---
 

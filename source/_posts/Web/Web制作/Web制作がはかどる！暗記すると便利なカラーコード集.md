@@ -1,6 +1,6 @@
 ---
 title: Web制作がはかどる！暗記すると便利なカラーコード集
-pid: recommended-color-code
+permalink: recommended-color-code
 categories:
   - Web
   - Web制作

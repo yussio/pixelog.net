@@ -1,6 +1,6 @@
 ---
 title: CSSアニメーションだけでタイマーを作ってみた
-pid: css-timer
+permalink: css-timer
 categories:
   - Web
   - Web制作

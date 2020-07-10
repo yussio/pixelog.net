@@ -6,7 +6,7 @@ categories:
 tags:
   - HTML
   - EJS
-pid: xzr273
+permalink: xzr273
 date: 2020-04-25 18:15:25
 updated: 2020-05-13 18:30:00
 ---

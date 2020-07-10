@@ -1,6 +1,6 @@
 ---
 title: 【Swiper.js】縦横比を保ったまま横幅いっぱいのスライダーをつくる
-pid: responsive-swiper
+permalink: responsive-swiper
 categories:
   - Web
   - Web制作
