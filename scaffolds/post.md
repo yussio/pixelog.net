@@ -2,5 +2,6 @@
 title: {{ title }}
 date: {{ date }}
 categories:
-pid:
+tags:
+permalink:
 ---
