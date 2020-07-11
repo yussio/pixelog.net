@@ -1,6 +1,5 @@
 ---
 title: お問い合わせ
-permalink: /contact/
 date: 2020-01-26 12:32:19
 css: true
 ---

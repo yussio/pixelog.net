@@ -1,6 +1,5 @@
 ---
 title: pixelogについて
-permalink: /about/
 categories:
   - about
 date: 2019-03-16 16:29:18

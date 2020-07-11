@@ -1,8 +1,6 @@
 ---
 title: プライバシーポリシー
-permalink: /privacy/
 date: 2020-01-26 13:48:43
-permalink: /privacy/
 ---
 ##  アクセス解析について
 
