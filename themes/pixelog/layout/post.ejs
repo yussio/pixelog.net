@@ -45,26 +45,3 @@
         <% } %>
     </footer>
 </article>
-<ul class="rich-list small">
-    <li class="rich-list__item">
-        <a class="rich-list__link" href="<%= url_for(page.categories.data[page.categories.length - 1].path) %>">同じカテゴリー（<%= page.categories.data[page.categories.length - 1].name; %>）の記事一覧</a>
-    </li>
-    <!--
-    <%if(page.next){%>
-        <li class="rich-list__item">
-            <a class="rich-list__link" href="<%= url_for(page.next.path) %>">前の記事「<%- page.next.title %>」</a>
-        </li>
-    <%}%>
-    <%if(page.prev){%>
-        <li class="rich-list__item">
-            <a class="rich-list__link" href="<%= url_for(page.prev.path) %>">次の記事「<%- page.prev.title %>」</a>
-        </li>
-    <%}%>
-    <li class="rich-list__item">
-        <a class="rich-list__link" href="">同じ月（2020年7月）の記事</a>
-    </li>
-    -->
-    <li class="rich-list__item">
-        <a class="rich-list__link" href="/">ホームへ戻る</a>
-    </li>
-</ul>
