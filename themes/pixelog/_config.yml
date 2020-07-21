@@ -3,8 +3,6 @@ widgets:
 - tagcloud
 - archive
 - search
-- recent-posts
-
 
 menu:
   About: /about/
