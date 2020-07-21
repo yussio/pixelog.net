@@ -2,7 +2,7 @@ widgets:
 - category
 - tagcloud
 - archive
-- search
+- search_duck
 
 menu:
   About: /about/
