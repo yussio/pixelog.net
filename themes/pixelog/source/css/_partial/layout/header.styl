@@ -2,9 +2,7 @@
     background var(--bg-primary)
 
     &__logo // h1のデフォルトfont-sizeを上書きするため
-        font-size 24px
-        +media(sp)
-            font-size 20px
+        font-size clamp(14px, calc((100vw - 400px) * 0.006 + 100%), 24px)
 
 
     &__svg
