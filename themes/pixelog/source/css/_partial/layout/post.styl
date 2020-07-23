@@ -1,11 +1,9 @@
 .post
-    padding 56px
+    padding 56px clamp(16px, 5vw, 56px)
     background var(--bg-sub-color)
     box-shadow var(--container-shadow)
+    font-size clamp(15px, calc((100vw - 767px) * 0.004 + 100%), 16px)
     border-radius 4px
-    +media(sp)
-      padding 56px 5vw
-      font-size 15px
 
     &__title
         margin-bottom var(--space-default)
