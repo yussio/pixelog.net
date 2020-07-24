@@ -15,9 +15,8 @@ emoji | code | type
 🌱 | `:seedling:` | ユーザビリティ改善
 ⚡️ | `:zap:` | リファクタリング
 🐛 | `:bug:` | バグ修正
-🚑 | `:ambulance:` | リバート
-🔧|`:wrench:`| config、readmeなどの設定
-
+🚑 | `:ambulance:` | 誤爆リバート
+🔧|`:wrench:`| config、ファイル周りの整理
 
 
 ## 追加でインストールしたプラグイン
@@ -40,8 +39,6 @@ emoji | code | type
 
 |Front-matter| 値             | 説明                                   |
 |-----------|-----------------|----------------------------------------|
-|pid        |小文字英数6文字  |記事のURL                                |
-|description|文字列  |記事の要約。metaタグのdescriptionへ                |
 |thumbnail  |サムネイル画像のファイル名 |OGPタグのサムネイルへ             |
 |css        |true     |記事個別のCSSを読み込む（style.cssをフォルダに置く）|
 |js         |true    |記事個別のJSを読み込む（script.jsをフォルダに置く）  |
