@@ -5,7 +5,7 @@ categories:
 date: 2019-03-16 16:29:18
 ---
 
-![pixelog](https://pixelog.net/img/pixelog.png)
+![pixelog](/img/pixelog.png)
 
 ## 管理人について
 
