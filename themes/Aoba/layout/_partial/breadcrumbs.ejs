@@ -1,14 +1,14 @@
 <nav class="breadcrumbs">
     <ol class="breadcrumbs__list">
         <li class="breadcrumbs__item">
-            <a class="breadcrumbs__item-link" href="/">
+            <a class="breadcrumbs__link" href="/">
                 ホーム
             </a>
         </li>
         <% if (is_home()) { %>
             <% if(page.current !== 1){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/page/<%= page.current %>/">
+                    <a class="breadcrumbs__link" href="/page/<%= page.current %>/">
                         ページ<%= page.current %>
                     </a>
                 </li>
@@ -27,14 +27,14 @@
                  });
                 %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/<%= config.category_dir %><%= category_url %>/">
+                    <a class="breadcrumbs__link" href="/<%= config.category_dir %><%= category_url %>/">
                         <% if(category_name.length === 0){ %><%= item %><%}else{%><%= category_name %><%}%>
                     </a>
                 </li>
             <% }) %>
             <% if(page.current !== 1){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/<%= config.category_dir %><%= category_url %>/page/<%= page.current %>/">
+                    <a class="breadcrumbs__link" href="/<%= config.category_dir %><%= category_url %>/page/<%= page.current %>/">
                         ページ<%= page.current %>
                     </a>
                 </li>
@@ -53,27 +53,27 @@
                  });
                 %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %><%= tag_url %>/">
+                    <a class="breadcrumbs__link" href="/<%= config.tag_dir %><%= tag_url %>/">
                         #<% if(tag_name.length === 0){ %><%= item %><%}else{%><%= tag_name %><%}%>
                     </a>
                 </li>
             <% }) %>
             <% if(page.current !== 1){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="/<%= config.tag_dir %><%= tag_url %>/page/<%= page.current %>/">
+                    <a class="breadcrumbs__link" href="/<%= config.tag_dir %><%= tag_url %>/page/<%= page.current %>/">
                         ページ<%= page.current %>
                     </a>
                 </li>
             <% } %>
         <% } else if (is_archive()) { %>
             <li class="breadcrumbs__item">
-                <a class="breadcrumbs__item-link" href="/<%= config.archive_dir %>/<%= page.year %>/">
+                <a class="breadcrumbs__link" href="/<%= config.archive_dir %>/<%= page.year %>/">
                     <%= page.year %>年
                 </a>
             </li>
             <% if(page.month){ %>
               <li class="breadcrumbs__item">
-                  <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
+                  <a class="breadcrumbs__link" href="<%- url_for(path) %>">
                       <%= page.month %>月
                   </a>
               </li>
@@ -81,19 +81,19 @@
         <% } else if(is_post()) { %>
             <% page.categories.forEach(function(item){ %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="<%= url_for(item.path) %>">
+                    <a class="breadcrumbs__link" href="<%= url_for(item.path) %>">
                         <%= item.name %>
                     </a>
                 </li>
             <% }) %>
                 <li class="breadcrumbs__item">
-                    <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
+                    <a class="breadcrumbs__link" href="<%- url_for(path) %>">
                         <%- page.title %>
                     </a>
                 </li>
         <% } else if (is_page()) { %>
             <li class="breadcrumbs__item">
-                <a class="breadcrumbs__item-link" href="<%- url_for(path) %>">
+                <a class="breadcrumbs__link" href="<%- url_for(path) %>">
                     <%- page.title %>
                 </a>
             </li>
