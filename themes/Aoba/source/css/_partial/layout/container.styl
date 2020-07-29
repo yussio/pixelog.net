@@ -1,9 +1,12 @@
 .container
     display grid
-    margin 80px 0
+    padding 80px 0
     grid-template-columns 844px 300px
     gap 56px
     justify-content center
+    background var(--bg-color)
+    position relative
+    z-index 1
     +media(tabsp)
-        margin 16px 0 56px 0
+        padding 16px 0 56px 0
         grid-template-columns minmax(0, 850px)

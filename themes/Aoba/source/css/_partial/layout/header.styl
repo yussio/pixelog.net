@@ -1,5 +1,13 @@
 .header
-    background var(--bg-primary)
+    &::before
+        content ""
+        display block
+        width 100%
+        height 100%
+        background var(--bg-primary)
+        position fixed
+        z-index -1
+
 
     &__logo // h1のデフォルトfont-sizeを上書きするため
         font-size clamp(16px, calc((100vw - 400px) * 0.01 + 100%), 24px)
