@@ -1,5 +1,5 @@
 /*!
- * ress.css • v2.0.4
+ * ress.css • v3.0.1
  * MIT License
  * github.com/filipelinhares/ress
  */
@@ -205,20 +205,19 @@ textarea {
   border-style: none;
 }
 
-
+/* Style select like a standard input */
 select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  -moz-appearance: none; /* Firefox 36+ */
+  -webkit-appearance: none; /* Chrome 41+ */
 }
 
 select::-ms-expand {
-  display: none;
+  display: none; /* Internet Explorer 11+ */
 }
 
 select::-ms-value {
-  color: currentColor;
+  color: currentColor; /* Internet Explorer 11+ */
 }
-
 
 legend {
   border: 0; /* Correct `color` not being inherited in IE 8/9/10/11 */
@@ -247,10 +246,6 @@ img {
 /* Add the correct vertical alignment in Chrome, Firefox, and Opera */
 progress {
   vertical-align: baseline;
-}
-
-svg:not([fill]) {
-  fill: currentColor;
 }
 
 /* # =================================================================
