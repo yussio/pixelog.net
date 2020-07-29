@@ -16,7 +16,7 @@
 
         &::after
             display block
-            flex-shrink 0
+            flex 0 0 auto
             content ""
             width .75em
             height .75em
@@ -34,13 +34,12 @@
                 transform rotate(45deg) translate(.125em, -.125em)
 
     &__date
-        flex-shrink 0
-        margin 0 1.3em 0 0
+        flex 0 0 auto
         color var(--text-sub-color)
         font-size .9em
 
 
     &__title
-        margin 0 .5em 0 0
+        margin 0 .5em 0 1em
         font-size 1.1em
         word-break break-all
