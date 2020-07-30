@@ -24,55 +24,16 @@
     }
     title += config.title;
 
-// ディスクリプションの設定
-    var description;
-    if(is_post()){
-        if (page.description) {
-            description = page.description;
-        }else {
-            description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
-        }
-    } else {
-        description = config.description;
-    }
-
-// サムネイル画像格納
-    var thumbnail_url
-    if(page.thumbnail) {
-        thumbnail_url = page.thumbnail;
-    } else {
-        thumbnail_url = 'https://pixelog.net/img/pixelog.png';
-    }
-
-// type出し分け
-    var type;
-    if(is_post()) {
-        type = 'article'
-    }else{
-        type = 'website';
-    }
 %>
 <%if(is_post()){%><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><%}%>
 <% if(page.js === true) { %><script defer src="<%= url_for(path) + 'script.js' %>"></script><% } %>
 <meta charset="utf-8">
 <title><%= title %></title>
-<meta name="description" content="<%= description %>">
-<link rel="stylesheet" href="/css/style.css">
-<% if(page.css === true) { %><link rel="stylesheet" href="<%= url_for(path) + 'style.css' %>"><% } %>
+<link rel="canonical" href="<%= full_url_for(path) %>">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <% if(page.sitemap === false) { %><meta name="robots" content="noindex,follow"><% } %>
-<link rel="canonical" href="<%= full_url_for(path) %>">
-<% if (is_post()){ %><link rel="prerender" href="/"><% } %>
 <link rel="alternate" href="/atom.xml" title="pixelog" type="application/atom+xml">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="<%= title %>">
-<meta property="og:description" content="<%= description %>">
-<meta property="og:url" content="<%= url %>">
-<meta property="og:type" content="<%= type %>">
-<% if(page.date) { %><meta property="article:published_time" content="<%= page.date.format() %>"><% } %>
-<meta property="og:image" content="<%= thumbnail_url %>">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="<%= config.title %>">
-<meta name="twitter:card" content="summary_large_image">
-<meta property="fb:app_id" content="359976974704228">
+<%- open_graph() %>
+<meta property="og:image" content="https://pixelog.net/img/pixelog.png">
+<%- css('css/style.css') %>
+<% if(page.css === true) { %><link rel="stylesheet" href="<%= url_for(path) + 'style.css' %>"><% } %>
