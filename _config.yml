@@ -129,7 +129,7 @@ markdown:
     html: true
     xhtmlOut: false
     breaks: false
-    linkify: false
+    linkify: true
     typographer: true
     quotes: '“”‘’'
   plugins:
@@ -139,12 +139,14 @@ markdown:
     - markdown-it-sub
     - markdown-it-sup
   anchors:
-    level: 3
-    collisionSuffix: 'v'
+    level: 2
+    collisionSuffix: ''
     permalink: false
-    permalinkClass: header-anchor
+    permalinkClass: 'header-anchor'
     permalinkSide: 'left'
-    permalinkSymbol: ¶
+    permalinkSymbol: '¶'
+    case: 0
+    separator: ''
 
 archive_generator:
   per_page: 0
