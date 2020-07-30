@@ -41,7 +41,7 @@ external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
   exclude: ''
-filename_case: 0
+filename_case: 1
 render_drafts: false
 post_asset_folder: true
 relative_link: false
@@ -66,22 +66,7 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  Web: web
-  Hexo: hexo
-  Web制作: web-production
-  その他: uncategorized
-  Webツール: tool
-  雑記: note
 tag_map:
-  CSS: css
-  EJS: ejs
-  Git: git
-  HTML: html
-  JSライブラリ: js-library
-  JavaScript: javascript
-  Netlify: nelify
-  Node.js: node-js
-  npm: npm
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
