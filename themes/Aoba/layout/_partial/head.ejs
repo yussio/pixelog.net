@@ -4,11 +4,14 @@
     if(is_home()){
         title = '';
     } else if (is_archive()){
-        if(page.month){
-          title = page.year + '年' + page.month + '月' + ' - ';
-        } else {
-          title = page.year + '年' + ' - ';
+        title = 'アーカイブ';
+        if(page.year){
+          title += ': ' + page.year + '年';
         }
+        if(page.month){
+          title += page.month + '月';
+        }
+        title += ' - ';
     } else if (is_category()){
         title = 'カテゴリー: ' + page.category + ' - ';
     } else if (is_tag()){
