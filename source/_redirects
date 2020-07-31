@@ -1,5 +1,7 @@
 # These rules will change if you change your site’s custom domains or HTTPS settings
 
+https://pixelog.netlify.app/* https://pixelog.net/:splat 301!
+
 /post/whxdp7txqo/ /post/c73ni7/ 301
 /post/xfbwnzob4q/ /post/uwu2t8/ 301
 /post/2b665duw4x/ /post/2efcu9/ 301
@@ -23,3 +25,6 @@
 /post/search-console-for-netlify/ /post/pjayu5/ 301
 /post/css-timer/ /post/bon9ry/ 301
 /post/original-drgrip/ /post/bdgag9/ 301
+
+# 404 Redirects
+/* /404/ 404
