@@ -1,5 +1,5 @@
 ---
-title: ２行以上の長いタイトルでも１行に収まるように文字サイズをJavaScriptで調整する
+title: 2行以上の長いタイトルでも１行に収まるように文字サイズをJavaScriptで調整する
 date: 2020-04-08 16:04:24
 post_id: qezwv8
 categories:
