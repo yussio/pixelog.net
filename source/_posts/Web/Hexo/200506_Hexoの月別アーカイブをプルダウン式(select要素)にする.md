@@ -1,13 +1,13 @@
 ---
 title: Hexoの月別アーカイブをプルダウン式(select要素)にする
+date: 2020-05-06 14:53:55
+post_id: 3ucz8g
 categories:
   - Web
   - Hexo
 tags:
   - EJS
   - HTML
-permalink: 3ucz8g
-date: 2020-05-06 14:53:55
 ---
 
 Hexoでプルダウン式の月別アーカイブをサイドバーに置く方法。

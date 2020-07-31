@@ -1,14 +1,14 @@
 ---
 title: Hexoでheadに挿入される&lt;meta name=&quot;generator&quot;&gt;タグを消す
-permalink: remove-meta-generator
+date: 2019-06-03 22:12:12
+updated: 2020-04-13 17:40:00
+post_id: remove-meta-generator
 categories:
   - Web
   - Hexo
 tags:
   - HTML
   - Node.js
-date: 2019-06-03 22:12:12
-updated: 2020-04-13 17:40:00
 ---
 
 Hexoではデフォルトで、&lt;head&gt;間に下のようなmetaタグが自動で挿入されます。

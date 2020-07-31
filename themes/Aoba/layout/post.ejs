@@ -11,11 +11,6 @@
             <% } %>
         </div>
       <h1 class="post__title"><%- page.title %></h1>
-      <% if (page.thumbnail) { %>
-          <p class="post__thumbnail">
-            <img class="post__thumbnail-img" src="/<%= page.path + page.thumbnail; %>" alt="<%- page.title %>">
-          </p>
-      <% }%>
     </header>
     <div class="post__content"><%- page.content %></div>
     <footer class="post__footer">
@@ -26,21 +21,19 @@
                  data-ad-client="ca-pub-9027963984337121"
                  data-ad-slot="4141857270"
                  data-ad-format="auto"
-                 data-full-width-responsive="true">
+                 data-full-width-responsive="false">
             </ins>
         </div>
         <% if (page.tags && page.tags.length > 0) { %>
-          <div class="post-tag">
-            <ul class="post-tag__list">
-                <% page.tags.forEach(function(item){ %>
-                    <li class="post-tag__item">
-                        <a class="post-tag__link" href="<%= url_for(item.path) %>">
-                            #<%= item.name %>
-                        </a>
-                    </li>
-                <% }) %>
-            </ul>
-          </div>
+          <ul class="post-tag">
+              <% page.tags.forEach(function(item){ %>
+                  <li class="post-tag__item">
+                      <a class="post-tag__link" href="<%= url_for(item.path) %>">
+                          #<%= item.name %>
+                      </a>
+                  </li>
+              <% }) %>
+          </ul>
         <% } %>
     </footer>
 </article>

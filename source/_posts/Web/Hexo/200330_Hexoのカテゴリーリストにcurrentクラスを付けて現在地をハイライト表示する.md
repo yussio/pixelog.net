@@ -1,6 +1,7 @@
 ---
 title: Hexoのカテゴリーリストにcurrentクラスを付けて現在地をハイライト表示する
-permalink: v4dawq
+date: 2020-03-30 14:57:16
+post_id: v4dawq
 categories:
   - Web
   - Hexo
@@ -8,7 +9,6 @@ tags:
   - EJS
   - HTML
   - CSS
-date: 2020-03-30 14:57:16
 ---
 
 Hexoでは[Helper](https://hexo.io/api/helper)という機能が備わっており、よく使う機能は簡単に出力できるようになっています。その機能を利用すると下のように記述することで、簡単にカテゴリー一覧を出力できます。

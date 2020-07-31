@@ -1,10 +1,11 @@
 ---
 title: HexoのURL関連のテンプレート変数まとめ
+date: 2020-04-15 13:11:45
+post_id: tv55m8
 categories:
   - Web
   - Hexo
-permalink: tv55m8
-date: 2020-04-15 13:11:45
+tags:
 ---
 
 HexoにはURL出力関連の変数がたくさん用意されているのですが、種類がたくさんあってあまりにも煩雑なので整理してみます。

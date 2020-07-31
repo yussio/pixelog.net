@@ -1,6 +1,8 @@
 ---
 title: クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる
-permalink: whxdp7txqo
+date: 2020-02-11 16:00:00
+updated: 2020-04-19 12:40:00
+post_id: whxdp7txqo
 categories:
   - Web
   - Web制作
@@ -8,10 +10,6 @@ tags:
   - JavaScript
   - HTML
   - CSS
-css: true
-js: true
-date: 2020-02-11 16:00:00
-updated: 2020-04-19 12:40:00
 ---
 
 Lightboxという単語は死語感が漂っており、今どき需要もなさそうですが...。
@@ -482,3 +480,142 @@ pixelViewer('p > img');
 
 このプラグインをJavaScriptを使わずCSSのみで再現するというお遊び記事も書いてるので、実用性はありませんが、よろしければご覧ください。
 [CSSのみでクリックで画像を拡大する（Lightboxもどき）](/post/only-css-popup-image/)
+
+
+<style>
+p > img {
+  cursor: zoom-in;
+}
+
+#pixel-viewer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  animation: fadein 0.2s ease-out both;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+#pixel-viewer.fadeout {
+  animation: fadeout 0.2s ease-out both;
+  pointer-events: none;
+}
+#pixel-viewer.fadeout #pixel-viewer__img {
+  animation: scaledown 0.2s ease-out both;
+}
+#pixel-viewer__alt {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 48px 0 12px;
+  background: rgba(0,0,0,0.95);
+  color: #eee;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#pixel-viewer__alt::before,
+#pixel-viewer__alt::after {
+  content: "";
+  dispaly: block;
+  width: 24px;
+  height: 3px;
+  background: #eee;
+  border-radius: 4px;
+  position: fixed;
+  top: 20px;
+  right: 12px;
+  z-index: 12;
+}
+#pixel-viewer__alt::before {
+  transform: rotate(45deg);
+}
+#pixel-viewer__alt::after {
+  transform: rotate(-45deg);
+}
+#pixel-viewer__img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: calc(100% - 44px);
+  animation: scaleup 0.2s ease-out both;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scaleup {
+  0% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes scaledown {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+</style>
+<script>
+function pixelViewer(element){
+    const img = document.querySelectorAll(element);
+
+    for(let i=0; i < img.length; i++){
+        img[i].addEventListener('click', open);
+    }
+
+    function open(){
+        const filter = document.createElement('div');
+        filter.id = 'pixel-viewer';
+
+        const div_alt = document.createElement('div');
+        div_alt.id = 'pixel-viewer__alt';
+        div_alt.textContent = this.alt;
+
+        const div_img = document.createElement('img');
+        div_img.id = 'pixel-viewer__img';
+        div_img.src = this.src;
+
+        document.body.appendChild(filter);
+        filter.appendChild(div_alt);
+        filter.appendChild(div_img);
+
+        filter.addEventListener('click', close, {once: true});
+        window.addEventListener('scroll', close, {once: true}); // スクロールで閉じたくない場合はこの行を削除
+
+        function close(){
+            filter.className = 'fadeout';
+            filter.addEventListener("animationend",function(){
+                filter.remove();
+            });
+        }
+    }
+}
+
+pixelViewer('p > img');
+</script>

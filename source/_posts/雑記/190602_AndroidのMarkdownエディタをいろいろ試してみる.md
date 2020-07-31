@@ -1,9 +1,9 @@
 ---
 title: AndroidのMarkdownエディタをいろいろ試してみる
-permalink: editor-for-android
+date: 2019-06-02 11:23:08
+post_id: editor-for-android
 categories:
   - 雑記
-date: 2019-06-02 11:23:08
 tags:
 ---
 

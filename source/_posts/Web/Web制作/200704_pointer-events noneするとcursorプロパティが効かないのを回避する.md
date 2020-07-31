@@ -1,10 +1,11 @@
 ---
 title: pointer-events&#058;noneするとcursorプロパティが効かないのを回避する
+date: 2020-07-04 18:15:19
+post_id: 53qy95
 categories:
   - Web
   - Web制作
-permalink: 53qy95
-date: 2020-07-04 18:15:19
+tags:
 ---
 
 このブログのトップページのページャーで、disabledになっているボタンにhoverしたとき、cursorをnot-allowedにしようとしたら効かなかった。何故だ...

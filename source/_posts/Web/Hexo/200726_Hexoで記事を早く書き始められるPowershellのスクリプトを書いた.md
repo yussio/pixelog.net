@@ -1,12 +1,12 @@
 ﻿---
 title: Hexoで記事を早く書き始められるPowershellのスクリプトを書いた
 date: 2020-07-26 18:24:39
+post_id: 4yx1we
 categories:
   - Web
   - Hexo
 tags:
   - Powershell
-permalink: 4yx1we
 ---
 
 このブログは、URLにSEO効果があるというのはオカルトだと思っているのと、単純に英語のスラッグを考えるのがめんどくさいというのがあって、記事のパーマリンクを乱数にしている。

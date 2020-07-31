@@ -1,13 +1,13 @@
 ---
 title: contenteditable属性で入力したCSSがページにリアルタイムで反映されるフォームをつくる
-permalink: ea9x7x56rs
+date: 2020-01-27 15:55:50
+post_id: ea9x7x56rs
 categories:
   - Web
   - Web制作
 tags:
   - HTML
   - CSS
-date: 2020-01-27 15:55:50
 ---
 <style>.stylebox{display: block;margin: 20px 0;height:400px;overflow:auto;padding: 12px;border:1px solid #ddd;resize:both;white-space: pre;font-family: Monaco, monospace;}.stylebox:focus{box-shadow:0 0 5px #ccc inset;}</style>
 

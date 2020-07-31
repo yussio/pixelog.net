@@ -1,14 +1,14 @@
 ---
 title: HTMLだけでコンテンツを開閉できるdetailsタグを試してみる
-permalink: html-details
+date: 2019-05-05 21:00:00
+post_id: html-details
 categories:
   - Web
   - Web制作
 tags:
   - HTML
-css: true
-date: 2019-05-05 21:00:00
 ---
+
 `<details>`タグはHTML5.1で追加されたタグで、コンテンツを開閉できるウィジェットを生成します。
 
 ## 概要
@@ -110,3 +110,44 @@ summaryをクリックしてコンテンツを閉じると、高さがすぐ0に
 detailsタグはHTMLのみでコンテンツの開閉という動きを、WEBサイトにつけることができるので魅力的ですね。
 
 HTMLでマークアップをする以上意味を考えなければならないので、単にコンテンツを開閉させたいのであれば、JavaScriptで実装する方が手っ取り早いと思います。
+
+<style>
+#designed summary {
+  outline: none;
+  cursor: pointer;
+}
+
+#designed summary::-webkit-details-marker {
+  display:none;
+}
+
+#designed summary::before {
+  display: inline-block;
+  content: "▶";
+  margin: 0 .3em 0 0;
+  transform: rotate(0deg);
+  transition: .2s transform ease;
+}
+
+#designed[open] summary::before {
+  transform: rotate(90deg);
+}
+
+#designed .details_content {
+    background: #f5f5f5;
+    padding: 16px;
+    border-radius: 2px;
+}
+
+#designed[open] .details_content{
+  animation: .8s details_content ease;
+}
+@keyframes details_content {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>

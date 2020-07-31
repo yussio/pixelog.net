@@ -1,13 +1,12 @@
 ---
-permalink: xumh8c5si7
 title: Hexoで記事ごとに適用するCSSやJSファイルをFront-matterから自動で読み込む
+date: 2020-01-30 10:33:20
+post_id: xumh8c5si7
 categories:
   - Web
   - Hexo
 tags:
   - EJS
-date: 2020-01-30 10:33:20
-description:
 ---
 
 Hexoでブログを書いていると、記事ごとにCSSやJavaScriptを書いて読み込みたいと思うことがよくあります。

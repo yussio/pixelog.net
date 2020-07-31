@@ -1,13 +1,13 @@
 ---
 title: CSS変数とJavaScriptでページを開く度に色をランダムに変える
+date: 2020-04-18 17:46:30
+post_id: f25ads
 categories:
   - Web
   - Web制作
 tags:
   - JavaScript
   - CSS
-permalink: f25ads
-date: 2020-04-18 17:46:30
 ---
 
 <script>

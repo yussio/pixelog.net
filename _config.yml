@@ -9,13 +9,13 @@ description: 'pixelog(ピクセログ)はHTML、CSS、JavaScriptなどWeb制作�
 keywords:
 author: yussy
 language: ja
-timezone: Asia/Tokyo
+timezone: 'Asia/Tokyo'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://pixelog.net/
+url: https://pixelog.net
 root: /
-permalink: post/:title/
+permalink: post/:post_id/
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
@@ -30,11 +30,9 @@ category_dir: category
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-  - _posts/*(*/)(style.css|script.js)
-
 
 # Writing
-new_post_name: :title # File name of new posts
+new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
@@ -51,8 +49,13 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace: ''
-  wrap: false
+  wrap: true
   hljs: true
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -70,7 +73,7 @@ tag_map:
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: false
+meta_generator: true
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -78,8 +81,8 @@ meta_generator: false
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: true
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -103,27 +106,8 @@ theme: Aoba
 deploy:
   type: ''
 
-# Generate categories from directory-tree
-# Dependencies: https://github.com/xu-song/hexo-auto-category
-# depth: the max_depth of directory-tree you want to generate, should > 0
-auto_category:
- enable: true
- depth:
 
-
-feed:
-  type: atom
-  path: atom.xml
-  limit: false
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: ' '
-  order_by: -date
-  icon: icon.png
-  autodiscovery: true
-  template:
-
+# ここから自由記述
 markdown:
   render:
     html: true
@@ -147,10 +131,3 @@ markdown:
     permalinkSymbol: '¶'
     case: 0
     separator: ''
-
-archive_generator:
-  per_page: 0
-  yearly: true
-  monthly: true
-  daily: false
-  order_by: -date

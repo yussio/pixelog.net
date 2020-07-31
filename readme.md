@@ -21,15 +21,11 @@ emoji | code | type
 
 ## 追加でインストールしたプラグイン
 
-- hexo-auto-category
-  - カテゴリーを自動で生成
-- hexo-autoprefixer
-  - ベンダープレフィックス自動化
 - hexo-clean-css
   - CSSを圧縮
 - hexo-generator-feed
   - Atomフィードを自動生成 /atom.xmlでアクセス
-- hexo-generator-seo-friendly-sitemap
+- hexo-generator-sitemap
   - サイトマップを自動生成 /sitemap.xmlでアクセス
 - hexo-html-minifier
   - HTMLを圧縮
@@ -39,29 +35,5 @@ emoji | code | type
 
 |Front-matter| 値             | 説明                                   |
 |-----------|-----------------|----------------------------------------|
-|thumbnail  |サムネイル画像のファイル名 |OGPタグのサムネイルへ             |
-|css        |true     |記事個別のCSSを読み込む（style.cssをフォルダに置く）|
-|js         |true    |記事個別のJSを読み込む（script.jsをフォルダに置く）  |
+|post_id     |英数6文字   |パーマリンクに使用       |
 |sitemap     |false   |ページをnoindexに、sitemapを送信しない       |
-
-
-## よく使うgitコマンド
-
-
-直前のcommitの状態にワーキングツリーを戻す
-```
-git reset --hard HEAD
-```
-
-特定のcommitまで取り消す（※ハッシュ値のcommitの状態になる）
-```
-git reset --hard ハッシュ値
-```
-
---hardなし → ワーキングツリーの変更は残す
-
-
-直前のcommitを打ち消すcommitを作る
-```
-git revert HEAD
-```

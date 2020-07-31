@@ -1,14 +1,13 @@
 ---
 title: CSSのみでクリックで画像を拡大する（Lightboxもどき）
-permalink: only-css-popup-image
+date: 2019-05-20 21:40:00
+post_id: only-css-popup-image
 categories:
   - Web
   - Web制作
 tags:
   - CSS
   - HTML
-css: true
-date: 2019-05-20 21:40:00
 ---
 
 ![CSSのみでクリックで画像を拡大する](thumbnail.jpg)
@@ -130,3 +129,65 @@ YouTubeは以下のように記述することで拡大できます。
 
 この記事はお遊びですが、JavaScriptで実用性のあるものも作りました。よろしければご覧ください。
 [クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる](/post/whxdp7txqo/)
+
+<style>
+.lb {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.7);
+    opacity: 0;
+    transition: .3s opacity ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.lb img {
+    width: auto !important;
+    max-height: 100%!important;
+    cursor: pointer;
+}
+
+.lb img,
+.lb iframe {
+    transform: scale(.85);
+    transition: .3s all ease;
+}
+
+
+.lb:target {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 101;
+}
+
+.lb:target img,
+.lb:target iframe {
+    transform: scale(1);
+}
+
+
+/* なんちゃって閉じるボタン*/
+.lb::before,.lb::after {
+    display: block;
+    position: fixed;
+    content: "";
+    width: 24px;
+    height:3px;
+    top: 24px;
+    right: 12px;
+    background: #fff;
+    border-radius: 4px;
+}
+.lb::before {
+    transform: rotate(-315deg);
+}
+.lb::after {
+    transform: rotate(315deg);
+}
+</style>

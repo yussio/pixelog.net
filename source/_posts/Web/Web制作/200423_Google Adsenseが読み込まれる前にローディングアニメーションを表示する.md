@@ -1,13 +1,13 @@
 ---
 title: Google Adsenseが読み込まれる前にローディングアニメーションを表示する
+date: 2020-04-23 15:44:07
+post_id: 522pbo
 categories:
   - Web
   - Web制作
 tags:
   - HTML
   - CSS
-permalink: 522pbo
-date: 2020-04-23 15:44:07
 ---
 
 Google Adsenseって微妙に読み込まれるのが遅いですよね。空白の部分にいきなり広告が現れるとなんかびっくりするというか...

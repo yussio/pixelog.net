@@ -1,5 +1,7 @@
 ---
 title: クリックで開閉するドロップダウンメニューをCSSとJavaScriptで作ってみよう
+date: 2020-04-17 20:10:00
+post_id: rb8orj
 categories:
   - Web
   - Web制作
@@ -7,10 +9,6 @@ tags:
   - JavaScript
   - CSS
   - HTML
-permalink: rb8orj
-css: true
-js: true
-date: 2020-04-17 20:10:00
 ---
 
 目に見えるところに貼るほど重要ではないけど、開閉メニューでリンクを格納しておきたいというケースがあるかと思います。
@@ -294,3 +292,92 @@ STEP1～3をまとめたものです。この記事をご覧いただいたお�
   });
 }());
 ```
+
+
+<style>
+.dropdown {
+  margin: 0 0 0 auto;
+  position: relative;
+}
+.dropdown__btn {
+  display: block;
+  width: 1.5em;
+  padding: 0.2em;
+}
+.dropdown__btn.is-open::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+.dropdown__btn.is-open + .dropdown__body {
+  display: block;
+  z-index: 10;
+}
+.dropdown__body {
+  display: none;
+  width: 250px;
+  background: var(--bg-sub-color);
+  box-shadow: 0 2px 6px 2px rgba(60,64,67,0.149), 0 1px 2px 0 rgba(60,64,67,0.302);
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  top: 32px;
+  left: 0;
+}
+.dropdown__list {
+  margin: 0!important;
+}
+.dropdown__item {
+  display: block;
+  margin: 0!important;
+}
+.dropdown__item-link {
+  display: block;
+  padding: 1em 1.2em;
+  font-size: 0.95em;
+  text-decoration: none!important;
+  color: var(--text-color)!important;
+}
+.dropdown__item-link:hover {
+  background: var(--bg-hover-color);
+}
+
+
+.dropdown.step1,
+.dropdown.step2 {
+  margin: 4em 0;
+}
+
+.dropdown.step1 .dropdown__body {
+  display: block;
+  position: relative;
+  top: 16px;
+  left: 0;
+}
+
+.dropdown.step2 .dropdown__btn.is-open::after {
+  display: none;
+}
+</style>
+<script>
+(function () {
+  const btn2 = document.getElementById('step2');
+  if(btn2) {
+    btn2.addEventListener('click', function(){
+      this.classList.toggle('is-open');
+    });
+  }
+
+  const btn = document.getElementById('dropdown__btn');
+  if(btn) {
+    btn.addEventListener('click', function(){
+      this.classList.toggle('is-open');
+    });
+  }
+}());
+</script>

@@ -1,12 +1,12 @@
 ---
 title: Netlifyは大文字URLが使えない件とHexoを運用する上で確認すべき設定
-permalink: x64oif84bo
+date: 2020-01-29 10:30:04
+post_id: x64oif84bo
 categories:
   - Web
   - Hexo
 tags:
   - Netlify
-date: 2020-01-29 10:30:04
 ---
 
 このブログはNetlifyという静的サイトホスティングサービスを使って運用しているのですが、サイドバーに設置しているカテゴリー一覧の英字カテゴリーをクリックしたときに、毎回301リダイレクトが挟まることに気づきました。

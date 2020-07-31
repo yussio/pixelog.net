@@ -1,10 +1,10 @@
 ---
 title: PC版Twitterの右カラム(トレンド、おすすめユーザー)を消すCSS
+date: 2020-07-15 15:00:00
+post_id: 7ze3ba
 categories:
   - Web
   - その他
-permalink: 7ze3ba
-date: 2020-07-15 15:00:00
 tags:
 ---
 
