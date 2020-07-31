@@ -23,7 +23,7 @@ tags:
 
 ### Simple Markdown
 
-<img src="simple_markdown.png" alt="Simple Markdownの編集画面" class="vertical-img">
+![Simple Markdownの編集画面](simple_markdown.png)
 
 アプリのアイコンをタップすると、いきなり新規編集画面になります。 この潔さはかなり良いです。Dropboxへの保存は、Android標準の共有機能を使って行います。
 
@@ -31,7 +31,7 @@ tags:
 
 ### neutriNote
 
-<img src="neutrinote.png" alt="neutriNoteの編集画面" class="vertical-img">
+![neutriNoteの編集画面](neutrinote.png)
 
 正規表現で検索できたり数式を入力できたり、高機能で、使いこなせばかなり便利そう。
 
@@ -39,7 +39,7 @@ Dropboxへファイルを取り出すのは少し面倒。
 
 ### Textie
 
-<img src="textie.png" alt="Textieの編集画面" class="vertical-img">
+![Textieの編集画面](textie.png)
 
 UIはかなりシンプルで試した中では一番好きです。Markdownでよく使う記号もキーボードを切り替えずに即入力できるのでとても楽です。
 
@@ -47,7 +47,7 @@ UIはかなりシンプルで試した中では一番好きです。Markdownで�
 
 ### JotterPad
 
-<img src="jotterpad.png" alt="JotterPadの編集画面" class="vertical-img">
+![JotterPadの編集画面](jotterpad.png)
 
 スマホエディタの中でも一番人気のアプリです。Markdown以外でもtxtファイルも作成できます。
 
@@ -61,3 +61,9 @@ UIはかなりシンプルで試した中では一番好きです。Markdownで�
 JotterPadとDropbox連携がかなりお手軽だったので、しばらくはJotterPadを使ってみたいと思います。
 
 外出先でのちょっとしたスキマ時間に、ブログを書けるようなワークフローがあれば、快適なブログ生活を送れるかもしれません ( ˘ω˘ )
+
+<style>
+article img{
+  max-width: 400px  
+}
+</style>
