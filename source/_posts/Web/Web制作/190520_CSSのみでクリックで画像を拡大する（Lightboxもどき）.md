@@ -1,7 +1,7 @@
 ---
 title: CSSのみでクリックで画像を拡大する（Lightboxもどき）
 date: 2019-05-20 21:40:00
-post_id: only-css-popup-image
+post_id: kqkyf5
 categories:
   - Web
   - Web制作

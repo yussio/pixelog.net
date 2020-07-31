@@ -1,7 +1,7 @@
 ---
 title: Netlifyは大文字URLが使えない件とHexoを運用する上で確認すべき設定
 date: 2020-01-29 10:30:04
-post_id: x64oif84bo
+post_id: 3dup8a
 categories:
   - Web
   - Hexo

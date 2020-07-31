@@ -1,7 +1,7 @@
 ---
 title: CSSとChrome拡張機能でGoogle Adsenseの自クリックを防止する【全サイト対応】
 date: 2019-05-31 21:40:05
-post_id: prevent-from-selfclicking  
+post_id: anbib4
 categories:
   - Web
   - その他

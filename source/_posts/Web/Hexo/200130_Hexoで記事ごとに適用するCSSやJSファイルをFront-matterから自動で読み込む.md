@@ -1,7 +1,7 @@
 ---
 title: Hexoで記事ごとに適用するCSSやJSファイルをFront-matterから自動で読み込む
 date: 2020-01-30 10:33:20
-post_id: xumh8c5si7
+post_id: mu72yx
 categories:
   - Web
   - Hexo

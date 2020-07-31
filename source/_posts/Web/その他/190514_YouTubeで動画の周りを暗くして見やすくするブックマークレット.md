@@ -1,7 +1,7 @@
 ---
 title: YouTubeで動画の周りを暗くして見やすくするブックマークレット
 date: 2019-05-14 12:55:06
-post_id: bookmarklet-for-youtube
+post_id: 9od8c7
 categories:
   - Web
   - その他

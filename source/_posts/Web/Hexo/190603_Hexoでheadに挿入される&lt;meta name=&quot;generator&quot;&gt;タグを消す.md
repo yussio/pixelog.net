@@ -2,7 +2,7 @@
 title: Hexoでheadに挿入される&lt;meta name=&quot;generator&quot;&gt;タグを消す
 date: 2019-06-03 22:12:12
 updated: 2020-04-13 17:40:00
-post_id: remove-meta-generator
+post_id: om9he4
 categories:
   - Web
   - Hexo

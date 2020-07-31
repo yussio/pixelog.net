@@ -1,7 +1,7 @@
 ---
 title: Netlify Managed DNSでGoogle Search Consoleの認証をする
 date: 2019-03-16 16:29:18
-post_id: search-console-for-netlify
+post_id: pjayu5
 categories:
   - Web
   - その他

@@ -1,7 +1,7 @@
 ---
 title: HTMLだけでコンテンツを開閉できるdetailsタグを試してみる
 date: 2019-05-05 21:00:00
-post_id: html-details
+post_id: rn7zja
 categories:
   - Web
   - Web制作
