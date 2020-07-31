@@ -40,8 +40,7 @@
     } else if (is_page()) {
         breadcrumbs[page.title] = url_for(path);
     } else if (is_category()) {
-        let cat = {};
-        cat = get_category(cat);
+        cat = get_category();
         for(var key in cat) {
             breadcrumbs[key] = cat[key];
         }
@@ -73,8 +72,9 @@
         return ret;
     }
 
-    function get_category(arr){
-        arr[page.category] = decodeURI(url_for(page.path));
+    function get_category(){
+        let arr = {};
+        arr[page.category] = url_for(page.path);
         get_parent(page.category);
 
         function get_parent(current){
@@ -83,7 +83,7 @@
 
             if(parent_id) {
                 const parent_name = site.categories.data.filter(x => x._id === parent_id);
-                arr[parent_name[0].name] = decodeURI(url_for(parent_name[0].path));
+                arr[parent_name[0].name] = url_for(parent_name[0].path);
                 get_parent(parent_name[0].name);
             }
         }
