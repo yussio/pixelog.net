@@ -17,7 +17,12 @@
                 const childCount = site.categories.find({ parent: category._id }).count();
                 %>
                 <li class="category-list-item">
-                    <a class="category-list-link <% if(current_category === category.name) { %>current<% } %>" href="<%=url_for(category.path)%>"><%=category.name%><span class="category-list-count"><%= category.length%></span></a>
+                    <a class="category-list-link <% if(current_category === category.name) { %>current<% } %>" href="<%=url_for(category.path)%>">
+                        <%=category.name%>
+                        <span class="category-list-count">
+                            <%= category.length%>
+                        </span>
+                    </a>
                     <% if (childCount > 0) { %>
                         <ul class="category-list-child">
                             <% displayCategories(category._id); %>
