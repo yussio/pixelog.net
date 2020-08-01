@@ -15,25 +15,23 @@ function toCountDict(array){
 }
 %>
 
-<div class="<%= block %>__<%= widget %>">
-  <h4 class="<%= block %>__title">Archive</h4>
-  <select class="archive-list" onchange="location.href=this.value;">
-      <%if(!page.month){%><option value="" disabled selected>月を選択</option><%}%>
-      <% Object.keys(arr).forEach(function(key){ %>
-      <%
-        let archive_year = key.slice(0,4);
-        let archive_month = key.slice(5,7);
-      %>
-        <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
-          <% if(is_archive()){ %>
-            <% if(page.month) {
-              page.monthwith0 = page.month.toString().padStart(2, '0');
-            } %>
-            <% if(archive_year + archive_month === page.year + page.monthwith0){ %>
-            selected
-            <% } %>
+<h4 class="<%= block %>__title">Archive</h4>
+<select class="archive-list" onchange="location.href=this.value;">
+    <%if(!page.month){%><option value="" disabled selected>月を選択</option><%}%>
+    <% Object.keys(arr).forEach(function(key){ %>
+    <%
+      let archive_year = key.slice(0,4);
+      let archive_month = key.slice(5,7);
+    %>
+      <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
+        <% if(is_archive()){ %>
+          <% if(page.month) {
+            page.monthwith0 = page.month.toString().padStart(2, '0');
+          } %>
+          <% if(archive_year + archive_month === page.year + page.monthwith0){ %>
+          selected
           <% } %>
-          ><%= key %> (<%= arr[key]%>)</option>
-      <% }); %>
-  </select>
-</div>
+        <% } %>
+        ><%= key %> (<%= arr[key]%>)</option>
+    <% }); %>
+</select>

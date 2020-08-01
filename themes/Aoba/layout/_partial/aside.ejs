@@ -1,5 +1,7 @@
 <aside class="aside">
   <% theme.widgets.forEach(function(widget){ %>
-    <%- partial('_widget/' + widget, {widget, block: 'aside'}) %>
+    <div class="widget">
+      <%- partial('_widget/' + widget, {block: 'widget'}) %>
+    </div>
   <% }) %>
 </aside>

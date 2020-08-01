@@ -1,23 +1,21 @@
-<div class="<%= block %>__<%= widget %>">
-    <h4 class="<%= block %>__title">Search</h4>
-    <form
-      class="search-form"
-      id="search"
-    	action="https://duckduckgo.com/"
-    	role="search">
-    	<input
-    		name="sites"
-    		type="hidden"
-    		value="<%= config.url %>">
-    	<input
-        class="search-form__input"
-        placeholder="記事を検索"
-    		name="q"
-    		type="text">
-    	<button
-        class="search-form__btn"
-    		type="submit">
-          <i class="gg-search"></i>
-      </button>
-    </form>
-</div>
+<h4 class="<%= block %>__title">Search</h4>
+<form
+  class="search-form"
+  id="search"
+	action="https://duckduckgo.com/"
+	role="search">
+	<input
+		name="sites"
+		type="hidden"
+		value="<%= config.url %>">
+	<input
+    class="search-form__input"
+    placeholder="記事を検索"
+		name="q"
+		type="text">
+	<button
+    class="search-form__btn"
+		type="submit">
+      <i class="gg-search"></i>
+  </button>
+</form>
