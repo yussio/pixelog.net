@@ -6,7 +6,7 @@
     border-radius 4px
 
     &__title
-        margin-bottom var(--space-default)
+        margin 0 0 1.68em 0
         font-size 1.5em
         word-break break-all
 
@@ -36,25 +36,25 @@
           text-decoration underline
 
         h2
-          margin-top var(--space-large)
+          margin var(--space-large)
           border-bottom 1px solid var(--border-color)
           font-size 1.45em
 
         h3
           font-size 1.1em
-          margin-top var(--space-large)
+          margin var(--space-large)
 
         ul
         ol
-            margin var(--space-default) 0 var(--space-default) 2em
+            padding-left 2em
 
         li
-            margin var(--space-small) 0
+            margin var(--space-small)
 
 
         & > table
             width 100%
-            margin var(--space-default) 0
+            margin var(--space-default)
             font-size 15px
             word-break break-all
             border-collapse collapse
@@ -70,5 +70,13 @@
                 border 1px solid var(--border-color)
 
 
+
+    &__footer
+        &::before
+            display block
+            content: "⁂"
+            margin 2.618em 0
+            text-align center
+
     &__ad
-        margin-top 4em
+        margin-top 1.618em
