@@ -1,0 +1,40 @@
+<%
+let pager = [];
+const base_path = url_for(path).replace(/page.*/,'');
+for(let i=1; i<=page.total; i++){
+  if(i===1){
+    pager[i] = `${base_path}`;
+  } else {
+    pager[i] = `${base_path}page/${i}/`;
+  }
+}
+%>
+
+<div class="pager">
+    <a
+      class="pager__btn prev
+      <% if (!page.prev_link) { %>disabled<% } %>"
+      <% if(page.prev_link){ %>href="<%= url_for(page.prev_link) %>"<% } %>>
+      Newer
+    </a>
+    <div class="pager__number">
+        <select
+          class="pager__current"
+          onchange="location.href=this.value;">
+          <% for(let i=1; i<=pager.length; i++){ %>
+            <option
+              value="<%= pager[i] %>"
+              <% if(is_current(decodeURI(pager[i]))){%>selected<%}%>>
+              <%= i %>
+            </option>
+          <% } %>
+        </select>
+        <div class="pager__total">/ <%= page.total %></div>
+    </div>
+    <a
+      class="pager__btn next
+      <% if (!page.next_link) { %>disabled<% } %>"
+      <% if(page.next_link){ %>href="<%= url_for(page.next_link) %>"<% } %>>
+      Older
+    </a>
+</div>
