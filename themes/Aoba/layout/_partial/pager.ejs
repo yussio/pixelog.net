@@ -1,11 +1,12 @@
 <%
 let pager = [];
-const base_path = url_for(path).replace(/page.*/,'');
+const reg = new RegExp(config.pagination_dir + '.*');
+const base_path = url_for(path).replace(reg,'');
 for(let i=1; i<=page.total; i++){
   if(i===1){
     pager[i] = `${base_path}`;
   } else {
-    pager[i] = `${base_path}page/${i}/`;
+    pager[i] = `${base_path}${config.pagination_dir}/${i}/`;
   }
 }
 %>
@@ -18,18 +19,18 @@ for(let i=1; i<=page.total; i++){
       Newer
     </a>
     <div class="pager__number">
-        <select
-          class="pager__current"
-          onchange="location.href=this.value;">
-          <% for(let i=1; i<=page.total; i++){ %>
-            <option
-              value="<%= pager[i] %>"
-              <% if(is_current(decodeURI(pager[i]))){%>selected<%}%>>
-              <%= i %>
-            </option>
-          <% } %>
-        </select>
-        <div class="pager__total">/ <%= page.total %></div>
+      <select
+        class="pager__current"
+        onchange="location.href=this.value;">
+        <% for(let i=1; i<=page.total; i++){ %>
+          <option
+            value="<%= pager[i] %>"
+            <% if(is_current(decodeURI(pager[i]))){%>selected<%}%>>
+            <%= i %>
+          </option>
+        <% } %>
+      </select>
+      <div class="pager__total">/ <%= page.total %></div>
     </div>
     <a
       class="pager__btn next
