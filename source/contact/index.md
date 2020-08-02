@@ -1,7 +1,6 @@
 ---
 title: お問い合わせ
 date: 2020-01-26 12:32:19
-css: true
 ---
 
 当サイトに関するご依頼・お問い合わせにつきましては、以下のメールフォームよりご連絡ください。返信にはお時間をいただく場合がございますのであらかじめご了承ください。
@@ -43,3 +42,42 @@ css: true
         }      
     }
 </script>
+
+<style>
+.contact {
+    margin: 48px 0 0 0;
+}
+
+.contact input,
+.contact textarea {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    outline: 0;
+    border-radius: 4px;
+    transition: .15s box-shadow ease-in-out;
+}
+
+.contact input:focus,
+.contact textarea:focus,
+.contact button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border-color: #80bdff;
+}
+
+
+.contact textarea {
+    height: 10em;
+}
+
+.contact button {
+    background: #007bff;
+    color: #fff !important;
+    padding: 6px 48px;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 0 #48a9a6;
+    transition: .15s box-shadow ease-in-out;
+}
+</style>
