@@ -11,7 +11,7 @@ var listMonth = arr
    });
 
 let archives = [];
-for(i=0; i<listMonth.length; i++){
+for(let i=0; i<listMonth.length; i++){
   archives[i] = {
     name: `${listMonth[i]} (${countPost(listMonth[i])})`,
     path: path(listMonth[i])
@@ -34,7 +34,7 @@ function path(month){
     <%if(!is_month()){%>selected<%}%>>
     月を選択
   </option>
-  <% for(i=0; i<archives.length; i++){ %>
+  <% for(let i=0; i<archives.length; i++){ %>
     <option
       value="<%= archives[i].path %>"
       <% if(is_current(archives[i].path)){%>selected<%}%>>

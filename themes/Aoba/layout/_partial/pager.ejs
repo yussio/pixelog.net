@@ -21,7 +21,7 @@ for(let i=1; i<=page.total; i++){
         <select
           class="pager__current"
           onchange="location.href=this.value;">
-          <% for(let i=1; i<=pager.length; i++){ %>
+          <% for(let i=1; i<=page.total; i++){ %>
             <option
               value="<%= pager[i] %>"
               <% if(is_current(decodeURI(pager[i]))){%>selected<%}%>>
