@@ -3,7 +3,7 @@ title: お問い合わせ
 date: 2020-01-26 12:32:19
 ---
 
-当サイトに関するご依頼・お問い合わせにつきましては、以下のメールフォームよりご連絡ください。返信にはお時間をいただく場合がございますのであらかじめご了承ください。
+当サイトに関するご意見ご感想、ご依頼につきましては、以下のメールフォームよりご連絡ください。可能な限りお返事を差し上げますが、返信を確約するものではありませんのであらかじめご了承ください。
 
 <form class="contact" name="contact" method="POST" data-netlify="true" action="/contact/completed/">
   <p>
@@ -16,7 +16,7 @@ date: 2020-01-26 12:32:19
     <label>件名<input type="text" name="subject" /></label>
   </p>
   <p>
-    <label>お問い合わせ内容: <textarea name="message" required></textarea></label>
+    <label>本文: <textarea name="message" required></textarea></label>
   </p>
   <p style="font-size: 14px">
     <a href="/privacy/#個人情報について" target="\_blank">プライバシーポリシー</a>をご確認いただき、記載されている内容に関して同意の上、お問い合わせください。
@@ -55,18 +55,8 @@ date: 2020-01-26 12:32:19
     padding: .375rem .75rem;
     border: 1px solid var(--border-color);
     color: var(--text-color);
-    outline: 0;
     border-radius: 4px;
-    transition: .15s box-shadow ease-in-out;
 }
-
-.contact input:focus,
-.contact textarea:focus,
-.contact button:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-    border-color: #80bdff;
-}
-
 
 .contact textarea {
     height: 10em;
@@ -78,6 +68,5 @@ date: 2020-01-26 12:32:19
     padding: 6px 48px;
     border-radius: 3px;
     box-shadow: 0 0 2px 0 #48a9a6;
-    transition: .15s box-shadow ease-in-out;
 }
 </style>
