@@ -1,34 +1,4 @@
 <%
-// titleの出し分け
-    var title;
-    if(is_home()){
-        title = '';
-    } else if (is_archive()){
-        title = 'アーカイブ' + ' - ';
-    } else if (is_category()){
-        title = page.category + ' - ';
-    } else if (is_tag()){
-        title = page.tag + ' - ';
-    } else {
-        title = page.title + ' - ';
-    }
-    if(page.current > 1){
-        title += 'ページ'+ page.current + ' - ';
-    }
-    title += config.title;
-
-// ディスクリプションの設定
-    var description;
-    if(is_post()){
-        if (page.description) {
-            description = page.description;
-        }else {
-            description = page.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 110);
-        }
-    } else {
-        description = config.description;
-    }
-
 // パンくずリスト
     let breadcrumbs = {};
 
@@ -121,67 +91,6 @@
         }
         <% } %>
       ]
-    } <% if(!is_post()) { %>,
-    {
-      "@type": "Blog",
-      "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "<%- url_for(path) %>"
-      },
-      "headline": "<%- title %>",
-      "image": {
-          "@type": "ImageObject",
-          "url": "https://pixelog.net/img/pixelog.png",
-          "width": 1200,
-          "height": 630
-      },
-      "author": {
-          "@type": "Person",
-          "name": "<%= config.author %>"
-      },
-      "publisher": {
-          "@type": "Organization",
-          "name": "<%= config.title %>",
-          "logo": {
-              "@type": "ImageObject",
-              "url": "https://pixelog.net/img/pixelog.png",
-              "width": 1200,
-              "height": 630
-          }
-      },
-      "description": "<%= description %>"
-    } <% } else if(is_post()) { %>,
-    {
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "<%- url_for(path) %>"
-      },
-      "headline": "<%= title %>",
-      "datePublished": "<%= page.date.format() %>",
-      "dateModified": "<%= page.updated.format() %>",
-      "description": "<%= description %>",
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://pixelog.net/img/pixelog.png",
-        "width": 1200,
-        "height": 630
-      },
-      "author": {
-        "@type": "Person",
-        "name": "<%= config.author %>"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "<%= config.title %>",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://pixelog.net/img/pixelog.png",
-          "width": 1200,
-          "height": 630
-        }
-      }
     }
-    <% } %>
   ]
 }
