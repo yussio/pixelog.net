@@ -14,30 +14,11 @@ img
     vertical-align middle
 
 blockquote
-    position relative
     margin var(--space-default)
-    padding 1em 2.5em
+    padding 0 1.272em
+    color var(--text-sub-color)
     font-size .9em
-    background var(--bg-color)
-    border-radius 4px
-    z-index 2
-    &:before
-    &:after
-        position absolute
-        font-size 1000%
-        color var(--border-color)
-        font-family 'TImes NEw ROman',sans-serif
-        z-index -1
-    &:before
-        content "“"
-        line-height 0.8em
-        top 10px
-        left 10px
-    &:after
-        content "”"
-        line-height 0em
-        right 10px
-        bottom 5px
+    border-left .25em solid var(--border-color)
 
 code
 pre
