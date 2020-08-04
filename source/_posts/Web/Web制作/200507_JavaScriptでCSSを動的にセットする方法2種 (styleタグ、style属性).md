@@ -121,3 +121,23 @@ btn.addEventListener('click', ()=> { // 押されたら
 ```
 
 ちゃんとDOMの解析が終わった後に実行しなきゃとか、対象の要素をどうやって取得するのかとか、要素が複数ならループさせないと...などなどを考える必要がないので楽ですね！
+
+
+<style>
+.btn{
+  display:inline-block;
+  margin:.5em 0;
+  padding:8px 2em;
+  background:#007bff;
+  color:#fff!important;
+  text-decoration:none!important;
+  border-radius:4px;
+  transition:.15s all ease-in-out
+  }
+.btn:hover{
+  background:#0069d9
+}
+.btn:active{
+  background:#0062cc
+}
+</style>

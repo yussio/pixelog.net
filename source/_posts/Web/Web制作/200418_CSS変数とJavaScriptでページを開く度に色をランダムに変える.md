@@ -125,3 +125,23 @@ randomColor('--theme-color');
 ランダムで色が変わるということで、キレイな色になることもあれば目に悪い配色になることもあります。また場合によっては、背景色と文字色の兼ね合いも考えなければならないかもしれません。
 
 ページに組み込むなら、どぎつい色になってもあまり影響を受けない面積の小さい箇所へ、アクセントとして取り入れるのが良いと思います。
+
+
+<style>
+.btn{
+  display:inline-block;
+  margin:.5em 0;
+  padding:8px 2em;
+  background:#007bff;
+  color:#fff!important;
+  text-decoration:none!important;
+  border-radius:4px;
+  transition:.15s all ease-in-out
+  }
+.btn:hover{
+  background:#0069d9
+}
+.btn:active{
+  background:#0062cc
+}
+</style>
