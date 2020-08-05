@@ -37,40 +37,48 @@ Hexoでサイドバーに月別アーカイブを設置する際は、あらか�
 
 ```html
 <%
-let arr = new Array();
+let arr = [];
 site.posts.each(function(post){
   arr.push(post.date.format('YYYY年MM月'))
 })
 
-arr = toCountDict(arr.sort().reverse());
+var listMonth = arr
+  .sort().reverse()
+  .filter(function(val, i, self){
+	   return i === self.indexOf(val);
+   });
 
-function toCountDict(array){
-  let dict = {};
-  for(let key of array){
-    dict[key] = array.filter(function(x){return x==key}).length;
+let archives = [];
+for(let i=0; i<listMonth.length; i++){
+  archives[i] = {
+    name: `${listMonth[i]} (${countPost(listMonth[i])})`,
+    path: path(listMonth[i])
   }
-  return dict;
+}
+
+function countPost(month){
+  return arr.filter(function(x){return x=== month}).length;
+}
+
+function path(month){
+  return url_for(`${config.archive_dir}/${month.slice(0,4)}/${month.slice(5,7)}/`);
 }
 %>
 
+<h4 class="<%= block %>__title">ARCHIVE</h4>
 <select class="archive-list" onchange="location.href=this.value;">
-    <% if(!page.month){ %><option value="" disabled selected style="display:none">月を選択</option><% } %>
-    <% Object.keys(arr).forEach(function(key){ %>
-    <%
-      let archive_year = key.slice(0,4);
-      let archive_month = key.slice(5,7);
-    %>
-      <option value="/<%= config.archive_dir %>/<%= archive_year %>/<%= archive_month %>/"
-        <% if(is_archive()){ %>
-          <% if(page.month) {
-            page.monthwith0 = page.month.toString().padStart(2, '0');
-          } %>
-          <% if(archive_year + archive_month === page.year + page.monthwith0){ %>
-          selected
-          <% } %>
-        <% } %>
-        ><%= key %> (<%= arr[key]%>)</option>
-    <% }); %>
+  <option
+    disabled
+    <%if(!is_month()){%>selected<%}%>>
+    月を選択
+  </option>
+  <% for(let i=0; i<archives.length; i++){ %>
+    <option
+      value="<%= archives[i].path %>"
+      <% if(is_current(archives[i].path)){%>selected<%}%>>
+      <%= archives[i].name %>
+    </option>
+  <%}%>
 </select>
 ```
 
