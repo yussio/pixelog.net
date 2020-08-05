@@ -26,7 +26,7 @@
         }
     }
     if(page.current > 1){
-        breadcrumbs['ページ'+page.current] = '/page/' + page.current + '/';
+        breadcrumbs['ページ'+page.current] = '/' + config.pagination_dir + '/' + page.current + '/';
     }
 
     function reverse_array(a) {
@@ -73,7 +73,7 @@
           "position": 1,
           "item":
           {
-            "@id": "/",
+            "@id": "<%= url_for('/') %>",
             "name": "ホーム"
           }
         }
