@@ -14,8 +14,8 @@ for(let i=1; i<=page.total; i++){
 <div class="pager">
     <a
       class="pager__btn prev
-      <% if (!page.prev_link) { %>disabled<% } %>"
-      <% if(page.prev_link){ %>href="<%= url_for(page.prev_link) %>"<% } %>>
+      <% if (page.current === 1) { %>disabled<% } %>"
+      <% if(page.current !== 1){ %>href="<%= url_for(page.prev_link) %>"<% } %>>
       Newer
     </a>
     <div class="pager__number">
