@@ -13,7 +13,7 @@ for(let i=1; i<=page.total; i++){
 
 <div class="pager">
     <a
-      class="pager__btn prev
+      class="pager__btn newer
       <% if (page.current === 1) { %>disabled<% } %>"
       <% if(page.current !== 1){ %>href="<%= url_for(page.prev_link) %>"<% } %>>
       Newer
@@ -33,7 +33,7 @@ for(let i=1; i<=page.total; i++){
       <div class="pager__total">/ <%= page.total %></div>
     </div>
     <a
-      class="pager__btn next
+      class="pager__btn older
       <% if (!page.next_link) { %>disabled<% } %>"
       <% if(page.next_link){ %>href="<%= url_for(page.next_link) %>"<% } %>>
       Older
