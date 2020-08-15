@@ -4,7 +4,7 @@
             <time class="post__published" datetime="<%- page.date.format() %>">
               <%- page.date.format(config.date_format) %>
             </time>
-            <% if (page.date.format() !== page.updated.format()) {%>
+            <% if (page.updated) {%>
                 <time class="post__updated" datetime="<%- page.updated.format() %>">
                   <%- '('+page.updated.format(config.date_format) + '更新)' %>
                 </time>

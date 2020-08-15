@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "hexo-clean-css": "^1.0.0",
-    "hexo-generator-feed": "^2.2.0",
+    "hexo-generator-feed": "^3.0.0",
     "hexo-generator-sitemap": "^2.1.0",
     "hexo-html-minifier": "^1.0.0"
   }
