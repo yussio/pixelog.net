@@ -1,0 +1,16 @@
+<ul class="post-list">
+    <% page.posts.each(function(post){ %>
+        <li class="post-list__item">
+            <a class="post-list__link" href="<%- url_for(post.path) %>">
+                <h2 class="post-list__title"><%- post.title || "Untitled" %></h2>
+                <time class="post-list__date" datetime="<%- post.date.format() %>">
+                  <%- post.date.format(config.date_format) %>
+                </time>
+                <div class="post-list__content">
+                  <%= truncate(strip_html(post.content), {length: 80}) %>
+                </div>
+            </a>
+        </li>
+    <% }) %>
+</ul>
+<%- partial('pager') %>
