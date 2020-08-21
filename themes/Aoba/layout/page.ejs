@@ -1,12 +1,6 @@
 <article class="post">
       <header class="post__header">
         <h1 class="post__title"><%= page.title %></h1>
-        <% if (page.thumbnail) { %>
-          <p class="post__thumbnail">
-            <img class="post__thumbnail-img" src="<% var thumbnail_url = '/' + page.path + page.thumbnail; %><%- image_version(thumbnail_url, {prefix: 'post'}) %>">
-          </p>
-        <% }%>
-
       </header>
       <div class="post__content">
           <%- page.content %>
