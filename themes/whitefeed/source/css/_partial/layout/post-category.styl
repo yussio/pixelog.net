@@ -1,0 +1,22 @@
+.post-category
+    display flex
+    margin-top 2.5em
+    color var(--text-sub-color)
+    font-size font-size-s1
+
+    &__label
+      margin 0 .5em 0 0
+
+    &__list
+        display flex
+        list-style none
+
+    &__item
+        &:not(:last-child)::after
+            content ">"
+            margin 0 .5em
+
+    &__link
+        color var(--text-link-color)
+        &:hover
+            text-decoration underline

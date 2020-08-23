@@ -1,0 +1,7 @@
+<header class="header">
+  <% if(is_post() || is_page()){ %><div class="header__logo"><% }else{ %><h1 class="header__logo"><% } %>
+      <a class="header__link" href="<%= url_for('/') %>">
+          <%= config.title %>
+      </a>
+  <% if(is_post() || is_page()){ %></div><% }else{ %></h1><% } %>
+</header>

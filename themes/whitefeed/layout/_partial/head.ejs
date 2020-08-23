@@ -1,0 +1,46 @@
+<%
+// titleの出し分け
+    var title;
+    if(is_home()){
+        title = '';
+    } else if (is_archive()){
+        title = 'アーカイブ';
+        if(page.year){
+          title += ': ' + page.year + '年';
+        }
+        if(page.month){
+          title += page.month + '月';
+        }
+        title += ' - ';
+    } else if (is_category()){
+        title = 'カテゴリー: ' + page.category + ' - ';
+    } else if (is_tag()){
+        title = 'タグ: ' + page.tag + ' - ';
+    } else {
+        title = page.title + ' - ';
+    }
+    if(page.current > 1){
+        title += 'ページ'+ page.current + ' - ';
+    }
+    title += config.title;
+%>
+<meta charset="utf-8">
+<title><%= title %></title>
+<link rel="canonical" href="<%= full_url_for(path) %>">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<% if(page.sitemap === false) { %><meta name="robots" content="noindex,follow"><% } %>
+<%- open_graph() %>
+<%- feed_tag() %>
+<meta property="og:image" content="https://pixelog.net/img/pixelog.png">
+<%- css('css/style.css') %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-68420269-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-68420269-3');
+</script>
+<% if(is_post()){ %>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<%}%>

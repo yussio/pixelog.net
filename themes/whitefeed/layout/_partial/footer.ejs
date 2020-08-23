@@ -1,0 +1,23 @@
+<footer class="footer">
+    <div class="sitemap">
+        <ul class="sitemap__list">
+            <% for (var i in theme.sitemap1){ %>
+                <li class="sitemap__item">
+                    <a class="sitemap__link" href="<%- theme.sitemap1[i] %>"><%= i %></a>
+                </li>
+            <% } %>
+        </ul>
+        <ul class="sitemap__list">
+            <% for (var i in theme.sitemap2){ %>
+                <li class="sitemap__item">
+                    <a class="sitemap__link" href="<%- theme.sitemap2[i] %>"><%= i %></a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+    <div class="footer__copyright">
+        Powered by Hexo, Theme Ikaho designed by pixelog<br>
+        © <%= config.title %> <%= date(new Date(), 'YYYY') %>
+    </div>
+</footer>
+<script type="application/ld+json"><%- partial('ld+json') %></script>

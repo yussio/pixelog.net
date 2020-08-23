@@ -1,0 +1,22 @@
+.sitemap
+    display flex
+    max-width var(--width)
+    margin auto
+    padding 0 20px
+    line-height 2.5
+    font-size font-size-s2
+    justify-content space-between
+
+    &__list
+        flex 1
+
+    &__item
+        display block
+
+    &__link
+        display block
+        color var(--text-color)
+        transition .15s ease background
+
+        &:hover
+            background var(--bg-hover-color)
