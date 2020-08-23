@@ -4,7 +4,15 @@ widgets:
 - archive
 - search_duck
 
-menu:
-  About: /about/
-  Contact: /contact/
-  Privacy Policy: /privacy/
+
+sitemap1:
+  ホーム: /
+  カテゴリー: /category/
+  アーカイブ: /archive/
+  検索: /search/
+
+sitemap2:
+  プロフィール: /about/
+  お問い合わせ: /contact/
+  プライバシーポリシー: /privacy/
+  RSS: /atom.xml

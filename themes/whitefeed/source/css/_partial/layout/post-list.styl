@@ -1,17 +1,19 @@
 .post-list
-    display grid
-    gap 1.5em
-
     &__item
         display block
-        padding 1.5em
-        background var(--bg-sub-color)
-        box-shadow var(--container-shadow)
-        border-radius 4px
+        padding 2.5em .25em
+        border-bottom 1px solid var(--border-color)
+        &:first-child
+            padding-top 0
 
 
     &__link
         display block
+
+        &:hover
+            .post-list__title
+                text-decoration underline
+                color var(--text-hover-color)
 
 
     &__date
@@ -22,8 +24,9 @@
 
 
     &__title
-        font-size font-size-l2
+        font-size font-size-l1
         word-break break-all
+        transition .15s ease all
 
     &__content
         margin 1.5em 0 0 0

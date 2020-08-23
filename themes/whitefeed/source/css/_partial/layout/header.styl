@@ -1,9 +1,13 @@
 .header
-    padding 0 2em
-    line-height 64px
-    background var(--bg-sub-color)
-    box-shadow var(--container-shadow)
+    line-height 72px
+    background var(--bg-color)
 
     &__logo // h1のデフォルトfont-sizeを上書きするため
+        max-width var(--width)
+        margin auto
+        padding 0 20px
         font-size 20px
         font-weight bold
+
+    &__link
+        color var(--text-color)
