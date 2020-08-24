@@ -4,7 +4,7 @@ sitemap: false
 ---
 
 <p class="marquee-anim" style="font-size: 1em;font-weight: bold;color: #00ffff;">
-  <span style="animation-duration: 60s;">推奨する Browser は Google Chromeなどのモダンブラウザの最新版で、どのデバイスからでも閲覧できます。Home Page を静的サイトジェネレーターの Hexo で作成しました。最新のCSS技術を取り入れている関係で、IE とは相性が悪く 最新Version でも全く受け付けない様です。このページはW3Cのバリデーションでエラーが出ないのが自慢です。</span>
+  <span style="animation-duration: 60s;">推奨する Browser は Google Chromeなどのモダンブラウザの最新版で、どのデバイスからでも閲覧できます。Home Page を静的サイトジェネレーターの Hexo で作成しました。最新のCSS技術を取り入れている関係で、IE とは相性が悪く 最新Version でも全く受け付けない様です。</span>
 </p>
 
 ![404 Page Not Found](/404/404.gif)
@@ -37,7 +37,7 @@ sitemap: false
 <a href="/"><img class="flash-anim" src="/404/top.gif" alt="トップへ戻る"></a>
 
 <style>
-.post {
+body {
   background: #000;
   color: #fff;
 }
