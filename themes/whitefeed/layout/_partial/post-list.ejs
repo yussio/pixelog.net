@@ -15,8 +15,11 @@
         title = 'タグ: ' + page.tag;
     }
 %>
-
-<h1 class="main__title"><%= title %></h1>
+<% if(!is_home()){ %>
+  <h1 class="main__title">
+    <%= title %>
+  </h1>
+<% } %>
 <ul class="post-list">
     <% page.posts.each(function(post){ %>
         <li class="post-list__item">
