@@ -1,0 +1,22 @@
+<%
+// titleの出し分け
+    var title;
+    if (is_archive()){
+        title = 'アーカイブ';
+        if(page.year){
+          title += ': ' + page.year + '年';
+        }
+        if(page.month){
+          title += page.month + '月';
+        }
+    } else if (is_category()){
+        title = 'カテゴリー: ' + page.category;
+    } else if (is_tag()){
+        title = 'タグ: ' + page.tag;
+    }
+%>
+
+<h1 class="main__title">
+  カテゴリー: <%= page.category %>
+</h1>
+<%- partial('_partial/post-list') %>

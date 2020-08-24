@@ -1,0 +1,33 @@
+<h1 class="main__title">
+  アーカイブ
+</h1>
+
+<!-- Split post by year -->
+<%
+  var years = {};
+  site.posts.sort('date').reverse().forEach(function(post){
+      var year = post.date.year()
+      if(years[year]===undefined){
+          years[year] = [];
+      }
+      years[year].push(post);
+  });
+%>
+
+<% Object.keys(years).reverse().forEach(function(year){  %>
+    <section class="archive">
+        <h2 class="archive__year"><%= year %> (<%=years[year].length %>)</h2>
+        <ul class="archive__list">
+        <% years[year].map(function(post){  %>
+            <li class="archive__item">
+              <div class="archive__date">
+                <%= post.date.format('YYYY-MM-DD') %>
+              </div>
+              <a class="archive__link" href="<%- config.root %><%- post.path %>">
+                <%- post.title || "Untitled" %>
+              </a>
+            </li>
+        <% }) %>
+        </ul>
+    </section>
+<% }) %>
