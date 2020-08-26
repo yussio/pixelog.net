@@ -1,11 +1,3 @@
-font-size-l3 = 1em * 8 / 5 // 1.6
-font-size-l2 = 1em * 8 / 6 // 1.333
-font-size-l1 = 1em * 8 / 7 // 1.142
-font-size-m =  1em * 8 / 8
-font-size-s1 = 1em * 8 / 9 // .8888
-font-size-s2 = 1em * 8 / 10 // .8
-font-size-s3 = 1em * 8 / 11 // .72
-
 :root
   --width 700px
   --theme-color #5aa096
@@ -23,9 +15,17 @@ font-size-s3 = 1em * 8 / 11 // .72
   --border-color #e3e3e3
   --border-dark-color #bbb
 
-  --space-small .75em 0
-  --space-default 2em 0
-  --space-large 3em 0 1em 0
+  --space-s .75em 0
+  --space 2em 0
+  --space-l 3em 0 1em 0
+
+  --num 8
+  --size-l3 calc(var(--num) * 1em / (var(--num) - 3)) // 1.6
+  --size-l2 calc(var(--num) * 1em / (var(--num) - 2)) // 1.333
+  --size-l1 calc(var(--num) * 1em / (var(--num) - 1)) // 1.142
+  --size-s1 calc(var(--num) * 1em / (var(--num) + 1)) // .888
+  --size-s2 calc(var(--num) * 1em / (var(--num) + 2)) // .8
+  --size-s3 calc(var(--num) * 1em / (var(--num) + 3)) // .727
 
 
 @media (prefers-color-scheme: dark)
@@ -38,7 +38,7 @@ font-size-s3 = 1em * 8 / 11 // .72
 
     --text-color #dedede
     --text-link-color #8ab4f8
-    --text-hover-color #5aa096
+    --text-hover-color var(--theme-color)
     --text-sub-color #a8a8a8
     --text-disabled-color #444
 
