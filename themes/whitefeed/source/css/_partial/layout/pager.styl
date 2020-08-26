@@ -1,10 +1,11 @@
 .pager
     display flex
     margin 2em 0 0 0
+    font-family Consolas, monospace
     justify-content space-between
+    align-items center
 
     &__btn
-        display block
         color var(--text-color)
         transition .15s color ease
 
@@ -20,36 +21,20 @@
             &::before
                 content "<"
                 margin 0 .5em 0 0
-                font-family Consolas, monospace
 
         &.older
-            text-align right
-
             &::after
                 content ">"
                 margin 0 0 0 .5em
-                font-family Consolas, monospace
 
-
-
-    &__number
-        display flex
-        padding 0 1em
-        flex-shrink 0
 
     &__current
-        width 4em
-        padding 0 .75em
+        min-width 4em
+        padding .25em .75rem
         color var(--text-color)
+        background var(--bg-sub-color)
         border 1px solid var(--border-dark-color)
-        background url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23444' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .5rem center/12px 10px, var(--bg-sub-color)
-        border-radius .2em
-
-    &__total
-          margin 0 0 0 .5em
-          align-self center
-
-
-@media (prefers-color-scheme: dark)
-  .pager__current
-      background url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23d9d9d9' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .5rem center/12px 10px, var(--bg-sub-color)
+        border-radius .25em
+        -moz-appearance menulist-button
+        -webkit-appearance menulist-button
+        appearance menulist-button
