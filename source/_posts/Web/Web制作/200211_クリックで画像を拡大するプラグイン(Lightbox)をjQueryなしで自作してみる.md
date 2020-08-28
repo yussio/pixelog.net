@@ -20,9 +20,9 @@ Lightboxという単語は死語感が漂っており、今どき需要もなさ
 
 下の写真をクリック/タップしてみてください。モーダルウインドウが開いて画像が拡大表示されます。モーダルウインドウは、ウインドウ内をクリック/タップ、スクロールで閉じることができます。
 
-![桜](/post/only-css-popup-image/sakura.jpg)
+![桜](/post/kqkyf5/sakura.jpg)
 
-![スイセン](/post/only-css-popup-image/suisen.jpg)
+![スイセン](/post/kqkyf5/suisen.jpg)
 
 
 ## 仕様
@@ -479,6 +479,7 @@ pixelViewer('p > img');
 素人設計ですが使いたいという方がいらっしゃいましたら、ご自由にお使いください。
 
 このプラグインをJavaScriptを使わずCSSのみで再現するというお遊び記事も書いてるので、実用性はありませんが、よろしければご覧ください。
+
 [CSSのみでクリックで画像を拡大する（Lightboxもどき）](/post/only-css-popup-image/)
 
 
