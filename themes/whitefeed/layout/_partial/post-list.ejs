@@ -6,9 +6,9 @@
                 <time class="post-list__date" datetime="<%- post.date.format() %>">
                   <%- post.date.format(config.date_format) %>
                 </time>
-                <div class="post-list__content">
+                <p class="post-list__desc">
                   <%= truncate(strip_html(post.content), {length: 80}) %>
-                </div>
+                </p>
             </a>
         </li>
     <% }) %>
