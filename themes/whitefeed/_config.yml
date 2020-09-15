@@ -5,14 +5,8 @@ widgets:
 - search_duck
 
 
-sitemap1:
-  ホーム: /
-  カテゴリー: /category/
-  アーカイブ: /archive/
-  検索: /search/
-
-sitemap2:
-  プロフィール: /about/
-  お問い合わせ: /contact/
-  プライバシーポリシー: /privacy/
-  RSS: /atom.xml
+sitemap:
+  Category: /category/
+  Tag: /tag/
+  Archive: /archive/
+  About: /about/

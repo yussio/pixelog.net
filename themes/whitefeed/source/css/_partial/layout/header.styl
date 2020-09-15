@@ -1,14 +1,51 @@
 .header
-    line-height 72px
-    background var(--bg-color)
+    padding 6em var(--outer)
+    background linear-gradient(
+      180deg,
+      #000000,
+      #000000,
+      #000000,
+      #000000,
+      #005071,
+      #005071,
+      #006c99,
+      #8acfff,
+      #8acfff,
+      #8acfff,
+      #8acfff,
+      #8acfff,
+
+      #8acfff,
+      #8acfff,
+      #8acfff,
+      #8acfff,
+      #8acfff,
+      #efb2a0,
+      #efa0a0,
+      #005071,
+      #005071,
+      #000000,
+      #000000,
+      #000000)
+    background-size 100% 2400%
+    animation 24s sky linear infinite
 
     &__logo // h1のデフォルトfont-sizeを上書きするため
         max-width var(--width)
         margin auto
-        padding 0 var(--outer)
         box-sizing content-box
-        font-size var(--size-l1)
+        font-size var(--size-l3)
         font-weight bold
+        text-align center
 
     &__link
-        color var(--text-color)
+        color #fff
+
+
+
+@keyframes sky
+  0%
+    background-position 0% 0%
+
+  100%
+    background-position: 0% 100%

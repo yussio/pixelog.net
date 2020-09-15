@@ -1,18 +1,25 @@
 .sitemap
-    display flex
-    line-height 2.5
+    margin 3em 0 0 0
     font-size var(--size-s2)
 
     &__list
-        flex 1
-        list-style none
+        display flex
+        justify-content center
+
+    &__item
+        display block
+        margin 0 .75em
+        line-height 42px
 
     &__link
         display block
-        color var(--text-color)
+        padding 0 1em
+        color var(--text-light-color)
+        background rgba(255, 255, 255, .08)
+        border 1px solid rgba(255, 255, 255, .2)
+        border-radius .2em
         transition .15s ease
         transition-property background,color
 
         &:hover
-            color var(--text-hover-color)
-            background var(--bg-hover-color)
+            background rgba(255, 255, 255, .2)

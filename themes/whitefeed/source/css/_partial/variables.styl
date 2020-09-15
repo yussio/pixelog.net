@@ -1,5 +1,5 @@
 :root
-  --width 660px
+  --width 38em
   --outer 5vw
 
   --theme-color #5aa096
@@ -13,6 +13,8 @@
   --text-hover-color var(--theme-color)
   --text-sub-color #747474
   --text-disabled-color #eee
+  --text-light-color rgba(255, 255, 255, 0.7)
+  --text-light-sub-color rgba(255,255,255,.6)
 
   --border-color #e3e3e3
   --border-dark-color #ced4da
@@ -28,21 +30,3 @@
   --size-s1 calc(var(--num) * 1em / (var(--num) + 1)) // .888
   --size-s2 calc(var(--num) * 1em / (var(--num) + 2)) // .8
   --size-s3 calc(var(--num) * 1em / (var(--num) + 3)) // .727
-
-
-@media (prefers-color-scheme: dark)
-  :root
-    --theme-color #5aa096
-
-    --bg-color #171717
-    --bg-sub-color #1c1c1c
-    --bg-hover-color #111
-
-    --text-color #dedede
-    --text-link-color #8ab4f8
-    --text-hover-color var(--theme-color)
-    --text-sub-color #a8a8a8
-    --text-disabled-color #444
-
-    --border-color #4a4a4a
-    --border-dark-color #777

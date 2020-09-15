@@ -13,4 +13,13 @@ if(is_home()){
           <%= config.title %>
       </a>
   </<%= tagName %>>
+  <nav class="sitemap">
+      <ul class="sitemap__list">
+          <% for (var i in theme.sitemap){ %>
+              <li class="sitemap__item">
+                  <a class="sitemap__link" href="<%- theme.sitemap[i] %>"><%= i %></a>
+              </li>
+          <% } %>
+      </ul>
+  </nav>
 </header>
