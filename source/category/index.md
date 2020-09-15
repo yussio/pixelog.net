@@ -1,4 +1,4 @@
 ---
 title: カテゴリー
-layout: all-category
+layout: category
 ---

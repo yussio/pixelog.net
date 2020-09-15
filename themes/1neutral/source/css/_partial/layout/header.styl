@@ -1,0 +1,26 @@
+.header
+    padding 6em 0
+    background linear-gradient(230deg,#cf4b8a,#4b79cf,#4bcf7a)
+    background-size 300% 300%
+    animation 30s sky ease infinite
+
+    &__logo // h1のデフォルトfont-sizeを上書きするため
+        margin auto
+        font-size var(--size-l3)
+        font-weight bold
+        text-align center
+
+    &__link
+        color #fff
+
+
+
+@keyframes sky
+  0%
+    background-position 0% 84%
+
+  50%
+    background-position 100% 16%
+
+  100%
+    background-position: 0% 84%

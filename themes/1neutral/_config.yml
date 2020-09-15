@@ -1,11 +1,4 @@
-widgets:
-- category
-- tagcloud
-- archive
-- search_duck
-
-
-sitemap:
+nav:
   Category: /category/
   Tag: /tag/
   Archive: /archive/

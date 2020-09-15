@@ -99,7 +99,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: whitefeed
+theme: 1neutral
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -110,8 +110,8 @@ deploy:
 # ここから自由記述
 
 archive_generator:
-  yearly: false
-  monthly: false
+  yearly: true
+  monthly: true
   daily: false
 
 feed:
