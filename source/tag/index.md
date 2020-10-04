@@ -1,4 +1,0 @@
----
-title: タグ
-layout: tag
----

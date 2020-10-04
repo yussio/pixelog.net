@@ -1,7 +1,6 @@
 body
     color var(--text-color)
-    background var(--bg-sub-color)
-    font-size clamp(16px, calc((100vw - var(--width)) * .025 + 100%), 18px)
+    background var(--bg-color)
     font-family sans-serif
 
 a
@@ -35,3 +34,14 @@ code:not(.hljs)
     background var(--bg-color)
     font-size var(--size-s1)
     border-radius: 3px
+
+
+select
+    padding .25em .75rem
+    color var(--text-color)
+    background var(--bg-sub-color)
+    border 1px solid var(--border-dark-color)
+    border-radius .25em
+    -moz-appearance menulist-button
+    -webkit-appearance menulist-button
+    appearance menulist-button
