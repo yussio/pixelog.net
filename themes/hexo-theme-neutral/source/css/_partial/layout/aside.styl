@@ -1,8 +1,6 @@
 .aside
+    grid-template-columns repeat(auto-fit, minmax(224px, 1fr))
     display grid
     align-self start
     gap 4em
     font-size var(--size-s1)
-    +media(tabsp)
-        gap 56px
-        grid-template-columns repeat(auto-fit, minmax(224px, 1fr))
