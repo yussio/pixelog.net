@@ -6,7 +6,5 @@ widgets:
 - search_duck
 
 nav:
-  About: /about/
-  Privacy Policy: /privacy/
-  Contact: /contact/
+  サイトについて: /about/
   RSS: /atom.xml
