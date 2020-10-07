@@ -6,10 +6,12 @@ categories:
   - Web
   - Web制作
 tags:
+  - CSS
 ---
 
 このブログのトップページのページャーで、disabledになっているボタンにhoverしたとき、cursorをnot-allowedにしようとしたら効かなかった。何故だ...
 
+<!-- more -->
 
 
 ## やろうとしたこと

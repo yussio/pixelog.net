@@ -9,6 +9,7 @@ tags:
 
 昨日Gmailをふと開いてみると、8月21日に「Google Play Music サービスはまもなく終了します」というメールが届いていることに気づきました。
 
+<!-- more -->
 
 ## YouTube Music
 

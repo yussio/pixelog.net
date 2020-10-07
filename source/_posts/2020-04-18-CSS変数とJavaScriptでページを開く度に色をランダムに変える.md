@@ -10,30 +10,9 @@ tags:
   - CSS
 ---
 
-<script>
-function randomColor(name){
-  document.addEventListener('DOMContentLoaded', function(){
-    const btn = document.getElementById('change');
-    const current = document.getElementById('current-color');
-
-    randomColor();
-    btn.addEventListener('click', randomColor);
-
-    function randomColor(){
-      let result = "#";
-      for(let i = 0; i < 6; i++) {
-        result += (16*Math.random() | 0).toString(16);
-      }
-      document.documentElement.style.setProperty(name, result);
-      current.textContent = result;
-    }
-  });  
-}
-randomColor('--theme-color');
-</script>
-
-
 サイトを開くたびに色が変わったらなんか面白いのでは？と、ふと思いついたので、JavaScriptでランダムに生成したカラーコードを、CSS変数に代入して遊んでみます。
+
+<!-- more -->
 
 半分お遊びですね。
 
@@ -145,3 +124,25 @@ randomColor('--theme-color');
   background:#0062cc
 }
 </style>
+
+<script>
+function randomColor(name){
+  document.addEventListener('DOMContentLoaded', function(){
+    const btn = document.getElementById('change');
+    const current = document.getElementById('current-color');
+
+    randomColor();
+    btn.addEventListener('click', randomColor);
+
+    function randomColor(){
+      let result = "#";
+      for(let i = 0; i < 6; i++) {
+        result += (16*Math.random() | 0).toString(16);
+      }
+      document.documentElement.style.setProperty(name, result);
+      current.textContent = result;
+    }
+  });  
+}
+randomColor('--theme-color');
+</script>

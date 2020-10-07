@@ -14,6 +14,8 @@ tags:
 
 画像をクリックするとポップアップで拡大表示するプラグインを、HTMLとCSSのみで再現してみます。いわゆるLightboxやfancyboxのようなものです。
 
+<!--more-->
+
 <div class="alert warning">
 この記事で紹介する内容に実用性は全くありません。遊び半分でご覧ください。
 </div>

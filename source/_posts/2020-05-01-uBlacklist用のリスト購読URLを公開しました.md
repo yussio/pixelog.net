@@ -9,6 +9,8 @@ tags:
 
 Google Chromeに「[uBlacklist](https://chrome.google.com/webstore/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe?hl=ja)」という拡張機能があり、指定したドメインのサイトをGoogleの検索結果から排除することができます。
 
+<!-- more -->
+
 さらにこのプラグインには、WEB上に公開されているブラックリストを購読する機能が備わっています。既にある程度完成されたものを公開している方がおられるのでどうするか悩んだのですが、一応公開しておくことにしました。
 
 

@@ -13,6 +13,8 @@ tags:
 
 Hexoでは[Helper](https://hexo.io/api/helper)という機能が備わっており、よく使う機能は簡単に出力できるようになっています。その機能を利用すると下のように記述することで、簡単にカテゴリー一覧を出力できます。
 
+<!--more-->
+
 ```ejs
 <%- list_categories( {
     show_count: true

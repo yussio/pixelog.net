@@ -12,6 +12,9 @@ tags:
 
 Hexoのプラグイン、hexo-renderer-markdown-itでMarkdownをレンダリングした際、脚注の部分に下のようなHTMLがはき出されます。
 
+<!-- more -->
+
+
 ```html
 <hr class="footnotes-sep">
 <section class="footnotes">

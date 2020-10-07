@@ -6,9 +6,12 @@ categories:
   - Web
   - Web制作
 tags:
+  - CSS
 ---
 
 リセットCSSといえば、destyle.cssとかnormalize.cssとかress.cssなどいろいろあります。
+
+<!-- more -->
 
 当ブログではressを使っているのですが、これを当てると`<select>`のデフォルトスタイルにくっついている、右端の三角マークのアレ（▼）が消えます。
 

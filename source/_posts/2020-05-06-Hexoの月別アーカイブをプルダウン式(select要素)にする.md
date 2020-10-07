@@ -12,6 +12,8 @@ tags:
 
 Hexoでプルダウン式の月別アーカイブをサイドバーに置く方法。
 
+<!-- more -->
+
 Hexoでサイドバーに月別アーカイブを設置する際は、あらかじめ用意されている[Helper](https://hexo.io/docs/helpers)を使うのが簡単です。
 
 ```html

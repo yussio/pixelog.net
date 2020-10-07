@@ -13,6 +13,8 @@ tags:
 
 Hexoではデフォルトで、&lt;head&gt;間に下のようなmetaタグが自動で挿入されます。
 
+<!--more-->
+
 ```html
 <meta name="generator" content="Hexo 3.8.0">
 ```
