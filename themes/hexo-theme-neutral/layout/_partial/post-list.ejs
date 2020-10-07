@@ -28,7 +28,10 @@
                 </time>
                 <h2 class="post-list__title"><%- post.title || "Untitled" %></h2>
                 <p class="post-list__desc">
-                  <%= truncate(strip_html(post.content), {length: 80}) %>
+                  <%= strip_html(post.excerpt) %>
+                  <% if(post.excerpt === ""){ %>
+                      <%= truncate(strip_html(post.content), {length: 80}) %>
+                  <% } %>
                 </p>
             </a>
         </li>
