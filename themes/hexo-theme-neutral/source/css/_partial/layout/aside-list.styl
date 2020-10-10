@@ -34,6 +34,14 @@ $aside-list
         font-weight normal
         float right
 
+        &::before
+            content "("
+            padding-right .1em
+
+        &::after
+            content ")"
+            padding-left .1em
+
 
 .recent-posts-list
     @extend $aside-list
