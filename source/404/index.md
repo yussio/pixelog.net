@@ -39,7 +39,10 @@ sitemap: false
 <style>
 body {
   background: #000;
-  color: #fff;
+}
+
+:root{
+  --text-color: #fff;
 }
 
 .post__content {
