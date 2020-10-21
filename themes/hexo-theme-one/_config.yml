@@ -1,0 +1,10 @@
+widgets:
+- category
+- tagcloud
+- archive
+- recent-posts
+- search_duck
+
+nav:
+  記事一覧: /archive/
+  検索: https://duckduckgo.com/?q=site%3Apixelog.net

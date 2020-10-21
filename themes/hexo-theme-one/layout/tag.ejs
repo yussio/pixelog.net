@@ -1,0 +1,8 @@
+<% if(is_current('/tag/', 'strict')){ %>
+  <h1 class="main__title">タグ</h1>
+  <%- list_tags({
+    class: 'aside'
+  }) %>
+<% }else{ %>
+  <%- partial('_partial/post-list') %>
+<% } %>
