@@ -7,18 +7,39 @@ body
     font-size var(--size)
     font-size clamp(100%, calc((100vw - 640px) * 0.004 + 100%),112.5%)
     font-family sans-serif
+    line-height 1.8
     box-sizing content-box
+
+
+h1
+  font-size var(--size-l3)
+  line-height 1.4
+
+
+h2
+  margin 3em 0 0 0
+  font-size var(--size-l2)
+
+
+h3
+  margin 2em 0 0 0
+  font-size var(--size-l1)
+
 
 a
     color var(--text-color)
+    &:hover
+        color var(--theme-color)
+
 
 p
     margin var(--space)
-    line-height 1.8
+
 
 img
     max-width 100%
     vertical-align middle
+
 
 blockquote
     margin var(--space)
@@ -27,12 +48,15 @@ blockquote
     font-size var(--size-s1)
     border-left .25em solid var(--border-color)
 
+
 li>ul
     margin 0!important
+
 
 code
 pre
     font-family consolas, Menlo, monospace
+
 
 code:not(.hljs)
     margin 0 .5em
@@ -42,25 +66,38 @@ code:not(.hljs)
     border-radius: 3px
 
 
-select
-    padding .25em .75rem
-    color var(--text-color)
-    background var(--bg-sub-color)
-    border 1px solid var(--border-dark-color)
-    border-radius .25em
-    -moz-appearance menulist-button
-    -webkit-appearance menulist-button
-    appearance menulist-button
-
 section
     margin 6em 0
 
-h2
-    margin 0 0 1em 0
+
+dl
+    margin var(--space)
+
+
+dt:not(:first-child)
+    margin 2em 0 0 0
+
 
 dd
-    margin 0 0 0 2em
+    margin .5em 0 0 2em
     line-height 1.8
 
-dt
-    margin 1em 0 0 0
+
+table
+    width 100%
+    margin var(--space)
+    font-size 15px
+    word-break break-all
+    border-collapse collapse
+
+
+th
+    padding 6px
+    text-align center
+    border 1px solid var(--border-color)
+    background var(--bg-color)
+
+
+td
+    padding 6px 12px
+    border 1px solid var(--border-color)

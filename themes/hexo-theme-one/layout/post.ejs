@@ -1,5 +1,6 @@
 <article class="post">
     <header class="post__header">
+        <h1 class="post__title"><%- page.title || "Untitled" %></h1>
         <div class="post__date">
             <time class="post__published" datetime="<%- page.date.format() %>">
               <%- page.date.format(config.date_format) %>
@@ -10,9 +11,8 @@
                 </time>
             <% } %>
         </div>
-        <h1 class="post__title"><%- page.title || "Untitled" %></h1>
     </header>
-    <div class="post__content"><%- page.content %></div>
+    <div class="content"><%- page.content %></div>
     <footer class="post__footer">
         <div class="post__ad">
             <!-- 記事下広告 -->

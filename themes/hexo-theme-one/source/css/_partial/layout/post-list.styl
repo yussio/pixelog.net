@@ -1,5 +1,6 @@
 .post-list
     display grid
+    margin var(--space)
     gap 3em
 
     &__item
@@ -9,13 +10,9 @@
     &__link
         display inline-block
         word-break break-all
-        &:hover
-            text-decoration underline
-            color var(--text-hover-color)
 
 
     &__date
         display block
-        margin 0 0 .5em 0
         color var(--text-sub-color)
         font-size var(--size-s2)
