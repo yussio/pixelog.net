@@ -1,8 +1,0 @@
-<% if(is_current('/category/', 'strict')){ %>
-  <h1 class="main__title">カテゴリー</h1>
-  <%- list_categories({
-    class: 'aside'
-  }) %>
-<% }else{ %>
-  <%- partial('_partial/post-list') %>
-<% } %>

@@ -1,27 +1,28 @@
-<section>
-  <h2>最近の投稿</h2>
-  <%- partial('_partial/post-list') %>
+<%
+    var years = {};
+    page.posts.sort('date').reverse().forEach(function(post){
+        var year = post.date.year()
+        if(years[year]===undefined){
+            years[year] = [];
+        }
+        years[year].push(post);
+    });
+%>
+
+<% Object.keys(years).reverse().forEach(function(year){  %>
+<section class="index">
+    <h2 class="index__year"><%= year %>年</h2>
+    <ul class="index__list">
+    <% years[year].map(function(post){  %>
+        <li class="index__item">
+          <time class="index__date" datetime="<%- post.date.format() %>">
+            <%- post.date.format('MM月DD日') %>
+          </time>
+          <a class="index__link" href="<%- url_for(post.path) %>">
+            <%- post.title || "Untitled" %>
+          </a>
+        </li>
+    <% }) %>
+    </ul>
 </section>
-<section>
-  <h2>リンク</h2>
-  <dl>
-    <dt>
-      <a href="/about/">サイトについて</a>
-    </dt>
-    <dd>
-      プロフィール、サイトの構成、プライバシーポリシーなど
-    </dd>
-    <dt>
-      <a href="/atom.xml">RSS</a>
-    </dt>
-    <dd>
-      ブログの更新情報をRSSで配信しています。
-    </dd>
-    <dt>
-      <a href="/contact/">メールフォーム</a>
-    </dt>
-    <dd>
-      当サイトに関してご不明点などがありましたら、メールフォームよりご連絡ください。（Twitter等のSNSアカウントは所持しておりません。）
-    </dd>
-  </dl>
-</section>
+<% }) %>
