@@ -109,11 +109,6 @@ deploy:
 
 # ここから自由記述
 
-archive_generator:
-  yearly: false
-  monthly: false
-  daily: false
-
 feed:
   type: atom
   path: atom.xml
