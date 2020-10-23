@@ -11,12 +11,12 @@
 
 <% Object.keys(years).reverse().forEach(function(year){  %>
 <section class="index">
-    <h2 class="index__year"><%= year %></h2>
+    <h2 class="index__year"><%= year %>年</h2>
     <ul class="index__list">
     <% years[year].map(function(post){  %>
         <li class="index__item">
           <time class="index__date" datetime="<%- post.date.format() %>">
-            <%- post.date.format('MM-DD') %>
+            <%- post.date.format('MM月DD日') %>
           </time>
           <a class="index__link" href="<%- url_for(post.path) %>">
             <%- post.title || "Untitled" %>
