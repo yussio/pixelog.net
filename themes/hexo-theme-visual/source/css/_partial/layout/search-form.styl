@@ -1,0 +1,47 @@
+.search-form
+    line-height 42px
+    position relative
+
+    &__input
+        width 100%
+        padding 0 36px 0 16px
+        color var(--text-color)
+        border 1px solid var(--border-dark-color)
+        border-radius 30px
+
+        &::placeholder
+            color var(--text-sub-color)
+
+
+    &__btn
+        padding 9px
+        position absolute
+        top 8px
+        right 8px
+
+
+.gg-search
+    box-sizing border-box
+    position relative
+    display block
+    transform scale(var(--ggs,.8))
+    width 16px
+    height 16px
+    border 2px solid
+    border-radius 100%
+    margin-left -4px
+    margin-top -4px
+    color var(--theme-color)
+
+.gg-search::after
+    content ""
+    display block
+    box-sizing border-box
+    position absolute
+    border-radius 3px
+    width 2px
+    height 8px
+    background currentColor
+    transform rotate(-45deg)
+    top 10px
+    left 12px

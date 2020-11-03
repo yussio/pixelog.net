@@ -1,0 +1,32 @@
+.pager
+    display flex
+    margin 2.5em 0 0 0
+    font-family Consolas, monospace
+    justify-content space-between
+    align-items center
+
+    &__btn
+        color var(--text-color)
+        transition .15s color ease
+
+        &:hover
+            color var(--text-hover-color)
+
+        &.disabled
+            color var(--text-disabled-color)
+            cursor not-allowed
+
+
+        &.newer
+            &::before
+                content "<"
+                margin 0 .5em 0 0
+
+        &.older
+            &::after
+                content ">"
+                margin 0 0 0 .5em
+
+
+    &__current
+        min-width 4.5em

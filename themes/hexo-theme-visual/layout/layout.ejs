@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head prefix="og: http://ogp.me/ns#">
+    <%- partial('_partial/head') %>
+</head>
+<body>
+      <%- partial('_partial/header') %>
+      <div class="frame">
+          <main class="main">
+              <%- body %>
+          </main>
+          <%- partial('_partial/aside') %>
+      </div>
+      <%- partial('_partial/footer') %>
+    <script type="application/ld+json"><%- partial('_partial/ld+json') %></script>
+</body>
+</html>

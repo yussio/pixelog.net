@@ -1,0 +1,66 @@
+.post
+    &__title
+        margin 0 0 1.5em 0
+        font-size var(--size-l3)
+        word-break break-all
+
+    &__date
+        display flex
+        margin 0 0 .5em 0
+        color var(--text-sub-color)
+        font-size var(--size-s2)
+
+    &__updated
+        margin 0 0 0 1em
+
+
+    &__content
+        line-height 1.75
+        text-align justify
+        word-break break-all
+
+        a
+          color var(--text-link-color)
+          &:hover
+              text-decoration underline
+
+        h2
+          margin var(--space-l)
+          font-size var(--size-l2)
+
+        h3
+          font-size var(--size-l1)
+          margin var(--space-l)
+
+        ul
+        ol
+            margin var(--space)
+            padding-left 1.25em
+
+        li
+            margin var(--space-s)
+
+
+        & > table
+            width 100%
+            margin var(--space)
+            font-size 15px
+            word-break break-all
+            border-collapse collapse
+
+            th
+                padding 6px
+                text-align center
+                border 1px solid var(--border-color)
+                background var(--bg-color)
+
+            td
+                padding 6px 12px
+                border 1px solid var(--border-color)
+
+
+    &__footer
+        margin-top 3.5em
+
+    &__ad
+        margin-top 3.5em

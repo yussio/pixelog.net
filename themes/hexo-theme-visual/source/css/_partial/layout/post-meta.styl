@@ -1,0 +1,33 @@
+.post-meta
+    margin .75em 0
+    color var(--text-sub-color)
+    font-size var(--size-s1)
+    line-height 2
+
+    &__dt
+        margin-right .5em
+        float left
+
+
+    &__list
+        display flex
+        flex-wrap: wrap
+        list-style none
+
+    &__item
+        &.category
+            &:not(:last-child)::after
+                content ">"
+                margin 0 .5em
+                font-family Consolas, monospace
+        &.tag
+            &:not(:last-child)::after
+                content ","
+                margin 0 .5em 0 0
+                font-family Consolas, monospace
+
+
+    &__link
+        color var(--text-link-color)
+        &:hover
+            text-decoration underline
