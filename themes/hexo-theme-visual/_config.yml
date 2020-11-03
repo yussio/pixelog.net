@@ -2,7 +2,6 @@ widgets:
 - category
 - tagcloud
 - archive
-- recent-posts
 - search_duck
 
 nav:

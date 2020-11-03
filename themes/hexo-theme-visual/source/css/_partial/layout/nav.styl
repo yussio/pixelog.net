@@ -1,15 +1,20 @@
 .nav
-    max-width var(--width)
-    margin auto
+    display none
+    padding 0 5vw
+    line-height 48px
+    border-top 1px solid rgba(255, 255, 255, .2)
+    background rgba(255, 255, 255, .2)
+    backdrop-filter: blur(4px)
 
     &__list
         display flex
+        max-width var(--width)
+        margin auto
         flex-wrap wrap
-        justify-content flex-end
 
     &__item
         display block
-        margin 0 0 0 2em
+        margin 0 2em 0 0
         font-size var(--size-s1)
 
     &__link
