@@ -1,4 +1,4 @@
-$aside-list
+.aside-list
     list-style none
 
     &-link
@@ -10,11 +10,6 @@ $aside-list
         &:hover
             color var(--text-hover-color)
 
-
-.category-list
-    @extend $aside-list
-
-    &-link
         &.current
             background var(--bg-current-color)
             font-weight bold
@@ -22,10 +17,10 @@ $aside-list
     &-child
         list-style none
 
-        & .category-list-link
+        & .aside-list-link
             padding-left 2.5em
 
-        & .category-list-child  .category-list-link
+        & .aside-list-child  .aside-list-link
             padding-left 5em
 
 
@@ -41,7 +36,3 @@ $aside-list
         &::after
             content "]"
             padding-left .1em
-
-
-.recent-posts-list
-    @extend $aside-list

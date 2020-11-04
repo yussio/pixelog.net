@@ -1,5 +1,5 @@
 <h4 class="<%= block %>__title">カテゴリー</h4>
-<ul class="category-list">
+<ul class="aside-list">
     <%
     // https://github.com/hexojs/hexo/issues/3588
     function displayCategories(parent = undefined) {
@@ -10,18 +10,18 @@
                 // count the child categories
                 const childCount = site.categories.find({ parent: category._id }).count();
                 %>
-                <li class="category-list-item">
+                <li class="aside-list-item">
                     <a
-                      class="category-list-link
+                      class="aside-list-link
                       <% if(is_category(category.name)) { %>current<% } %>"
                       href="<%=url_for(category.path)%>">
                       <%= category.name %>
-                      <span class="category-list-count">
+                      <span class="aside-list-count">
                           <%= category.length %>
                       </span>
                     </a>
                     <% if (childCount > 0) { %>
-                        <ul class="category-list-child">
+                        <ul class="aside-list-child">
                             <% displayCategories(category._id); %>
                         </ul>
                     <% } %>
