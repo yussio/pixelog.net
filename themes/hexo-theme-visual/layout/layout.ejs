@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
 <head prefix="og: http://ogp.me/ns#">
-    <%- partial('_partial/head') %>
+  <%- partial('_partial/head') %>
 </head>
 <body>
-      <%- partial('_partial/header') %>
-      <div class="frame">
-          <main class="main">
-              <%- body %>
-          </main>
-          <%- partial('_partial/aside') %>
-      </div>
-      <%- partial('_partial/footer') %>
-    <script type="application/ld+json"><%- partial('_partial/ld+json') %></script>
+  <%- partial('_partial/header') %>
+  <div class="frame">
+    <main class="main">
+    <%- body %>
+    </main>
+    <%- partial('_partial/aside') %>
+  </div>
+  <%- partial('_partial/footer') %>
+  <script type="application/ld+json"><%- partial('_partial/ld+json') %></script>
+  <script>
+    !function(){
+      var
+      w=window,cl=console,
+      updateEvents=['scroll','resize'],
+      elements=document.querySelectorAll(arguments[0]),
+      nmBackgroundPosition='backgroundPosition',
+      nmBackgroundAttachment='backgroundAttachment';
+
+      function updateBackground(rect,style)
+      {
+        var
+          innerHeight=w.innerHeight,
+          rectHeight=rect.height,
+          rectTop=rect.top,
+          rectBottomOffset=rectTop+rectHeight,
+          offset=0;
+
+        if((-1*rectTop)>rectHeight||rectTop>innerHeight)
+          return;
+
+        if(rectTop<0)
+          offset=-1*rectTop>>1;
+
+        if(rectBottomOffset>innerHeight)
+          offset=-1*(rectBottomOffset-innerHeight)>>1;
+
+        style[nmBackgroundPosition]=(style[nmBackgroundPosition].split(' ')[0]||'50%')+' '+offset+'px';
+
+        if(style[nmBackgroundAttachment]!=='scroll')
+          style[nmBackgroundAttachment]='scroll';
+      }
+
+      function iterateElements(i)
+      {
+        for(i=elements.length;i--;)
+          updateBackground(elements[i].getBoundingClientRect(),elements[i].style);
+      }
+
+      if(elements.length){
+        for(var i in updateEvents)
+          addEventListener(updateEvents[i],iterateElements);
+        iterateElements();
+      }
+    }
+    ('.header')
+  </script>
 </body>
 </html>
