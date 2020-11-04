@@ -5,8 +5,3 @@ widgets:
 - recent-post-list
 - page-list
 - search_duck
-
-nav:
-  About: /about/
-  Contact: /contact/
-  RSS: /atom.xml
