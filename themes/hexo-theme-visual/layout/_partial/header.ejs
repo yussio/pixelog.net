@@ -8,14 +8,6 @@ if(is_home()){
 %>
 
 <header class="header" id="header">
-  <div class="header__inner">
-      <<%= tagName %> class="header__logo">
-          <a class="header__link" href="<%= url_for('/') %>">
-              <%= config.title %>
-          </a>
-      </<%= tagName %>>
-      <div class="header__desc"><%= config.description %></div>
-  </div>
   <nav class="nav">
       <ul class="nav__list">
           <% for (var i in theme.nav){ %>
@@ -24,5 +16,13 @@ if(is_home()){
               </li>
           <% } %>
       </ul>
-  </nav>
+  </nav>  
+  <div class="header__inner">
+      <<%= tagName %> class="header__logo">
+          <a class="header__link" href="<%= url_for('/') %>">
+              <%= config.title %>
+          </a>
+      </<%= tagName %>>
+      <div class="header__desc"><%= config.description %></div>
+  </div>
 </header>
