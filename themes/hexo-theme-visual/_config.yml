@@ -6,4 +6,5 @@ widgets:
 
 nav:
   About: /about/
+  Contact: /contact/
   RSS: /atom.xml
