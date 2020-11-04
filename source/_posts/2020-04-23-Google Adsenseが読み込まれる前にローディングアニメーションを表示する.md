@@ -10,11 +10,11 @@ tags:
   - CSS
 ---
 
-Google Adsenseって微妙に読み込まれるのが遅いですよね。空白の部分にいきなり広告が現れるとなんかびっくりするというか...
+Google Adsenseは広告が表示されるまでに時間がかかります。空白の部分にいきなり広告が現れるとなんかびっくりするというか...
 
 <!-- more -->
 
-ということで、広告が表示される前にローディングスピナー（読み込み中によく見るやつ）を表示して、閲覧者のストレスを軽減しよう、というのがこの記事での試みです。
+ということで、広告が表示される前にローディングスピナーを表示して、閲覧者のストレスを軽減しよう、というのがこの記事での試みです。
 
 
 ## デモ
@@ -83,3 +83,33 @@ HTMLの部分は、まずアドセンスのコードを`div`で囲っておき�
 ## まとめ
 
 軽量なCSSアニメーションなので、ページの表示速度にはほぼ影響を与えません。ちょっとした工夫でユーザーフレンドリーになるので、ぜひ挑戦してみてください。
+
+<style>
+.loading {
+  position: relative;
+}
+
+.loading::before {
+  --spinner-size: 36px;
+  content: "";
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  border: 2px solid #e3e3e3; /* リングの灰色部分 */
+  border-top-color: #3fb5bd; /* リング色がついてるところ */
+  border-radius: 50%;
+  animation: spinner 0.4s linear infinite; /* 回転速度 */
+  position: absolute;
+  top: calc(50% - 0.5 * var(--spinner-size));
+  left: calc(50% - 0.5 * var(--spinner-size));
+  z-index: 0;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>

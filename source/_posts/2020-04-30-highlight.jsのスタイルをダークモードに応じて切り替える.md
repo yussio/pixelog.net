@@ -19,7 +19,7 @@ tags:
 
 ## 表示サンプル
 
-ヘッダーにあるダークモードスイッチで切り替えてみてください。atom-one-lightとatom-one-darkが入れ替わります。
+~~ヘッダーにあるダークモードスイッチで切り替えてみてください。atom-one-lightとatom-one-darkが入れ替わります。~~
 
 ```typescript
 class MyClass {
