@@ -9,7 +9,7 @@ tags:
   - CSS
 ---
 
-このブログのトップページのページャーで、disabledになっているボタンにhoverしたとき、cursorをnot-allowedにしようとしたら効かなかった。何故だ...
+このブログのトップページのページャーで、disabledになっているボタンにhoverしたとき、cursorをnot-allowedにしようとしたらうまく適用されず、気になって調べたことのメモ。
 
 <!-- more -->
 
@@ -29,7 +29,7 @@ tags:
 
 <a class="btn disabled " style="pointer-events:none;cursor:not-allowed;">ボタン</a>
 
-同じclassに`pointer-events: none` と `cursor: not-allowed`を指定してボタンにホバーしても、カーソルが禁止マークにならない。pointer-eventsの動作ははカーソルにまで及んでしまうらしい。
+同じclassに`pointer-events: none` と `cursor: not-allowed`を指定してボタンにホバーしても、カーソルが禁止マークになりません。pointer-eventsの動作はカーソルにまで及んでしまうみたいです。
 
 
 ## 解決方法
@@ -58,8 +58,8 @@ tags:
 
 ## 余談
 
-とは言っても、これだけの為にわざわざ、もう一つ要素増やして囲みたくなんかないわボケェ！って感じですよね。腑に落ちない。
+とは言っても、これだけの為にわざわざ、もう一つ要素増やして囲みたくなんかないですよね。
 
 自分が`pointer-events: none`を指定する理由は、hover時に背景色がつくのを取りやめたい、というだけものだったので、結局、disabledボタンにhoverしたときは、`background: none`にする、という方法で対処しました。
 
-pointer-eventsは便利なプロパティなのですが、JSやその他諸々の動作をCSSで押さえつける、わりと姑息な手段のような気がする（偏見）ので、そもそも何でpointer-eventsを使いたいのか今一度考える方がいいかもしれないです。
+pointer-eventsは便利なプロパティですが、JSやその他諸々の動作をCSSで押さえつけるという姑息な手段で使ってしまわないよう、他の手段を考えてみるのもいいかもしれません。
