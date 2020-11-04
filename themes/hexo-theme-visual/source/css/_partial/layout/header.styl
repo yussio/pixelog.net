@@ -1,17 +1,19 @@
 .header
-    color #fff
     background url(/img/header.jpg) bottom
     background-size cover
 
-    &__inner
-        max-width var(--width)
-        margin auto
-        padding 6em 5vw
-        box-sizing content-box
+
+    &__link
+        display block
+        padding 6em 0
+        color #fff
+        text-align center
+
 
     &__logo // h1のデフォルトfont-sizeを上書きするため
         font-size var(--size-l4)
         font-weight 600
+
 
     &__desc
         font-size var(--size-s3)

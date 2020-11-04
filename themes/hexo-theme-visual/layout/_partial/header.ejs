@@ -8,12 +8,12 @@ if(is_home()){
 %>
 
 <header class="header" id="header">
-  <div class="header__inner">
-      <<%= tagName %> class="header__logo">
-          <a class="header__link" href="<%= url_for('/') %>">
-              <%= config.title %>
-          </a>
-      </<%= tagName %>>
-      <div class="header__desc"><%= config.description %></div>
-  </div>
+  <a class="header__link" href="<%= url_for('/') %>">
+    <<%= tagName %> class="header__logo">
+      <%= config.title %>        
+    </<%= tagName %>>
+    <div class="header__desc">
+      <%= config.description %>
+    </div>
+  </a>
 </header>
