@@ -1,7 +1,7 @@
 widgets:
-- category-list
+- category
 - tagcloud
-- archive-select
-- recent-post-list
-- page-list
+- archive
+- recent-posts
+- link
 - search_duck
