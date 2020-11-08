@@ -22,7 +22,8 @@ Google Chromeに「[uBlacklist](https://chrome.google.com/webstore/detail/ublack
 - naverまとめなどのキュレーションメディア
 - 「●●●●の身長やWik風プロフィール！顔写真はや高校は？結婚している？●●●との馴れ初めは？●●●って本当？」のような記事があるサイト
 
-<div class="alert warning">このリストに挙がっているサイトを攻撃する意図は一切ございません。ご理解くださいますよう、よろしくお願いします。</div>
+<p class="alert warning">このリストに挙がっているサイトを攻撃する意図は一切ございません。ご理解くださいますよう、よろしくお願いします。
+</p>
 
 
 ## 購読方法

@@ -20,9 +20,9 @@ titleタグを後で変更すると、Google Analytcisで別ページ扱いに�
 
 ## EJS
 
-<div class="alert notice">
+<p class="alert">
 (2020-07-30) 全体のアーカイブでtitleがundefinedになるのを修正しました。
-</div>
+</p>
 
 ```html
 <%

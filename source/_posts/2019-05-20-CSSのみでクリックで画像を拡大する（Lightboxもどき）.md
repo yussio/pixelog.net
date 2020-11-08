@@ -16,9 +16,9 @@ tags:
 
 <!--more-->
 
-<div class="alert warning">
+<p class="alert warning">
 この記事で紹介する内容に実用性は全くありません。遊び半分でご覧ください。
-</div>
+</p>
 
 ## デモ
 
