@@ -13,16 +13,17 @@ tags:
 
 <!--more-->
 
-これは、リンクが大文字小文字混合なのに対し、ページのURLは小文字に統一されていることから発生していました。
+これはリンクが大文字小文字混合なのに対し、ページのURLは小文字に統一されていることから発生していました。
 
 
 ## Netlifyで大文字URLは使えない
 
-ローカルでサーバーを立ち上げて確認するときには、URLは大文字小文字混合になっているので、Netlify側に問題があると思い調べてみると...ほんの僅かに情報がありました。
+ローカルでサーバーを立ち上げて確認するときURLは大文字小文字混合になっているので、Netlify側に問題があると思い調べてみると...ほんの僅かに情報がありました。
 
 > However, I found that unfortunately this is not a thing that works with Netlify (which I use to host my site) because it actually makes all filenames lowercase, removing any case sensitivity you had set up.
 > This is an underdocumented gotcha that I found on their community forums. This has meant that unfortunately I've had to change the implementation of my random filename generation to not use uppercase characters.
->[Gotcha: Netlify Makes All Your Filenames Case-Insensitive](https://www.jvt.me/posts/2019/11/11/gotcha-netlify-lowercase/)
+
+[Gotcha: Netlify Makes All Your Filenames Case-Insensitive](https://www.jvt.me/posts/2019/11/11/gotcha-netlify-lowercase/)
 
 Netlifyのドキュメントでは書かれていませんが、コミュニティフォーラムでこのことについて言及している投稿が2件ほどありました。どうやらNetlifyでは大文字のファイルをアップロードすることは許可されておらず、管理画面から設定を変更することもできない模様です。
 
