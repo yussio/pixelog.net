@@ -16,11 +16,11 @@ date: 2020-01-26 12:32:19
   <p>
     <label>本文: <textarea name="message" required></textarea></label>
   </p>
+  <p style="font-size: 14px">
+    <a href="/about/#メールフォーム">プライバシーポリシー</a>をご確認いただき、記載されている内容に関して同意の上、お問い合わせください。
+  </p>
   <p>
     <button id="submit" type="submit">送信</button>
-  </p>
-  <p style="font-size: 14px">
-    ご入力いただいた個人情報はお問い合わせに対する返信に利用させていただくものであり、それ以外の目的では利用いたしません。また個人情報は適切に管理し、法令等への協力のため、開示が必要となる場合を除いて第三者に開示することはありません。
   </p>
 </form>
 
