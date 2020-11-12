@@ -9,7 +9,7 @@ tags:
   - npm
 ---
 
-HexoでMarkdownについていろいろ調べてみると、デフォルトで入っているhexo-renderer-markedの代わりにhexo-renderer-markdown-itを導入しているブログが多い[^1]ようなんですね。
+HexoでMarkdownについていろいろ調べてみると、デフォルトで入っているhexo-renderer-markedの代わりにhexo-renderer-markdown-itを導入しているブログが多いようなんですね。
 
 <!-- more -->
 
@@ -61,6 +61,3 @@ markdown:
 ```
 
 括弧の中の文字はリンクと脚注のラベリングで、2つが一致していれば数字でなくとも可、とのことです。
-
-
-[^1]: 自分調べ
