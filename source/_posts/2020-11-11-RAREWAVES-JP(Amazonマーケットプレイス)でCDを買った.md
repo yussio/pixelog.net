@@ -14,8 +14,7 @@ AmazonマーケットプレイスでRAREWAVES-JPという海外の会社からCD
 
 ## 買った商品
 
-<a href="https://www.amazon.co.jp/gp/product/B002NFCHBA/ref=as_li_ss_il?ie=UTF8&psc=1&linkCode=li3&tag=pixelog07-22&linkId=7d4d6d3fc573e3c381f5f58605b303ee&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B002NFCHBA&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=pixelog07-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=pixelog07-22&language=ja_JP&l=li3&o=9&a=B002NFCHBA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />  
-[Chopin Complete Edition](https://amzn.to/38Kbq6f)
+{% amazon B002NFCHBA 'Amazon | Chopin Complete Edition | Various Artists, ショパン, ツィマーマン, アラウ, ウゴルスキ, アシュケナージ, マリア・ジョアン・ピリス, ポリーニ, アルゲリッチ | 交響曲・管弦楽曲・協奏曲 | 音楽' %}
 
 ショパンの全作品が収録されているCDボックス。
 
