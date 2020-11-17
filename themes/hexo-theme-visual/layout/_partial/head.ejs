@@ -31,6 +31,7 @@
 <% if(page.sitemap === false) { %><meta name="robots" content="noindex,follow"><% } %>
 <%- open_graph() %>
 <%- feed_tag() %>
+<link rel="search" type="application/opensearchdescription+xml" title="<%= config.title %>" href="/opensearch.xml">
 <%- css('css/style.css') %>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68420269-3"></script>
 <script>
