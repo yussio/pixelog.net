@@ -3,7 +3,7 @@ title: Feedly・Inoreaderの購読ページのURLを生成
 date: 2020-11-19 15:55:47
 post_id: 37us5c
 categories:
-  - Web制作
+  - Web
   - その他
 tags:
 ---
