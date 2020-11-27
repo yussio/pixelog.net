@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Pixelog</title>
+  
+  
+  <link href="https://pixelog.net/atom.xml" rel="self"/>
+  
+  <link href="https://pixelog.net/"/>
+  <updated>2020-11-19T06:55:47.000Z</updated>
+  <id>https://pixelog.net/</id>
+  
+  <author>
+    <name>yussy</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Feedly・Inoreaderの購読ページのURLを生成</title>
+    <link href="https://pixelog.net/post/37us5c/"/>
+    <id>https://pixelog.net/post/37us5c/</id>
+    <published>2020-11-19T06:55:47.000Z</published>
+    <updated>2020-11-19T06:55:47.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;FeedlyとInoreaderの購読ページのURLを生成するツールです。ページ先ではログインなしでそれぞれの購読者数を確認することもできます。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="その他" scheme="https://pixelog.net/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>旧愛生会病院HPをCSSアニメーションで再現するサンプル4種</title>
+    <link href="https://pixelog.net/post/y5xwcr/"/>
+    <id>https://pixelog.net/post/y5xwcr/</id>
+    <published>2020-11-18T06:36:02.000Z</published>
+    <updated>2020-11-18T06:36:02.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;サイケデリックで目の痛いデザインで有名な旧愛生会病院のホームページをCSSアニメーションで再現してみるサンプル。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Web制作" scheme="https://pixelog.net/category/web/web%E5%88%B6%E4%BD%9C/"/>
+    
+    
+    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+    <category term="CSSアニメーション" scheme="https://pixelog.net/tag/css%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HexoのショートコードでAmazonアソシエイトリンクを挿入</title>
+    <link href="https://pixelog.net/post/y7cfvk/"/>
+    <id>https://pixelog.net/post/y7cfvk/</id>
+    <published>2020-11-15T06:15:29.000Z</published>
+    <updated>2020-11-15T06:15:29.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Hexoでショートコードを使ってAmazonの商品リンクを簡単に挿入する方法のメモ。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Hexo" scheme="https://pixelog.net/category/web/hexo/"/>
+    
+    
+    <category term="JavaScript" scheme="https://pixelog.net/tag/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>昔ながらの個人サイトを探せる検索エンジンを作った</title>
+    <link href="https://pixelog.net/post/nhm745/"/>
+    <id>https://pixelog.net/post/nhm745/</id>
+    <published>2020-11-13T10:19:13.000Z</published>
+    <updated>2020-11-13T10:19:13.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;昨今のトレンドブログしか出ない検索画面にうんざりしているので、Googleカスタム検索で昔ながらの個人サイト（訪問者カウンターやキリ番報告所があるようなサイト）を探せる検索エンジンを作ってみた。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="雑記" scheme="https://pixelog.net/category/%E9%9B%91%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>テキストエディタをAtomからVSCodeに乗り換えた</title>
+    <link href="https://pixelog.net/post/h9x6ki/"/>
+    <id>https://pixelog.net/post/h9x6ki/</id>
+    <published>2020-11-13T09:42:44.000Z</published>
+    <updated>2020-11-13T09:42:44.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今までテキストエディタにはAtomを使っていたけれどVSCodeに乗り換えたので感想など。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="雑記" scheme="https://pixelog.net/category/%E9%9B%91%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>RAREWAVES-JP(Amazonマーケットプレイス)でCDを買った</title>
+    <link href="https://pixelog.net/post/a4txye/"/>
+    <id>https://pixelog.net/post/a4txye/</id>
+    <published>2020-11-11T09:56:11.000Z</published>
+    <updated>2020-11-11T09:56:11.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;AmazonマーケットプレイスでRAREWAVES-JPという海外の会社からCDを買った。名前にJPがつくので国内に支社がありそうだが、ロンドンから届いた。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="雑記" scheme="https://pixelog.net/category/%E9%9B%91%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>画像のtitle属性をキャプションとして利用する</title>
+    <link href="https://pixelog.net/post/6u9kwn/"/>
+    <id>https://pixelog.net/post/6u9kwn/</id>
+    <published>2020-11-09T06:00:00.000Z</published>
+    <updated>2020-11-09T06:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;下のサイトで紹介されているtitle属性をキャプションに変換するアイデアが素晴らしかったので、参考にさせていただいた。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://r7kamura.com/articles/2020-11-07-image-caption-revised&quot;&gt;画像のキャプション title属性編&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Hexo" scheme="https://pixelog.net/category/web/hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>記事内で使えるアラート表示のテンプレート3種</title>
+    <link href="https://pixelog.net/post/usm859/"/>
+    <id>https://pixelog.net/post/usm859/</id>
+    <published>2020-11-09T03:15:06.000Z</published>
+    <updated>2020-11-09T03:15:06.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;このブログの記事内で使っているアラート表示の装飾。ブログ記事作成に役立つ。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Web制作" scheme="https://pixelog.net/category/web/web%E5%88%B6%E4%BD%9C/"/>
+    
+    
+    <category term="HTML" scheme="https://pixelog.net/tag/html/"/>
+    
+    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSSアニメーションの開始位置をランダムにする</title>
+    <link href="https://pixelog.net/post/n2yg4u/"/>
+    <id>https://pixelog.net/post/n2yg4u/</id>
+    <published>2020-11-08T03:27:11.000Z</published>
+    <updated>2020-11-08T03:27:11.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CSSアニメーションはロード直後に0%から開始するが、ページを開いていつも同じ場所から始まるのはつまらないのでJavaScriptで開始位置をランダムにしてみる。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Web制作" scheme="https://pixelog.net/category/web/web%E5%88%B6%E4%BD%9C/"/>
+    
+    
+    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+    <category term="JavaScript" scheme="https://pixelog.net/tag/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS Gridでcodeブロックがある場合に横幅をはみ出してしまう現象の解決策</title>
+    <link href="https://pixelog.net/post/yetdfn/"/>
+    <id>https://pixelog.net/post/yetdfn/</id>
+    <published>2020-11-08T02:45:26.000Z</published>
+    <updated>2020-11-08T02:45:26.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CSSのGridでレイアウトを組んでいて、グリッドアイテムにcodeブロックが含まれている場合に、横幅がGridの横幅をはみ出し制御できなくなる現象を解決する方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Web制作" scheme="https://pixelog.net/category/web/web%E5%88%B6%E4%BD%9C/"/>
+    
+    
+    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>9年続けたTwitterをやめた</title>
+    <link href="https://pixelog.net/post/g5njot/"/>
+    <id>https://pixelog.net/post/g5njot/</id>
+    <published>2020-11-07T09:20:00.000Z</published>
+    <updated>2020-11-07T09:20:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;9年続けていたTwitterのアカウントを1ヶ月ほど前に削除した。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="雑記" scheme="https://pixelog.net/category/%E9%9B%91%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexoのカテゴリー・タグ機能を無効化する</title>
+    <link href="https://pixelog.net/post/utcz75/"/>
+    <id>https://pixelog.net/post/utcz75/</id>
+    <published>2020-10-24T10:12:44.000Z</published>
+    <updated>2020-10-24T10:12:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Hexoのカテゴリー機能とタグ機能を無効化する手順のメモ。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Hexo" scheme="https://pixelog.net/category/web/hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>YouTubeのコメント欄を見ない他の方法</title>
+    <link href="https://pixelog.net/post/0wxh4a/"/>
+    <id>https://pixelog.net/post/0wxh4a/</id>
+    <published>2020-10-18T07:33:30.000Z</published>
+    <updated>2020-10-18T07:33:30.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;以前からYouTubeのコメント欄を消し去る方法を探していて、&lt;a href=&quot;/post/68ivdi/&quot;&gt;PC版YouTubeのコメント欄・チャット欄を非表示にするCSS&lt;/a&gt;という記事を書いたりもした。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="雑記" scheme="https://pixelog.net/category/%E9%9B%91%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexoの記事ファイルを作成するスクリプト改</title>
+    <link href="https://pixelog.net/post/80w9t4/"/>
+    <id>https://pixelog.net/post/80w9t4/</id>
+    <published>2020-10-10T11:37:00.000Z</published>
+    <updated>2020-10-10T11:37:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;以前書いたHexoの記事ファイルを作成するスクリプトの改訂版。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="雑記" scheme="https://pixelog.net/category/%E9%9B%91%E8%A8%98/"/>
+    
+    
+    <category term="PowerShell" scheme="https://pixelog.net/tag/powershell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gitで日付をコミットメッセージにして自動でリモートへプッシュする</title>
+    <link href="https://pixelog.net/post/724hxi/"/>
+    <id>https://pixelog.net/post/724hxi/</id>
+    <published>2020-10-08T02:43:00.000Z</published>
+    <updated>2020-10-08T02:43:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Gitでステージングから、コミット、リモートまでの流れをPowerShellで自動化してみる。ゲームのセーブデータなどを保管するのに役立つ。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="その他" scheme="https://pixelog.net/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/"/>
+    
+    
+    <category term="Git" scheme="https://pixelog.net/tag/git/"/>
+    
+    <category term="PowerShell" scheme="https://pixelog.net/tag/powershell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>調和数列の文字サイズをCSS変数で再現</title>
+    <link href="https://pixelog.net/post/u4ng9q/"/>
+    <id>https://pixelog.net/post/u4ng9q/</id>
+    <published>2020-09-06T06:16:16.000Z</published>
+    <updated>2020-09-06T06:16:16.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;このブログの文字サイズはすべて調和数列に基づいて設定している。これについては下記のサイトで提言されているものを参考にした。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Web制作" scheme="https://pixelog.net/category/web/web%E5%88%B6%E4%BD%9C/"/>
+    
+    
+    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Twitterでユーザーのツイートを検索しやくするブックマークレット</title>
+    <link href="https://pixelog.net/post/les7du/"/>
+    <id>https://pixelog.net/post/les7du/</id>
+    <published>2020-09-06T06:01:51.000Z</published>
+    <updated>2020-09-06T06:01:51.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Twitterの検索は&lt;code&gt;from:ユーザー名&lt;/code&gt;とすれば特定のユーザーのツイートに限定したり、&lt;code&gt;until:YYYY-MM-DD&lt;/code&gt;とすれば期間を指定したりできる。これらのコマンドを使いやすくするブックマークレットを作った。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="その他" scheme="https://pixelog.net/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/"/>
+    
+    
+    <category term="JavaScript" scheme="https://pixelog.net/tag/javascript/"/>
+    
+    <category term="ブックマークレット" scheme="https://pixelog.net/tag/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ユーザーCSSで特定のページを擬似的にアクセス禁止にする</title>
+    <link href="https://pixelog.net/post/qc0svn/"/>
+    <id>https://pixelog.net/post/qc0svn/</id>
+    <published>2020-09-05T09:07:25.000Z</published>
+    <updated>2020-09-05T09:07:25.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ユーザーCSSで特定のページへアクセスできないようにして、見たくないページを見ない方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="その他" scheme="https://pixelog.net/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/"/>
+    
+    
+    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>リセットCSSで消え去ったselectのスタイルを元に戻す</title>
+    <link href="https://pixelog.net/post/9senxq/"/>
+    <id>https://pixelog.net/post/9senxq/</id>
+    <published>2020-08-30T06:38:38.000Z</published>
+    <updated>2020-08-30T06:38:38.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;リセットCSSといえば、destyle.cssとかnormalize.cssとかress.cssなどいろいろあります。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Web制作" scheme="https://pixelog.net/category/web/web%E5%88%B6%E4%BD%9C/"/>
+    
+    
+    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexoで記事本文を抜粋表示する</title>
+    <link href="https://pixelog.net/post/gxdm60/"/>
+    <id>https://pixelog.net/post/gxdm60/</id>
+    <published>2020-08-26T09:14:17.000Z</published>
+    <updated>2020-08-26T09:14:17.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;トップページなどで、記事タイトルの下に本文冒頭の数十文字が抜粋表示されているアレをHexoでも表示させる方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web" scheme="https://pixelog.net/category/web/"/>
+    
+    <category term="Hexo" scheme="https://pixelog.net/category/web/hexo/"/>
+    
+    
+    <category term="EJS" scheme="https://pixelog.net/tag/ejs/"/>
+    
+  </entry>
+  
+</feed>

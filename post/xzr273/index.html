@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og: http://ogp.me/ns#"><meta charset="utf-8"><title>Hexoでプラグインを使わずパンくずリストを表示する - Pixelog</title><link rel="canonical" href="https://pixelog.net/post/xzr273/"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="/favicon.svg" rel="icon" type="image/svg+xml"><meta name="description" content="(2020-07-30) コードを書き直しました。こちらをご覧ください。  このブログはHexoで構築しており、全ページにパンくずリストを設置しています。このパンくずリストを設置するのがなかなか大変だったので、メモを残しておきます。"><meta property="og:type" content="article"><meta property="og:title" content="Hexoでプラグインを使わずパンくずリストを表示する"><meta property="og:url" content="https://pixelog.net/post/xzr273/"><meta property="og:site_name" content="Pixelog"><meta property="og:description" content="(2020-07-30) コードを書き直しました。こちらをご覧ください。  このブログはHexoで構築しており、全ページにパンくずリストを設置しています。このパンくずリストを設置するのがなかなか大変だったので、メモを残しておきます。"><meta property="og:locale" content="ja_JP"><meta property="article:published_time" content="2020-04-25T09:15:25.000Z"><meta property="article:modified_time" content="2020-07-30T06:00:00.000Z"><meta property="article:author" content="yussy"><meta property="article:tag" content="HTML"><meta property="article:tag" content="EJS"><meta name="twitter:card" content="summary"><link rel="alternate" href="/atom.xml" title="Pixelog" type="application/atom+xml"><link rel="search" type="application/opensearchdescription+xml" title="Pixelog" href="/opensearch.xml"><link rel="stylesheet" href="/css/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-68420269-3"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-68420269-3")</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><header class="header"><a class="header__link" href="/"><div class="header__logo">Pixelog</div><div class="header__desc">Webに関するメモと日記</div></a></header><div class="frame"><main class="main"><article class="post"><header class="post__header"><div class="post__date"><time class="post__published" datetime="2020-04-25T09:15:25+00:00">2020-04-25 </time><time class="post__updated" datetime="2020-07-30T06:00:00+00:00">(2020-07-30更新)</time></div><h1 class="post__title">Hexoでプラグインを使わずパンくずリストを表示する</h1></header><div class="post__content"><p class="alert"><a href="#新版">(2020-07-30) コードを書き直しました。こちらをご覧ください。</a></p><p>このブログはHexoで構築しており、全ページにパンくずリストを設置しています。このパンくずリストを設置するのがなかなか大変だったので、メモを残しておきます。</p><a id="more"></a><p>使用しているテンプレートエンジンはEJSです。</p><del><h2 id="ソース">ソース</h2><pre><code class="hljs ejs">&lt;nav class&#x3D;&quot;breadcrumbs&quot;&gt;
+    &lt;ol class&#x3D;&quot;breadcrumbs__list&quot;&gt;
+        &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+            &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&#x2F;&quot;&gt;
+                ホーム
+            &lt;&#x2F;a&gt;
+        &lt;&#x2F;li&gt;
+        &lt;% if (is_home()) &#123; %&gt;
+            &lt;% if(page.current !&#x3D;&#x3D; 1)&#123; %&gt;
+                &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                    &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&#x2F;page&#x2F;&lt;%&#x3D; page.current %&gt;&#x2F;&quot;&gt;
+                        ページ&lt;%&#x3D; page.current %&gt;
+                    &lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+            &lt;% &#125; %&gt;
+        &lt;% &#125; else if (is_category()) &#123; %&gt;
+            &lt;%
+            const category_slug &#x3D; page.path.replace(config.category_dir + &#39;&#x2F;&#39;, &#39;&#39;).replace(&#x2F;\&#x2F;page\&#x2F;.+&#x2F;,&#39;&#39;).replace(&#x2F;\&#x2F;index.html&#x2F;, &#39;&#39;).split(&#39;&#x2F;&#39;);
+            let category_url &#x3D; &#39;&#39;;
+            %&gt;
+            &lt;% category_slug.forEach(function(item, i)&#123; %&gt;
+                &lt;%
+                category_url +&#x3D; &#39;&#x2F;&#39; + item;
+
+                const category_name &#x3D; Object.keys(config.category_map).filter( (key) &#x3D;&gt; &#123;
+                  return config.category_map[key] &#x3D;&#x3D;&#x3D; item;
+                 &#125;);
+                %&gt;
+                &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                    &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&#x2F;&lt;%&#x3D; config.category_dir %&gt;&lt;%&#x3D; category_url %&gt;&#x2F;&quot;&gt;
+                        &lt;% if(category_name.length &#x3D;&#x3D;&#x3D; 0)&#123; %&gt;&lt;%&#x3D; item %&gt;&lt;%&#125;else&#123;%&gt;&lt;%&#x3D; category_name %&gt;&lt;%&#125;%&gt;
+                    &lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+            &lt;% &#125;) %&gt;
+            &lt;% if(page.current !&#x3D;&#x3D; 1)&#123; %&gt;
+                &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                    &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&#x2F;&lt;%&#x3D; config.category_dir %&gt;&lt;%&#x3D; category_url %&gt;&#x2F;page&#x2F;&lt;%&#x3D; page.current %&gt;&#x2F;&quot;&gt;
+                        ページ&lt;%&#x3D; page.current %&gt;
+                    &lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+            &lt;% &#125; %&gt;
+        &lt;% &#125; else if (is_tag()) &#123; %&gt;
+            &lt;%
+            const tag_slug &#x3D; page.path.replace(config.tag_dir + &#39;&#x2F;&#39;, &#39;&#39;).replace(&#x2F;\&#x2F;page\&#x2F;.+&#x2F;,&#39;&#39;).replace(&#x2F;\&#x2F;index.html&#x2F;, &#39;&#39;).split(&#39;&#x2F;&#39;);
+            let tag_url &#x3D; &#39;&#39;;
+            %&gt;
+            &lt;% tag_slug.forEach(function(item, i)&#123; %&gt;
+                &lt;%
+                tag_url +&#x3D; &#39;&#x2F;&#39; + item;
+
+                const tag_name &#x3D; Object.keys(config.tag_map).filter( (key) &#x3D;&gt; &#123;
+                  return config.tag_map[key] &#x3D;&#x3D;&#x3D; item;
+                 &#125;);
+                %&gt;
+                &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                    &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&#x2F;&lt;%&#x3D; config.tag_dir %&gt;&lt;%&#x3D; tag_url %&gt;&#x2F;&quot;&gt;
+                        #&lt;% if(tag_name.length &#x3D;&#x3D;&#x3D; 0)&#123; %&gt;&lt;%&#x3D; item %&gt;&lt;%&#125;else&#123;%&gt;&lt;%&#x3D; tag_name %&gt;&lt;%&#125;%&gt;
+                    &lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+            &lt;% &#125;) %&gt;
+            &lt;% if(page.current !&#x3D;&#x3D; 1)&#123; %&gt;
+                &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                    &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&#x2F;&lt;%&#x3D; config.tag_dir %&gt;&lt;%&#x3D; tag_url %&gt;&#x2F;page&#x2F;&lt;%&#x3D; page.current %&gt;&#x2F;&quot;&gt;
+                        ページ&lt;%&#x3D; page.current %&gt;
+                    &lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+            &lt;% &#125; %&gt;
+        &lt;% &#125; else if (is_archive()) &#123; %&gt;
+            &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&#x2F;&lt;%&#x3D; config.archive_dir %&gt;&#x2F;&lt;%&#x3D; page.year %&gt;&#x2F;&quot;&gt;
+                    &lt;%&#x3D; page.year %&gt;年
+                &lt;&#x2F;a&gt;
+            &lt;&#x2F;li&gt;
+            &lt;% if(page.month)&#123; %&gt;
+              &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                  &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&lt;%- url_for(path) %&gt;&quot;&gt;
+                      &lt;%&#x3D; page.month %&gt;月
+                  &lt;&#x2F;a&gt;
+              &lt;&#x2F;li&gt;
+            &lt;% &#125; %&gt;
+        &lt;% &#125; else if(is_post()) &#123; %&gt;
+            &lt;% page.categories.forEach(function(item)&#123; %&gt;
+                &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                    &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&lt;%&#x3D; url_for(item.path) %&gt;&quot;&gt;
+                        &lt;%&#x3D; item.name %&gt;
+                    &lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+            &lt;% &#125;) %&gt;
+                &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                    &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&lt;%- url_for(path) %&gt;&quot;&gt;
+                        &lt;%- page.title %&gt;
+                    &lt;&#x2F;a&gt;
+                &lt;&#x2F;li&gt;
+        &lt;% &#125; else if (is_page()) &#123; %&gt;
+            &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+                &lt;a class&#x3D;&quot;breadcrumbs__item-link&quot; href&#x3D;&quot;&lt;%- url_for(path) %&gt;&quot;&gt;
+                    &lt;%- page.title %&gt;
+                &lt;&#x2F;a&gt;
+            &lt;&#x2F;li&gt;
+        &lt;% &#125; %&gt;
+    &lt;&#x2F;ol&gt;
+&lt;&#x2F;nav&gt;</code></pre><h2 id="仕様">仕様</h2><p>スパゲッティーコードになっているのは申し訳ありません。自分のスキルではこれが限界です😥</p><p>問題はカテゴリーページの方にありまして、カテゴリーを階層化している場合で、子カテゴリーのページを表示させているとき、そのカテゴリーが属する親カテゴリー名を出す変数がないんですよ。たぶん。</p><p>なのでどうしているかと言いますと、URLからドメインと&quot;categories&quot;(デフォルト)を取り除き、スラッシュでカテゴリー名に切り分け変数に格納、そしてそれを基にURLとカテゴリー名を作りHTMLに出す…みたいなことをやっています。</p><h2 id="カテゴリーのスラッグについて">カテゴリーのスラッグについて</h2><p>Hexoでは、日本語カテゴリー・タグの英字スラッグを_config.ymlで指定することができます。これで日本語URLを回避できるという訳ですね。</p><pre><code class="hljs yml"><span class="hljs-attr">category_map:</span>
+  <span class="hljs-attr">CSS:</span> <span class="hljs-string">css</span>
+  <span class="hljs-string">ドライブ:</span> <span class="hljs-string">drive</span>
+  <span class="hljs-string">日記:</span> <span class="hljs-string">diary</span>
+  <span class="hljs-string">未分類:</span> <span class="hljs-string">uncategorized</span>
+
+<span class="hljs-attr">tag_map:</span>
+  <span class="hljs-string">食べ物:</span> <span class="hljs-string">food</span></code></pre><p>先述の通り、カテゴリーページやタグページでは、URLを元にパンくずリストを作成するので、URLに現れる文字列とカテゴリー名が一致しないということが起こり得ますが、config.yml内でスラッグが指定されている場合はそれらを参照し、元のカテゴリー名を表示できる仕組みになっています。</p><p><code>filename_case: 1</code>でのURL小文字統一には対応していないので、これを利用する場合でも、</p><pre><code class="hljs yml"><span class="hljs-attr">category_map:</span>
+  <span class="hljs-attr">CSS:</span> <span class="hljs-string">css</span>
+  <span class="hljs-attr">HTML:</span> <span class="hljs-string">html</span>
+  <span class="hljs-attr">Hexo:</span> <span class="hljs-string">hexo</span>
+  <span class="hljs-attr">JavaScript:</span> <span class="hljs-string">javascript</span></code></pre><p>のように、逐一category_mapを設定してください。</p></del><h2 id="新版">新版</h2><p>あまりにもひどい仕様だったので書き直しました。</p><pre><code class="hljs ejs">&lt;%
+let breadcrumbs &#x3D; &#123; ホーム: url_for(&#39;&#x2F;&#39;)&#125;;
+
+if(is_post()) &#123;
+    page.categories.forEach(function(item)&#123;
+        breadcrumbs[item.name] &#x3D; url_for(item.path);
+    &#125;)
+    breadcrumbs[page.title] &#x3D; url_for(path);
+&#125; else if (is_page()) &#123;
+    breadcrumbs[page.title] &#x3D; url_for(path);
+&#125; else if (is_category()) &#123;
+    let cat &#x3D; get_category();
+    for(var key in cat) &#123;
+        breadcrumbs[key] &#x3D; cat[key];
+    &#125;
+&#125; else if (is_tag()) &#123;
+    breadcrumbs[&#39;#&#39;+page.tag] &#x3D; url_for(path);
+&#125; else if (is_archive()) &#123;
+    breadcrumbs[&#39;アーカイブ&#39;] &#x3D; &#39;&#x2F;&#39; + config.archive_dir + &#39;&#x2F;&#39;;
+    if(page.year)&#123;
+        breadcrumbs[page.year+&#39;年&#39;] &#x3D; &#39;&#x2F;&#39; + config.archive_dir + &#39;&#x2F;&#39; + page.year + &#39;&#x2F;&#39;;
+    &#125;
+    if(page.month)&#123;
+        breadcrumbs[page.month+&#39;月&#39;] &#x3D; url_for(path);
+    &#125;
+&#125;
+if(page.current &gt; 1)&#123;
+    breadcrumbs[&#39;ページ&#39;+page.current] &#x3D; &#39;&#x2F;&#39; + config.pagination_dir + &#39;&#x2F;&#39; + page.current + &#39;&#x2F;&#39;;
+&#125;
+
+function reverse_array(a) &#123;
+    var key &#x3D; [];
+    for (var i in a) &#123;
+        key.push(i);
+    &#125;
+    key.reverse();
+    var ret &#x3D; [];
+    for (var i in key) &#123;
+        ret[key[i]] &#x3D; a[key[i]];
+    &#125;
+    return ret;
+&#125;
+
+function get_category()&#123;
+    let arr &#x3D; &#123;&#125;;
+    arr[page.category] &#x3D; url_for(page.path);
+    get_parent(page.category);
+
+    function get_parent(current)&#123;
+        const current_cat &#x3D; site.categories.data.filter(x &#x3D;&gt; x.name &#x3D;&#x3D;&#x3D; current );
+        const parent_id &#x3D; current_cat[0].parent;
+
+        if(parent_id) &#123;
+            const parent_name &#x3D; site.categories.data.filter(x &#x3D;&gt; x._id &#x3D;&#x3D;&#x3D; parent_id);
+            arr[parent_name[0].name] &#x3D; url_for(parent_name[0].path);
+            get_parent(parent_name[0].name);
+        &#125;
+    &#125;
+    return reverse_array(arr);
+&#125;
+%&gt;
+
+&lt;nav class&#x3D;&quot;breadcrumbs&quot;&gt;
+    &lt;ol class&#x3D;&quot;breadcrumbs__list&quot;&gt;
+      &lt;% for(var key in breadcrumbs) &#123; %&gt;
+          &lt;li class&#x3D;&quot;breadcrumbs__item&quot;&gt;
+              &lt;a class&#x3D;&quot;breadcrumbs__link&quot; href&#x3D;&quot;&lt;%&#x3D; breadcrumbs[key] %&gt;&quot;&gt;
+                  &lt;%&#x3D; key %&gt;
+              &lt;&#x2F;a&gt;
+          &lt;&#x2F;li&gt;
+      &lt;% &#125; %&gt;
+    &lt;&#x2F;ol&gt;
+&lt;&#x2F;nav&gt;</code></pre><h3 id="改善点">改善点</h3><p>以前のものはループが複雑怪奇を極めていたので、まず最初にパンくずリストを配列でつくって、最後にまとめてHTMLに出すようにしました。</p><p>旧版ではカテゴリーページの場合に、URLからカテゴリーを取得するというトリッキーなことをやっていたのですが、カテゴリー名から親カテゴリーを取得する関数を書いたので、かなりシンプルになりました。</p><p><code>_config.yml</code>のカテゴリーのスラッグ、filename_caseの設定にも対応しています。旧版はスラッグの指定が必須でしたが、新版はスラッグを設定していなくても不具合は出ません。</p><h2 id="次の記事">次の記事</h2><p><a href="/post/surt79/">Hexoでパンくずリストの構造化マークアップをする</a></p></div><footer class="post__footer"><dl class="post-meta"><dt class="post-meta__dt">カテゴリー:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/">Web</a></li><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/hexo/">Hexo</a></li></ul></dd><dt class="post-meta__dt">タグ:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/html/">HTML</a></li><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/ejs/">EJS</a></li></ul></dd></dl><div class="post__ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9027963984337121" data-ad-slot="4141857270" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></footer></article></main><aside class="aside"><div class="widget"><h4 class="widget__title">カテゴリー</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/">Web <span class="aside-list-count">61</span></a><ul class="aside-list-child"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/hexo/">Hexo <span class="aside-list-count">22</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/web%E5%88%B6%E4%BD%9C/">Web制作 <span class="aside-list-count">26</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/">その他 <span class="aside-list-count">13</span></a></li></ul></li><li class="aside-list-item"><a class="aside-list-link" href="/category/%E9%9B%91%E8%A8%98/">雑記 <span class="aside-list-count">21</span></a></li></ul></div><div class="widget"><h4 class="widget__title">タグクラウド</h4><div class="tag-cloud"><a href="/tag/android/" style="font-size:10px;color:#999">Android</a> <a href="/tag/css/" style="font-size:20px;color:#444">CSS</a> <a href="/tag/css%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/" style="font-size:10px;color:#999">CSSアニメーション</a> <a href="/tag/ejs/" style="font-size:15.71px;color:#686868">EJS</a> <a href="/tag/git/" style="font-size:11.43px;color:#8d8d8d">Git</a> <a href="/tag/html/" style="font-size:18.57px;color:#505050">HTML</a> <a href="/tag/js%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA/" style="font-size:11.43px;color:#8d8d8d">JSライブラリ</a> <a href="/tag/javascript/" style="font-size:17.14px;color:#5c5c5c">JavaScript</a> <a href="/tag/netlify/" style="font-size:12.86px;color:#818181">Netlify</a> <a href="/tag/node-js/" style="font-size:14.29px;color:#757575">Node.js</a> <a href="/tag/powershell/" style="font-size:12.86px;color:#818181">PowerShell</a> <a href="/tag/npm/" style="font-size:10px;color:#999">npm</a> <a href="/tag/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88/" style="font-size:12.86px;color:#818181">ブックマークレット</a></div></div><div class="widget"><h4 class="widget__title">月別</h4><select class="archive-list" onchange="location.href=this.value"><option disabled selected>月を選択</option><option value="/archive/2020/11/">2020年11月 (11)</option><option value="/archive/2020/10/">2020年10月 (4)</option><option value="/archive/2020/09/">2020年09月 (3)</option><option value="/archive/2020/08/">2020年08月 (3)</option><option value="/archive/2020/07/">2020年07月 (11)</option><option value="/archive/2020/06/">2020年06月 (1)</option><option value="/archive/2020/05/">2020年05月 (3)</option><option value="/archive/2020/04/">2020年04月 (18)</option><option value="/archive/2020/03/">2020年03月 (3)</option><option value="/archive/2020/02/">2020年02月 (3)</option><option value="/archive/2020/01/">2020年01月 (6)</option><option value="/archive/2019/06/">2019年06月 (7)</option><option value="/archive/2019/05/">2019年05月 (5)</option><option value="/archive/2019/04/">2019年04月 (1)</option><option value="/archive/2019/03/">2019年03月 (2)</option><option value="/archive/2017/03/">2017年03月 (1)</option></select></div><div class="widget"><h4 class="widget__title">最近の投稿</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/post/37us5c/">Feedly・Inoreaderの購読ページのURLを生成</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y5xwcr/">旧愛生会病院HPをCSSアニメーションで再現するサンプル4種</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y7cfvk/">HexoのショートコードでAmazonアソシエイトリンクを挿入</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/nhm745/">昔ながらの個人サイトを探せる検索エンジンを作った</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/h9x6ki/">テキストエディタをAtomからVSCodeに乗り換えた</a></li></ul></div><div class="widget"><h4 class="widget__title">リンク</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/about/">サイトについて</a></li><li class="aside-list-item"><a class="aside-list-link" href="/contact/">メールフォーム</a></li><li class="aside-list-item"><a class="aside-list-link" href="/atom.xml">RSS</a></li></ul></div><div class="widget"><h4 class="widget__title">検索</h4><form class="search-form" id="search" action="https://duckduckgo.com/" role="search"><input name="sites" type="hidden" value="https://pixelog.net"> <input class="search-form__input" placeholder="キーワード" name="q" type="text"> <button class="search-form__btn" type="submit"><i class="gg-search"></i></button></form></div></aside></div><footer class="footer"><a class="footer__link" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a><br>Powered by Hexo, Theme designed by Pixelog</footer><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item":
+          {
+            "@id": "/",
+            "name": "ホーム"
+          }
+        }
+        
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "item":
+          {
+            "@id": "/category/web/",
+            "name": "Web"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "item":
+          {
+            "@id": "/category/web/hexo/",
+            "name": "Hexo"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 4,
+          "item":
+          {
+            "@id": "/post/xzr273/",
+            "name": "Hexoでプラグインを使わずパンくずリストを表示する"
+          }
+        }
+        
+      ]
+    }
+  ]
+}</script><script>!function(e){var d=window,n=["scroll","resize"],a=document.querySelectorAll(e),g="backgroundPosition",s="backgroundAttachment";function t(e){for(e=a.length;e--;)n=a[e].getBoundingClientRect(),t=a[e].style,c=void 0,o=d.innerHeight,i=n.height,r=n.top,l=r+i,c=0,i<-1*r||o<r||(r<0&&(c=-1*r>>1),o<l&&(c=-1*(l-o)>>1),t[g]=(t[g].split(" ")[0]||"50%")+" "+c+"px","scroll"!==t[s]&&(t[s]="scroll"));var n,t,o,i,r,l,c}if(a.length){for(var o in n)addEventListener(n[o],t);t()}}(".header")</script></body></html>

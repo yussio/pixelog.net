@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og: http://ogp.me/ns#"><meta charset="utf-8"><title>CSSのみでクリックで画像を拡大する（Lightboxもどき） - Pixelog</title><link rel="canonical" href="https://pixelog.net/post/kqkyf5/"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="/favicon.svg" rel="icon" type="image/svg+xml"><meta name="description" content="画像をクリックするとポップアップで拡大表示するプラグインを、HTMLとCSSのみで再現してみます。いわゆるLightboxやfancyboxのようなものです。"><meta property="og:type" content="article"><meta property="og:title" content="CSSのみでクリックで画像を拡大する（Lightboxもどき）"><meta property="og:url" content="https://pixelog.net/post/kqkyf5/"><meta property="og:site_name" content="Pixelog"><meta property="og:description" content="画像をクリックするとポップアップで拡大表示するプラグインを、HTMLとCSSのみで再現してみます。いわゆるLightboxやfancyboxのようなものです。"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/thumbnail.jpg"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/sakura.jpg"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/sakura.jpg"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/blog_img.jpg"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/blog_img.jpg"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/suisen.jpg"><meta property="article:published_time" content="2019-05-20T12:40:00.000Z"><meta property="article:author" content="yussy"><meta property="article:tag" content="HTML"><meta property="article:tag" content="CSS"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://pixelog.net/post/kqkyf5/thumbnail.jpg"><link rel="alternate" href="/atom.xml" title="Pixelog" type="application/atom+xml"><link rel="search" type="application/opensearchdescription+xml" title="Pixelog" href="/opensearch.xml"><link rel="stylesheet" href="/css/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-68420269-3"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-68420269-3")</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><header class="header"><a class="header__link" href="/"><div class="header__logo">Pixelog</div><div class="header__desc">Webに関するメモと日記</div></a></header><div class="frame"><main class="main"><article class="post"><header class="post__header"><div class="post__date"><time class="post__published" datetime="2019-05-20T12:40:00+00:00">2019-05-20</time></div><h1 class="post__title">CSSのみでクリックで画像を拡大する（Lightboxもどき）</h1></header><div class="post__content"><p><img src="thumbnail.jpg" alt="CSSのみでクリックで画像を拡大する"></p><p>画像をクリックするとポップアップで拡大表示するプラグインを、HTMLとCSSのみで再現してみます。いわゆるLightboxやfancyboxのようなものです。</p><a id="more"></a><p class="alert warning">この記事で紹介する内容に実用性は全くありません。遊び半分でご覧ください。</p><h2 id="デモ">デモ</h2><h3 id="画像拡大">画像拡大</h3><p>下の画像をクリックしてみてください。</p><p><a href="#sakura"><img src="sakura.jpg" alt="桜"></a><a class="lb" href="#close" id="sakura"><img src="sakura.jpg" alt="桜"></a></p><p><a href="#blog"><img src="blog_img.jpg" alt="ブログイメージ"></a><a class="lb" href="#close" id="blog"><img src="blog_img.jpg" alt="ブログイメージ"></a></p><p>テキストにも拡大リンクを貼れます。<br><a href="#suisen">スイセンの写真を見る</a> <a class="lb" href="#close" id="suisen"><img src="suisen.jpg" alt="スイセン"></a></p><h2 id="弱点">弱点</h2><p>記事に表示する画像と、拡大に使用する画像の2つを読み込む必要があります。SEO的にはあまり良くないと思います。</p><p>フィルター（黒い部分）は、画像を開いていない状態のときは<code>pointer-events</code>を用いてクリックイベントをオフにしていますが、開いていない状態でも常にフィルターは被さっているので、ちょっとキモいです。</p><p>また、pointer-eventsをサポートしていないブラウザで閲覧したときは、ページ全体のリンクがクリックできない状態に陥る可能性があります。</p><p>さらに、アンカーリンクを利用するので、画像を拡大すると履歴に残り、ブラウザで「戻る」操作が大変になります。</p><h2 id="実装方法">実装方法</h2><h3 id="CSS">CSS</h3><pre><code class="hljs css"><span class="hljs-selector-class">.lb</span> &#123;
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">position</span>: fixed;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">justify-content</span>: center;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,.<span class="hljs-number">7</span>);
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">transition</span>: .<span class="hljs-number">3s</span> opacity ease;
+    <span class="hljs-attribute">pointer-events</span>: none;
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">100</span>;
+&#125;
+
+<span class="hljs-selector-class">.lb</span> <span class="hljs-selector-tag">img</span> &#123;
+    <span class="hljs-attribute">width</span>: auto <span class="hljs-meta">!important</span>;
+    <span class="hljs-attribute">max-height</span>: <span class="hljs-number">100%</span><span class="hljs-meta">!important</span>;
+    <span class="hljs-attribute">cursor</span>: pointer;
+&#125;
+
+<span class="hljs-selector-class">.lb</span> <span class="hljs-selector-tag">img</span>,
+<span class="hljs-selector-class">.lb</span> <span class="hljs-selector-tag">iframe</span> &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(.<span class="hljs-number">85</span>);
+    <span class="hljs-attribute">transition</span>: .<span class="hljs-number">3s</span> all ease;
+&#125;
+
+<span class="hljs-selector-class">.lb</span><span class="hljs-selector-pseudo">:target</span> &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+    <span class="hljs-attribute">pointer-events</span>: auto;
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">101</span>;
+&#125;
+
+<span class="hljs-selector-class">.lb</span><span class="hljs-selector-pseudo">:target</span> <span class="hljs-selector-tag">img</span>,
+<span class="hljs-selector-class">.lb</span><span class="hljs-selector-pseudo">:target</span> <span class="hljs-selector-tag">iframe</span> &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>);
+&#125;
+
+<span class="hljs-comment">/* なんちゃって閉じるボタン*/</span>
+<span class="hljs-selector-class">.lb</span><span class="hljs-selector-pseudo">::before</span>,<span class="hljs-selector-class">.lb</span><span class="hljs-selector-pseudo">::after</span> &#123;
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">position</span>: fixed;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">24px</span>;
+    <span class="hljs-attribute">height</span>:<span class="hljs-number">3px</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">24px</span>;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">12px</span>;
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+&#125;
+<span class="hljs-selector-class">.lb</span><span class="hljs-selector-pseudo">::before</span> &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(-<span class="hljs-number">315deg</span>);
+&#125;
+<span class="hljs-selector-class">.lb</span><span class="hljs-selector-pseudo">::after</span> &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">315deg</span>);
+&#125;</code></pre><h3 id="HTML">HTML</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#sample01&lt;/span&gt;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;記事の画像URL&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;sample01&lt;/span&gt;&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#close&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;lb&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;拡大する画像URL&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre><p>sample01の二箇所は、画像毎に任意の文字列を指定してください。また、同じページで文字列が被らないようにしてください。</p><p>YouTubeは以下のように記述することで拡大できます。</p><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#youtube&quot;</span>&gt;</span>ここに文字<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;youtube&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#close&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;lb&quot;</span>&gt;</span>YouTubeで発行する埋め込みコード<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre><h2 id="JavaScriptバージョン">JavaScriptバージョン</h2><p>この記事はお遊びですが、JavaScriptで実用性のあるものも作りました。よろしければご覧ください。 <a href="/post/whxdp7txqo/">クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる</a></p><style>.lb{display:flex;position:fixed;width:100%;height:100%;top:0;left:0;justify-content:center;align-items:center;background:rgba(0,0,0,.7);opacity:0;transition:.3s opacity ease;pointer-events:none;z-index:100}.lb img{width:auto!important;max-height:100%!important;cursor:pointer}.lb iframe,.lb img{transform:scale(.85);transition:.3s all ease}.lb:target{opacity:1;pointer-events:auto;z-index:101}.lb:target iframe,.lb:target img{transform:scale(1)}.lb::after,.lb::before{display:block;position:fixed;content:"";width:24px;height:3px;top:24px;right:12px;background:#fff;border-radius:4px}.lb::before{transform:rotate(-315deg)}.lb::after{transform:rotate(315deg)}</style></div><footer class="post__footer"><dl class="post-meta"><dt class="post-meta__dt">カテゴリー:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/">Web</a></li><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/web%E5%88%B6%E4%BD%9C/">Web制作</a></li></ul></dd><dt class="post-meta__dt">タグ:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/html/">HTML</a></li><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/css/">CSS</a></li></ul></dd></dl><div class="post__ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9027963984337121" data-ad-slot="4141857270" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></footer></article></main><aside class="aside"><div class="widget"><h4 class="widget__title">カテゴリー</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/">Web <span class="aside-list-count">61</span></a><ul class="aside-list-child"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/hexo/">Hexo <span class="aside-list-count">22</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/web%E5%88%B6%E4%BD%9C/">Web制作 <span class="aside-list-count">26</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/">その他 <span class="aside-list-count">13</span></a></li></ul></li><li class="aside-list-item"><a class="aside-list-link" href="/category/%E9%9B%91%E8%A8%98/">雑記 <span class="aside-list-count">21</span></a></li></ul></div><div class="widget"><h4 class="widget__title">タグクラウド</h4><div class="tag-cloud"><a href="/tag/android/" style="font-size:10px;color:#999">Android</a> <a href="/tag/css/" style="font-size:20px;color:#444">CSS</a> <a href="/tag/css%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/" style="font-size:10px;color:#999">CSSアニメーション</a> <a href="/tag/ejs/" style="font-size:15.71px;color:#686868">EJS</a> <a href="/tag/git/" style="font-size:11.43px;color:#8d8d8d">Git</a> <a href="/tag/html/" style="font-size:18.57px;color:#505050">HTML</a> <a href="/tag/js%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA/" style="font-size:11.43px;color:#8d8d8d">JSライブラリ</a> <a href="/tag/javascript/" style="font-size:17.14px;color:#5c5c5c">JavaScript</a> <a href="/tag/netlify/" style="font-size:12.86px;color:#818181">Netlify</a> <a href="/tag/node-js/" style="font-size:14.29px;color:#757575">Node.js</a> <a href="/tag/powershell/" style="font-size:12.86px;color:#818181">PowerShell</a> <a href="/tag/npm/" style="font-size:10px;color:#999">npm</a> <a href="/tag/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88/" style="font-size:12.86px;color:#818181">ブックマークレット</a></div></div><div class="widget"><h4 class="widget__title">月別</h4><select class="archive-list" onchange="location.href=this.value"><option disabled selected>月を選択</option><option value="/archive/2020/11/">2020年11月 (11)</option><option value="/archive/2020/10/">2020年10月 (4)</option><option value="/archive/2020/09/">2020年09月 (3)</option><option value="/archive/2020/08/">2020年08月 (3)</option><option value="/archive/2020/07/">2020年07月 (11)</option><option value="/archive/2020/06/">2020年06月 (1)</option><option value="/archive/2020/05/">2020年05月 (3)</option><option value="/archive/2020/04/">2020年04月 (18)</option><option value="/archive/2020/03/">2020年03月 (3)</option><option value="/archive/2020/02/">2020年02月 (3)</option><option value="/archive/2020/01/">2020年01月 (6)</option><option value="/archive/2019/06/">2019年06月 (7)</option><option value="/archive/2019/05/">2019年05月 (5)</option><option value="/archive/2019/04/">2019年04月 (1)</option><option value="/archive/2019/03/">2019年03月 (2)</option><option value="/archive/2017/03/">2017年03月 (1)</option></select></div><div class="widget"><h4 class="widget__title">最近の投稿</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/post/37us5c/">Feedly・Inoreaderの購読ページのURLを生成</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y5xwcr/">旧愛生会病院HPをCSSアニメーションで再現するサンプル4種</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y7cfvk/">HexoのショートコードでAmazonアソシエイトリンクを挿入</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/nhm745/">昔ながらの個人サイトを探せる検索エンジンを作った</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/h9x6ki/">テキストエディタをAtomからVSCodeに乗り換えた</a></li></ul></div><div class="widget"><h4 class="widget__title">リンク</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/about/">サイトについて</a></li><li class="aside-list-item"><a class="aside-list-link" href="/contact/">メールフォーム</a></li><li class="aside-list-item"><a class="aside-list-link" href="/atom.xml">RSS</a></li></ul></div><div class="widget"><h4 class="widget__title">検索</h4><form class="search-form" id="search" action="https://duckduckgo.com/" role="search"><input name="sites" type="hidden" value="https://pixelog.net"> <input class="search-form__input" placeholder="キーワード" name="q" type="text"> <button class="search-form__btn" type="submit"><i class="gg-search"></i></button></form></div></aside></div><footer class="footer"><a class="footer__link" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a><br>Powered by Hexo, Theme designed by Pixelog</footer><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item":
+          {
+            "@id": "/",
+            "name": "ホーム"
+          }
+        }
+        
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "item":
+          {
+            "@id": "/category/web/",
+            "name": "Web"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "item":
+          {
+            "@id": "/category/web/web%E5%88%B6%E4%BD%9C/",
+            "name": "Web制作"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 4,
+          "item":
+          {
+            "@id": "/post/kqkyf5/",
+            "name": "CSSのみでクリックで画像を拡大する（Lightboxもどき）"
+          }
+        }
+        
+      ]
+    }
+  ]
+}</script><script>!function(e){var d=window,n=["scroll","resize"],a=document.querySelectorAll(e),g="backgroundPosition",s="backgroundAttachment";function t(e){for(e=a.length;e--;)n=a[e].getBoundingClientRect(),t=a[e].style,c=void 0,o=d.innerHeight,i=n.height,r=n.top,l=r+i,c=0,i<-1*r||o<r||(r<0&&(c=-1*r>>1),o<l&&(c=-1*(l-o)>>1),t[g]=(t[g].split(" ")[0]||"50%")+" "+c+"px","scroll"!==t[s]&&(t[s]="scroll"));var n,t,o,i,r,l,c}if(a.length){for(var o in n)addEventListener(n[o],t);t()}}(".header")</script></body></html>

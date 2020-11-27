@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og: http://ogp.me/ns#"><meta charset="utf-8"><title>Hexoで記事を早く書き始められるPowershellのスクリプトを書いた - Pixelog</title><link rel="canonical" href="https://pixelog.net/post/4yx1we/"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="/favicon.svg" rel="icon" type="image/svg+xml"><meta name="description" content="このブログは、URLにSEO効果があるというのはオカルトだと思っているのと、単純に英語のスラッグを考えるのがめんどくさいというのがあって、記事のパーマリンクを乱数にしています。"><meta property="og:type" content="article"><meta property="og:title" content="Hexoで記事を早く書き始められるPowershellのスクリプトを書いた"><meta property="og:url" content="https://pixelog.net/post/4yx1we/"><meta property="og:site_name" content="Pixelog"><meta property="og:description" content="このブログは、URLにSEO効果があるというのはオカルトだと思っているのと、単純に英語のスラッグを考えるのがめんどくさいというのがあって、記事のパーマリンクを乱数にしています。"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://pixelog.net/post/4yx1we/1.png"><meta property="article:published_time" content="2020-07-26T09:24:39.000Z"><meta property="article:author" content="yussy"><meta property="article:tag" content="PowerShell"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://pixelog.net/post/4yx1we/1.png"><link rel="alternate" href="/atom.xml" title="Pixelog" type="application/atom+xml"><link rel="search" type="application/opensearchdescription+xml" title="Pixelog" href="/opensearch.xml"><link rel="stylesheet" href="/css/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-68420269-3"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-68420269-3")</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><header class="header"><a class="header__link" href="/"><div class="header__logo">Pixelog</div><div class="header__desc">Webに関するメモと日記</div></a></header><div class="frame"><main class="main"><article class="post"><header class="post__header"><div class="post__date"><time class="post__published" datetime="2020-07-26T09:24:39+00:00">2020-07-26</time></div><h1 class="post__title">Hexoで記事を早く書き始められるPowershellのスクリプトを書いた</h1></header><div class="post__content"><p>このブログは、URLにSEO効果があるというのはオカルトだと思っているのと、単純に英語のスラッグを考えるのがめんどくさいというのがあって、記事のパーマリンクを乱数にしています。</p><a id="more"></a><p>今までパーマリンクは、Bitwarden（パスワード管理ソフト）のCLIからパスワードを生成し、フロントマターにコピペしていました。いたのですが、さすがに面倒が過ぎるので、以下の記事から着想を得て、Powershellのスクリプトでの自動化に踏み切ることにしました。</p><p><a target="_blank" rel="noopener" href="https://wbtmiu.herokuapp.com/2014/09/15/JQDleI4soG/">気付いたらHexoのパーマリンクが変わっていたので自動生成＋固定にできるよう対応</a></p><p>Hexoでも記事を作成するコマンドは用意されていますが、他にもファイル名まわりなどで不満があるのでその辺りも解決します。</p><h2 id="前提条件">前提条件</h2><p>当ブログの<code>_posts</code>フォルダは以下のようなルールで管理しています。</p><pre><code class="hljs plaintext">__posts/
+　├ 雑記/
+　│　└ 200419_SE215のリケーブルにはYinyooのYYX4849がおすすめ.md
+　├ Hexo/
+　│　└ 200726_Hexoで記事を早く書き始められるシェルスクリプトを書いた/
+　│　└ 200726_Hexoで記事を早く書き始められるシェルスクリプトを書いた.md
+　│</code></pre><p>ファイル名は、数字6ケタの日付を最初に補い、日付と記事名とをアンダースコアで区切っているのと、<code>posts</code>以下はカテゴリーで分類しています。</p><h2 id="やりたいこと">やりたいこと</h2><pre><code class="hljs plain">---
+title: &#123;記事名&#125;
+date: &#123;ファイル作成日時をセット&#125;
+categories:
+  - &#123;カテゴリー名をディレクトリ構造から自動でセット&#125;
+tags:
+permalink: &#123;6ケタの乱数を自動でセット&#125;
+---</code></pre><ul><li>ファイル名を先述のルールに従ったもので生成する</li><li><code>title</code>に記事名を挿入</li><li><code>categories</code>をディレクトリ構造を参照してセットする</li><li><code>permalink</code>に乱数を自動でセットする</li><li>post asset folderがいらないときに、フォルダを削除するのが面倒なので、最初から選べるようにする</li></ul><h2 id="ソース">ソース</h2><p>という訳で、下のようなスクリプトを書いてみました。。今までにシェルスクリプトを書いた経験がなく、Hello Worldから始めるような状態だったのでかなり苦労した…。</p><pre><code class="hljs shell"><span class="hljs-meta">﻿#</span><span class="bash">!/bin/sh</span>
+
+<span class="hljs-meta">#</span><span class="bash"> ファイル名に使う変数</span>
+<span class="hljs-meta">$</span><span class="bash">prefix = Get-Date -Format <span class="hljs-string">&quot;yyMMdd&quot;</span></span>
+<span class="hljs-meta">$</span><span class="bash">title = <span class="hljs-variable">$Args</span>[0]</span>
+<span class="hljs-meta">$</span><span class="bash">filename = <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;prefix&#125;</span>_<span class="hljs-variable">$title</span>&quot;</span></span>
+
+<span class="hljs-meta">#</span><span class="bash"> FrontMatterにセットする変数</span>
+<span class="hljs-meta">$</span><span class="bash">date = Get-Date -Format <span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span></span>
+<span class="hljs-meta">$</span><span class="bash">path = Convert-Path .</span>
+<span class="hljs-meta">$</span><span class="bash">cat = <span class="hljs-variable">$path</span> -replace <span class="hljs-string">&quot;.*_posts\\&quot;</span>,<span class="hljs-string">&quot;&quot;</span> <span class="hljs-comment"># _posts以下のフォルダをカテゴリーとして扱う</span></span>
+<span class="hljs-meta">$</span><span class="bash">ary_cat = <span class="hljs-variable">$cat</span> -split <span class="hljs-string">&quot;\\&quot;</span></span>
+<span class="hljs-meta">$</span><span class="bash">random= -Join (Get-Random -Count 6 -input 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z)</span>
+
+<span class="hljs-meta">#</span><span class="bash"> FrontMatterの準備</span>
+<span class="hljs-meta">$</span><span class="bash">frontMatter = <span class="hljs-string">&quot;---</span></span>
+title: $title
+date: $date
+categories:&quot;
+
+<span class="hljs-meta">for($</span><span class="bash">i=0; <span class="hljs-variable">$i</span> -lt <span class="hljs-variable">$ary_cat</span>.Length; <span class="hljs-variable">$i</span> ++)&#123;</span>
+    $frontMatter += &quot;`n  - &quot; + $ary_cat[$i]
+&#125;
+
+<span class="hljs-meta">$</span><span class="bash">frontMatter += <span class="hljs-string">&quot;`n&quot;</span> + <span class="hljs-string">&quot;tags:</span></span>
+permalink: $random
+---&quot;
+
+<span class="hljs-meta">#</span><span class="bash"> ファイル作成</span>
+New-Item &quot;$filename.md&quot;
+Add-Content &quot;$filename.md&quot; -Value $frontMatter -Encoding Utf8
+
+<span class="hljs-meta">#</span><span class="bash"> フォルダ作成</span>
+<span class="hljs-meta">If($</span><span class="bash">Args[1])&#123;</span>
+    New-Item $filename -ItemType Directory
+&#125;
+
+<span class="hljs-meta">#</span><span class="bash"> ファイルを開く</span>
+Invoke-Item &quot;$filename.md&quot;</code></pre><p>上のコードを<code>.ps1</code>という拡張子で、パスの通ったフォルダに保存します。ファイル名がそのままコマンドになるので、短い名前がいいということで、<code>w.ps1</code>という名前にしました。</p><h2 id="使い方">使い方</h2><p>まず、記事を作成したいカテゴリーのフォルダを開きます。</p><p><img src="1.png" alt="エクスプローラーの画面"></p><p>そして、あのフォルダの階層とかパスとかが表示されてる窓（名前分からん）で、下の呪文を唱えます。</p><pre><code class="hljs plain">powershell w [記事名] [post asset folderを生成するかどうか]</code></pre><p>すると、下のようなフロントマターがあらかじめセットされた状態でMarkdownファイルが生成され、エディターが起動します。第2引数に適当な文字列（何でもいい）を指定すると、画像を入れるためのフォルダも同時に作成されます。</p><pre><code class="hljs plain">---
+title: Hexoで記事を早く書き始められるシェルスクリプトを書いた
+date: 2020-07-26 18:24:39
+categories:
+  - Web
+  - Hexo
+tags:
+permalink: 4yx1we
+---</code></pre></div><footer class="post__footer"><dl class="post-meta"><dt class="post-meta__dt">カテゴリー:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/">Web</a></li><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/hexo/">Hexo</a></li></ul></dd><dt class="post-meta__dt">タグ:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/powershell/">PowerShell</a></li></ul></dd></dl><div class="post__ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9027963984337121" data-ad-slot="4141857270" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></footer></article></main><aside class="aside"><div class="widget"><h4 class="widget__title">カテゴリー</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/">Web <span class="aside-list-count">61</span></a><ul class="aside-list-child"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/hexo/">Hexo <span class="aside-list-count">22</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/web%E5%88%B6%E4%BD%9C/">Web制作 <span class="aside-list-count">26</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/">その他 <span class="aside-list-count">13</span></a></li></ul></li><li class="aside-list-item"><a class="aside-list-link" href="/category/%E9%9B%91%E8%A8%98/">雑記 <span class="aside-list-count">21</span></a></li></ul></div><div class="widget"><h4 class="widget__title">タグクラウド</h4><div class="tag-cloud"><a href="/tag/android/" style="font-size:10px;color:#999">Android</a> <a href="/tag/css/" style="font-size:20px;color:#444">CSS</a> <a href="/tag/css%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/" style="font-size:10px;color:#999">CSSアニメーション</a> <a href="/tag/ejs/" style="font-size:15.71px;color:#686868">EJS</a> <a href="/tag/git/" style="font-size:11.43px;color:#8d8d8d">Git</a> <a href="/tag/html/" style="font-size:18.57px;color:#505050">HTML</a> <a href="/tag/js%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA/" style="font-size:11.43px;color:#8d8d8d">JSライブラリ</a> <a href="/tag/javascript/" style="font-size:17.14px;color:#5c5c5c">JavaScript</a> <a href="/tag/netlify/" style="font-size:12.86px;color:#818181">Netlify</a> <a href="/tag/node-js/" style="font-size:14.29px;color:#757575">Node.js</a> <a href="/tag/powershell/" style="font-size:12.86px;color:#818181">PowerShell</a> <a href="/tag/npm/" style="font-size:10px;color:#999">npm</a> <a href="/tag/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88/" style="font-size:12.86px;color:#818181">ブックマークレット</a></div></div><div class="widget"><h4 class="widget__title">月別</h4><select class="archive-list" onchange="location.href=this.value"><option disabled selected>月を選択</option><option value="/archive/2020/11/">2020年11月 (11)</option><option value="/archive/2020/10/">2020年10月 (4)</option><option value="/archive/2020/09/">2020年09月 (3)</option><option value="/archive/2020/08/">2020年08月 (3)</option><option value="/archive/2020/07/">2020年07月 (11)</option><option value="/archive/2020/06/">2020年06月 (1)</option><option value="/archive/2020/05/">2020年05月 (3)</option><option value="/archive/2020/04/">2020年04月 (18)</option><option value="/archive/2020/03/">2020年03月 (3)</option><option value="/archive/2020/02/">2020年02月 (3)</option><option value="/archive/2020/01/">2020年01月 (6)</option><option value="/archive/2019/06/">2019年06月 (7)</option><option value="/archive/2019/05/">2019年05月 (5)</option><option value="/archive/2019/04/">2019年04月 (1)</option><option value="/archive/2019/03/">2019年03月 (2)</option><option value="/archive/2017/03/">2017年03月 (1)</option></select></div><div class="widget"><h4 class="widget__title">最近の投稿</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/post/37us5c/">Feedly・Inoreaderの購読ページのURLを生成</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y5xwcr/">旧愛生会病院HPをCSSアニメーションで再現するサンプル4種</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y7cfvk/">HexoのショートコードでAmazonアソシエイトリンクを挿入</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/nhm745/">昔ながらの個人サイトを探せる検索エンジンを作った</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/h9x6ki/">テキストエディタをAtomからVSCodeに乗り換えた</a></li></ul></div><div class="widget"><h4 class="widget__title">リンク</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/about/">サイトについて</a></li><li class="aside-list-item"><a class="aside-list-link" href="/contact/">メールフォーム</a></li><li class="aside-list-item"><a class="aside-list-link" href="/atom.xml">RSS</a></li></ul></div><div class="widget"><h4 class="widget__title">検索</h4><form class="search-form" id="search" action="https://duckduckgo.com/" role="search"><input name="sites" type="hidden" value="https://pixelog.net"> <input class="search-form__input" placeholder="キーワード" name="q" type="text"> <button class="search-form__btn" type="submit"><i class="gg-search"></i></button></form></div></aside></div><footer class="footer"><a class="footer__link" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a><br>Powered by Hexo, Theme designed by Pixelog</footer><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item":
+          {
+            "@id": "/",
+            "name": "ホーム"
+          }
+        }
+        
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "item":
+          {
+            "@id": "/category/web/",
+            "name": "Web"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "item":
+          {
+            "@id": "/category/web/hexo/",
+            "name": "Hexo"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 4,
+          "item":
+          {
+            "@id": "/post/4yx1we/",
+            "name": "Hexoで記事を早く書き始められるPowershellのスクリプトを書いた"
+          }
+        }
+        
+      ]
+    }
+  ]
+}</script><script>!function(e){var d=window,n=["scroll","resize"],a=document.querySelectorAll(e),g="backgroundPosition",s="backgroundAttachment";function t(e){for(e=a.length;e--;)n=a[e].getBoundingClientRect(),t=a[e].style,c=void 0,o=d.innerHeight,i=n.height,r=n.top,l=r+i,c=0,i<-1*r||o<r||(r<0&&(c=-1*r>>1),o<l&&(c=-1*(l-o)>>1),t[g]=(t[g].split(" ")[0]||"50%")+" "+c+"px","scroll"!==t[s]&&(t[s]="scroll"));var n,t,o,i,r,l,c}if(a.length){for(var o in n)addEventListener(n[o],t);t()}}(".header")</script></body></html>

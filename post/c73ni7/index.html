@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og: http://ogp.me/ns#"><meta charset="utf-8"><title>クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる - Pixelog</title><link rel="canonical" href="https://pixelog.net/post/c73ni7/"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="/favicon.svg" rel="icon" type="image/svg+xml"><meta name="description" content="Lightboxという単語は死語感が漂っており、今どき需要もなさそうですが…。"><meta property="og:type" content="article"><meta property="og:title" content="クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる"><meta property="og:url" content="https://pixelog.net/post/c73ni7/"><meta property="og:site_name" content="Pixelog"><meta property="og:description" content="Lightboxという単語は死語感が漂っており、今どき需要もなさそうですが…。"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/sakura.jpg"><meta property="og:image" content="https://pixelog.net/post/kqkyf5/suisen.jpg"><meta property="article:published_time" content="2020-02-11T07:00:00.000Z"><meta property="article:modified_time" content="2020-04-19T03:40:00.000Z"><meta property="article:author" content="yussy"><meta property="article:tag" content="HTML"><meta property="article:tag" content="CSS"><meta property="article:tag" content="JavaScript"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://pixelog.net/post/kqkyf5/sakura.jpg"><link rel="alternate" href="/atom.xml" title="Pixelog" type="application/atom+xml"><link rel="search" type="application/opensearchdescription+xml" title="Pixelog" href="/opensearch.xml"><link rel="stylesheet" href="/css/style.css"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-68420269-3"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-68420269-3")</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><header class="header"><a class="header__link" href="/"><div class="header__logo">Pixelog</div><div class="header__desc">Webに関するメモと日記</div></a></header><div class="frame"><main class="main"><article class="post"><header class="post__header"><div class="post__date"><time class="post__published" datetime="2020-02-11T07:00:00+00:00">2020-02-11 </time><time class="post__updated" datetime="2020-04-19T03:40:00+00:00">(2020-04-19更新)</time></div><h1 class="post__title">クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる</h1></header><div class="post__content"><p>Lightboxという単語は死語感が漂っており、今どき需要もなさそうですが…。</p><a id="more"></a><p>というのはさておき、このブログで画像拡大プラグインを導入するにあたり、Photoswipeが候補に挙がったのですが、HTMLの構造の条件が厳しいのと、お手軽感がないのとで、結局自前で実装するに至りました。</p><h2 id="デモ">デモ</h2><p>下の写真をクリック/タップしてみてください。モーダルウインドウが開いて画像が拡大表示されます。モーダルウインドウは、ウインドウ内をクリック/タップ、スクロールで閉じることができます。</p><p><img src="/post/kqkyf5/sakura.jpg" alt="桜"></p><p><img src="/post/kqkyf5/suisen.jpg" alt="スイセン"></p><h2 id="仕様">仕様</h2><ul><li>imgタグのsrc属性に指定されている画像を原寸大、もしくは画面いっぱいまで拡大します。HTMLに特別な構造、セレクタは必要ありません。</li><li>画像を拡大した際にaltに指定した代替テキストを左上に表示します。</li><li>アニメーションは全てCSSに押し付けているので、柔軟にカスタマイズできます。</li><li>IEは全バージョン対応していません（縦横比がおかしくなる or 動かない）。ご了承ください。</li></ul><h2 id="コード">コード</h2><h3 id="CSS">CSS</h3><p>Stylusで書いたものと、コンパイル済みのものを置いておきます。お好きな方をお使いください。</p><pre><code class="hljs stylus">#pixel-viewer
+    <span class="hljs-attribute">display</span> flex
+    <span class="hljs-attribute">flex-direction</span> column
+    <span class="hljs-attribute">width</span> <span class="hljs-number">100%</span>
+    <span class="hljs-attribute">height</span> <span class="hljs-number">100%</span>
+    background rgba(0, 0, 0, .9)
+    <span class="hljs-attribute">position</span> fixed
+    <span class="hljs-attribute">top</span> <span class="hljs-number">0</span>
+    <span class="hljs-attribute">left</span> <span class="hljs-number">0</span>
+    <span class="hljs-attribute">z-index</span> <span class="hljs-number">10</span>
+    animation fadein .2s ease-out both
+    <span class="hljs-attribute">cursor</span> pointer
+    user-select <span class="hljs-attribute">none</span>
+    -webkit-tap-highlight-<span class="hljs-attribute">color</span> transparent
+    tap-highlight-<span class="hljs-attribute">color</span> transparent
+
+    &amp;.fadeout
+        animation fadeout .2s ease-out both
+        <span class="hljs-attribute">pointer-events</span> none <span class="hljs-comment">/* ← IE救済措置（IEでこれがないと画像を閉じた後にページ全体がクリックできなくなります...）*/</span>
+
+        &amp; #pixel-viewer__img
+            animation scaledown .2s ease-out both
+
+#pixel-viewer__alt
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>
+    <span class="hljs-attribute">height</span> <span class="hljs-number">44px</span>
+    <span class="hljs-attribute">line-height</span> <span class="hljs-number">44px</span>
+    <span class="hljs-attribute">padding</span> <span class="hljs-number">0</span> <span class="hljs-number">48px</span> <span class="hljs-number">0</span> <span class="hljs-number">12px</span>
+    background rgba(0, 0, 0, .95)
+    <span class="hljs-attribute">color</span> <span class="hljs-number">#eee</span>
+    <span class="hljs-attribute">font-size</span> <span class="hljs-number">14px</span>
+    <span class="hljs-attribute">text-overflow</span> ellipsis <span class="hljs-comment">/* スマホなどでaltが横幅をはみ出たときに省略します */</span>
+    <span class="hljs-attribute">white-space</span> nowrap
+    <span class="hljs-attribute">overflow</span> hidden
+
+    &amp;::before
+    &amp;::after
+        <span class="hljs-attribute">content</span> <span class="hljs-string">&quot;&quot;</span>
+        dispaly block
+        <span class="hljs-attribute">width</span> <span class="hljs-number">24px</span>
+        <span class="hljs-attribute">height</span> <span class="hljs-number">3px</span>
+        <span class="hljs-attribute">background</span> <span class="hljs-number">#eee</span>
+        <span class="hljs-attribute">border-radius</span> <span class="hljs-number">4px</span>
+        <span class="hljs-attribute">position</span> fixed
+        <span class="hljs-attribute">top</span> <span class="hljs-number">20px</span>
+        <span class="hljs-attribute">right</span> <span class="hljs-number">12px</span>
+        <span class="hljs-attribute">z-index</span> <span class="hljs-number">12</span>
+    &amp;::before
+        <span class="hljs-attribute">transform</span> rotate(<span class="hljs-number">45deg</span>)
+    &amp;::after
+        <span class="hljs-attribute">transform</span> rotate(-<span class="hljs-number">45deg</span>)
+
+#pixel-viewer__img
+    <span class="hljs-attribute">display</span> block
+    <span class="hljs-attribute">margin</span> auto
+    <span class="hljs-attribute">max-width</span> <span class="hljs-number">100%</span>
+    <span class="hljs-attribute">max-height</span> calc(<span class="hljs-number">100%</span> - <span class="hljs-number">44px</span>)
+    animation scaleup .2s ease-out both
+
+@keyframes fadein
+    <span class="hljs-number">0%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">0</span>
+    <span class="hljs-number">100%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">1</span>
+
+@keyframes scaleup
+    <span class="hljs-number">0%</span>
+        transform scale(.95)
+    <span class="hljs-number">100%</span>
+        <span class="hljs-attribute">transform</span> scale(<span class="hljs-number">1</span>)
+
+@keyframes fadeout
+    <span class="hljs-number">0%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">1</span>
+    <span class="hljs-number">100%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">0</span>
+
+@keyframes scaledown
+    <span class="hljs-number">0%</span>
+        <span class="hljs-attribute">transform</span> scale(<span class="hljs-number">1</span>)
+    <span class="hljs-number">100%</span>
+        transform scale(.95)</code></pre><pre><code class="hljs css"><span class="hljs-selector-id">#pixel-viewer</span> &#123;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.9</span>);
+  <span class="hljs-attribute">position</span>: fixed;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">10</span>;
+  <span class="hljs-attribute">animation</span>: fadein <span class="hljs-number">0.2s</span> ease-out both;
+  <span class="hljs-attribute">cursor</span>: pointer;
+  <span class="hljs-attribute">user-select</span>: none;
+  <span class="hljs-attribute">-webkit-tap-highlight-color</span>: transparent;
+  <span class="hljs-attribute">tap-highlight-color</span>: transparent;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-class">.fadeout</span> &#123;
+  <span class="hljs-attribute">animation</span>: fadeout <span class="hljs-number">0.2s</span> ease-out both;
+  <span class="hljs-attribute">pointer-events</span>: none <span class="hljs-comment">/* ← IE救済措置（IEでこれがないと画像を閉じた後にページ全体がクリックできなくなりますｗ）*/</span>;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-class">.fadeout</span> <span class="hljs-selector-id">#pixel-viewer__img</span> &#123;
+  <span class="hljs-attribute">animation</span>: scaledown <span class="hljs-number">0.2s</span> ease-out both;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer__alt</span> &#123;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">44px</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">44px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">48px</span> <span class="hljs-number">0</span> <span class="hljs-number">12px</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.95</span>);
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#eee</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
+  <span class="hljs-attribute">text-overflow</span>: ellipsis <span class="hljs-comment">/* スマホなどでaltが横幅をはみ出たときに省略します */</span>;
+  <span class="hljs-attribute">white-space</span>: nowrap;
+  <span class="hljs-attribute">overflow</span>: hidden;
+&#125;
+<span class="hljs-comment">/* 閉じるボタン */</span>
+<span class="hljs-selector-id">#pixel-viewer__alt</span><span class="hljs-selector-pseudo">::before</span>,
+<span class="hljs-selector-id">#pixel-viewer__alt</span><span class="hljs-selector-pseudo">::after</span> &#123;
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span>;
+  <span class="hljs-attribute">dispaly</span>: block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">24px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">3px</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-number">#eee</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">position</span>: fixed;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">right</span>: <span class="hljs-number">12px</span>;
+  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">12</span>;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer__alt</span><span class="hljs-selector-pseudo">::before</span> &#123;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">45deg</span>);
+&#125;
+<span class="hljs-selector-id">#pixel-viewer__alt</span><span class="hljs-selector-pseudo">::after</span> &#123;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(-<span class="hljs-number">45deg</span>);
+&#125;
+<span class="hljs-selector-id">#pixel-viewer__img</span> &#123;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">margin</span>: auto;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">max-height</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">44px</span>);
+  <span class="hljs-attribute">animation</span>: scaleup <span class="hljs-number">0.2s</span> ease-out both;
+&#125;
+<span class="hljs-keyword">@keyframes</span> fadein &#123;
+  0% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+  &#125;
+&#125;
+<span class="hljs-keyword">@keyframes</span> scaleup &#123;
+  0% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.95</span>);
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>);
+  &#125;
+&#125;
+<span class="hljs-keyword">@keyframes</span> fadeout &#123;
+  0% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+  &#125;
+&#125;
+<span class="hljs-keyword">@keyframes</span> scaledown &#123;
+  0% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>);
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.95</span>);
+  &#125;
+&#125;</code></pre><h3 id="JS">JS</h3><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pixelViewer</span>(<span class="hljs-params">element</span>)</span>&#123;
+    <span class="hljs-keyword">const</span> img = <span class="hljs-built_in">document</span>.querySelectorAll(element);
+
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i &lt; img.length; i++)&#123;
+        img[i].addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, open);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">open</span>(<span class="hljs-params"></span>)</span>&#123;
+        <span class="hljs-keyword">const</span> filter = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;div&#x27;</span>);
+        filter.id = <span class="hljs-string">&#x27;pixel-viewer&#x27;</span>;
+
+        <span class="hljs-keyword">const</span> div_alt = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;div&#x27;</span>);
+        div_alt.id = <span class="hljs-string">&#x27;pixel-viewer__alt&#x27;</span>;
+        div_alt.textContent = <span class="hljs-built_in">this</span>.alt;
+
+        <span class="hljs-keyword">const</span> div_img = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;img&#x27;</span>);
+        div_img.id = <span class="hljs-string">&#x27;pixel-viewer__img&#x27;</span>;
+        div_img.src = <span class="hljs-built_in">this</span>.src;
+
+        <span class="hljs-built_in">document</span>.body.appendChild(filter);
+        filter.appendChild(div_alt);
+        filter.appendChild(div_img);
+
+        filter.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, close, &#123;<span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>&#125;);
+        <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;scroll&#x27;</span>, close, &#123;<span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>&#125;); <span class="hljs-comment">// スクロールで閉じたくない場合はこの行を削除</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span>&#123;
+            filter.className = <span class="hljs-string">&#x27;fadeout&#x27;</span>;
+            filter.addEventListener(<span class="hljs-string">&quot;animationend&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+                filter.remove();
+            &#125;);
+        &#125;
+    &#125;
+&#125;
+</code></pre><pre><code class="hljs javascript">pixelViewer(<span class="hljs-string">&#x27;p &gt; img&#x27;</span>);</code></pre><p>引数に、記事内のimgタグを全て取得できるようなセレクタを指定してください。<code>querySelectorAll</code>なのでCSSと同じ感覚で書いて大丈夫です。</p><p>aタグの中に入った画像は対応していません。子セレクタなどを使って、リンクの中の画像を拾わないようにうまく指定してください。</p><h3 id="HTML（記事内）">HTML（記事内）</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/post/only-css-popup-image/suisen.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;スイセン&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre><p>上のような感じで、基本的に何もしなくて大丈夫です。</p><h2 id="alt表示なし版">alt表示なし版</h2><p>左上のalt表示がないバージョンです。</p><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pixelViewer</span>(<span class="hljs-params">element</span>)</span>&#123;
+  <span class="hljs-keyword">const</span> img = <span class="hljs-built_in">document</span>.querySelectorAll(element);
+
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i &lt; img.length; i++)&#123;
+    img[i].addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, open);
+  &#125;
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">open</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-keyword">const</span> filter = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;div&#x27;</span>);
+    filter.id = <span class="hljs-string">&#x27;pixel-viewer&#x27;</span>;
+
+    <span class="hljs-keyword">const</span> div_img = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;img&#x27;</span>);
+    div_img.id = <span class="hljs-string">&#x27;pixel-viewer__img&#x27;</span>;
+    div_img.src = <span class="hljs-built_in">this</span>.src;
+
+    <span class="hljs-built_in">document</span>.body.appendChild(filter);
+    filter.appendChild(div_img);
+
+    filter.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, close, &#123;<span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>&#125;);
+    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;scroll&#x27;</span>, close, &#123;<span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>&#125;); <span class="hljs-comment">// スクロールで閉じたくない場合はこの行を削除</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span>&#123;
+      filter.className = <span class="hljs-string">&#x27;fadeout&#x27;</span>;
+      filter.addEventListener(<span class="hljs-string">&quot;animationend&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+          filter.remove();
+      &#125;);
+    &#125;
+  &#125;
+&#125;
+pixelViewer(<span class="hljs-string">&#x27;p &gt; img&#x27;</span>);</code></pre><pre><code class="hljs stylus">#pixel-viewer
+    <span class="hljs-attribute">display</span> flex
+    <span class="hljs-attribute">flex-direction</span> column
+    <span class="hljs-attribute">width</span> <span class="hljs-number">100%</span>
+    <span class="hljs-attribute">height</span> <span class="hljs-number">100%</span>
+    <span class="hljs-attribute">background</span> rgba(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.9</span>)
+    <span class="hljs-attribute">position</span> fixed
+    <span class="hljs-attribute">top</span> <span class="hljs-number">0</span>
+    <span class="hljs-attribute">left</span> <span class="hljs-number">0</span>
+    <span class="hljs-attribute">z-index</span> <span class="hljs-number">10</span>
+    animation fadein .2s ease-out both
+    <span class="hljs-attribute">cursor</span> pointer
+    user-select <span class="hljs-attribute">none</span>
+    -webkit-tap-highlight-<span class="hljs-attribute">color</span> transparent
+    tap-highlight-<span class="hljs-attribute">color</span> transparent
+
+    &amp;.fadeout
+        animation fadeout .2s ease-out both
+        <span class="hljs-attribute">pointer-events</span> none
+
+        &amp; #pixel-viewer__img
+            animation scaledown .2s ease-out both
+
+
+    &amp;::before
+    &amp;::after
+        <span class="hljs-attribute">content</span> <span class="hljs-string">&quot;&quot;</span>
+        dispaly block
+        <span class="hljs-attribute">width</span> <span class="hljs-number">24px</span>
+        <span class="hljs-attribute">height</span> <span class="hljs-number">3px</span>
+        <span class="hljs-attribute">background</span> <span class="hljs-number">#eee</span>
+        <span class="hljs-attribute">border-radius</span> <span class="hljs-number">4px</span>
+        <span class="hljs-attribute">position</span> fixed
+        <span class="hljs-attribute">top</span> <span class="hljs-number">20px</span>
+        <span class="hljs-attribute">right</span> <span class="hljs-number">12px</span>
+        <span class="hljs-attribute">z-index</span> <span class="hljs-number">12</span>
+    &amp;::before
+        <span class="hljs-attribute">transform</span> rotate(<span class="hljs-number">45deg</span>)
+    &amp;::after
+        <span class="hljs-attribute">transform</span> rotate(-<span class="hljs-number">45deg</span>)
+
+#pixel-viewer__img
+    <span class="hljs-attribute">display</span> block
+    <span class="hljs-attribute">margin</span> auto
+    <span class="hljs-attribute">max-width</span> <span class="hljs-number">100%</span>
+    <span class="hljs-attribute">max-height</span> calc(<span class="hljs-number">100%</span> - <span class="hljs-number">44px</span>)
+    animation scaleup .2s ease-out both
+
+@keyframes fadein
+    <span class="hljs-number">0%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">0</span>
+    <span class="hljs-number">100%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">1</span>
+
+@keyframes scaleup
+    <span class="hljs-number">0%</span>
+        transform scale(.97)
+    <span class="hljs-number">100%</span>
+        <span class="hljs-attribute">transform</span> scale(<span class="hljs-number">1</span>)
+
+@keyframes fadeout
+    <span class="hljs-number">0%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">1</span>
+    <span class="hljs-number">100%</span>
+        <span class="hljs-attribute">opacity</span> <span class="hljs-number">0</span>
+
+@keyframes scaledown
+    <span class="hljs-number">0%</span>
+        <span class="hljs-attribute">transform</span> scale(<span class="hljs-number">1</span>)
+    <span class="hljs-number">100%</span>
+        transform scale(.97)</code></pre><pre><code class="hljs css"><span class="hljs-selector-id">#pixel-viewer</span> &#123;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.9</span>);
+  <span class="hljs-attribute">position</span>: fixed;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">10</span>;
+  <span class="hljs-attribute">animation</span>: fadein <span class="hljs-number">0.2s</span> ease-out both;
+  <span class="hljs-attribute">cursor</span>: pointer;
+  <span class="hljs-attribute">user-select</span>: none;
+  <span class="hljs-attribute">-webkit-tap-highlight-color</span>: transparent;
+  <span class="hljs-attribute">tap-highlight-color</span>: transparent;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-class">.fadeout</span> &#123;
+  <span class="hljs-attribute">animation</span>: fadeout <span class="hljs-number">0.2s</span> ease-out both;
+  <span class="hljs-attribute">pointer-events</span>: none <span class="hljs-comment">/* ← IE救済措置（IEでこれがないと画像を閉じた後にページ全体がクリックできなくなります...）*/</span>;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-class">.fadeout</span> <span class="hljs-selector-id">#pixel-viewer__img</span> &#123;
+  <span class="hljs-attribute">animation</span>: scaledown <span class="hljs-number">0.2s</span> ease-out both;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-pseudo">::before</span>,
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-pseudo">::after</span> &#123;
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span>;
+  <span class="hljs-attribute">dispaly</span>: block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">24px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">3px</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-number">#eee</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">position</span>: fixed;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">right</span>: <span class="hljs-number">12px</span>;
+  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">12</span>;
+&#125;
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-pseudo">::before</span> &#123;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">45deg</span>);
+&#125;
+<span class="hljs-selector-id">#pixel-viewer</span><span class="hljs-selector-pseudo">::after</span> &#123;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(-<span class="hljs-number">45deg</span>);
+&#125;
+<span class="hljs-selector-id">#pixel-viewer__img</span> &#123;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">margin</span>: auto;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">max-height</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">44px</span>);
+  <span class="hljs-attribute">animation</span>: scaleup <span class="hljs-number">0.2s</span> ease-out both;
+&#125;
+<span class="hljs-keyword">@keyframes</span> fadein &#123;
+  0% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+  &#125;
+&#125;
+<span class="hljs-keyword">@keyframes</span> scaleup &#123;
+  0% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.97</span>);
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>);
+  &#125;
+&#125;
+<span class="hljs-keyword">@keyframes</span> fadeout &#123;
+  0% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+  &#125;
+&#125;
+<span class="hljs-keyword">@keyframes</span> scaledown &#123;
+  0% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>);
+  &#125;
+  100% &#123;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.97</span>);
+  &#125;
+&#125;</code></pre><h2 id="まとめ">まとめ</h2><p>素人設計ですが使いたいという方がいらっしゃいましたら、ご自由にお使いください。</p><p>このプラグインをJavaScriptを使わずCSSのみで再現するというお遊び記事も書いてるので、実用性はありませんが、よろしければご覧ください。</p><p><a href="/post/only-css-popup-image/">CSSのみでクリックで画像を拡大する（Lightboxもどき）</a></p><style>p>img{cursor:zoom-in}#pixel-viewer{display:flex;flex-direction:column;width:100%;height:100%;background:rgba(0,0,0,.9);position:fixed;top:0;left:0;z-index:10;animation:fadein .2s ease-out both;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}#pixel-viewer.fadeout{animation:fadeout .2s ease-out both;pointer-events:none}#pixel-viewer.fadeout #pixel-viewer__img{animation:scaledown .2s ease-out both}#pixel-viewer__alt{width:100%;height:44px;line-height:44px;padding:0 48px 0 12px;background:rgba(0,0,0,.95);color:#eee;font-size:14px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}#pixel-viewer__alt::after,#pixel-viewer__alt::before{content:"";dispaly:block;width:24px;height:3px;background:#eee;border-radius:4px;position:fixed;top:20px;right:12px;z-index:12}#pixel-viewer__alt::before{transform:rotate(45deg)}#pixel-viewer__alt::after{transform:rotate(-45deg)}#pixel-viewer__img{display:block;margin:auto;max-width:100%;max-height:calc(100% - 44px);animation:scaleup .2s ease-out both}@keyframes fadein{0%{opacity:0}100%{opacity:1}}@keyframes scaleup{0%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes fadeout{0%{opacity:1}100%{opacity:0}}@keyframes scaledown{0%{transform:scale(1)}100%{transform:scale(.95)}}</style><script>function pixelViewer(element){
+    const img = document.querySelectorAll(element);
+
+    for(let i=0; i < img.length; i++){
+        img[i].addEventListener('click', open);
+    }
+
+    function open(){
+        const filter = document.createElement('div');
+        filter.id = 'pixel-viewer';
+
+        const div_alt = document.createElement('div');
+        div_alt.id = 'pixel-viewer__alt';
+        div_alt.textContent = this.alt;
+
+        const div_img = document.createElement('img');
+        div_img.id = 'pixel-viewer__img';
+        div_img.src = this.src;
+
+        document.body.appendChild(filter);
+        filter.appendChild(div_alt);
+        filter.appendChild(div_img);
+
+        filter.addEventListener('click', close, {once: true});
+        window.addEventListener('scroll', close, {once: true}); // スクロールで閉じたくない場合はこの行を削除
+
+        function close(){
+            filter.className = 'fadeout';
+            filter.addEventListener("animationend",function(){
+                filter.remove();
+            });
+        }
+    }
+}
+
+pixelViewer('p > img');</script></div><footer class="post__footer"><dl class="post-meta"><dt class="post-meta__dt">カテゴリー:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/">Web</a></li><li class="post-meta__item category"><a class="post-meta__link" href="/category/web/web%E5%88%B6%E4%BD%9C/">Web制作</a></li></ul></dd><dt class="post-meta__dt">タグ:</dt><dd class="post-meta__dd"><ul class="post-meta__list"><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/html/">HTML</a></li><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/css/">CSS</a></li><li class="post-meta__item tag"><a class="post-meta__link" href="/tag/javascript/">JavaScript</a></li></ul></dd></dl><div class="post__ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9027963984337121" data-ad-slot="4141857270" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></footer></article></main><aside class="aside"><div class="widget"><h4 class="widget__title">カテゴリー</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/">Web <span class="aside-list-count">61</span></a><ul class="aside-list-child"><li class="aside-list-item"><a class="aside-list-link" href="/category/web/hexo/">Hexo <span class="aside-list-count">22</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/web%E5%88%B6%E4%BD%9C/">Web制作 <span class="aside-list-count">26</span></a></li><li class="aside-list-item"><a class="aside-list-link" href="/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/">その他 <span class="aside-list-count">13</span></a></li></ul></li><li class="aside-list-item"><a class="aside-list-link" href="/category/%E9%9B%91%E8%A8%98/">雑記 <span class="aside-list-count">21</span></a></li></ul></div><div class="widget"><h4 class="widget__title">タグクラウド</h4><div class="tag-cloud"><a href="/tag/android/" style="font-size:10px;color:#999">Android</a> <a href="/tag/css/" style="font-size:20px;color:#444">CSS</a> <a href="/tag/css%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/" style="font-size:10px;color:#999">CSSアニメーション</a> <a href="/tag/ejs/" style="font-size:15.71px;color:#686868">EJS</a> <a href="/tag/git/" style="font-size:11.43px;color:#8d8d8d">Git</a> <a href="/tag/html/" style="font-size:18.57px;color:#505050">HTML</a> <a href="/tag/js%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA/" style="font-size:11.43px;color:#8d8d8d">JSライブラリ</a> <a href="/tag/javascript/" style="font-size:17.14px;color:#5c5c5c">JavaScript</a> <a href="/tag/netlify/" style="font-size:12.86px;color:#818181">Netlify</a> <a href="/tag/node-js/" style="font-size:14.29px;color:#757575">Node.js</a> <a href="/tag/powershell/" style="font-size:12.86px;color:#818181">PowerShell</a> <a href="/tag/npm/" style="font-size:10px;color:#999">npm</a> <a href="/tag/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88/" style="font-size:12.86px;color:#818181">ブックマークレット</a></div></div><div class="widget"><h4 class="widget__title">月別</h4><select class="archive-list" onchange="location.href=this.value"><option disabled selected>月を選択</option><option value="/archive/2020/11/">2020年11月 (11)</option><option value="/archive/2020/10/">2020年10月 (4)</option><option value="/archive/2020/09/">2020年09月 (3)</option><option value="/archive/2020/08/">2020年08月 (3)</option><option value="/archive/2020/07/">2020年07月 (11)</option><option value="/archive/2020/06/">2020年06月 (1)</option><option value="/archive/2020/05/">2020年05月 (3)</option><option value="/archive/2020/04/">2020年04月 (18)</option><option value="/archive/2020/03/">2020年03月 (3)</option><option value="/archive/2020/02/">2020年02月 (3)</option><option value="/archive/2020/01/">2020年01月 (6)</option><option value="/archive/2019/06/">2019年06月 (7)</option><option value="/archive/2019/05/">2019年05月 (5)</option><option value="/archive/2019/04/">2019年04月 (1)</option><option value="/archive/2019/03/">2019年03月 (2)</option><option value="/archive/2017/03/">2017年03月 (1)</option></select></div><div class="widget"><h4 class="widget__title">最近の投稿</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/post/37us5c/">Feedly・Inoreaderの購読ページのURLを生成</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y5xwcr/">旧愛生会病院HPをCSSアニメーションで再現するサンプル4種</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/y7cfvk/">HexoのショートコードでAmazonアソシエイトリンクを挿入</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/nhm745/">昔ながらの個人サイトを探せる検索エンジンを作った</a></li><li class="aside-list-item"><a class="aside-list-link" href="/post/h9x6ki/">テキストエディタをAtomからVSCodeに乗り換えた</a></li></ul></div><div class="widget"><h4 class="widget__title">リンク</h4><ul class="aside-list"><li class="aside-list-item"><a class="aside-list-link" href="/about/">サイトについて</a></li><li class="aside-list-item"><a class="aside-list-link" href="/contact/">メールフォーム</a></li><li class="aside-list-item"><a class="aside-list-link" href="/atom.xml">RSS</a></li></ul></div><div class="widget"><h4 class="widget__title">検索</h4><form class="search-form" id="search" action="https://duckduckgo.com/" role="search"><input name="sites" type="hidden" value="https://pixelog.net"> <input class="search-form__input" placeholder="キーワード" name="q" type="text"> <button class="search-form__btn" type="submit"><i class="gg-search"></i></button></form></div></aside></div><footer class="footer"><a class="footer__link" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a><br>Powered by Hexo, Theme designed by Pixelog</footer><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item":
+          {
+            "@id": "/",
+            "name": "ホーム"
+          }
+        }
+        
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "item":
+          {
+            "@id": "/category/web/",
+            "name": "Web"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 3,
+          "item":
+          {
+            "@id": "/category/web/web%E5%88%B6%E4%BD%9C/",
+            "name": "Web制作"
+          }
+        }
+        
+        
+        ,{
+          "@type": "ListItem",
+          "position": 4,
+          "item":
+          {
+            "@id": "/post/c73ni7/",
+            "name": "クリックで画像を拡大するプラグイン(Lightbox)をjQueryなしで自作してみる"
+          }
+        }
+        
+      ]
+    }
+  ]
+}</script><script>!function(e){var d=window,n=["scroll","resize"],a=document.querySelectorAll(e),g="backgroundPosition",s="backgroundAttachment";function t(e){for(e=a.length;e--;)n=a[e].getBoundingClientRect(),t=a[e].style,c=void 0,o=d.innerHeight,i=n.height,r=n.top,l=r+i,c=0,i<-1*r||o<r||(r<0&&(c=-1*r>>1),o<l&&(c=-1*(l-o)>>1),t[g]=(t[g].split(" ")[0]||"50%")+" "+c+"px","scroll"!==t[s]&&(t[s]="scroll"));var n,t,o,i,r,l,c}if(a.length){for(var o in n)addEventListener(n[o],t);t()}}(".header")</script></body></html>
