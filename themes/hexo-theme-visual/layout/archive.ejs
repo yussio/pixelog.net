@@ -1,9 +1,0 @@
-<% if(is_current('/archive/', 'strict')){ %>
-  <h1 class="main__title">アーカイブ</h1>
-  <%- list_archives({
-    class: 'aside',
-    format: 'YYYY年MM月'
-  }) %>
-<% }else{ %>
-  <%- partial('_partial/post-list') %>
-<% } %>
