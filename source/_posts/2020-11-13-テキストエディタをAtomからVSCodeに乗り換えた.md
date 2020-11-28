@@ -1,4 +1,4 @@
-﻿---
+---
 title: テキストエディタをAtomからVSCodeに乗り換えた
 date: 2020-11-13 18:42:44
 post_id: h9x6ki

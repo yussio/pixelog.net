@@ -1,4 +1,4 @@
-﻿---
+---
 title: HexoのショートコードでAmazonアソシエイトリンクを挿入
 date: 2020-11-15 15:15:29
 post_id: y7cfvk

@@ -1,4 +1,4 @@
-﻿---
+---
 title: RAREWAVES-JP(Amazonマーケットプレイス)でCDを買った
 date: 2020-11-11 18:56:11
 post_id: a4txye

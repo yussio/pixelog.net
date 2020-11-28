@@ -1,4 +1,4 @@
-﻿---
+---
 title: Google PlayのMusicストアがまさかの閉鎖
 date: 2020-08-25 10:51:40
 post_id: 6cugzr
