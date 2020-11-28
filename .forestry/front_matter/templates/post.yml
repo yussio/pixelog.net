@@ -9,6 +9,11 @@ fields:
 - type: datetime
   name: date
   label: date
+  config:
+    display_utc: true
+    date_format: YYYY/MM/DD
+    required: true
+  default: now
 - type: text
   name: post_id
   label: post_id
