@@ -1,7 +1,30 @@
 widgets:
-- category
-- tagcloud
-- archive
-- recent-posts
-- link
-- search_duck
+  - category
+  - tagcloud
+  - archive
+  - recent_posts
+  - link
+  - search
+
+
+category:
+  name: カテゴリー
+
+tagcloud:
+  name: タグクラウド
+
+archive:
+  name: 月別
+
+recent_posts:
+  name: 最近の投稿
+  amount: 5
+
+link:
+  name: リンク
+  list:
+    サイトについて: /about/
+    RSS: /atom.xml
+
+search:
+  name: 検索

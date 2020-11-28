@@ -1,9 +1,9 @@
-<h4 class="<%= block %>__title">リンク</h4>
 <ul class="aside-list">
+  <% for (var i in theme.link.list){ %>
   <li class="aside-list-item">
-    <a class="aside-list-link" href="/about/">サイトについて</a>
+      <a class="aside-list-link" href="<%- theme.link.list[i] %>">
+        <%= i %>
+      </a>
   </li>
-  <li class="aside-list-item">
-    <a class="aside-list-link" href="/atom.xml">RSS</a>
-  </li>
+  <% } %>
 </ul>

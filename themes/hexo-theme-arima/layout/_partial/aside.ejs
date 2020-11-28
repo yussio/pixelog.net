@@ -1,7 +1,8 @@
 <aside class="aside">
-  <% theme.widgets.forEach(function(widget){ %>
+  <% theme.widgets.forEach(function(item){ %>
     <div class="widget">
-      <%- partial('_widget/' + widget, {block: 'widget'}) %>
+      <h4 class="widget__title"><%= theme[item].name %></h4>
+      <%- partial('_widget/' + item) %>
     </div>
   <% }) %>
 </aside>
