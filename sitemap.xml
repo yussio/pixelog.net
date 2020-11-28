@@ -569,6 +569,13 @@
   </url>
   
   <url>
+    <loc>https://pixelog.net/post/y2tkgd/</loc>
+    
+    <lastmod>2020-11-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pixelog.net/post/6f3b9h/</loc>
     
     <lastmod>2020-04-21</lastmod>
@@ -677,6 +684,13 @@
   
   <url>
     <loc>https://pixelog.net/tag/css%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</loc>
+    <lastmod>2020-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pixelog.net/tag/foresty/</loc>
     <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
