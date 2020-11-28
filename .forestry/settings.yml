@@ -7,8 +7,11 @@ sections:
 - type: directory
   path: source/_posts
   label: post
-  create: none
+  create: documents
   match: "*.md"
+  new_doc_ext: ".md"
+  templates:
+  - post
 upload_dir: source/_posts
 public_path: "/uploads"
 front_matter_path: ''
