@@ -18,5 +18,3 @@ fields:
 - type: list
   name: tags
   label: tags
-pages:
-- source/_posts/foresty.io.md
