@@ -1,0 +1,19 @@
+.post-category
+    margin 1em 0
+    color var(--text-sub-color)
+    font-size var(--size-s1)
+
+
+    &__item
+        display inline-block
+        
+        &::after
+            content "/"
+            margin 0 .5em
+            font-family Consolas, monospace
+
+
+    &__link
+        color var(--text-link-color)
+        &:hover
+            text-decoration underline

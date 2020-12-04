@@ -1,0 +1,19 @@
+.post-tag
+    display flex
+    margin -.5em 0 0 -.5em
+    flex-wrap wrap
+
+    &__item
+        display block
+        margin .5em 0 0 .5em
+
+    &__link
+        display block
+        padding .25em .5em
+        font-size var(--size-s2)
+        color var(--theme-color)
+        border 1px solid var(--theme-color)
+        border-radius .2em
+
+        &::before
+            content "#"

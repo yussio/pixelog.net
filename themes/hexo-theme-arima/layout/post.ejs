@@ -14,34 +14,31 @@
     </header>
     <div class="post__content"><%- page.content %></div>
     <footer class="post__footer">
-        <dl class="post-meta">
-          <dt class="post-meta__dt">カテゴリー:</dt>
-          <dd class="post-meta__dd">
-            <ul class="post-meta__list">
-              <% page.categories.forEach(function(item){ %>
-                <li class="post-meta__item category">
-                  <a class="post-meta__link" href="<%= url_for(item.path) %>">
-                    <%= item.name %>
-                  </a>
-                </li>
-              <% }) %>
-            </ul>
-          </dd>
-          <% if (page.tags.length > 0) { %>
-          <dt class="post-meta__dt">タグ:</dt>
-          <dd class="post-meta__dd">
-            <ul class="post-meta__list">
-              <% page.tags.forEach(function(item){ %>
-              <li class="post-meta__item tag">
-                <a class="post-meta__link" href="<%= url_for(item.path) %>">
-                  <%= item.name %>
-                </a>
-              </li>
-              <% }) %>
-            </ul>
-          </dd>
-          <% } %>
-        </dl>
+        <ul class="post-category">
+            <li class="post-category__item">
+              <a class="post-category__link" href="/">
+                ホーム
+              </a>
+            </li>
+          <% page.categories.forEach(function(item){ %>
+            <li class="post-category__item">
+              <a class="post-category__link" href="<%= url_for(item.path) %>">
+                <%= item.name %>
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+        <% if (page.tags.length > 0) { %>
+        <ul class="post-tag">
+          <% page.tags.forEach(function(item){ %>
+          <li class="post-tag__item">
+            <a class="post-tag__link" href="<%= url_for(item.path) %>">
+              <%= item.name %>
+            </a>
+          </li>
+          <% }) %>
+        </ul>
+        <% } %>
         <div class="post__ad">
             <!-- 記事下広告 -->
             <ins class="adsbygoogle"
