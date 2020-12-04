@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://pixelog.net/post/bon9ry/</loc>
-    
-    <lastmod>2019-03-14</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pixelog.net/post/pjayu5/</loc>
     
     <lastmod>2019-03-16</lastmod>
@@ -33,6 +26,13 @@
     <loc>https://pixelog.net/post/rn7zja/</loc>
     
     <lastmod>2019-05-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pixelog.net/post/bon9ry/</loc>
+    
+    <lastmod>2019-03-14</lastmod>
     
   </url>
   
@@ -606,20 +606,6 @@
 
   
   <url>
-    <loc>https://pixelog.net/tag/html/</loc>
-    <lastmod>2020-12-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pixelog.net/tag/css/</loc>
-    <lastmod>2020-12-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://pixelog.net/tag/netlify/</loc>
     <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
@@ -635,6 +621,20 @@
   
   <url>
     <loc>https://pixelog.net/tag/js%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA/</loc>
+    <lastmod>2020-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pixelog.net/tag/html/</loc>
+    <lastmod>2020-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pixelog.net/tag/css/</loc>
     <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
