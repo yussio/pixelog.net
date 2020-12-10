@@ -207,9 +207,9 @@
     <category term="Web制作" scheme="https://pixelog.net/category/web/web%E5%88%B6%E4%BD%9C/"/>
     
     
-    <category term="JavaScript" scheme="https://pixelog.net/tag/javascript/"/>
-    
     <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
+    
+    <category term="JavaScript" scheme="https://pixelog.net/tag/javascript/"/>
     
   </entry>
   
