@@ -1,33 +1,30 @@
 <article class="post">
     <header class="post__header">
-        <div class="post__date">
-            <time class="post__published" datetime="<%- page.date.format() %>">
-              <%- page.date.format(config.date_format) %>
-            </time>
-            <% if (page.updated) {%>
-                <time class="post__updated" datetime="<%- page.updated.format() %>">
-                  <%- '('+page.updated.format(config.date_format) + '更新)' %>
-                </time>
-            <% } %>
-        </div>
         <h1 class="post__title"><%- page.title || "Untitled" %></h1>
+        <div class="post__meta">
+            <div class="post__date">
+                <time class="post__published" datetime="<%- page.date.format() %>">
+                  <%- page.date.format(config.date_format) %>
+                </time>
+                <% if (page.updated) {%>
+                    <time class="post__updated" datetime="<%- page.updated.format() %>">
+                      <%- '('+page.updated.format(config.date_format) + '更新)' %>
+                    </time>
+                <% } %>
+            </div>
+            <ul class="post-category">
+              <% page.categories.forEach(function(item){ %>
+                <li class="post-category__item">
+                  <a class="post-category__link" href="<%= url_for(item.path) %>">
+                    <%= item.name %>
+                  </a>
+                </li>
+              <% }) %>
+            </ul>
+        </div>
     </header>
     <div class="post__content"><%- page.content %></div>
     <footer class="post__footer">
-        <ul class="post-category">
-            <li class="post-category__item">
-              <a class="post-category__link" href="/">
-                ホーム
-              </a>
-            </li>
-          <% page.categories.forEach(function(item){ %>
-            <li class="post-category__item">
-              <a class="post-category__link" href="<%= url_for(item.path) %>">
-                <%= item.name %>
-              </a>
-            </li>
-          <% }) %>
-        </ul>
         <% if (page.tags.length > 0) { %>
         <ul class="post-tag">
           <% page.tags.forEach(function(item){ %>
