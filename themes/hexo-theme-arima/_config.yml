@@ -8,23 +8,23 @@ widgets:
 
 
 category:
-  name: Categories
+  name: カテゴリー
 
 tagcloud:
-  name: Tags
+  name: タグ
 
 archive:
-  name: Archive
+  name: アーカイブ
 
 recent_posts:
-  name: Recent Posts
+  name: 最近の投稿
   amount: 5
 
 link:
-  name: Links
+  name: リンク
   list:
     サイトについて: /about/
     RSS: /atom.xml
 
 search:
-  name: Search
+  name: 検索
