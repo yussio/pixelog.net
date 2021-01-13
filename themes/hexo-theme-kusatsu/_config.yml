@@ -2,9 +2,7 @@ widgets:
   - category
   - tagcloud
   - archive
-  - recent_posts
-  - link
-  - search
+
 
 
 category:

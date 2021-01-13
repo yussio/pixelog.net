@@ -1,22 +1,20 @@
 .header
-    background url(/img/header.webp), var(--theme-color)
-    background-size cover
-
+    display flex
+    width 100%
+    padding 1em 1.25em
+    justify-content space-between
+    align-items center
+    background rgba(255, 255, 255, .95)
+    backdrop-filter blur(12px)
+    transition .2s boxshadow  ease
+    position fixed
+    top 0
+    left 0
+    z-index 2
 
     &__link
-        display block
-        padding 7em 0
-        color #fff
-        text-align center
-        +media(sp)
-            padding 4em 0
-
+        display inline-block
 
     &__logo // h1のデフォルトfont-sizeを上書きするため
-        font-size var(--size-l4)
-        font-weight 600
-        text-shadow 1px 1px 4px rgba(34,34,34,0.25)
-
-
-    &__desc
-        font-size var(--size-s2)
+        font-size var(--size-n)
+        font-weight bold

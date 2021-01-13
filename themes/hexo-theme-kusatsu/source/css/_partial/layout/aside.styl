@@ -1,7 +1,14 @@
 .aside
-    grid-template-columns repeat(auto-fit, minmax(224px, 1fr))
-    display grid
-    align-self start
-    gap 5em
-    font-size var(--size-s1)
-    box-sizing border-box
+    background var(--bg-color)
+
+    &__inner
+        display grid
+        max-width 70em
+        margin auto
+        padding 6em 6vw 3em 6vw
+        font-size var(--size-s1)
+        grid-template-columns 1fr 1fr 1fr
+        gap 5em
+        box-sizing content-box
+        +media(tabsp)
+            grid-template-columns 1fr

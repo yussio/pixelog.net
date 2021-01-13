@@ -6,59 +6,25 @@
 <body>
   <%- partial('_partial/header') %>
   <div class="frame">
-    <main class="main">
-    <%- body %>
-    </main>
-    <%- partial('_partial/aside') %>
+      <main class="main">
+      <%- body %>
+      </main>
   </div>
+  <%- partial('_partial/aside') %>
   <%- partial('_partial/footer') %>
+  <div class="nav">
+    ああああ
+  </div>
   <script type="application/ld+json"><%- partial('_partial/ld+json') %></script>
   <script>
-    !function(){
-      var
-      w=window,
-      updateEvents=['scroll','resize'],
-      elements=document.querySelectorAll(arguments[0]),
-      nmBackgroundPosition='backgroundPosition',
-      nmBackgroundAttachment='backgroundAttachment';
-
-      function updateBackground(rect,style)
-      {
-        var
-          innerHeight=w.innerHeight,
-          rectHeight=rect.height,
-          rectTop=rect.top,
-          rectBottomOffset=rectTop+rectHeight,
-          offset=0;
-
-        if((-1*rectTop)>rectHeight||rectTop>innerHeight)
-          return;
-
-        if(rectTop<0)
-          offset=-1*rectTop>>1;
-
-        if(rectBottomOffset>innerHeight)
-          offset=-1*(rectBottomOffset-innerHeight)>>1;
-
-        style[nmBackgroundPosition]=(style[nmBackgroundPosition].split(' ')[0]||'50%')+' '+offset+'px';
-
-        if(style[nmBackgroundAttachment]!=='scroll')
-          style[nmBackgroundAttachment]='scroll';
-      }
-
-      function iterateElements(i)
-      {
-        for(i=elements.length;i--;)
-          updateBackground(elements[i].getBoundingClientRect(),elements[i].style);
-      }
-
-      if(elements.length){
-        for(var i in updateEvents)
-          addEventListener(updateEvents[i],iterateElements);
-        iterateElements();
-      }
-    }
-    ('.header')
+    const header = document.getElementById('header'); 
+    document.addEventListener('scroll', function(){
+        if( window.pageYOffset === 0 ){
+          header.style.boxShadow = 'none';
+        } else {
+          header.style.boxShadow = '0 0.8px 2.4px rgba(0, 0, 0, 0.008),0 2.7px 8px rgba(0, 0, 0, 0.012),0 12px 36px rgba(0, 0, 0, 0.02)';
+        }
+    });
   </script>
 </body>
 </html>

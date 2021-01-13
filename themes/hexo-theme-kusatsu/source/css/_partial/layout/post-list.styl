@@ -1,36 +1,32 @@
 .post-list
-    &__item
-        display block
-        padding 2.5em 0
-        border-bottom 1px dotted var(--border-dark-color)
-        &:first-child
-            padding-top 0
-
+    display grid
+    grid-template-columns repeat(auto-fit, minmax(250px, 1fr))
+    gap 2em
 
     &__link
         display block
+        height 100%
+        padding 1.5em
+        border-radius .25em
+        box-shadow 0 0.8px 2.4px rgba(0, 0, 0, 0.016),0 2.7px 8px rgba(0, 0, 0, 0.024),0 12px 36px rgba(0, 0, 0, 0.04)
 
-        &:hover
-            .post-list__title
-                color var(--text-hover-color)
+        transition .15s background ease
 
+
+    &__item
+        list-style none
+        
+        
 
     &__date
         display block
-        margin 0 0 .5em 0
+        margin 0 1em 0 0
         color var(--text-sub-color)
         font-size var(--size-s2)
+        flex-shrink 0
 
 
     &__title
-        margin 0 0 .75em 0
-        font-size var(--size-l1)
-        word-break break-all
-
-
-    &__desc
-        margin 1.75em 0 0 0
-        color var(--text-sub-color)
-        font-size var(--size-s1)
-        text-align justify
+        margin 0 0 .5em 0
+        font-size var(--size-n)
         word-break break-all
