@@ -1,0 +1,56 @@
+function hamburger(){
+    const html = document.getElementsByTagName('html')[0];
+    const nav = document.getElementById('js-nav');
+    const btn = document.getElementById('js-btn');
+    const overlay = document.getElementById('js-overlay');
+
+    function close(){
+        nav.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        nav.removeAttribute('aria-expanded');
+        nav.removeEventListener('keydown', escKey);
+        btn.focus();
+    }
+
+    function open(){
+        nav.classList.add('is-open');
+        overlay.classList.add('is-open');
+        nav.setAttribute('aria-expanded', true);
+        nav.focus();
+        nav.addEventListener('keydown', escKey);
+    }
+
+    function toggleClass(){
+        if(nav.classList.contains('is-open')){
+            close();
+        } else {
+            open();
+        }
+    }
+
+    function noScroll(event) {
+        event.preventDefault();
+    }
+
+    function escKey(e) {
+        if(e.keyCode === 27) {
+            close();
+        }
+    }
+
+    btn.addEventListener('click', toggleClass);
+    overlay.addEventListener('click', toggleClass);
+
+}
+hamburger();
+
+
+
+const header = document.getElementById('header'); 
+document.addEventListener('scroll', function(){
+    if( window.pageYOffset === 0 ){
+        header.style.boxShadow = 'none';
+    } else {
+        header.style.boxShadow = '0 0.8px 2.4px rgba(0,0,0,.016), 0 2.7px 8px rgba(0,0,0,.024), 0 12px 36px rgba(0,0,0,.04)';
+    }
+});

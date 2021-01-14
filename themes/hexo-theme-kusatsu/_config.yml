@@ -4,15 +4,19 @@ widgets:
   - archive
 
 
+nav:
+  サイトについて: /about/
+  RSS: /atom.xml
+
 
 category:
-  name: カテゴリー
+  name: Categories
 
 tagcloud:
-  name: タグ
+  name: Tags
 
 archive:
-  name: アーカイブ
+  name: Archive
 
 recent_posts:
   name: 最近の投稿

@@ -1,7 +1,10 @@
 .frame
-    max-width 48em
-    margin 62px auto 6em
-    padding 3em 6vw 0 6vw
-    box-sizing content-box
     display grid
-    gap 6em
+    gap 5em
+    grid-template-columns 1fr 280px
+    max-width 65em
+    margin 56px auto 0
+    padding 3em 6vw 3em 6vw
+    box-sizing content-box
+    +media(tabsp)
+        grid-template-columns 1fr

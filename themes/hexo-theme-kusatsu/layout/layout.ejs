@@ -9,22 +9,11 @@
       <main class="main">
       <%- body %>
       </main>
+      <%- partial('_partial/aside') %>
   </div>
-  <%- partial('_partial/aside') %>
   <%- partial('_partial/footer') %>
-  <div class="nav">
-    ああああ
-  </div>
+  <%- partial('_partial/nav') %>
   <script type="application/ld+json"><%- partial('_partial/ld+json') %></script>
-  <script>
-    const header = document.getElementById('header'); 
-    document.addEventListener('scroll', function(){
-        if( window.pageYOffset === 0 ){
-          header.style.boxShadow = 'none';
-        } else {
-          header.style.boxShadow = '0 0.8px 2.4px rgba(0, 0, 0, 0.008),0 2.7px 8px rgba(0, 0, 0, 0.012),0 12px 36px rgba(0, 0, 0, 0.02)';
-        }
-    });
-  </script>
+  <script><%- partial('_partial/script') %></script>
 </body>
 </html>

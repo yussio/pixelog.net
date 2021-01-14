@@ -1,16 +1,18 @@
 .post-list
     display grid
-    grid-template-columns repeat(auto-fit, minmax(250px, 1fr))
     gap 2em
 
     &__link
         display block
         height 100%
         padding 1.5em
+        border 2px solid transparent
         border-radius .25em
         box-shadow 0 0.8px 2.4px rgba(0, 0, 0, 0.016),0 2.7px 8px rgba(0, 0, 0, 0.024),0 12px 36px rgba(0, 0, 0, 0.04)
+        transition .15s border ease
 
-        transition .15s background ease
+        &:hover
+            border-color var(--theme-color)
 
 
     &__item
@@ -27,6 +29,6 @@
 
 
     &__title
-        margin 0 0 .5em 0
+        margin 0 0 1em 0
         font-size var(--size-n)
         word-break break-all
