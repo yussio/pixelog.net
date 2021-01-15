@@ -10,10 +10,10 @@ nav:
 
 
 category:
-  name: Categories
+  name: Category
 
 tagcloud:
-  name: Tags
+  name: Tag
 
 archive:
   name: Archive
