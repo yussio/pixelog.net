@@ -1,7 +1,20 @@
+@font-face {
+  font-family: "YuGothic M";
+  src: local("Yu Gothic Medium"),
+       local("Yu Gothic");
+  font-weight: 500;
+       /*
+         Chrome 58.0.3029.110 (64-bit) では
+         "Yu Gothic Medium" を認識しないバグあるため
+         "Yu Gothic" と font-weight も併せて指定。
+       */
+}
+
+
 body
     color var(--text-color)
     background var(--bg-sub-color)
-    font-family "Yu Gothic", sans-serif
+    font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     font-size clamp(100%, calc((100vw - 42em)*0.004 + 100%), 112%);
 
 a
