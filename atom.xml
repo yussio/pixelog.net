@@ -6,7 +6,7 @@
   <link href="https://pixelog.net/atom.xml" rel="self"/>
   
   <link href="https://pixelog.net/"/>
-  <updated>2021-03-06T13:05:52.000Z</updated>
+  <updated>2021-03-09T10:17:17.000Z</updated>
   <id>https://pixelog.net/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10年ぶりに眼科で視力検査をした</title>
+    <link href="https://pixelog.net/post/1je3ls/"/>
+    <id>https://pixelog.net/post/1je3ls/</id>
+    <published>2021-03-09T10:17:17.000Z</published>
+    <updated>2021-03-09T10:17:17.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今の眼鏡は8年くらい前にかけていた眼鏡の度を元に作り、それも眼鏡屋で測定したもので、今の目に合っているのかどうか分からなかった。&lt;/p&gt;
+&lt;p&gt;もう一度眼鏡屋で視力検査をしても良かったが、最近作った眼鏡の度になじめず結局古い眼鏡を掛け続けているという経緯があって、眼科で視力</summary>
+        
+      
+    
+    
+    
+    <category term="雑記" scheme="https://pixelog.net/category/%E9%9B%91%E8%A8%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>ブログ2周年とデザインリニューアル</title>
@@ -401,27 +425,6 @@
     <category term="JavaScript" scheme="https://pixelog.net/tag/javascript/"/>
     
     <category term="ブックマークレット" scheme="https://pixelog.net/tag/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ユーザーCSSで特定のページを擬似的にアクセス禁止にする</title>
-    <link href="https://pixelog.net/post/qc0svn/"/>
-    <id>https://pixelog.net/post/qc0svn/</id>
-    <published>2020-09-05T09:07:25.000Z</published>
-    <updated>2020-09-05T09:07:25.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;ユーザーCSSで特定のページへアクセスできないようにして、見たくないページを見ない方法。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Web" scheme="https://pixelog.net/category/web/"/>
-    
-    <category term="その他" scheme="https://pixelog.net/category/web/%E3%81%9D%E3%81%AE%E4%BB%96/"/>
-    
-    
-    <category term="CSS" scheme="https://pixelog.net/tag/css/"/>
     
   </entry>
   
